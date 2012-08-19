@@ -260,7 +260,6 @@ rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 rdp.lucy <- rdp.lucy[match(unique(ReadData$lucyUnique),rdp.lucy[,1]),]
 rdp.lucy[,1] <- unique(ReadData$lucyUnique)
 
-colnames(rdp.lucy) <- c("")
 system(paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep=""))
 
 flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
@@ -332,6 +331,7 @@ sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $Sample_ID, $RawLength, $Roche
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = ReadData)
+dbCommit(con)
 
 align.report$SimBtwnQuery <- align.report$SimBtwnQuery.Template
 sql <- "INSERT INTO align_report VALUES ($QueryName, $QueryLength, $TemplateName, $TemplateLength, $SearchMethod,
@@ -340,11 +340,13 @@ sql <- "INSERT INTO align_report VALUES ($QueryName, $QueryLength, $TemplateName
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = align.report)
+dbCommit(con)
 
 sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20)"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
+dbCommit(con)
 
 dbDisconnect(con)
 
