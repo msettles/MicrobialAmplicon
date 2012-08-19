@@ -1,4 +1,4 @@
-#! /usr/bin/env Rscript --vanilla --default-packages=utils,rSFFreader --verbose
+#!/mnt/home/msettles/opt/bin/Rscript --vanilla --verbose
 ###############################################################################
 ###
 ### Primary functions/main for Amplicon Processing
