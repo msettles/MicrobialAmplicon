@@ -3,10 +3,10 @@
 library(RSQLite)
 
 drv <- SQLite()
-con <- dbConnect(drv, dbname="readdata.sqlite")
+con <- dbConnect(drv, dbname="amplicondata.sqlite")
 
 dbGetQuery(con, "
-CREATE TABLE readdata (
+CREATE TABLE read_data (
   Acc CHAR(14) PRIMARY KEY,             -- Accession ID of the Read
   Run CHAR(9) NOT NULL,
   Sample_ID VARCHAR(80) NOT NULL,
@@ -18,32 +18,25 @@ CREATE TABLE readdata (
   AdapterRC INTEGER,
   AdapterLength INTEGER,
   Primer_Code VARCHAR(80),
-  Barcode VARCHAR(80),
   FPErr INTEGER,
+  Barcode VARCHAR(80),
   Code_Dist INTEGER,
   Primer_Reverse VARCHAR(80),
   RPErr INTEGER,
-  keepAdapter VARCHAR(5) NOT NULL,
   lucyLC INTEGER,
   lucyRC INTEGER,
   lucyLength INTEGER,
-  LucyUnique VARCHAR(80) NOT NULL,
+  lucyUnique VARCHAR(80) NOT NULL,
   lucyNs INTEGER,
   lucymHomoPrun INTEGER,
-  LucyFlip VARCHAR(5) NOT NULL,
-  LucyRDPgenus VARCHAR(80),
-  LucyRDPboot NUMERIC,
-  LucyTE INTEGER,
-  LucyQM INTEGER,
-  keepLucy VARCHAR(5) NOT NULL
+  keep VARCHAR(5) NOT NULL,
+  version CHAR(3) NOT NULL
 );
-CREATE INDEX Iacc ON readdata (Acc);
-CREATE INDEX Isample_ID ON readdata (Sample_ID);
-CREATE INDEX Irun ON readdata (Run);
-CREATE INDEX Ibarcode ON readdata (Barcode);
+CREATE INDEX Iacc ON read_data (Acc);
+CREATE INDEX Isample_ID ON read_data (Sample_ID);
+CREATE INDEX Irun ON read_data (Run);
+CREATE INDEX Ibarcode ON read_data (Barcode);
 ")
-
-con <- dbConnect(drv, dbname="readdata.sqlite")
 
 dbGetQuery(con, "
 CREATE TABLE align_report (
@@ -62,15 +55,33 @@ CREATE TABLE align_report (
   GapsInQuery INTEGER,
   GapsInTemplate INTEGER,
   LongestInsert INTEGER,
-  SimBtwnQuery.Template NUMERIC,
-  QueryFull INTEGER,
+  SimBtwnQuery_Template NUMERIC,
   flip VARCHER(5) NOT NULL,
+  QueryFull INTEGER,
   adpLC INTEGER
-};
+);
 CREATE INDEX IqueryName ON align_report (QueryName);
 ")
 
 
-
+dbGetQuery(con, "
+CREATE TABLE rdp_report (
+  QueryName VARCHAR(80) PRIMARY KEY,
+  flip VARCHER(5),
+  domain_name,
+  domain_bootstrap,
+  phylum_name,
+  phylum_bootstrap,
+  class_name,
+  class_boostrap,
+  order_name,
+  order_boostrap,
+  family_name,
+  family_bootstrap,
+  genus_name,
+  genus_bootstrap
+);
+CREATE INDEX IqueryName ON rdp_report (QueryName);
+")
 
 dbDisconnect(con)

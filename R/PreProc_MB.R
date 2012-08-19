@@ -9,24 +9,27 @@ options("stringsAsFactors" = FALSE)
 library(rSFFreader)
 library(getopt)
 
+version = "1.0"
 source("functions.R")
 
-#sfffiles <- commandArgs(TRUE)
+sfffiles <- commandArgs(TRUE)
+#sfffiles <- "../Amplicon_SFFfiles_AmpProc/GKF1FGD01.sff"
 
-sfffiles <- "../Amplicon_SFFfiles_AmpProc/GKF1FGD01.sff"
 screenfile <- "screen_V3-V1Jun11.fa"
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
 
+## filter
 maxNs <- 2
 maxforwardprimererrors <- 2
 maxhammingdisttag <- 1
 minlength <- 100
 maxlength <- 600
-maxhomopol <- 7
+maxhomopol <- 10
 
-rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.2/rdp_classifier-2.2.jar"
+#rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.2/rdp_classifier-2.2.jar"
+rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
 nproc=4
 ## for speciation
 reverseSeq <- TRUE
@@ -50,7 +53,7 @@ clipMode(fq) <- "Raw"
 ### Base Roche stats and clip
 print("Identifying Roche Clip points")
 ReadData <- data.frame(Acc=as.character(id(fq)),
-                       Run=substring(ReadData$Acc,1,9),
+                       Run=substring(as.character(id(fq)),1,9),
                        RawLength=width(fq))
 
 ReadData$RocheLC <- start(qualityClip(fq))
@@ -69,23 +72,16 @@ cat(paste("Median length after Roche Right Clip",signif(median(ReadData$RocheLen
 #####################
 ### Run cross_match looking for primers and tags
 
-writeXStringSet(sread(fq), "TMP.raw.fasta",append=FALSE,format="fasta")
-writePhredQual(fq,"TMP.raw.fasta.qual",mode="w")
-
-#screenfile  <- "screen_V3-V1Jun.fa"
-### USE minscore >15 need to test <= 15
-system(paste("cross_match TMP.raw.fasta ../", screenfile, " -minmatch 12 -minscore 11 -tags > TMP.cmout",sep=""))
+writeFastaQual(fq,"TMP.raw",append=FALSE)
+system(paste("cross_match TMP.raw.fasta ../", screenfile, " -minmatch 9 -minscore 14 -tags > TMP.cmout",sep=""))
 cm_out <- parse_cm("TMP.cmout")
 
-cm_outLess14 <- cm_out[which(cm_out$score <= 14),]
-cm_out <- cm_out[-which(cm_out$score <= 14),]
 ### End CrossMatch
 ############################
 ###
 ############################
 ### Adapter Clip Points
-#ReadData$AdapterLC <- ReadData$RocheLC
-#ReadData$AdapterRC <- ReadData$RocheRC
+## Ignore Roche's clip points
 ReadData$AdapterLC <- 5
 ReadData$AdapterRC <- ReadData$RawLength
 
@@ -93,7 +89,6 @@ print("Parsing cross_match output")
 ### SET new clip points, recording primer information
 
 #### New Left Clip point starts after the inner most Forward Primer
-
 cm_out$read_end[(cm_out$FC == "F")] = cm_out$read_end[(cm_out$FC == "F")] + cm_out$adapt_remain[(cm_out$FC == "F")] + 1
 
 tmp <-tapply(cm_out$read_end[(cm_out$FC == "F")],cm_out$read_id[(cm_out$FC == "F")],max)
@@ -138,8 +133,7 @@ print("Computing, tags and tagged primer errors")
 primer_offset <-  as.numeric(names(sort(table(cm_out$adapt_start[which(cm_out$FC == "F")]),decreasing=T))[1])
 ReadData$Primer_Code <- NA
 ReadData$Primer_Code[match(cm_out$read_id[grep(tagkey,cm_out$adapt)],ReadData$Acc)] <- cm_out$adapt[grep(tagkey,cm_out$adapt)]
-### ADD IN DUMMY BARCODE
-ReadData$Barcode <- ReadData$Primer_Code
+### ADD IN DUMMY BARCODE FOR LATER USE
 ReadData$FPErr <- 100
 ReadData$FPErr[match(cm_out$read_id[grep(tagkey,cm_out$adapt)],ReadData$Acc)] <- 
   cm_out[grep(tagkey,cm_out$adapt),"err"] - primer_offset +1
@@ -150,8 +144,9 @@ stem(ReadData$FPErr,scale=0.5,width=10)
 sink()
 cat("\n",file=outfile,append=T)
 
+ReadData$Barcode <- ReadData$Primer_Code
 print("Computing, primer tag hamming distance from assigned tag")
-screen <- read.DNAStringSet(file.path("..",screenfile))
+screen <- readDNAStringSet(file.path("..",screenfile))
 if(screenfile == "screen_V3-V1Jun11.fa"){
   tag_nucs <- as.numeric(sapply(strsplit(names(screen),split=","),function(x) x[2]))
   tags <- subseq(screen,primer_offset+4,width=tag_nucs)[match(ReadData$Primer_Code[!is.na(ReadData$Primer_Code)],names(screen))]
@@ -191,26 +186,9 @@ cat("\n",file=outfile,append=T)
 cat(paste("Adapter Based Clipping\n"),file=outfile,append=T)
 cat(paste("Total Forward Primer Errors <= :",maxforwardprimererrors, " :: Reads meeting that criteria ::",table(ReadData$FPErr <= maxforwardprimererrors)[2], "\n"),file=outfile,append=T)
 cat(paste("Tag Max Hamming Distance from Target <= :",maxhammingdisttag, " :: Reads meeting that criteria ::",table(ReadData$Code_Dist <= maxhammingdisttag)[2], "\n"),file=outfile,append=T)
-#cat(paste("Maximum Number of Abiguous Characters (Ns) <= :",maxNs, " :: Reads meeting that criteria ::",table(ReadData$AdapterNs <= maxNs)[2], "\n"),file=outfile,append=T)
-#cat(paste("Maximum Length of a Homopolymer Run <= :",maxhomopol, " :: Reads meeting that criteria ::",table(ReadData$mHomoPrun <= maxhomopol)[2], "\n"),file=outfile,append=T)
 cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength > minlength)[2], "\n"),file=outfile,append=T)
 cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength < maxlength)[2], "\n"),file=outfile,append=T)
 cat(paste("Primer with Tab found :",table(!is.na(ReadData$Primer_Code))[2], "\n"),file=outfile,append=T)
-
-#####################################################
-ReadData$keepAdapter <- FALSE
-ReadData$keepAdapter <- #keep[expand] &
-  ReadData$FPErr <= maxforwardprimererrors & 
-  ReadData$Code_Dist <= maxhammingdisttag &
-  #                        ReadData$AdapterNs <= maxNs &
-  #                        ReadData$mHomoPrun <= maxhomopol & 
-  ReadData$AdapterLength > minlength &
-  ReadData$AdapterLength < maxlength &
-  !is.na(ReadData$Primer_Code)
-
-ReadData$keepAdapter[is.na(ReadData$keepAdapter)] <- FALSE
-cat(paste("RESULTS\nAdapter based filter: ",sum(ReadData$keepAdapter), "Reads kept ::", sum(!ReadData$keepAdapter), "Reads removed\n"),file=outfile,append=T)
-
 
 ### Write out data
 primerRange <- IRanges(start=ReadData$AdapterLC,ReadData$AdapterRC)
@@ -218,13 +196,13 @@ adapterClip(fq) <- primerRange ## need to add replacement function
 fq@adapterClip <- primerRange
 clipMode(fq)  <- "Full"
 
-writeXStringSet(sread(fq), "TMP.adapterClip.fasta",append=FALSE,format="fasta")
-writePhredQual(fq,"TMP.adapterClip.fasta.qual",mode="w")
+writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 
 ###########################
 ## check for poor regions with lucy
 print("Performing lucy based quality trimming, error (27)")
-system("lucy -xtra 4 -debug TMP.lucy_clip.txt -error 0.002 0.002 -output TMP.lucy.fasta TMP.lucy.fasta.qual  TMP.adapterClip.fasta  TMP.adapterClip.fasta.qual")
+### also limits size to 100
+system(paste("lucy -xtra", nproc,"-minimum 0 -debug TMP.lucy_clip.txt -error 0.002 0.002 -output TMP.lucy.fasta TMP.lucy.fasta.qual  TMP.adapterClip.fasta  TMP.adapterClip.fasta.qual"))
 
 lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
 
@@ -244,15 +222,15 @@ clipMode(fq)  <- "Full"
 
 fa.lucy <- sread(fq)
 ## get unique sequences
-ReadData$LucyUnique <- NA
+ReadData$lucyUnique <- NA
 fa.lucy <- sort(fa.lucy)
 lucy.unique <- length(unique(fa.lucy))
 UniqueID <- rep(paste(basefilename,seq.int(lucy.unique),sep="."),times=diff(c(which(!duplicated(fa.lucy)),length(fa.lucy)+1)))
-ReadData$LucyUnique[match(names(fa.lucy),ReadData$Acc)] <- UniqueID
+ReadData$lucyUnique[match(names(fa.lucy),ReadData$Acc)] <- UniqueID
 
 cat(paste("total number of unique reads:", lucy.unique,"\n"),file=outfile,append=T)
 
-expand <- match(ReadData$LucyUnique,unique(UniqueID))
+expand <- match(ReadData$lucyUnique,unique(UniqueID))
 
 lucyAlphFreq <- alphabetFrequency(fa.lucy[!duplicated(UniqueID)])
 
@@ -267,70 +245,45 @@ cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that
 cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$lucyLength < maxlength)[2], "\n"),file=outfile,append=T)
 
 
-########
+######################
 ## Run the RDP classifier on all the data
 ######### Lucy Clipped
 
-fq_uni <- fq[(!duplicated(ReadData$LucyUnique)& ReadData$lucyLength > 50)]
-#fq_sread <- sread(fq_uni)
-#names(fq_sread) <- ReadData$LucyUnique[(!duplicated(ReadData$LucyUnique)& ReadData$lucyLength > 50)]
-#fq_uni <- SffReadsQ(fq_sread,quality(fq_uni), qualityClip(fq_uni), adapterClip(fq_uni), clipMode = "Full")
-writeXStringSet(sread(fq_uni), "TMP.rdp.fasta",append=FALSE,format="fasta")
-writePhredQual(fq_uni,"TMP.rdp.fasta.qual",mode="w")
+fq_uni <- fq[(!duplicated(ReadData$lucyUnique))]
+names(fq_uni) <- ReadData$lucyUnique[(!duplicated(ReadData$lucyUnique))]
+
+writeFastaQual(fq_uni,"TMP.rdp",append=FALSE)
 
 ######################
 system(paste("java -Xmx1g -jar ",rdpPath," -q TMP.rdp.fasta -o TMP.lucy.rdpV6.fix -f fixrank",sep=""))
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
-expand <- match(ReadData$LucyUnique,ReadData$LucyUnique[match(rdp.lucy[,1],ReadData$Acc)])
-ReadData$LucyRDPgenus <- rdp.lucy[expand,"V21"]
-ReadData$LucyRDPboot <- rdp.lucy[expand,"V23"]
+rdp.lucy <- rdp.lucy[match(unique(ReadData$lucyUnique),rdp.lucy[,1]),]
+rdp.lucy[,1] <- unique(ReadData$lucyUnique)
 
+colnames(rdp.lucy) <- c("")
 system(paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep=""))
-ReadData$LucyFlip = FALSE
+
 flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
-
-if(ncol(flip) > 1){
-  expand <- match(ReadData$LucyUnique,
-                  ReadData$LucyUnique[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],ReadData$Acc)])
-  ReadData$LucyFlip <- !is.na(expand)
-}
-
 align.report <- read.table("TMP.rdp.align.report",sep="\t",header=T)
-expand <- match(ReadData$LucyUnique,ReadData$LucyUnique[match(align.report[,1],ReadData$Acc)])
-align.report$QueryFull <- ReadData$lucyLength[match(align.report[,1],ReadData$Acc)]
-align.report$flip <- ReadData$LucyFlip[match(align.report[,1],ReadData$Acc)]
+align.report <- align.report[match(unique(ReadData$lucyUnique),align.report[,1]),]
+align.report[,1] <- unique(ReadData$lucyUnique)
+if(ncol(flip) > 1){
+  align.report$flip <- FALSE
+  align.report$flip[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],align.report[,1])] <- TRUE
+}
+align.report$QueryFull <- ReadData$lucyLength[match(align.report[,1],ReadData$lucyUnique)]
+align.report$adpLC <- ReadData$AdapterLC[match(align.report[,1],ReadData$lucyUnique)]
 
-align.report$adpLC <- ReadData$AdapterLC[match(align.report[,1],ReadData$Acc)]
+expand <- match(ReadData$lucyUnique,align.report[,1]) ## do I need or use?
 
-
-keep <- align.report$QueryStart < 5 &
-  (align.report$QueryFull-align.report$QueryLength) < 5 &
-  align.report$flip == reverseSeq
-#            align.report$QueryLength > 200 &    ### not sure if we need this
-
-#TEtm <-  mean(align.report$TemplateEnd[keep],trim=0.1)
-#TEsd <-  sd.trim(align.report$TemplateEnd[keep],trim=0.1)
-
-#cat(paste("Lucy Clipped Alignment Statistics\n"),file=outfile,append=T)
-#cat(paste("Template End mean:",signif(TEtm,3),":Template End Sd:",signif(TEsd,3),"\n"),file=outfile,append=T)    
-
-#keep <- keep &
-#            align.report$TemplateEnd > (TEtm - 4*TEsd) & 
-#            align.report$TemplateEnd < (TEtm + 4*TEsd)
-
-TEtm <- 510 ### set static align end position
-keep <- keep &
-  align.report$TemplateEnd > (TEtm - 75) & 
-  align.report$TemplateEnd < (TEtm + 75)
-
-
-ReadData$LucyTE <- align.report$TemplateEnd[expand]
-ReadData$LucyQM <- align.report$QueryLength[expand]
-
-
-ReadData$keepLucy <- FALSE
-ReadData$keepLucy[match(lucy[,1],ReadData$Acc)] <- TRUE
-ReadData$keepLucy <-    keep[expand] &
+TEtm <- 534-27
+ReadData$keep <- FALSE
+ReadData$keep <-    
+  align.report$QueryStart[expand] < 5 &
+  (align.report$QueryFull-align.report$QueryLength)[expand] < 5 &
+  align.report$flip[expand] == reverseSeq &
+  align.report$TemplateEnd[expand] > (TEtm - 75) & 
+  align.report$TemplateEnd[expand] < (TEtm + 75) &
   ReadData$FPErr <= maxforwardprimererrors &
   ReadData$Code_Dist <= maxhammingdisttag &
   ReadData$lucyNs <= maxNs &
@@ -339,28 +292,27 @@ ReadData$keepLucy <-    keep[expand] &
   ReadData$lucyLength < maxlength &
   !is.na(ReadData$Primer_Code)
 
-ReadData$keepLucy[is.na(ReadData$keepLucy)] <- FALSE
+ReadData$keep[is.na(ReadData$keep)] <- FALSE
 
-cat(paste("RESULTS\nAdditional Lucy clipped filter: ",sum(ReadData$keepLucy), "Reads kept ::", sum(!ReadData$keepLucy), "Reads removed\n"),file=outfile,append=T)
+cat(paste("RESULTS\nAdditional Lucy clipped filter: ",sum(ReadData$keep), "Reads kept ::", sum(!ReadData$keep), "Reads removed\n"),file=outfile,append=T)
 
 ###########################
 cat("Overlap between Adapter Clipped and Lucy Clipped Data:\n",file=outfile,append=T)
-sink(file=outfile,append=TRUE)
-table(Adapter=ReadData$keepAdapter,Lucy=ReadData$keepLucy)
-sink()
 cat("\n",file=outfile,append=T)
 cat(paste("Mean number of bases removed by Lucy clipping:",signif(mean(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
 cat(paste("Median number of bases removed by Lucy clipping:",signif(median(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
-
-cat(paste("Number of reads Adapter Clipped and Unique:",table(!duplicated(ReadData$AdapterUnique) & ReadData$keepAdapter)[2],"\n"),file=outfile,append=T)
-cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$LucyUnique) & ReadData$keepLucy)[2],"\n"),file=outfile,append=T)
+cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$lucyUnique) & ReadData$keep)[2],"\n"),file=outfile,append=T)
 ##########################
 
 ReadData$Primer_Code <- sub("FP_","",ReadData$Primer_Code)
 ReadData$Primer_Code <- sub(",[0-9]+","",ReadData$Primer_Code)
+ReadData$Barcode <- sub("FP_","",ReadData$Barcode)
+ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
+
 ReadData$Primer_Reverse <- sub("RP_","",ReadData$Primer_Reverse)
 
-ReadData$Sample_ID <- paste(substring(ReadData$Acc,1,9),ReadData$Primer_Code,sep="_")
+ReadData$Sample_ID <- paste(substring(ReadData$Acc,1,9),ReadData$Barcode,sep="_")
+ReadData$version <- version
 ##########################
 ## End Clipping and preprocessing
 ##########################
@@ -371,19 +323,30 @@ ReadData$Sample_ID <- paste(substring(ReadData$Acc,1,9),ReadData$Primer_Code,sep
 
 library(RSQLite)
 drv <- SQLite()
-con <- dbConnect(drv, dbname="readdata.sqlite")
+con <- dbConnect(drv, dbname="amplicondata.sqlite")
 
-sql <- "INSERT INTO readdata VALUES ($Acc, $Run, $Sample_ID, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
-  $AdapterLC, $AdapterRC, $AdapterLength, $Primer_Code, $Barcode, $FPErr, $Code_Dist, 
-  $Primer_Reverse, $RPErr, $keepAdapter, $lucyLC, $lucyRC, $lucyLength, 
-  $LucyUnique, $lucyNs, $lucymHomoPrun, $LucyFlip, $LucyRDPgenus, $LucyRDPboot, 
-  $LucyTE, $LucyQM, $keepLucy)"
-
+sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $Sample_ID, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
+  $AdapterLC, $AdapterRC, $AdapterLength, $Primer_Code, $FPErr, $Barcode, $Code_Dist, 
+  $Primer_Reverse, $RPErr, $lucyLC, $lucyRC, $lucyLength, $lucyUnique, $lucyNs, $lucymHomoPrun,
+  $keep, $version)"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = ReadData)
 
-dbGetQuery(con, "SELECT * FROM readdata LIMIT 3")
+align.report$SimBtwnQuery <- align.report$SimBtwnQuery.Template
+sql <- "INSERT INTO align_report VALUES ($QueryName, $QueryLength, $TemplateName, $TemplateLength, $SearchMethod,
+  $SearchScore, $AlignmentMethod, $QueryStart, $QueryEnd, $TemplateStart, $TemplateEnd, $PairwiseAlignmentLength, 
+  $GapsInQuery, $GapsInTemplate, $LongestInsert, $SimBtwnQuery, $flip, $QueryFull, $adpLC)"
+
+dbBeginTransaction(con)
+dbGetPreparedQuery(con, sql, bind.data = align.report)
+
+sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20)"
+
+dbBeginTransaction(con)
+dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
+
+dbDisconnect(con)
 
 ### Clean up
 system(paste("mv TMP.rdp.align ", basefilename, ".lucy.align",sep=""))
