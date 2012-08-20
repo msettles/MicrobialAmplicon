@@ -347,14 +347,3 @@ sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
 dbCommit(con)
-
-dbDisconnect(con)
-
-### Clean up
-system(paste("mv TMP.rdp.align ", basefilename, ".lucy.align",sep=""))
-system("rm -rf TMP*")
-system("rm -rf mothur*")
-
-## THE END :)
-
-

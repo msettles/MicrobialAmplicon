@@ -84,4 +84,44 @@ CREATE TABLE rdp_report (
 CREATE INDEX IqueryName ON rdp_report (QueryName);
 ")
 
+
+dbGetQuery(con,"
+CREATE TABLE pool_metadata (
+  ID VARCHAR(20) NOT NULL,
+  Pool VARCHAR(20) NOT NULL,
+  Forward_Primer VARCHAR(20) NOT NULL,
+  Reverse_Primer VARCHAR(20) NOT NULL,
+  DNA_conc NUMERIC,
+  tVol  NUMERIC,
+  pVol NUMERIC,
+  Investigator VARCHAR(20) NOT NULL,
+  Prepared_by VARCHAR(20) NOT NULL,
+  Isolation_ID VARCHAR(20) NOT NULL,
+  Project VARCHAR(20) NOT NULL,
+  Sample_ID VARCHAR(20) NOT NULL
+);
+CREATE INDEX Ppool ON pool_metadata (Pool);
+CREATE INDEX Preverse_primer ON pool_metadata (Reverse_Primer);
+CREATE INDEX Pproject ON pool_metadata (Project);
+CREATE INDEX Psample_id ON pool_metadata (Sample_ID);
+")
+
+dbGetQuery(con,"
+CREATE TABLE pool_mapping (
+  Pool VARCHAR(20) NOT NULL,
+  Run CHAR(9) NOT NULL
+);
+CREATE INDEX Mpool ON pool_mapping (Pool);
+CREATE INDEX Mrun ON pool_mapping (Run);
+")
+
+poolD <- read.table("MetaData/Pool_MetaData.txt",sep="\t",header=T)
+dbWriteTable(con,"pool_metadata",poolD,row.names=F,append=T)
+
+poolM <- read.table("MetaData/Pool_Mapping.txt",sep="\t")
+dbWriteTable(con,"pool_mapping",poolM,row.names=F,append=T)
+
+getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
+
+getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
 dbDisconnect(con)
