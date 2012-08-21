@@ -42,7 +42,7 @@ mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/s
 basefilename <- sub(".sff","",basename(sfffiles))
 checksystem()
 
-outfile <- paste(basefilename,".out",sep="")
+outfile <- file.path("Output_Files",paste(basefilename,".out",sep=""))
 
 
 fq <- readsff(sfffiles)
@@ -342,8 +342,13 @@ dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
 
-sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20)"
+sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, NA, NA)"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
 dbCommit(con)
+
+system(paste("mv TMP.rdp.align Output_Files/",basefilename,".lucy.align",sep=""))
+system("rm -rf TMP*")
+system("mothur*")
+
