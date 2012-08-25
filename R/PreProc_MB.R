@@ -12,10 +12,10 @@ library(getopt)
 version = "1.0"
 source("functions.R")
 
-sfffiles <- commandArgs(TRUE)
-#sfffiles <- "../Amplicon_SFFfiles_AmpProc/GKF1FGD01.sff"
+#sfffiles <- commandArgs(TRUE)
+sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
 
-screenfile <- "screen_V3-V1Jun11.fa"
+screenfile <- "screen_27f-534r.combined.fa"
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
@@ -73,8 +73,11 @@ cat(paste("Median length after Roche Right Clip",signif(median(ReadData$RocheLen
 ### Run cross_match looking for primers and tags
 
 writeFastaQual(fq,"TMP.raw",append=FALSE)
-system(paste("cross_match TMP.raw.fasta ../", screenfile, " -minmatch 9 -minscore 14 -tags > TMP.cmout",sep=""))
+system(paste("cross_match TMP.raw.fasta ", screenfile, " -minmatch 8 -minscore 16 -tags > TMP.cmout",sep=""))
 cm_out <- parse_cm("TMP.cmout")
+
+### keep those forward match > 16 score
+cm_out <- cm_out[-which(cm_out$score <= 16),]
 
 ### End CrossMatch
 ############################
@@ -145,6 +148,8 @@ sink()
 cat("\n",file=outfile,append=T)
 
 ReadData$Barcode <- ReadData$Primer_Code
+
+
 print("Computing, primer tag hamming distance from assigned tag")
 screen <- readDNAStringSet(file.path("..",screenfile))
 if(screenfile == "screen_V3-V1Jun11.fa"){
@@ -316,9 +321,9 @@ ReadData$version <- version
 ## End Clipping and preprocessing
 ##########################
 
-##########################
+############################
 ## Store Data in A SQLite DB
-##########################
+############################
 
 library(RSQLite)
 drv <- SQLite()
@@ -342,7 +347,7 @@ dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
 
-sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, NA, NA)"
+sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
@@ -350,5 +355,5 @@ dbCommit(con)
 
 system(paste("mv TMP.rdp.align Output_Files/",basefilename,".lucy.align",sep=""))
 system("rm -rf TMP*")
-system("mothur*")
+system("rm -rf mothur*")
 
