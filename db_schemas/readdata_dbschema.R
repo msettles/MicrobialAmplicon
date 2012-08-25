@@ -67,21 +67,21 @@ CREATE INDEX IqueryName ON align_report (QueryName);
 dbGetQuery(con, "
 CREATE TABLE rdp_report (
   QueryName VARCHAR(80) PRIMARY KEY,
-  flip VARCHER(5),
-  domain_name,
-  domain_bootstrap,
-  phylum_name,
-  phylum_bootstrap,
-  class_name,
-  class_boostrap,
-  order_name,
-  order_boostrap,
-  family_name,
-  family_bootstrap,
-  genus_name,
-  genus_bootstrap,
-  species_name,
-  species_bootstarp
+  flip VARCHAR(5),
+  domain_name VARCHAR(80),
+  domain_bootstrap VARCHAR(80),
+  phylum_name VARCHAR(80),
+  phylum_bootstrap VARCHAR(80),
+  class_name VARCHAR(80),
+  class_boostrap VARCHAR(80),
+  order_name VARCHAR(80),
+  order_boostrap VARCHAR(80),
+  family_name VARCHAR(80),
+  family_bootstrapVARCHAR(80),
+  genus_nameVARCHAR(80),
+  genus_bootstrap VARCHAR(80),
+  species_name VARCHAR(80),
+  species_bootstrap VARCHAR(80)
 );
 CREATE INDEX IqueryName ON rdp_report (QueryName);
 ")
