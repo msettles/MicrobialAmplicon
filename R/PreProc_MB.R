@@ -12,8 +12,8 @@ library(getopt)
 version = "1.0"
 source("functions.R")
 
-#sfffiles <- commandArgs(TRUE)
-sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+sfffiles <- commandArgs(TRUE)
+#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
 
 screenfile <- "screen_27f-534r.combined.fa"
 tagkey <- "^FP_"

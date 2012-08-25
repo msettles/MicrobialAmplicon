@@ -79,9 +79,7 @@ CREATE TABLE rdp_report (
   family_name,
   family_bootstrap,
   genus_name,
-  genus_bootstrap,
-  species_name,
-  species_bootstarp
+  genus_bootstrap
 );
 CREATE INDEX IqueryName ON rdp_report (QueryName);
 ")
@@ -123,8 +121,7 @@ dbWriteTable(con,"pool_metadata",poolD,row.names=F,append=T)
 poolM <- read.table("MetaData/Pool_Mapping.txt",sep="\t")
 dbWriteTable(con,"pool_mapping",poolM,row.names=F,append=T)
 
-getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
-ptm <- proc.time()
-getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE read_data.keep=1 AND pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
-proc.time() - ptm
+#getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
+#getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
+
 dbDisconnect(con)
