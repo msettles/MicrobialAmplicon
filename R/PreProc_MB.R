@@ -9,7 +9,7 @@ options("stringsAsFactors" = FALSE)
 library(rSFFreader)
 library(getopt)
 
-version = "1.0"
+version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
 source("functions.R")
 
 #sfffiles <- commandArgs(TRUE)
@@ -30,7 +30,7 @@ maxhomopol <- 10
 
 #rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.2/rdp_classifier-2.2.jar"
 rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
-nproc=4
+nproc=12
 ## for speciation
 reverseSeq <- TRUE
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
@@ -308,14 +308,13 @@ cat(paste("Median number of bases removed by Lucy clipping:",signif(median(ReadD
 cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$lucyUnique) & ReadData$keep)[2],"\n"),file=outfile,append=T)
 ##########################
 
+### clean up primer designations
 ReadData$Primer_Code <- sub("FP_","",ReadData$Primer_Code)
 ReadData$Primer_Code <- sub(",[0-9]+","",ReadData$Primer_Code)
 ReadData$Barcode <- sub("FP_","",ReadData$Barcode)
 ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
-
 ReadData$Primer_Reverse <- sub("RP_","",ReadData$Primer_Reverse)
 
-ReadData$Sample_ID <- paste(substring(ReadData$Acc,1,9),ReadData$Barcode,sep="_")
 ReadData$version <- version
 ##########################
 ## End Clipping and preprocessing
@@ -329,7 +328,7 @@ library(RSQLite)
 drv <- SQLite()
 con <- dbConnect(drv, dbname="amplicondata.sqlite")
 
-sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $Sample_ID, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
+sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
   $AdapterLC, $AdapterRC, $AdapterLength, $Primer_Code, $FPErr, $Barcode, $Code_Dist, 
   $Primer_Reverse, $RPErr, $lucyLC, $lucyRC, $lucyLength, $lucyUnique, $lucyNs, $lucymHomoPrun,
   $keep, $version)"
@@ -348,6 +347,7 @@ dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
 
 sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
+
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
