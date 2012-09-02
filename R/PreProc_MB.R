@@ -12,8 +12,8 @@ library(getopt)
 version = "1.0"
 source("functions.R")
 
-sfffiles <- commandArgs(TRUE)
-#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+#sfffiles <- commandArgs(TRUE)
+sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
 
 screenfile <- "screen_27f-534r.combined.fa"
 tagkey <- "^FP_"
@@ -151,7 +151,7 @@ ReadData$Barcode <- ReadData$Primer_Code
 
 
 print("Computing, primer tag hamming distance from assigned tag")
-screen <- readDNAStringSet(file.path("..",screenfile))
+screen <- readDNAStringSet(file.path(screenfile))
 if(screenfile == "screen_V3-V1Jun11.fa"){
   tag_nucs <- as.numeric(sapply(strsplit(names(screen),split=","),function(x) x[2]))
   tags <- subseq(screen,primer_offset+4,width=tag_nucs)[match(ReadData$Primer_Code[!is.na(ReadData$Primer_Code)],names(screen))]
