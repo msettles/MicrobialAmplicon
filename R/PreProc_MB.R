@@ -10,12 +10,15 @@ library(rSFFreader)
 library(getopt)
 
 version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
-source("functions.R")
 
-#sfffiles <- commandArgs(TRUE)
-sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+### Microbial Processing Home
+microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
+source(file.path(microbe.amplicon.home,"R","functions.R"))
+screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
 
-screenfile <- "screen_27f-534r.combined.fa"
+sfffiles <- commandArgs(TRUE)
+#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
@@ -28,7 +31,6 @@ minlength <- 100
 maxlength <- 600
 maxhomopol <- 10
 
-#rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.2/rdp_classifier-2.2.jar"
 rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
 nproc=12
 ## for speciation
