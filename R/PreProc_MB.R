@@ -12,10 +12,15 @@ library(getopt)
 version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
 source("functions.R")
 
-#sfffiles <- commandArgs(TRUE)
-sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+### Microbial Processing Home
+microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
+version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
+source(file.path(microbe.amplicon.home,"R","functions.R"))
+screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
 
-screenfile <- "screen_27f-534r.combined.fa"
+sfffiles <- commandArgs(TRUE)
+#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
