@@ -9,7 +9,6 @@ dbGetQuery(con, "
 CREATE TABLE read_data (
   Acc CHAR(14) PRIMARY KEY,             -- Accession ID of the Read
   Run CHAR(9) NOT NULL,
-  Sample_ID VARCHAR(80) NOT NULL,
   RawLength INTEGER,
   RocheLC INTEGER,
   RocheRC INTEGER,
@@ -30,10 +29,9 @@ CREATE TABLE read_data (
   lucyNs INTEGER,
   lucymHomoPrun INTEGER,
   keep VARCHAR(5) NOT NULL,
-  version CHAR(3) NOT NULL
+  version VARCHAR(80) NOT NULL
 );
 CREATE INDEX Iacc ON read_data (Acc);
-CREATE INDEX Isample_ID ON read_data (Sample_ID);
 CREATE INDEX Irun ON read_data (Run);
 CREATE INDEX Ibarcode ON read_data (Barcode);
 ")
@@ -79,7 +77,9 @@ CREATE TABLE rdp_report (
   family_name,
   family_bootstrap,
   genus_name,
-  genus_bootstrap
+  genus_bootstrap,
+  species_name,
+  species_bootstrap
 );
 CREATE INDEX IqueryName ON rdp_report (QueryName);
 ")
