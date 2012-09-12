@@ -9,7 +9,6 @@ dbGetQuery(con, "
 CREATE TABLE read_data (
   Acc CHAR(14) PRIMARY KEY,             -- Accession ID of the Read
   Run CHAR(9) NOT NULL,
-  Sample_ID VARCHAR(80) NOT NULL,
   RawLength INTEGER,
   RocheLC INTEGER,
   RocheRC INTEGER,
@@ -30,10 +29,9 @@ CREATE TABLE read_data (
   lucyNs INTEGER,
   lucymHomoPrun INTEGER,
   keep VARCHAR(5) NOT NULL,
-  version CHAR(3) NOT NULL
+  version VARCHAR(80) NOT NULL
 );
 CREATE INDEX Iacc ON read_data (Acc);
-CREATE INDEX Isample_ID ON read_data (Sample_ID);
 CREATE INDEX Irun ON read_data (Run);
 CREATE INDEX Ibarcode ON read_data (Barcode);
 ")
@@ -67,21 +65,21 @@ CREATE INDEX IqueryName ON align_report (QueryName);
 dbGetQuery(con, "
 CREATE TABLE rdp_report (
   QueryName VARCHAR(80) PRIMARY KEY,
-  flip VARCHAR(5),
-  domain_name VARCHAR(80),
-  domain_bootstrap VARCHAR(80),
-  phylum_name VARCHAR(80),
-  phylum_bootstrap VARCHAR(80),
-  class_name VARCHAR(80),
-  class_boostrap VARCHAR(80),
-  order_name VARCHAR(80),
-  order_boostrap VARCHAR(80),
-  family_name VARCHAR(80),
-  family_bootstrapVARCHAR(80),
-  genus_nameVARCHAR(80),
-  genus_bootstrap VARCHAR(80),
-  species_name VARCHAR(80),
-  species_bootstrap VARCHAR(80)
+  flip VARCHER(5),
+  domain_name,
+  domain_bootstrap,
+  phylum_name,
+  phylum_bootstrap,
+  class_name,
+  class_boostrap,
+  order_name,
+  order_boostrap,
+  family_name,
+  family_bootstrap,
+  genus_name,
+  genus_bootstrap,
+  species_name,
+  species_bootstrap
 );
 CREATE INDEX IqueryName ON rdp_report (QueryName);
 ")
@@ -117,14 +115,13 @@ CREATE INDEX Mpool ON pool_mapping (Pool);
 CREATE INDEX Mrun ON pool_mapping (Run);
 ")
 
-poolD <- read.table("MetaData/Pool_MetaData.txt",sep="\t",header=T)
-dbWriteTable(con,"pool_metadata",poolD,row.names=F,append=T)
+#poolD <- read.table("MetaData/Pool_MetaData.txt",sep="\t",header=T)
+#dbWriteTable(con,"pool_metadata",poolD,row.names=F,append=T)
 
-poolM <- read.table("MetaData/Pool_Mapping.txt",sep="\t")
-dbWriteTable(con,"pool_mapping",poolM,row.names=F,append=T)
+#poolM <- read.table("MetaData/Pool_Mapping.txt",sep="\t")
+#dbWriteTable(con,"pool_mapping",poolM,row.names=F,append=T)
 
-getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
-ptm <- proc.time()
-getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE read_data.keep=1 AND pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
-proc.time() - ptm
+#getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
+#getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
+
 dbDisconnect(con)
