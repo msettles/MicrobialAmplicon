@@ -9,13 +9,23 @@ options("stringsAsFactors" = FALSE)
 library(rSFFreader)
 library(getopt)
 
-version = "1.0"
-source("functions.R")
+version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
 
+### Microbial Processing Home
+microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
+source(file.path(microbe.amplicon.home,"R","functions.R"))
+screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
+
+<<<<<<< HEAD
 #sfffiles <- commandArgs(TRUE)
 sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
 
 screenfile <- "screen_27f-534r.combined.fa"
+=======
+sfffiles <- commandArgs(TRUE)
+#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+
+>>>>>>> 285cf47d1d7650ff4dd0e516384d13b60b6bf1c9
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
@@ -28,9 +38,8 @@ minlength <- 100
 maxlength <- 600
 maxhomopol <- 10
 
-#rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.2/rdp_classifier-2.2.jar"
 rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
-nproc=4
+nproc=12
 ## for speciation
 reverseSeq <- TRUE
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
@@ -151,7 +160,7 @@ ReadData$Barcode <- ReadData$Primer_Code
 
 
 print("Computing, primer tag hamming distance from assigned tag")
-screen <- readDNAStringSet(file.path("..",screenfile))
+screen <- readDNAStringSet(file.path(screenfile))
 if(screenfile == "screen_V3-V1Jun11.fa"){
   tag_nucs <- as.numeric(sapply(strsplit(names(screen),split=","),function(x) x[2]))
   tags <- subseq(screen,primer_offset+4,width=tag_nucs)[match(ReadData$Primer_Code[!is.na(ReadData$Primer_Code)],names(screen))]
@@ -308,14 +317,13 @@ cat(paste("Median number of bases removed by Lucy clipping:",signif(median(ReadD
 cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$lucyUnique) & ReadData$keep)[2],"\n"),file=outfile,append=T)
 ##########################
 
+### clean up primer designations
 ReadData$Primer_Code <- sub("FP_","",ReadData$Primer_Code)
 ReadData$Primer_Code <- sub(",[0-9]+","",ReadData$Primer_Code)
 ReadData$Barcode <- sub("FP_","",ReadData$Barcode)
 ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
-
 ReadData$Primer_Reverse <- sub("RP_","",ReadData$Primer_Reverse)
 
-ReadData$Sample_ID <- paste(substring(ReadData$Acc,1,9),ReadData$Barcode,sep="_")
 ReadData$version <- version
 ##########################
 ## End Clipping and preprocessing
@@ -329,7 +337,7 @@ library(RSQLite)
 drv <- SQLite()
 con <- dbConnect(drv, dbname="amplicondata.sqlite")
 
-sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $Sample_ID, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
+sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
   $AdapterLC, $AdapterRC, $AdapterLength, $Primer_Code, $FPErr, $Barcode, $Code_Dist, 
   $Primer_Reverse, $RPErr, $lucyLC, $lucyRC, $lucyLength, $lucyUnique, $lucyNs, $lucymHomoPrun,
   $keep, $version)"
@@ -348,6 +356,10 @@ dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
 
 sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 285cf47d1d7650ff4dd0e516384d13b60b6bf1c9
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
