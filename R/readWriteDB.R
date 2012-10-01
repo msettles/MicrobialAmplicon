@@ -38,6 +38,18 @@ if (nrow(pooltable) > 0)
   dbWriteTable(con,"pool_metadata",metatable,row.names=F,append=T)
 
 
-getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='JJ_Human_Vagina'")
-getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='JJ_Human_Vagina' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
+### getting samples for an experiment
+library(RSQLite)
+drv <- SQLite()
+con <- dbConnect(drv, dbname="amplicondata.sqlite")
+
+experimentName <- "JJ_Human_Vagina" 
+getsample <-dbGetQuery(con,paste("Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='",experimentName,"'",sep=""))
+getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool ANol_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run",sep=""))
+
+
+
+Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='JJ_Human_Vagina';
+Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data WHERE pool_metadata.project='JJ_Human_Vagina' AND pool_metadata.Pool=pool_mapping.Pool ANol_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run
+
 

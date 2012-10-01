@@ -73,6 +73,7 @@ cat(paste("Median length after Roche Right Clip",signif(median(ReadData$RocheLen
 ###
 #####################
 ### Run cross_match looking for primers and tags
+#cross_match test.fasta /mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon/ext.data/screen_27f-534r.combined.fa -minmatch 8 -minscore 16 -tags > test.cmout
 
 writeFastaQual(fq,"TMP.raw",append=FALSE)
 system(paste("cross_match TMP.raw.fasta ", screenfile, " -minmatch 8 -minscore 16 -tags > TMP.cmout",sep=""))
@@ -199,9 +200,8 @@ cat(paste("Primer with Tab found :",table(!is.na(ReadData$Primer_Code))[2], "\n"
 
 ### Write out data
 primerRange <- IRanges(start=ReadData$AdapterLC,ReadData$AdapterRC)
-adapterClip(fq) <- primerRange ## need to add replacement function 
-fq@adapterClip <- primerRange
-clipMode(fq)  <- "full"
+customClip(fq) <- primerRange ## need to add replacement function 
+clipMode(fq)  <- "custom"
 
 writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 
@@ -224,8 +224,8 @@ ReadData$lucyLength <- ReadData$lucyRC - ReadData$lucyLC +1
 
 print("computer read statistics")
 lucyRange <- IRanges(start=ReadData$lucyLC,ReadData$lucyRC)
-fq@adapterClip <- lucyRange
-clipMode(fq)  <- "full"
+customClip <- lucyRange
+clipMode(fq)  <- "custom"
 
 fa.lucy <- sread(fq)
 ## get unique sequences

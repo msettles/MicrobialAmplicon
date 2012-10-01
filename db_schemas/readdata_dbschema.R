@@ -33,7 +33,8 @@ CREATE TABLE read_data (
 );
 CREATE INDEX Iacc ON read_data (Acc);
 CREATE INDEX Irun ON read_data (Run);
-CREATE INDEX Ibarcode ON read_data (Barcode);
+CREATE INDEX Iprimer_code ON read_data (Primer_Code);
+CREATE INDEX Ilucy_unique ON read_data (lucyUnique);
 ")
 
 dbGetQuery(con, "
@@ -58,7 +59,7 @@ CREATE TABLE align_report (
   QueryFull INTEGER,
   adpLC INTEGER
 );
-CREATE INDEX IqueryName ON align_report (QueryName);
+CREATE INDEX AqueryName ON align_report (QueryName);
 ")
 
 
