@@ -17,19 +17,19 @@ source(file.path(microbe.amplicon.home,"R","functions.R"))
 screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
 
 sfffiles <- commandArgs(TRUE)
-#sfffiles <- "../Amplicon_SFFfiles_AmpProc/HRLK7U402.sff"
+#sfffiles <- "Amplicon_SFFfiles_AmpProc/HVCR0MB02.sff"
 
 tagkey <- "^FP_"
 tag_nucs <- 8
 primerkey <- "^RP_"
 
 ## filter
-maxNs <- 2
-maxforwardprimererrors <- 2
-maxhammingdisttag <- 1
-minlength <- 100
-maxlength <- 600
-maxhomopol <- 10
+maxNs <- 2 ## max number of Ns post lucy filtering
+maxforwardprimererrors <- 2 ## max number of errors allowed in the forward primer
+maxhammingdisttag <- 1 ## max hamming distance allowed for barcode
+minlength <- 100  ## minimum length of acceptable sequence
+maxlength <- 600  ## maximum length of sequence allowed
+maxhomopol <- 10  ## maximum homopolymer allowed
 
 rdpPath <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
 nproc=12
