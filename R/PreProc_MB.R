@@ -47,7 +47,7 @@ checksystem()
 outfile <- file.path("Output_Files",paste(basefilename,".out",sep=""))
 
 
-fq <- readsff(sfffiles)
+fq <- readSff(sfffiles)
 cat(paste("Total Number of Reads in SFF files:",length(fq),"\n"),file=outfile,append=F)    
 clipMode(fq) <- "Raw"
 
