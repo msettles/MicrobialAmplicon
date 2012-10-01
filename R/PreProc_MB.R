@@ -47,9 +47,9 @@ checksystem()
 outfile <- file.path("Output_Files",paste(basefilename,".out",sep=""))
 
 
-fq <- readsff(sfffiles)
+fq <- readSff(sfffiles)
 cat(paste("Total Number of Reads in SFF files:",length(fq),"\n"),file=outfile,append=F)    
-clipMode(fq) <- "Raw"
+clipMode(fq) <- "raw"
 
 #####################
 ### Base Roche stats and clip
@@ -61,7 +61,7 @@ ReadData <- data.frame(Acc=as.character(id(fq)),
 ReadData$RocheLC <- start(qualityClip(fq))
 ReadData$RocheRC <- end(qualityClip(fq))
 
-ReadData$RocheLength <- width(sread(fq,clipmode="Full"))
+ReadData$RocheLength <- width(sread(fq,clipmode="full"))
 
 cat(paste("Mean length before Roche Right Clip",signif(mean(ReadData$RawLength),3),"\n"),file=outfile,append=T)    
 cat(paste("Median length before Roche Right Clip",signif(median(ReadData$RawLength),3),"\n"),file=outfile,append=T)    
@@ -131,7 +131,7 @@ cm_out <- cm_out[-which(cm_out$read_start != 1 & cm_out$FC == "F"),]
 
 ReadData$AdapterLength <- ReadData$AdapterRC - ReadData$AdapterLC +1
 
-clipMode(fq) <- "Raw"
+clipMode(fq) <- "raw"
 ##########################
 ## Calculate Primer errors INCLUDES TAG!!
 print("Computing, tags and tagged primer errors")
@@ -201,7 +201,7 @@ cat(paste("Primer with Tab found :",table(!is.na(ReadData$Primer_Code))[2], "\n"
 primerRange <- IRanges(start=ReadData$AdapterLC,ReadData$AdapterRC)
 adapterClip(fq) <- primerRange ## need to add replacement function 
 fq@adapterClip <- primerRange
-clipMode(fq)  <- "Full"
+clipMode(fq)  <- "full"
 
 writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 
@@ -225,7 +225,7 @@ ReadData$lucyLength <- ReadData$lucyRC - ReadData$lucyLC +1
 print("computer read statistics")
 lucyRange <- IRanges(start=ReadData$lucyLC,ReadData$lucyRC)
 fq@adapterClip <- lucyRange
-clipMode(fq)  <- "Full"
+clipMode(fq)  <- "full"
 
 fa.lucy <- sread(fq)
 ## get unique sequences
