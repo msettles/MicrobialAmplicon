@@ -35,6 +35,7 @@ CREATE INDEX Iacc ON read_data (Acc);
 CREATE INDEX Irun ON read_data (Run);
 CREATE INDEX Iprimer_code ON read_data (Primer_Code);
 CREATE INDEX Ilucy_unique ON read_data (lucyUnique);
+CREATE INDEX Ikeep ON read_data (keep);
 ")
 
 dbGetQuery(con, "

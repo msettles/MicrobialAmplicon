@@ -50,6 +50,13 @@ getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* FR
 
 
 Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='JJ_Human_Vagina';
-Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data WHERE pool_metadata.project='JJ_Human_Vagina' AND pool_metadata.Pool=pool_mapping.Pool ANol_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run
+Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='JJ_Human_Vagina' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run;
 
+Select pool_metadata.Sample_ID, read_data.* 
+  FROM pool_metadata, read_data, pool_mapping
+  WHERE pool_metadata.project='JJ_Human_Vagina' 
+    AND pool_metadata.Pool=pool_mapping.Pool 
+    AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
+    AND pool_mapping.Run=read_data.Run
+    AND run_data.keep = 1;
 
