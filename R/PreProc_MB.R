@@ -1,4 +1,4 @@
-#!/mnt/home/msettles/opt/bin/Rscript --vanilla --verbose
+#!/mnt/home/msettles/opt/bin/Rscript --vanilla 
 ###############################################################################
 ###
 ### Primary functions/main for Amplicon Processing
