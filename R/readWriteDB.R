@@ -1,17 +1,45 @@
 ### Retreive and Send metadata or mapping data
 
 
-library(RSQLite)
 
+
+con <- dbCon()
+
+  reads <- dbGetQuery(con,
+                         paste("Select pool_metadata.Sample_ID, pool_metadata.Pool, read_data.* 
+                                FROM pool_metadata, read_data, pool_mapping 
+                                WHERE read_data.Run IN ('HVCR0MB02', 'HVCR0MB03')
+                                  AND pool_metadata.Pool=pool_mapping.Pool 
+                                  AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
+                                  AND pool_mapping.Run=read_data.Run",sep=""))
+
+
+  reads2 <- dbGetQuery(con,
+                         paste("SELECT * 
+                                FROM  read_data 
+                                WHERE read_data.Run IN ('HVCR0MB02', 'HVCR0MB03')",sep=""))
+
+### getting samples for an experiment
+library(RSQLite)
 drv <- SQLite()
 con <- dbConnect(drv, dbname="amplicondata.sqlite")
-## get the current table
-mappings <- dbReadTable(con,"pool_mapping")
-pooltable <- read.table("MetaData/Pool_Mapping.txt",sep="\t")
-pooltable <- pooltable[!(apply(pooltable,1,paste,collapse=" ") %in% apply(mappings,1,paste,collapse=" ")),]
-print(paste("Adding ",nrow(pooltable)," entries",sep=""))
-if (nrow(pooltable) > 0)
-  dbWriteTable(con,"pool_mapping",pooltable,row.names=F,append=T)
+
+experimentName <- "JJ_Human_Vagina" 
+getsample <-dbGetQuery(con,paste("Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='",experimentName,"'",sep=""))
+getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* , rdp_report.* FROM pool_metadata, read_data, pool_mapping, rdp_report WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run AND read_data.lucyUnique=rdp_report.QueryName",sep=""))
+
+
+getreads2 <- getreads[getreads$keep == 1,]
+rdp.otu <- getreads2[,25:40]
+#uniqueIds <- data.frame(uniqueIds=unique(getreads$lucyUnique))
+#sql <- "Select * FROM rdp_report WHERE (QueryName) IN ($uniqueIds)"
+#dbGetPreparedQuery(con, sql, bind.data = uniqueIds)
+#dbCommit(con)
+
+#getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* , rdp_data FROM pool_metadata, read_data, pool_mapping, rdp_data WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run read_data.lucyUnique=rdp_data.QueryName",sep=""))
+
+
+
 
 #dbGetQuery(con, "DELETE FROM pool_mapping;")
 #poolD <- read.table("MetaData/Pool_MetaData.txt",sep="\t",header=T)
@@ -22,31 +50,6 @@ if (nrow(pooltable) > 0)
 
 #getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
 #getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
-
-library(RSQLite)
-
-## Metadata Table to add
-mdTable <- "MetaData/Pool_MetaData_Top.txt"
-drv <- SQLite()
-con <- dbConnect(drv, dbname="amplicondata.sqlite")
-## get the current table
-metadata <- dbReadTable(con,"pool_metadata")
-metatable <- read.table(mdTable,sep="\t",header=T)
-metatable <- metatable[!(apply(metatable[,c("Project","Sample_ID","Reverse_Primer")],1,paste,collapse=" ") %in% apply(metadata[,c("Project","Sample_ID","Reverse_Primer")],1,paste,collapse=" ")),]
-print(paste("Adding ",nrow(metatable)," entries",sep=""))
-if (nrow(pooltable) > 0)
-  dbWriteTable(con,"pool_metadata",metatable,row.names=F,append=T)
-
-
-### getting samples for an experiment
-library(RSQLite)
-drv <- SQLite()
-con <- dbConnect(drv, dbname="amplicondata.sqlite")
-
-experimentName <- "JJ_Human_Vagina" 
-getsample <-dbGetQuery(con,paste("Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='",experimentName,"'",sep=""))
-getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool ANol_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run",sep=""))
-
 
 
 Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='JJ_Human_Vagina';
@@ -59,4 +62,99 @@ Select pool_metadata.Sample_ID, read_data.*
     AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
     AND pool_mapping.Run=read_data.Run
     AND run_data.keep = 1;
+
+getreads <- dbGetQuery(con,paste("Select read_data.* FROM read_data",sep=""))
+
+
+
+
+#######################################################################################
+## Speciation
+#######################################################################################
+con <- dbCon()
+## Lactobacillus
+## extract genus reads and write to file
+output.genus.reads(con,project="JJ_Human_Vagina",genus="Lactobacillus")
+
+## cluster using cdhit require 100% identity
+system("cdhit-est -T 8 -d 0 -c 0.995 -n 9 -i 454Reads.Lactobacillus.fasta -o 454Reads.Lactobacillus.reduced.fasta")
+
+## look at clustering results
+cdhit_cluster <- readLines("454Reads.Lactobacillus.reduced.fasta.clstr")
+clust <- grep("^>Cluster",c(cdhit_cluster,">Cluster"))
+cdhit_cluster <- paste(cdhit_cluster,"C",rep(seq.int(1,length(diff(clust))),times=diff(clust)),sep=" ")
+cdhit_cluster <- cdhit_cluster[-clust]
+test_split <- strsplit(cdhit_cluster,split="\t|nt, >|\\.\\.\\. at +/|\\.\\.\\. |%C |C ")
+cluster_mat <- data.frame(matrix(unlist(test_split),ncol=5,byrow=T),stringsAsFactors=F)
+cluster_mat$X4 <- as.numeric(gsub("at [+]\\/|% ","",cluster_mat$X4))
+cluster_mat$errors <- as.numeric(cluster_mat$X2) - as.numeric(cluster_mat$X2)*(cluster_mat$X4/100)
+
+cluster_mat[is.na(cluster_mat$errors),"errors"] <- 0
+cluster_mat <- cluster_mat[order(as.numeric(cluster_mat$X5),-is.na(cluster_mat$X4)),]
+
+names <- cbind(cluster_mat$X3[!duplicated(cluster_mat$X5)],tapply(cluster_mat$X3,cluster_mat$X5,paste,collapse=","))
+## names
+write.table(names,file="454Reads.Lactobacillus.reduced.fasta.clstr2",sep=",",row.names=F,col.names=F,quote=F)
+
+## add in Training species sequences
+speciateIThome <- "/mnt/home/msettles/opt/speciateit"
+speciesFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.fa")
+system(paste("cat ",speciesFile, " 454Reads.Lactobacillus.reduced.fasta > 454Reads.Lactobacillus.reduced.combined.fa",sep=""))
+
+## Use mothur to computer the Distance between sequences 
+nproc=8
+mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
+system(paste("mothur \"#align.seqs(candidate=454Reads.Lactobacillus.reduced.combined.fa, template=", mothur.template ,", flip=T, processors=",nproc,"); ",
+              "filter.seqs(fasta=454Reads.Lactobacillus.reduced.combined.align, processors=",nproc,"); ",
+              "dist.seqs(fasta=454Reads.Lactobacillus.reduced.combined.filter.fasta, calc=onegap, output=square, processors=",nproc,");\"",sep=""))
+
+
+dist.mat <- "454Reads.Lactobacillus.reduced.combined.filter.square.dist"
+outFile <- "454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.membStr"
+
+library(flashClust)
+d5k <- read.table(dist.mat,skip=1,row.names=1)
+hc <- flashClust(as.dist(d5k),method="single")
+
+# using rowIds for leaves
+hclust2merges2 <- function(hc,rowIds,filename)
+{
+  sink(file=filename)
+  internal_id = -1
+  for (i in 1:nrow(hc$merge))
+    {
+      # Less than 1 implies a singleton. Reverse all the numbers.
+      u = hc$merge[i,1]*(-1)
+      v = hc$merge[i,2]*(-1)
+
+      if ( u > 0 ) u <- rowIds[u]
+      if ( v > 0 ) v <- rowIds[v]
+
+      cat(u,v,internal_id,"\n",file=filename,sep="\t",append=TRUE)
+      internal_id = internal_id - 1
+    }
+  sink()
+}
+
+hclust2merges2(hc,rownames(d5k),outFile)
+
+spp_taxon <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.taxon")
+system(paste("vicut -t ", outFile, "  -a ", spp_taxon, " -o 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir",sep=""))
+
+vicut_clusters <- read.table("454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minNodeCut.cltrs",header=T,as.is=T)
+vicut_clusters$tax <- paste("c.",vicut_clusters$clstr,sep="")
+vicut_clusters[which(!is.na(vicut_clusters$annot)),"tax"] <- paste(vicut_clusters[which(!is.na(vicut_clusters$annot)),"annot"],vicut_clusters[which(!is.na(vicut_clusters$annot)),"clstr"],sep=".")
+
+
+
+
+## min read count 10 , append 'L'
+system(paste("minNodeCutStats2.pl -g 'L' -s 1 ",
+             "-c 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minNodeCut.cltrs ",
+             "-r 454Reads.Lactobacillus.reduced.fasta.clstr2 ",
+             "-o 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir",sep=""))
+
+taxonomyFile <- "454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minCltrSize1.nr.cltr"
+taxonomy <- read.table(taxonomyFile,as.is=T)
+cluster_mat$species <- taxonomy$V2[match(cluster_mat$X5,cluster_mat[match(taxonomy$V1,cluster_mat$X3),"X5"])]
 

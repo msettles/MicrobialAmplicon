@@ -80,7 +80,7 @@ system(paste("cross_match TMP.raw.fasta ", screenfile, " -minmatch 8 -minscore 1
 cm_out <- parse_cm("TMP.cmout")
 
 ### keep those forward match > 16 score
-cm_out <- cm_out[-which(cm_out$score <= 16),]
+#cm_out <- cm_out[-which(cm_out$score <= 16),]
 
 ### End CrossMatch
 ############################
@@ -347,8 +347,8 @@ sql <- "INSERT INTO align_report VALUES ($QueryName, $QueryLength, $TemplateName
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
-
-sql <- "INSERT INTO rdp_report VALUES ($V1, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
+###### TO DO: Need to add in Run
+sql <- "INSERT INTO rdp_report VALUES ($V1, RUN, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
@@ -357,4 +357,5 @@ dbCommit(con)
 system(paste("mv TMP.rdp.align Output_Files/",basefilename,".lucy.align",sep=""))
 system("rm -rf TMP*")
 system("rm -rf mothur*")
+
 

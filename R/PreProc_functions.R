@@ -4,6 +4,7 @@
 ###
 ###############################################################################
 
+###### Functions Used During Preprocessing
 
 #########################################################
 ## check the system for necessary 3rd party applications
@@ -74,36 +75,6 @@ sd.trim <- function(x, trim=0, na.rm=FALSE, ...)
     cm_out
   }
 
-
-
-### computes abundance tables
-### relies on SampleNote column in the annotation
-abundance.table <- function(rdp.otu, groups, anno,samples_note = "ID",rdpThres = 0.5,outfile="abundance.out"){
-  numberoflevels <- (ncol(rdp.otu)-5)/3
-  rdp.otu$assign <- as.character(rdp.otu$V6)
-  rdp.otu$level <- as.character(rdp.otu$V7)
-  
-  rdp.otu$assign[(rdp.otu$V8 < 0.5)] <- "Unclassified"
-  rdp.otu$level[(rdp.otu$V8 < 0.5)] <- "Unknown"
-  
-  for (i in seq.int(1,numberoflevels-1)){
-    column = 6+3*i
-    prows <- rdp.otu[, (column + 2)] >= rdpThres & !is.na(rdp.otu[, (column + 2)])
-    rdp.otu$assign[prows] <- as.character(rdp.otu[,column][prows])
-    rdp.otu$level[prows] <- as.character(rdp.otu[,column+1][prows])
-  }
-  
-  rdp.otu$id <- groups[match(rdp.otu$V1,groups$Acc),samplesNote]
-  
-  rdp.otu$name <- anno[match(rdp.otu$id,anno[,samplesNote]),samples_note] ### Annotation
-  
-  abundanceTable <- table(rdp.otu$assign,rdp.otu$name)
-  abundanceTable <- cbind(abundanceTable,groupTotal=rowSums(abundanceTable))
-  abundanceTable <- rbind(abundanceTable,ReadTotals=colSums(abundanceTable))
-  abundanceTable <- cbind(Level=rdp.otu$level[match(rownames(abundanceTable),rdp.otu$assign)],abundanceTable)
-  abundanceTable <- data.frame(Taxon_Name = rownames(abundanceTable),abundanceTable)
-  write.table(abundanceTable,file=outfile,sep="\t",quote=F,col.names=T,row.names=F)
-}
 
 ### Some figures from the old Preproc_MB.R file
 

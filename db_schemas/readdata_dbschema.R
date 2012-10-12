@@ -40,7 +40,7 @@ CREATE INDEX Ikeep ON read_data (keep);
 
 dbGetQuery(con, "
 CREATE TABLE align_report (
-  QueryName VARCHAR(80) PRIMARY KEY,
+  lucyUnique VARCHAR(80) PRIMARY KEY,
   QueryLength INTEGER,
   TemplateName VARCHAR(20),
   TemplateLength INTEGER,
@@ -63,10 +63,10 @@ CREATE TABLE align_report (
 CREATE INDEX AqueryName ON align_report (QueryName);
 ")
 
-
-dbGetQuery(con, "
-CREATE TABLE rdp_report (
-  QueryName VARCHAR(80) PRIMARY KEY,
+dbBeginTransaction(con)
+sql <- "CREATE TABLE rdp_report (
+  lucyUnique VARCHAR(80)  PRIMARY KEY,
+  Run CHAR(9) NOT NULL,
   flip VARCHER(5),
   domain_name,
   domain_bootstrap,
@@ -82,13 +82,26 @@ CREATE TABLE rdp_report (
   genus_bootstrap,
   species_name,
   species_bootstrap
-);
-CREATE INDEX IqueryName ON rdp_report (QueryName);
+);"
+
+dbSendQuery(con, sql)
+
+sql <- "CREATE INDEX rdp_lucyUnique ON rdp_report (lucyUnique);"
+dbSendQuery(con, sql)
+
+sql <- "CREATE INDEX rdp_Run ON rdp_report (Run);"
+dbSendQuery(con, sql)
+
+sql <- "CREATE INDEX rdp_genus ON rdp_report (genus_name);"
+dbSendQuery(con, sql)
+
+dbCommit(con)
+
 ")
 
+dbBeginTransaction(con)
 
-dbGetQuery(con,"
-CREATE TABLE pool_metadata (
+sql <- "CREATE TABLE pool_metadata (
   ID VARCHAR(20) NOT NULL,
   Pool VARCHAR(20) NOT NULL,
   Forward_Primer VARCHAR(20) NOT NULL,
@@ -101,7 +114,11 @@ CREATE TABLE pool_metadata (
   Isolation_ID VARCHAR(20) NOT NULL,
   Project VARCHAR(20) NOT NULL,
   Sample_ID VARCHAR(20) NOT NULL
-);
+);"
+
+dbSendQuery(con, sql)
+dbCommit(con)
+
 CREATE INDEX Ppool ON pool_metadata (Pool);
 CREATE INDEX Preverse_primer ON pool_metadata (Reverse_Primer);
 CREATE INDEX Pproject ON pool_metadata (Project);
