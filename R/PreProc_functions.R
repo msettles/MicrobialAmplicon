@@ -9,6 +9,7 @@
 #########################################################
 ## check the system for necessary 3rd party applications
 #########################################################
+## Add check for library files, rdp and mothur go through script and check for others
 "checksystem" <- function(){
   print("Checking for required system applications")
   stopifnot(all(
@@ -74,6 +75,11 @@ sd.trim <- function(x, trim=0, na.rm=FALSE, ...)
     cm_out$err <- apply(cm_out[,c("perc_sub","perc_del","perc_ins","adapt_remain","adapt_start")],1,sum) -1
     cm_out
   }
+
+
+### run the Knitr report generator
+
+knit(paste("Reports/Preproc_report_",basefilename,".Rmd",sep=""),output=paste("Reports/Preproc_report_",basefilename,".md",sep=""))
 
 
 ### Some figures from the old Preproc_MB.R file

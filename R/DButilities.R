@@ -51,14 +51,17 @@
   if (missing(outfile)) outfile <- paste(project,".readcounts.txt",sep="")
 
   reads <- dbGetQuery(con,
-                         paste("Select pool_metadata.Sample_ID, read_data.* 
-                                FROM pool_metadata, read_data, pool_mapping 
-                                WHERE pool_metadata.project='",project,"' 
-                                  AND pool_metadata.Pool=pool_mapping.Pool 
-                                  AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
-                                  AND pool_mapping.Run=read_data.Run",sep=""))
+                         paste("Select Sample_ID, Run, Barcode, keep 
+                                FROM read_data, 
+                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Reverse_Primer, pool_mapping.Run 
+                                    FROM pool_metadata, pool_mapping
+                                 WHERE pool_metadata.Project='",project,"'
+                                 AND pool_metadata.Pool=pool_mapping.Pool) as tmpTable
+                                 , rdp_report 
+                                 WHERE tmpTable.Reverse_Primer=read_data.Primer_Code
+                                 AND tmpTable.Run=read_data.Run",sep=""))
   samples <-dbGetQuery(con,
-                         paste("Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID, ID 
+                         paste("Select Run, Pool, Reverse_Primer, Sample_ID, ID 
                                 FROM pool_metadata, pool_mapping 
                                 WHERE pool_metadata.Pool=pool_mapping.Pool 
                                   AND pool_metadata.project='",project,"'",sep=""))
@@ -81,33 +84,39 @@
                                 FROM pool_metadata, pool_mapping 
                                 WHERE pool_metadata.Pool=pool_mapping.Pool 
                                   AND pool_metadata.project='",project,"'",sep=""))
-
+  ord <- order(samples$Sample_ID)
   rdp.otu <- dbGetQuery(con,
-                         paste("Select pool_metadata.Sample_ID, rdp_report.*, read_data.keep 
-                                FROM pool_metadata, read_data, pool_mapping, rdp_report 
-                                WHERE pool_metadata.Project='",project,"' 
-                                  AND pool_metadata.Pool=pool_mapping.Pool 
-                                  AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
-                                  AND pool_mapping.Run=read_data.Run 
-                                  AND read_data.lucyUnique=rdp_report.QueryName",sep=""))
+                         paste("Select tmpTable.Sample_ID, rdp_report.*, read_data.keep 
+                                FROM read_data, 
+                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Reverse_Primer, pool_mapping.Run 
+                                    FROM pool_metadata, pool_mapping
+                                 WHERE pool_metadata.Project='",project,"'
+                                 AND pool_metadata.Pool=pool_mapping.Pool) as tmpTable
+                                 , rdp_report 
+                                 WHERE tmpTable.Reverse_Primer=read_data.Primer_Code
+                                 AND tmpTable.Run=read_data.Run
+                                 AND rdp_report.lucyUnique = read_data.lucyUnique",sep=""))
 
-  rdp.otu <- rdp.otu[rdp.otu$keep == 1,]
+  rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- "Lactobacillus Other"
+  rdp.otu$species_name <- sub("L." ,"Lactobacillus ",rdp.otu$species_name,fixed=T)
+  rdp.otu$species_name <- sub("\\.[0-9]+" ,"",rdp.otu$species_name)
+  rdp.otu$species_bootstrap <- as.numeric(rdp.otu$species_bootstrap)+1
+  rdp.otu <- rdp.otu[rdp.otu$read_data.keep == '1',]
 
-  numberoflevels <- (ncol(rdp.otu)-4)/2
-  abtable <- data.frame(id=rdp.otu[,"Sample_ID",],assign=as.character(rdp.otu$domain_name),level="domain")
+  numberoflevels <- (ncol(rdp.otu)-5)/2
+  abtable <- data.frame(id=rdp.otu[,"tmpTable.Sample_ID",],assign=as.character(rdp.otu$domain_name),level="domain")
   
   taxa_levels <- c("domain","phylum","class","order","family","genus","species")
   abtable$assign[(rdp.otu$domain_bootstrap < rdpThres)] <- "Unclassified"
   abtable$level[(rdp.otu$domain_bootstrap < rdpThres)] <- "Unknown"
   
   for (i in seq.int(2,numberoflevels)){
-    column = 2*i+2
-    prows <- rdp.otu[, (column + 1)] >= rdpThres & (rdp.otu[, (column + 1)] != "NA")
-    
+    column = 2*i+3
+    #prows <- rdp.otu[, (column + 1)] >= rdpThres & (rdp.otu[, (column + 1)] != "NA")
+    prows <- which(rdp.otu[, (column + 1)] >= rdpThres)
     abtable$assign[prows] <- as.character(rdp.otu[,column][prows])
     abtable$level[prows] <- taxa_levels[i]
   }
-  
   
   abundanceTable <- table(abtable$assign,abtable$id)
   abundanceTable <- abundanceTable[,match(samples$Sample_ID,colnames(abundanceTable))]
@@ -150,3 +159,23 @@
   
 }
 
+"update.species.rdp" <- function(con,cluster_mat){
+  
+  dbBeginTransaction(con)
+  
+  sql <- paste("SELECT read_data.Acc, rdp_report.*
+                             FROM rdp_report, read_data
+                             WHERE read_data.Acc IN ($X3)
+                             AND rdp_report.lucyUnique = read_data.lucyUnique",sep="")
+
+  rdp <- dbGetPreparedQuery(con,sql,bind.data=cluster_mat)
+  
+  rdp$species_name[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$species
+  rdp$species_bootstrap[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$errors
+  
+  sql <- paste("REPLACE INTO rdp_report VALUES (" ,paste(paste("$",colnames(rdp),sep="")[-1],collapse=", "),")",sep="")
+  dbGetPreparedQuery(con,sql,bind.data=rdp)
+  
+  dbCommit(con)
+  
+}  

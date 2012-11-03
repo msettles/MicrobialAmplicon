@@ -76,7 +76,7 @@ con <- dbCon()
 ## extract genus reads and write to file
 output.genus.reads(con,project="JJ_Human_Vagina",genus="Lactobacillus")
 
-## cluster using cdhit require 100% identity
+## cluster using cdhit require 99.5% identity
 system("cdhit-est -T 8 -d 0 -c 0.995 -n 9 -i 454Reads.Lactobacillus.fasta -o 454Reads.Lactobacillus.reduced.fasta")
 
 ## look at clustering results
@@ -92,16 +92,20 @@ cluster_mat$errors <- as.numeric(cluster_mat$X2) - as.numeric(cluster_mat$X2)*(c
 cluster_mat[is.na(cluster_mat$errors),"errors"] <- 0
 cluster_mat <- cluster_mat[order(as.numeric(cluster_mat$X5),-is.na(cluster_mat$X4)),]
 
-names <- cbind(cluster_mat$X3[!duplicated(cluster_mat$X5)],tapply(cluster_mat$X3,cluster_mat$X5,paste,collapse=","))
-## names
-write.table(names,file="454Reads.Lactobacillus.reduced.fasta.clstr2",sep=",",row.names=F,col.names=F,quote=F)
+## names, no longer needed after rewrite
+## names <- cbind(cluster_mat$X3[!duplicated(cluster_mat$X5)],tapply(cluster_mat$X3,cluster_mat$X5,paste,collapse=","))
+## write.table(names,file="454Reads.Lactobacillus.reduced.fasta.clstr2",sep=",",row.names=F,col.names=F,quote=F)
 
 ## add in Training species sequences
+## maybe read them into R and then write out
 speciateIThome <- "/mnt/home/msettles/opt/speciateit"
 speciesFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.fa")
 system(paste("cat ",speciesFile, " 454Reads.Lactobacillus.reduced.fasta > 454Reads.Lactobacillus.reduced.combined.fa",sep=""))
 
-## Use mothur to computer the Distance between sequences 
+## Use mothur to compute the Distance between sequences 
+#### Align the seuqences to silva
+#### Filter the alignment
+#### Compute distance matrix
 nproc=8
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
 system(paste("mothur \"#align.seqs(candidate=454Reads.Lactobacillus.reduced.combined.fa, template=", mothur.template ,", flip=T, processors=",nproc,"); ",
@@ -112,11 +116,13 @@ system(paste("mothur \"#align.seqs(candidate=454Reads.Lactobacillus.reduced.comb
 dist.mat <- "454Reads.Lactobacillus.reduced.combined.filter.square.dist"
 outFile <- "454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.membStr"
 
+### Use FlashClust and Vicut to produce clusters
 library(flashClust)
 d5k <- read.table(dist.mat,skip=1,row.names=1)
 hc <- flashClust(as.dist(d5k),method="single")
 
 # using rowIds for leaves
+### produces file ready for vicut
 hclust2merges2 <- function(hc,rowIds,filename)
 {
   sink(file=filename)
@@ -141,20 +147,23 @@ hclust2merges2(hc,rownames(d5k),outFile)
 spp_taxon <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.taxon")
 system(paste("vicut -t ", outFile, "  -a ", spp_taxon, " -o 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir",sep=""))
 
+### Read in clusters computed by vicut, annotate by representation of training species, if more than one training species exists in a cluster, cluster annotation is a concatention of names
+### clusters with no training sequences in them are name c.[cluster number]
 vicut_clusters <- read.table("454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minNodeCut.cltrs",header=T,as.is=T)
 vicut_clusters$tax <- paste("c.",vicut_clusters$clstr,sep="")
 vicut_clusters[which(!is.na(vicut_clusters$annot)),"tax"] <- paste(vicut_clusters[which(!is.na(vicut_clusters$annot)),"annot"],vicut_clusters[which(!is.na(vicut_clusters$annot)),"clstr"],sep=".")
 
+annot_clusters <- tapply(vicut_clusters$annot[which(!is.na(vicut_clusters$annot))],vicut_clusters$clstr[which(!is.na(vicut_clusters$annot))],function(x) { y <- table(x); paste(names(y),collapse=".")})
+annot_clusters <- data.frame(clusterID=as.numeric(names(annot_clusters)),Tax=paste(annot_clusters,names(annot_clusters),sep="."))
+
+for(i in seq.int(1,nrow(annot_clusters))){
+  vicut_clusters$tax[vicut_clusters$clstr == annot_clusters$clusterID[i]] <- annot_clusters$Tax[i]
+}
+
+cluster_mat$species <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
+
+## update the db, adding in cluster/species ID
+update.species.rdp(con,cluster_mat)
 
 
-
-## min read count 10 , append 'L'
-system(paste("minNodeCutStats2.pl -g 'L' -s 1 ",
-             "-c 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minNodeCut.cltrs ",
-             "-r 454Reads.Lactobacillus.reduced.fasta.clstr2 ",
-             "-o 454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir",sep=""))
-
-taxonomyFile <- "454Reads.Lactobacillus.reduced.combined.filter.sing.hclust.minNodeCut.dir/minCltrSize1.nr.cltr"
-taxonomy <- read.table(taxonomyFile,as.is=T)
-cluster_mat$species <- taxonomy$V2[match(cluster_mat$X5,cluster_mat[match(taxonomy$V1,cluster_mat$X3),"X5"])]
 
