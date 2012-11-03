@@ -1,0 +1,69 @@
+Microbial PreProcessing Report File for `r basefilename`
+========================================================
+
+### File Information
+
+Total Number of Reads in SFF file:`r length(fq)`
+
+Mean length before Roche Right Clip: `r signif(mean(ReadData$RawLength),3)`
+Median length before Roche Right Clip: `r signif(median(ReadData$RawLength),3)`
+Mean length after Roche Right Clip: `r signif(mean(ReadData$RocheLength),3)`
+Median length after Roche Right Clip: `r signif(median(ReadData$RocheLength),3)`
+
+
+### Primer identification using Cross_Match and primer sequences
+Cross_Match v1.09 with parameters
+```
+-minmatch 8 -minscore 12 -tags
+```
+
+```{r fig.width=9, fig.height=4}
+par(mfrow=c(1,2))
+plot(cm_out$read_start[cm_out$FC=="F"],cm_out$score[cm_out$FC=="F"], main="Foward Match",xlab="basepair position",ylab="score")
+plot(cm_out$read_start[cm_out$FC=="C"],cm_out$score[cm_out$FC=="C"], main="Reverse Match", ylab="basepair position",ylab="score")
+```
+
+cat("Forward Primer Errors:\n",file=outfile,append=T)
+sink(file=outfile,append=TRUE)
+stem(ReadData$FPErr,scale=0.5,width=10)
+sink()
+cat("\n",file=outfile,append=T)
+
+cat("Tag Hamming Distance:\n",file=outfile,append=T)
+sink(file=outfile,append=TRUE)
+stem(ReadData$Code_Dist,scale=0.5,width=10)
+sink()
+cat("\n",file=outfile,append=T)
+
+
+cat("Reverse Primer Distance\n",file=outfile,append=T)
+sink(file=outfile,append=TRUE)
+stem(ReadData$RPErr,scale=0.5,width=10)
+sink()
+cat("\n",file=outfile,append=T)
+
+cat(paste("Adapter Based Clipping\n"),file=outfile,append=T)
+cat(paste("Total Forward Primer Errors <= :",maxforwardprimererrors, " :: Reads meeting that criteria ::",table(ReadData$FPErr <= maxforwardprimererrors)[2], "\n"),file=outfile,append=T)
+cat(paste("Tag Max Hamming Distance from Target <= :",maxhammingdisttag, " :: Reads meeting that criteria ::",table(ReadData$Code_Dist <= maxhammingdisttag)[2], "\n"),file=outfile,append=T)
+cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength > minlength)[2], "\n"),file=outfile,append=T)
+cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength < maxlength)[2], "\n"),file=outfile,append=T)
+cat(paste("Primer with Tab found :",table(!is.na(ReadData$Barcode))[2], "\n"),file=outfile,append=T)
+
+
+cat(paste("total number of unique reads:", lucy.unique,"\n"),file=outfile,append=T)
+
+cat(paste("\nLucy Additional Clipping\n"),file=outfile,append=T)
+cat(paste("Maximum Number of Abiguous Characters (Ns) <= :",maxNs, " :: Reads meeting that criteria ::",table(ReadData$lucyNs <= maxNs)[2], "\n"),file=outfile,append=T)
+cat(paste("Maximum Length of a Homopolymer Run <= :",maxhomopol, " :: Reads meeting that criteria ::",table(ReadData$lucymHomoPrun <= maxhomopol)[2], "\n"),file=outfile,append=T)
+cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that criteria ::",table(ReadData$lucyLength > minlength)[2], "\n"),file=outfile,append=T)
+cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$lucyLength < maxlength)[2], "\n"),file=outfile,append=T)
+
+cat(paste("RESULTS\nAdditional Lucy clipped filter: ",sum(ReadData$keep), "Reads kept ::", sum(!ReadData$keep), "Reads removed\n"),file=outfile,append=T)
+
+###########################
+cat("Overlap between Adapter Clipped and Lucy Clipped Data:\n",file=outfile,append=T)
+cat("\n",file=outfile,append=T)
+cat(paste("Mean number of bases removed by Lucy clipping:",signif(mean(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
+cat(paste("Median number of bases removed by Lucy clipping:",signif(median(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
+cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$lucyUnique) & ReadData$keep)[2],"\n"),file=outfile,append=T)
+##########################
