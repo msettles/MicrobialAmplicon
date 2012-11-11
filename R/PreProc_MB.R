@@ -61,6 +61,9 @@ mothur_alignment_db <- "silva.bacteria.fasta"
 mothur.template="/mnt/home/msettles/projects/Amplicon_Preprocessing/Alignment_db/silva.bacteria.fasta"
 mothur_align_call <- paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
 mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=TMP.rdp.align, processors=",nproc,");\"",sep="")
+TE_exp <- 534
+align_length_max_error <- 5
+TE_max_dist <- 75
 
 ### Ribosomal database project
 rdp_ver <- 2.5
@@ -68,7 +71,7 @@ rdp_path <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
 rdp_call <- paste("java -Xmx1g -jar ",rdp_path," -q TMP.rdp.fasta -o TMP.lucy.rdpV6.fix -f fixrank",sep="")
 
 ## filter parameters
-minlength <- 100  ## minimum length of acceptable sequence
+minlength <- 350  ## minimum length of acceptable sequence
 maxlength <- 600  ## maximum length of sequence allowed
 maxhammingdisttag <- 1 ## max hamming distance allowed for barcode
 maxforwardprimererrors <- 2 ## max number of errors allowed in the forward primer
@@ -97,8 +100,10 @@ ReadData <- data.frame(Acc=as.character(id(fq)),
 
 ReadData$RocheLC <- start(qualityClip(fq))
 ReadData$RocheRC <- end(qualityClip(fq))
-
 ReadData$RocheLength <- width(sread(fq,clipmode="full"))
+
+### Checkpoint
+save.image("TMP.RData")
 
 #####################
 ### Run cross_match looking for primers and tags
@@ -107,6 +112,9 @@ ReadData$RocheLength <- width(sread(fq,clipmode="full"))
 writeFastaQual(fq,"TMP.raw",append=FALSE)
 system(cross_match_call)
 cm_out <- parse_cm("TMP.cmout")
+
+### Checkpoint
+save.image("TMP.RData")
 
 ### remove all impossible match (ie forward primer as compliment)
 cm_out <- cm_out[-intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "C")),]
@@ -182,6 +190,9 @@ writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 
 system(lucy_call)
 
+### Checkpoint
+save.image("TMP.RData")
+
 lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
 
 ReadData$LucyLC <- ReadData$AdapterLC
@@ -204,21 +215,16 @@ ReadData$LucyUnique <- NA
 fa.lucy <- sort(fa.lucy)
 lucy.unique <- length(unique(fa.lucy))
 UniqueID <- rep(paste(basefilename,seq.int(lucy.unique),sep="."),times=diff(c(which(!duplicated(fa.lucy)),length(fa.lucy)+1)))
+
 ReadData$LucyUnique[match(names(fa.lucy),ReadData$Acc)] <- UniqueID
 
-expand <- match(ReadData$LucyUnique,unique(UniqueID))
+expand <- match(ReadData$LucyUnique,UniqueID[!duplicated(UniqueID)])
 
 lucyAlphFreq <- alphabetFrequency(fa.lucy[!duplicated(UniqueID)])
 
 ReadData$LucyNs <- lucyAlphFreq[expand,"N"]
 homoRuns <-  sapply(fa.lucy[!duplicated(UniqueID)],function(x) sapply(c("A","C","T","G","N"),function(y) longestConsecutive(as.character(x),letter=y)))
 ReadData$LucymHomoPrun <- apply(t(homoRuns),1,max)[expand]
-######################
-## Run the RDP classifier and align using mothur on all the data
-
-primerRange <- IRanges(start=ReadData$LucyLC,ReadData$LucyRC)
-customClip(fq) <- primerRange ## need to add replacement function 
-clipMode(fq)  <- "custom"
 
 fq_uni <- fq[(!duplicated(ReadData$LucyUnique))]
 names(fq_uni) <- ReadData$LucyUnique[(!duplicated(ReadData$LucyUnique))]
@@ -226,7 +232,11 @@ names(fq_uni) <- ReadData$LucyUnique[(!duplicated(ReadData$LucyUnique))]
 writeFastaQual(fq_uni,"TMP.rdp",append=FALSE)
 
 ######################
+## Run the RDP classifier and align using mothur on all the data
 system(rdp_call)
+
+### Checkpoint
+save.image("TMP.RData")
 
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 
@@ -240,37 +250,53 @@ if(ncol(flip) > 1){
 rdp.lucy <- rdp.lucy[match(unique(ReadData$LucyUnique),rdp.lucy[,1]),]
 rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 
+######################
+## Align to reference DB using Mothur
 system(mothur_align_call)
 system(mothur_filter_call)
+
+### Checkpoint
+save.image("TMP.RData")
 
 ## Fills in unique seqs that fail alignment with NAs
 align.report <- read.table("TMP.rdp.align.report",sep="\t",header=T)
 align.report <- align.report[match(unique(ReadData$LucyUnique),align.report[,1]),]
 align.report[,1] <- unique(ReadData$LucyUnique)
 
+######################
+## Determine Filters
 expand <- match(ReadData$LucyUnique,align.report[,1]) ## do I need or use?
 
-TE_exp <- 534
-align_length_max_error <- 5
-TE_max_dist <- 75
+qual_FP_err <- ReadData$FP_Err <= maxforwardprimererrors  & !is.na(ReadData$FP_Err)
+qual_hamm_dist <- ReadData$Barcode_Err <= maxhammingdisttag & !is.na(ReadData$Barcode_Err)
+qual_maxN <- ReadData$LucyNs <= maxNs
+qual_homoPrun <- ReadData$LucymHomoPrun <= maxhomopol
+
+
+align_start_error <- align.report$QueryStart[expand] <= align_length_max_error
+align_length_error <- align.report$QueryLength[expand]-((align.report$QueryEnd-align.report$QueryStart)[expand]+1) <= align_length_max_error
+#align_end_diff <- align.report$TemplateEnd[expand] > (TE_exp - TE_max_dist) & 
+#  align.report$TemplateEnd[expand] < (TE_exp + TE_max_dist)
+rdp_flip <- rdp.lucy$flip[expand] == reverseSeq & !is.na(rdp.lucy$flip[expand])
+
+len_min <- ReadData$LucyLength > minlength
+len_max <- ReadData$LucyLength < maxlength
+
 
 ReadData$keep <- FALSE
-ReadData$keep <-    
-  align.report$QueryStart[expand] < align_length_max_error &
-  align.report$QueryLength[expand]-((align.report$QueryEnd-align.report$QueryStart)[expand]+1) < align_length_max_error &
+ReadData$keep  <-   
+  qual_hamm_dist &
+  qual_FP_err  &
+  qual_maxN &
+  qual_homoPrun  &
 
-  align.report$TemplateEnd[expand] > (TE_exp - TE_max_dist) & 
-  align.report$TemplateEnd[expand] < (TE_exp + TE_max_dist) &
+  align_start_error &
+  align_length_error &
+#  align_end_diff  &
+  rdp_flip  &
 
-  rdp.lucy$flip[expand] == reverseSeq &
-  
-  ReadData$FPErr <= maxforwardprimererrors &
-  ReadData$Code_Dist <= maxhammingdisttag &
-  ReadData$lucyNs <= maxNs &
-  ReadData$lucymHomoPrun <= maxhomopol &
-  ReadData$LucyLength > minlength &
-  ReadData$LucyLength < maxlength &
-  !is.na(ReadData$Barcode)
+  len_min &
+  len_max 
 
 ReadData$keep[is.na(ReadData$keep)] <- FALSE
 
@@ -281,9 +307,16 @@ ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
 ReadData$Primer_3prime <- sub("RP_","",ReadData$Primer_3prime)
 
 ReadData$version <- version
-##########################
+
+### Checkpoint
+save.image("TMP.RData")
+############################
 ## End Clipping and preprocessing
-##########################
+############################
+
+############################
+## Generate Knitr Report
+############################
 
 ############################
 ## Store Data in A SQLite DB

@@ -22,16 +22,20 @@ Lucy (version `r lucy_ver`, parameters: max average error=`r lucy_max_avg_error`
 using mothur (version `r mothur_ver`). Alignment end points are identified and used in subsequent filtering. Sequence reads
 were filtered to only those that met the following criteria: 
 
-1. sequence is at least `r minlength`bp in length and no greater than `r maxlength`bp in length; 
-2. max hamming distance of barcode = `r maxhammingdisttag`; 
-3. maximum number of matching error to forward primer sequences = `r maxforwardprimererrors`; 
-4. had < `r maxNs` ambiguous bases (Ns); - After Lucy clipping however, no Ns occur
-5. had < `r maxhomopol`bp homopolymer run in sequence; 
-6. alignment to the silva bacterial database is within 75bp of the expected alignment start position (507bp); and 
-7. read alignment started within the first 5bp and extended through read to within the final 5bp. 
+Read quality metrics
+1. max hamming distance of barcode = `r maxhammingdisttag`; 
+2. maximum number of matching error to forward primer sequences = `r maxforwardprimererrors`; 
+3. had < `r maxNs` ambiguous bases (Ns); - After Lucy clipping however, no Ns occur;
+4. had < `r maxhomopol`bp homopolymer run in sequence; 
 
-The RDP Bayesian classifier is used to assign sequences to phylotypes (RDP `r rdp_ver`). 
-Reads are assigned to the first RDP level with a bootstrap score >=50.
+Alignment metrics
+5. read alignment started within the first `r align_length_max_error`bp;
+6. read alignment length is within `r align_length_max_error`bp of read length;
+7. read must align in reverse (3' -> 5');
+
+8. sequence is at least `r minlength`bp in length and no greater than `r maxlength`bp in length; 
+
+The RDP Bayesian classifier is used to assign sequences to phylotypes (RDP `r rdp_ver`). Reads are assigned to the first RDP level with a bootstrap score >=50.
 
 Adapter, Barcode and Primer Identification
 --------------------------------------------------------
@@ -71,7 +75,7 @@ Number of 3' matches found: `r table(factor(cm_out$FC,levels=c("C","F")))[1]`
 
 
 #### Barcodes Identified
-```{r echo=FALSE, fig.align='center', fig.width=9, fig.height=4}
+```{r echo=FALSE, fig.align='center', fig.width=18, fig.height=8}
 par(mar=c(8,4,1,1)+0.1)
 barplot(table(ReadData$Barcode),las=2,cex.names=0.3,xlab="", ylab="Number of reads",main="Distribution of Barcodes")
 mtext("Barcode ID", side=1,line=6.5)
@@ -108,7 +112,7 @@ Mean number of bases removed by Lucy clipping: `r signif(mean(ReadData$AdapterLe
 Median number of bases removed by Lucy clipping: `r signif(median(ReadData$AdapterLength-ReadData$LucyLength),3)`
 
 #### Histogram of read cuts
-```{r echo=FALSE, fig.align='center', fig.width=6,fig.height=4}
+```{r echo=FALSE, fig.align='center', fig.width=8,fig.height=8}
 d <- density(ReadData$RawLength)
 d2 <- density(ReadData$RocheLength)
 d3 <- density(ReadData$AdapterLength)
@@ -149,7 +153,7 @@ Total number of unique reads: `r lucy.unique`
 Appendix - Adapters Screened for
 --------------------------------------------------------
 --------------------------------------------------------
-```{r echo=FALSE}
+```{r echo=FALSE, as.is=TRUE}
 data.frame(Length=width(screen),Sequence=as.character(screen))
 ```
 
