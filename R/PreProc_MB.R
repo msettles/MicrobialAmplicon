@@ -58,7 +58,9 @@ lucy_call <- paste("lucy -xtra", nproc,"-minimum 0 -debug TMP.lucy_clip.txt -err
 ### mothur parameters
 mothur_ver <- "1.27.0"
 mothur_alignment_db <- "silva.bacteria.fasta"
-mothur.template="/mnt/home/msettles/projects/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
+mothur.template="/mnt/home/msettles/projects/Amplicon_Preprocessing/Alignment_db/silva.bacteria.fasta"
+mothur_align_call <- paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
+mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=TMP.rdp.align, processors=",nproc,");\"",sep="")
 
 ### Ribosomal database project
 rdp_ver <- 2.5
@@ -227,8 +229,6 @@ writeFastaQual(fq_uni,"TMP.rdp",append=FALSE)
 system(rdp_call)
 
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
-rdp.lucy <- rdp.lucy[match(unique(ReadData$LucyUnique),rdp.lucy[,1]),]
-rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 
 flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
 if(ncol(flip) > 1){
@@ -236,25 +236,34 @@ if(ncol(flip) > 1){
   rdp.lucy$flip[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- TRUE
 }
 
-system(paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep=""))
-system(paste("mothur \"#filter.seqs(fasta=TMP.rdp.align, processors=",nproc,");\"",sep=""))
+## Fills in unique seqs that fail rdp with NAs
+rdp.lucy <- rdp.lucy[match(unique(ReadData$LucyUnique),rdp.lucy[,1]),]
+rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 
+system(mothur_align_call)
+system(mothur_filter_call)
+
+## Fills in unique seqs that fail alignment with NAs
 align.report <- read.table("TMP.rdp.align.report",sep="\t",header=T)
 align.report <- align.report[match(unique(ReadData$LucyUnique),align.report[,1]),]
 align.report[,1] <- unique(ReadData$LucyUnique)
 
 expand <- match(ReadData$LucyUnique,align.report[,1]) ## do I need or use?
 
-TEtm <- 534-27
+TE_exp <- 534
+align_length_max_error <- 5
+TE_max_dist <- 75
+
 ReadData$keep <- FALSE
 ReadData$keep <-    
-  align.report$QueryStart[expand] < 5 &
-  align.report$QueryLength[expand]-((align.report$QueryEnd-align.report$QueryStart)[expand]+1) < 5 &
+  align.report$QueryStart[expand] < align_length_max_error &
+  align.report$QueryLength[expand]-((align.report$QueryEnd-align.report$QueryStart)[expand]+1) < align_length_max_error &
+
+  align.report$TemplateEnd[expand] > (TE_exp - TE_max_dist) & 
+  align.report$TemplateEnd[expand] < (TE_exp + TE_max_dist) &
+
   rdp.lucy$flip[expand] == reverseSeq &
-
-  align.report$TemplateEnd[expand] > (TEtm - 75) & 
-  align.report$TemplateEnd[expand] < (TEtm + 75) &
-
+  
   ReadData$FPErr <= maxforwardprimererrors &
   ReadData$Code_Dist <= maxhammingdisttag &
   ReadData$lucyNs <= maxNs &
