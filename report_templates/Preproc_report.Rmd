@@ -181,7 +181,7 @@ Appendix - Adapters Screened for
 --------------------------------------------------------
 ```{r echo=FALSE, as.is=TRUE}
 library(xtable)
-print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen))))
+print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen))),type="html")
 ```
 
 SessionInfo

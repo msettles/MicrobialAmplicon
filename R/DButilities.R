@@ -48,9 +48,9 @@
   # get the current table
   metadata <- dbReadTable(con,"pool_metadata")
   metatable <- read.table(filename,sep="\t",header=T)
-  metatable <- metatable[!(apply(metatable[,c("Project","Sample_ID","Reverse_Primer")],1,paste,collapse=" ") %in% apply(metadata[,c("Project","Sample_ID","Reverse_Primer")],1,paste,collapse=" ")),]
+  metatable <- metatable[!(apply(metatable[,c("Project","Sample_ID","Reverse_Primer")],1,paste,collapse=" ") %in% apply(metadata[,c("Project","Sample_ID","Barcode")],1,paste,collapse=" ")),]
   print(paste("Adding ",nrow(metatable)," entries",sep=""))
-  if (nrow(pooltable) > 0)
+  if (nrow(metatable) > 0)
     dbWriteTable(con,"pool_metadata",metatable,row.names=F,append=T)
 }
 
