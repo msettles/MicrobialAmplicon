@@ -12,14 +12,14 @@ dbBeginTransaction(con)
 sql <- "CREATE TABLE processed (
   Run CHAR(9) PRIMARY KEY,
   Reads_good INTEGER,
-  Reads_fail INTEGER
+  Reads_fail INTEGER,
+  Date CHAR(24)
 );"
 dbSendQuery(con, sql)
 sql <- "CREATE INDEX proc_run ON processed (Run);"
 dbSendQuery(con, sql)
 
 # Generate table read_data, stores primary information about each read
-Acc       Run RawLength RocheLC RocheRC RocheLength AdapterLC                        Barcode FPErr
 sql <- "
 CREATE TABLE read_data (
   Acc CHAR(14) PRIMARY KEY,             -- Accession ID of the Read
@@ -65,7 +65,7 @@ dbSendQuery(con, sql)
 # Generate table for alignment data, stores information about mothur alignments
 sql <- "
 CREATE TABLE align_report (
-  lucyUnique VARCHAR(80) PRIMARY KEY,
+  LucyUnique VARCHAR(80) PRIMARY KEY,
   Run CHAR(9) NOT NULL,
   QueryLength INTEGER,
   TemplateName VARCHAR(20),
@@ -81,14 +81,11 @@ CREATE TABLE align_report (
   GapsInQuery INTEGER,
   GapsInTemplate INTEGER,
   LongestInsert INTEGER,
-  SimBtwnQuery_Template NUMERIC,
-  flip VARCHER(5) NOT NULL,
-  QueryFull INTEGER,
-  adpLC INTEGER
+  SimBtwnQuery_Template NUMERIC
 );"
 dbSendQuery(con, sql)
 
-sql <- "CREATE INDEX ar_lucy_unique ON align_report (lucyUnique);"
+sql <- "CREATE INDEX ar_lucy_unique ON align_report (LucyUnique);"
 dbSendQuery(con, sql)
 
 sql <- "CREATE INDEX ar_run ON align_report (Run);"
@@ -96,7 +93,7 @@ dbSendQuery(con, sql)
 
 # Generate table for rdp_report, stores rdp assignment information
 sql <- "CREATE TABLE rdp_report (
-  lucyUnique VARCHAR(80)  PRIMARY KEY,
+  LucyUnique VARCHAR(80)  PRIMARY KEY,
   Run CHAR(9) NOT NULL,
   flip VARCHER(5),
   domain_name,
@@ -129,7 +126,7 @@ sql <- "CREATE TABLE pool_metadata (
   ID VARCHAR(20) NOT NULL,
   Pool VARCHAR(20) NOT NULL,
   Second_Primer VARCHAR(20) NOT NULL,
-  Barcode VARCHAR(80), NOT NULL,
+  Barcode VARCHAR(80) NOT NULL,
   DNA_conc NUMERIC,
   tVol  NUMERIC,
   pVol NUMERIC,
@@ -137,7 +134,7 @@ sql <- "CREATE TABLE pool_metadata (
   Prepared_by VARCHAR(20) NOT NULL,
   Isolation_ID VARCHAR(20) NOT NULL,
   Project VARCHAR(20) NOT NULL,
-  Sample_ID VARCHAR(20) PRIMARY_KEY
+  Sample_ID VARCHAR(20) 
 );"
 dbSendQuery(con, sql)
 

@@ -76,8 +76,3 @@ sd.trim <- function(x, trim=0, na.rm=FALSE, ...)
     cm_out
   }
 
-
-### run the Knitr report generator
-
-##knit(paste("Reports/Preproc_report_",basefilename,".Rmd",sep=""),output=paste("Reports/Preproc_report_",basefilename,".md",sep=""))
-

@@ -180,7 +180,8 @@ Appendix - Adapters Screened for
 --------------------------------------------------------
 --------------------------------------------------------
 ```{r echo=FALSE, as.is=TRUE}
-data.frame(Length=width(screen),Sequence=as.character(screen))
+library(xtable)
+print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen))))
 ```
 
 SessionInfo

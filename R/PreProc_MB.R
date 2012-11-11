@@ -319,40 +319,49 @@ save.image("TMP.RData")
 ## Generate Knitr Report
 ############################
 
+file.copy(file.path(microbe.amplicon.home,"report_templates","Preproc_report.Rmd"),file.path("Reports",paste("Preproc_report_",basefilename,".Rmd",sep="")),recursive=TRUE)
+setwd("Reports")
+knit2html(paste("Preproc_report_",basefilename,".Rmd",sep=""))
+setwd("..")
 ############################
 ## Store Data in A SQLite DB
 ############################
 
-library(RSQLite)
-drv <- SQLite()
-con <- dbConnect(drv, dbname="amplicondata.sqlite")
+dbDis(con)
+con <- dbCon(dbname=dbname)
 
 sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
-  $AdapterLC, $AdapterRC, $AdapterLength, $Barcode, $FPErr, $Code_Dist, 
-  $Primer_3prime, $RPErr, $LucyLC, $LucyRC, $LucyLength, $LucyUnique, $lucyNs, $lucymHomoPrun,
+  $AdapterLC, $Barcode, $Barcode_Err, $FP_Err, $AdapterRC, $Primer_3prime, $RP_Err, $AdapterLength, 
+  $LucyLC, $LucyRC, $LucyLength, $LucyUnique, $LucyNs, $LucymHomoPrun,
   $keep, $version)"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = ReadData)
 dbCommit(con)
 
+align.report$Run <- ReadData$Run[match(align.report$QueryName,ReadData$LucyUnique)]
 align.report$SimBtwnQuery <- align.report$SimBtwnQuery.Template
-sql <- "INSERT INTO align_report VALUES ($QueryName, $QueryLength, $TemplateName, $TemplateLength, $SearchMethod,
+sql <- "INSERT INTO align_report VALUES ($QueryName, $Run, $QueryLength, $TemplateName, $TemplateLength, $SearchMethod,
   $SearchScore, $AlignmentMethod, $QueryStart, $QueryEnd, $TemplateStart, $TemplateEnd, $PairwiseAlignmentLength, 
-  $GapsInQuery, $GapsInTemplate, $LongestInsert, $SimBtwnQuery, $flip, $QueryFull, $adpLC)"
+  $GapsInQuery, $GapsInTemplate, $LongestInsert, $SimBtwnQuery)"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = align.report)
 dbCommit(con)
-###### TO DO: Need to add in Run
-sql <- "INSERT INTO rdp_report VALUES ($V1, RUN, $V2, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA', 'NA')"
+
+rdp.lucy$Run <- ReadData$Run[match(rdp.lucy$V1,ReadData$LucyUnique)]
+sql <- "INSERT INTO rdp_report VALUES ($V1, $Run, $flip, $V3, $V5, $V6, $V8, $V9, $V11, $V12, $V14, $V15, $V17, $V18, $V20, 'NA')"
 
 dbBeginTransaction(con)
 dbGetPreparedQuery(con, sql, bind.data = rdp.lucy)
 dbCommit(con)
 
-system(paste("mv TMP.rdp.align Output_Files/",basefilename,".lucy.align",sep=""))
+### Update Completed Run table
+updateProcessedRuns(con,unique(ReadData$Run),sum(ReadData$keep),nrow(ReadData)-sum(ReadData$keep))
+
+dbDis(con)
+#### cleanup
 system("rm -rf TMP*")
 system("rm -rf mothur*")
-
+system("rm -rf .RData .Rhistory")
 

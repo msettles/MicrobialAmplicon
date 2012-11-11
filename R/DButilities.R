@@ -23,6 +23,15 @@
   dbGetQuery(con, "SELECT DISTINCT Run FROM read_data;")$Run
 }
 
+"updateProcessedRuns" <- function(con, Run, Pass, Fail){
+  runs <- dbReadTable(con, "processed")
+  proctable <- data.frame(Run=Run, Pass=Pass, Fail=Fail,Date=date())
+  proctable <- proctable[!(proctable$Run %in% runs$Run),]
+  print(paste("Adding ",nrow(proctable)," entries",sep=""))
+  if (nrow(proctable) > 0)
+    dbWriteTable(con,"processed",proctable,row.names=F,append=T)
+}
+
 ## pool_mapping to add
 "updateRunMappings" <- function(con,filename="MetaData/Pool_Mapping.txt"){
   ## get the current table
@@ -35,7 +44,7 @@
 }
 
 ## Metadata Table to add
-"updateMetaData" <- function(con,filename="MetaData/Pool_MetaData_Sept28-2012.txt"){
+"updateMetaData" <- function(con,filename="MetaData/Pool_MetaData.txt"){
   # get the current table
   metadata <- dbReadTable(con,"pool_metadata")
   metatable <- read.table(filename,sep="\t",header=T)
