@@ -141,7 +141,7 @@ RDP classification
 boxplot(align.report$TemplateEnd[expand][ReadData$keep] ~ rdp.lucy$V18[expand][ReadData$keep],xaxt="n",xlab="",main="Taxa my alignmenet location",ylab="basepair position",xlab="")
 axis(1,labels=FALSE)
 labels <- sort(unique(rdp.lucy$V18[expand][ReadData$keep]))
-text(1:length(labels), par("usr")[3] - 0.50, srt = 90, adj = 1, cex=0.5
+text(1:length(labels), par("usr")[3] - 0.50, srt = 90, adj = 1, cex=0.5,
      labels = labels, xpd = TRUE)
 ```
 
