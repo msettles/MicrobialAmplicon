@@ -2,7 +2,6 @@
 ####  Functions based on DB
 #####################################################
 
-
 "dbCon" <- function(dbname="amplicondata.sqlite"){
   require(RSQLite)
   drv <- SQLite()
@@ -13,7 +12,7 @@
 
 
 "getProcessedRuns" <- function(con){
-  dbGetQuery(con, "SELECT DISTINCT Run FROM read_data;")$Run
+  dbGetQuery(con, "SELECT Run FROM processed;")$Run
 }
 
 "getProjects" <- function(con){

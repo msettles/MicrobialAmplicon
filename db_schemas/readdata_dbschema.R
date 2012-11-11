@@ -19,6 +19,7 @@ sql <- "CREATE INDEX proc_run ON processed (Run);"
 dbSendQuery(con, sql)
 
 # Generate table read_data, stores primary information about each read
+Acc       Run RawLength RocheLC RocheRC RocheLength AdapterLC                        Barcode FPErr
 sql <- "
 CREATE TABLE read_data (
   Acc CHAR(14) PRIMARY KEY,             -- Accession ID of the Read
@@ -28,13 +29,14 @@ CREATE TABLE read_data (
   RocheRC INTEGER,
   RocheLength INTEGER,
   AdapterLC INTEGER,
-  AdapterRC INTEGER,
-  AdapterLength INTEGER,
   Barcode VARCHAR(80),
-  FPErr INTEGER,
-  Code_Dist INTEGER,
+  Barcode_Err INTEGER,
+  FP_Err INTEGER,
+  AdapterRC INTEGER,
   Primer_3prime VARCHAR(80),
-  RPErr INTEGER,
+  RP_Err INTEGER,
+  AdapterLength INTEGER,
+
   lucyLC INTEGER,
   lucyRC INTEGER,
   lucyLength INTEGER,
