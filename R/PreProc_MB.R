@@ -4,18 +4,47 @@
 ### Primary functions/main for Amplicon Processing
 ###
 ###############################################################################
+## setup
 options(width=120)
 options("stringsAsFactors" = FALSE)
 library(rSFFreader)
 library(getopt)
 
-version = "Rcode:1.0;rdp:2.5;mothur:1.27;alignment_db:silva.bacteria.fasta"
-
 ### Microbial Processing Home
 microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
+
 source(file.path(microbe.amplicon.home,"R","functions.R"))
-#source(file.path(microbe.amplicon.home,"R","PreProc_functions.R")) ## in update
-screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
+
+###########################################################################################
+###########################################################################################
+# PARAMTER SECTION
+###########################################################################################
+###########################################################################################
+
+### VERSION OF THIS CODE
+my_ver <- "2.0"
+### cross_match parameters
+cross_match_ver <- "1.090518"
+cross_match_minmatch <- 8
+cross_match_minscore <- 12
+cross_match_screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
+
+### lucy parameters
+lucy_ver <- "1.20p"
+lucy_max_avg_error <- 0.002 # Qscore 27
+lucy_max_error_at_ends <- 0.002
+
+### mothur parameters
+mothur_ver <- "1.27.0"
+mothur_alignment_db <- "silva.bacteria.fasta"
+
+### Ribosomal database project
+rdp_ver <- 2.5
+
+version = paste("Rcode:",my_ver,";rdp:",rdp_ver,";mothur:",mothur_ver,";alignment_db:",mothur_alignment_db,collapse="")
+###########################################################################################
+###########################################################################################
+
 
 sfffiles <- commandArgs(TRUE)
 #sfffiles <- "Amplicon_SFFfiles_AmpProc/HVCR0MB02.sff"
@@ -66,9 +95,9 @@ ReadData$RocheLength <- width(sread(fq,clipmode="full"))
 ### Run cross_match looking for primers and tags
 #cross_match test.fasta /mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon/ext.data/screen_27f-534r.combined.fa -minmatch 8 -minscore 16 -tags > test.cmout
 
-### make faster by using multicore and splitting reads
+### can make faster by using multicore and splitting reads
 writeFastaQual(fq,"TMP.raw",append=FALSE)
-system(paste("cross_match TMP.raw.fasta ", screenfile, " -minmatch 8 -minscore 12 -tags > TMP.cmout",sep=""))
+system(paste("cross_match TMP.raw.fasta ", screenfile, " -minmatch ",cross_match_minmatch," -minscore ", cross_match_minscore," -tags > TMP.cmout",sep=""))
 cm_out <- parse_cm("TMP.cmout")
 
 cm_out <- cm_out[-intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "C")),]
@@ -146,7 +175,7 @@ writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 ###########################
 ## check for poor regions with lucy
 # Performing lucy based quality trimming, error (27)
-system(paste("lucy -xtra", nproc,"-minimum 0 -debug TMP.lucy_clip.txt -error 0.002 0.002 -output TMP.lucy.fasta TMP.lucy.fasta.qual  TMP.adapterClip.fasta  TMP.adapterClip.fasta.qual"))
+system(paste("lucy -xtra", nproc,"-minimum 0 -debug TMP.lucy_clip.txt -error ",lucy_max_avg_error, " ", lucy_max_error_at_ends, " -output TMP.lucy.fasta TMP.lucy.fasta.qual  TMP.adapterClip.fasta  TMP.adapterClip.fasta.qual"))
 
 lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
 
@@ -237,8 +266,6 @@ ReadData$keep[is.na(ReadData$keep)] <- FALSE
 
 
 ### clean up primer designations
-ReadData$Barcode <- sub("FP_","",ReadData$Barcode)
-ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
 ReadData$Barcode <- sub("FP_","",ReadData$Barcode)
 ReadData$Barcode <- sub(",[0-9]+","",ReadData$Barcode)
 ReadData$Primer_3prime <- sub("RP_","",ReadData$Primer_3prime)

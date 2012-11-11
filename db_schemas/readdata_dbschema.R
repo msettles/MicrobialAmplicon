@@ -7,6 +7,17 @@ drv <- SQLite()
 con <- dbConnect(drv, dbname="amplicondataV2.0.sqlite")
 
 dbBeginTransaction(con)
+
+# Processed files
+sql <- "CREATE TABLE processed (
+  Run CHAR(9) PRIMARY KEY
+  Reads_good INTEGER,
+  Reads_fail INTEGER
+);"
+dbSendQuery(con, sql)
+sql <- "CREATE INDEX proc_run ON processed (Run);"
+dbSendQuery(con, sql)
+
 # Generate table read_data, stores primary information about each read
 sql <- "
 CREATE TABLE read_data (
