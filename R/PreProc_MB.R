@@ -183,16 +183,16 @@ system(lucy_call)
 lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
 
 ReadData$LucyLC <- ReadData$AdapterLC
-ReadData$lucyRC <- ReadData$AdapterRC
+ReadData$LucyRC <- ReadData$AdapterRC
 
 zeros <- which(lucy$V9 == 0)
-ReadData$lucyRC[match(lucy[zeros,1] ,ReadData$Acc)] <- ReadData$LucyLC[match(lucy[zeros,1] ,ReadData$Acc)]
-ReadData$lucyRC[match(lucy[-zeros,1],ReadData$Acc)] <- ReadData$AdapterLC[match(lucy[-zeros,1],ReadData$Acc)] + lucy[-zeros,10] -1
+ReadData$LucyRC[match(lucy[zeros,1] ,ReadData$Acc)] <- ReadData$LucyLC[match(lucy[zeros,1] ,ReadData$Acc)]
+ReadData$LucyRC[match(lucy[-zeros,1],ReadData$Acc)] <- ReadData$AdapterLC[match(lucy[-zeros,1],ReadData$Acc)] + lucy[-zeros,10] -1
 ReadData$LucyLC[match(lucy[-zeros,1],ReadData$Acc)] <- ReadData$AdapterLC[match(lucy[-zeros,1],ReadData$Acc)] + lucy[-zeros,9] -1
-ReadData$LucyLength <- ReadData$lucyRC - ReadData$LucyLC +1
+ReadData$LucyLength <- ReadData$LucyRC - ReadData$LucyLC +1
 
 # computer read statistics
-lucyRange <- IRanges(start=ReadData$LucyLC,ReadData$lucyRC)
+lucyRange <- IRanges(start=ReadData$LucyLC,ReadData$LucyRC)
 customClip <- lucyRange
 clipMode(fq)  <- "custom"
 
@@ -211,11 +211,10 @@ lucyAlphFreq <- alphabetFrequency(fa.lucy[!duplicated(UniqueID)])
 ReadData$LucyNs <- lucyAlphFreq[expand,"N"]
 homoRuns <-  sapply(fa.lucy[!duplicated(UniqueID)],function(x) sapply(c("A","C","T","G","N"),function(y) longestConsecutive(as.character(x),letter=y)))
 ReadData$LucymHomoPrun <- apply(t(homoRuns),1,max)[expand]
-
 ######################
 ## Run the RDP classifier and align using mothur on all the data
 
-primerRange <- IRanges(start=ReadData$LucyLC,ReadData$lucyRC)
+primerRange <- IRanges(start=ReadData$LucyLC,ReadData$LucyRC)
 customClip(fq) <- primerRange ## need to add replacement function 
 clipMode(fq)  <- "custom"
 
@@ -287,7 +286,7 @@ con <- dbConnect(drv, dbname="amplicondata.sqlite")
 
 sql <- "INSERT INTO read_data VALUES ($Acc, $Run, $RawLength, $RocheLC, $RocheRC, $RocheLength, 
   $AdapterLC, $AdapterRC, $AdapterLength, $Barcode, $FPErr, $Code_Dist, 
-  $Primer_3prime, $RPErr, $LucyLC, $lucyRC, $LucyLength, $LucyUnique, $lucyNs, $lucymHomoPrun,
+  $Primer_3prime, $RPErr, $LucyLC, $LucyRC, $LucyLength, $LucyUnique, $lucyNs, $lucymHomoPrun,
   $keep, $version)"
 
 dbBeginTransaction(con)

@@ -36,13 +36,12 @@ CREATE TABLE read_data (
   Primer_3prime VARCHAR(80),
   RP_Err INTEGER,
   AdapterLength INTEGER,
-
-  lucyLC INTEGER,
-  lucyRC INTEGER,
-  lucyLength INTEGER,
-  lucyUnique VARCHAR(80) NOT NULL,
-  lucyNs INTEGER,
-  lucymHomoPrun INTEGER,
+  LucyLC INTEGER,
+  LucyRC INTEGER,
+  LucyLength INTEGER,
+  LucyUnique VARCHAR(80) NOT NULL,
+  LucyNs INTEGER,
+  LucymHomoPrun INTEGER,
   keep VARCHAR(5) NOT NULL,
   version VARCHAR(80) NOT NULL
 );"

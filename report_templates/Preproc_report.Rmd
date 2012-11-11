@@ -17,14 +17,14 @@ primers sequence using Cross Match (version `r cross_match_ver`, parameters: min
 score=`r cross_match_minscore` and -tags) from the phred/phrap/consed application suite. Cross Match alignment information
 is then read into R and processed to identify alignment quality, directionality, barcode
 assignment, and new read clip points. Base quality clipping was performed using the application
-Lucy (version `r lucy_ver`, parameters: max average error=`r lucy_max_avg_error`, max error at ends=
-`r lucy_max_error_at_ends`, minimum=0). We then align the clipped reads to the silva bacterial sequence database
+Lucy (version `r Lucy_ver`, parameters: max average error=`r Lucy_max_avg_error`, max error at ends=
+`r Lucy_max_error_at_ends`, minimum=0). We then align the clipped reads to the silva bacterial sequence database
 using mothur (version `r mothur_ver`). Alignment end points are identified and used in subsequent filtering. Sequence reads
 were filtered to only those that met the following criteria: 
 * (a) sequence is at least `r minlength`bp in length and no greater than `r maxlength`bp in length; 
 * (b) max hamming distance of barcode = `r maxhammingdisttag`; 
 * (c) maximum number of matching error to forward primer sequences = `r maxforwardprimererrors`; 
-* (d) had < `r maxNs` ambiguous bases (Ns); - After lucy clipping however, no Ns occur
+* (d) had < `r maxNs` ambiguous bases (Ns); - After Lucy clipping however, no Ns occur
 * (e) had < `r maxhomopol`bp homopolymer run in sequence; 
 * (f) alignment to the silva bacterial database is within 75bp of the expected alignment start position (507bp); and 
 * (g) read alignment started within the first 5bp and extended through read to within the final 5bp. 
@@ -47,7 +47,6 @@ Mean length after Roche Right Clip: `r signif(mean(ReadData$RocheLength),3)`
 Median length after Roche Right Clip: `r signif(median(ReadData$RocheLength),3)`
 
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
-par(mfrow=c(1,2))
 hist(ReadData$RawLength, breaks=200, xlab="Read Length", main="Raw Length")    
 hist(ReadData$RocheLength, breaks=200, xlab="Read Length", main="Roche Clipped Length")    
 ```
@@ -58,49 +57,51 @@ cross_match_call
 ```
 
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
-par(mfrow=c(1,2))
 plot(cm_out$read_start[cm_out$FC=="F"],cm_out$score[cm_out$FC=="F"], main="Foward Match",xlab="basepair position",ylab="score")
 plot(cm_out$read_start[cm_out$FC=="C"],cm_out$score[cm_out$FC=="C"], main="Reverse Match", xlab="basepair position",ylab="score")
 ```
 
+
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
-layout(matrix(c(1,1,1,2,2,2,2,2,2),nrow=1))
 barplot(table(ReadData$Barcode_Err,useNA="always")/length(fq)*100,ylim=c(0,100),main="Barcode Error",xlab="Number of errors",ylab="Percent of reads")
 barplot(table(ReadData$FP_Err,useNA="always")/length(fq)*100,ylim=c(0,100),main="5' Primer Error",xlab="Number of errors",ylab="Percent of reads")
 ```
-  
 
-### Trimming low quality sequence using lucy
+3' Primers found 
+```{r echo=FALSE}
+as.data.frame(table(ReadData$Primer_3prime,useNA="always"))
+```
+
+Reads with Barcode found : `r table(!is.na(ReadData$Barcode))[2]`
+
+Total Forward Primer Errors <= `r maxforwardprimererrors` :: Reads meeting that criteria: `r table(ReadData$FP_Err <= maxforwardprimererrors)[2]`
+
+Tag Max Hamming Distance from Target <= `r maxhammingdisttag` :: Reads meeting that criteria: `r table(ReadData$Barcode_Err <= maxhammingdisttag)[2]`
+
+
+### Trimming low quality sequence using Lucy
 --------------------------------------------------------
 --------------------------------------------------------
 ```{r echo=FALSE}
-lucy_call
+Lucy_call
 ```
 
-plot((table(ReadData$Primer_3prime,useNA="always")))
+```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
+hist(ReadData$LucyLC - ReadData$AdapterLC,breaks=200,main="Histogram of Lucy trimming (5' end)", xlab="Number of bases trimmed")
+hist(ReadData$AdapterRC - ReadData$LucyRC,breaks=200,main="Histogram of Lucy trimming (3' end)", xlab="Number of bases trimmed")
+```
 
-cat(paste("Adapter Based Clipping\n"),file=outfile,append=T)
-cat(paste("Total Forward Primer Errors <= :",maxforwardprimererrors, " :: Reads meeting that criteria ::",table(ReadData$FPErr <= maxforwardprimererrors)[2], "\n"),file=outfile,append=T)
-cat(paste("Tag Max Hamming Distance from Target <= :",maxhammingdisttag, " :: Reads meeting that criteria ::",table(ReadData$Code_Dist <= maxhammingdisttag)[2], "\n"),file=outfile,append=T)
-cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength > minlength)[2], "\n"),file=outfile,append=T)
-cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$AdapterLength < maxlength)[2], "\n"),file=outfile,append=T)
-cat(paste("Primer with Tab found :",table(!is.na(ReadData$Barcode))[2], "\n"),file=outfile,append=T)
+Mean number of bases removed by Lucy clipping: `r signif(mean(ReadData$AdapterLength-ReadData$LucyLength),3)`
 
+Median number of bases removed by Lucy clipping: `r signif(median(ReadData$AdapterLength-ReadData$LucyLength),3)`
 
-cat(paste("total number of unique reads:", lucy.unique,"\n"),file=outfile,append=T)
+Reads Greater than Min Length (`r minlength`) :: Reads meeting that criteria: `table(ReadData$LucyLength > minlength)[2]`
 
-cat(paste("\nLucy Additional Clipping\n"),file=outfile,append=T)
-cat(paste("Maximum Number of Abiguous Characters (Ns) <= :",maxNs, " :: Reads meeting that criteria ::",table(ReadData$lucyNs <= maxNs)[2], "\n"),file=outfile,append=T)
-cat(paste("Maximum Length of a Homopolymer Run <= :",maxhomopol, " :: Reads meeting that criteria ::",table(ReadData$lucymHomoPrun <= maxhomopol)[2], "\n"),file=outfile,append=T)
-cat(paste("Reads Greater than Min Length > :",minlength, " :: Reads meeting that criteria ::",table(ReadData$lucyLength > minlength)[2], "\n"),file=outfile,append=T)
-cat(paste("Reads Less than Max Length :",maxlength, " :: Reads meeting that criteria ::",table(ReadData$lucyLength < maxlength)[2], "\n"),file=outfile,append=T)
+Reads Less than Max Length (`r maxlength`) :: Reads meeting that criteria: `r table(ReadData$LucyLength < maxlength)[2]`
 
-cat(paste("RESULTS\nAdditional Lucy clipped filter: ",sum(ReadData$keep), "Reads kept ::", sum(!ReadData$keep), "Reads removed\n"),file=outfile,append=T)
+Maximum Number of Abiguous Characters (Ns) <= `r maxNs` :: Reads meeting that criteria: `r table(ReadData$LucyNs <= maxNs)[2]`
 
-###########################
-cat("Overlap between Adapter Clipped and Lucy Clipped Data:\n",file=outfile,append=T)
-cat("\n",file=outfile,append=T)
-cat(paste("Mean number of bases removed by Lucy clipping:",signif(mean(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
-cat(paste("Median number of bases removed by Lucy clipping:",signif(median(ReadData$AdapterLength-ReadData$lucyLength),3),"\n"),file=outfile,append=T)
-cat(paste("Number of reads Lucy    Clipped and Unique:",table(!duplicated(ReadData$lucyUnique) & ReadData$keep)[2],"\n"),file=outfile,append=T)
-##########################
+Maximum Length of a Homopolymer Run <= `r maxhomopol` :: Reads meeting that criteria: `r table(ReadData$LucymHomoPrun <= maxhomopol)[2]`
+
+Total number of unique reads: `r lucy.unique`
+
