@@ -240,6 +240,9 @@ save.image("TMP.RData")
 
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 
+### Checkpoint
+save.image("TMP.RData")
+
 flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
 if(ncol(flip) > 1){
   rdp.lucy$flip <- FALSE
@@ -272,7 +275,6 @@ qual_hamm_dist <- ReadData$Barcode_Err <= maxhammingdisttag & !is.na(ReadData$Ba
 qual_maxN <- ReadData$LucyNs <= maxNs
 qual_homoPrun <- ReadData$LucymHomoPrun <= maxhomopol
 
-
 align_start_error <- align.report$QueryStart[expand] <= align_length_max_error
 align_length_error <- align.report$QueryLength[expand]-((align.report$QueryEnd-align.report$QueryStart)[expand]+1) <= align_length_max_error
 #align_end_diff <- align.report$TemplateEnd[expand] > (TE_exp - TE_max_dist) & 
@@ -281,7 +283,6 @@ rdp_flip <- rdp.lucy$flip[expand] == reverseSeq & !is.na(rdp.lucy$flip[expand])
 
 len_min <- ReadData$LucyLength > minlength
 len_max <- ReadData$LucyLength < maxlength
-
 
 ReadData$keep <- FALSE
 ReadData$keep  <-   

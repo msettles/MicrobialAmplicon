@@ -123,16 +123,34 @@ lines(d2,col="red")
 lines(d3,col="green")
 lines(d4,col="orange")
 legend("topright",legend=c("Raw","Roche","Primer Trimmed","Lucy Trimmed"),pch=4,text.col=c("black","red","green","orange"),col=c("black","red","green","orange"))
-dev.off()
 ```
 
 Mothur alignment to reference database
 --------------------------------------------------------
 --------------------------------------------------------
+#### Read Alignment locations to regerence
+```{r echo=FALSE, fig.align='center', fig.width=9, fig.height=4}
+hist(align.report$TemplateEnd,breaks=500)
+```
 
 RDP classification
 --------------------------------------------------------
 --------------------------------------------------------
+#### Classification by Alignment location
+```{r echo=FALSE, fig.align='center', fig.width=18, fig.height=8}
+boxplot(align.report$TemplateEnd[expand][ReadData$keep] ~ rdp.lucy$V18[expand][ReadData$keep],xaxt="n",xlab="",main="Taxa my alignmenet location",ylab="basepair position",xlab="")
+axis(1,labels=FALSE)
+labels <- sort(unique(rdp.lucy$V18[expand][ReadData$keep]))
+text(1:length(labels), par("usr")[3] - 0.50, srt = 90, adj = 1,
+     labels = labels, xpd = TRUE)
+```
+
+#### Frequency of top 20 identified taxa > 1%
+```{r echo=FALSE, fig.align='center', fig.width=12}
+taxa_tb <- table(rdp.lucy$V18[expand][ReadData$keep])/sum(ReadData$keep)*100
+par(mar=c(5,8,4,1)+0.1)
+barplot(taxa_tb[which(taxa_tb >= 1)],horiz=TRUE,las=2,xlim=c(0,100),main="Common Taxa",xlab="Percent",ylab="")
+```
 
 Filtering Reads
 --------------------------------------------------------
