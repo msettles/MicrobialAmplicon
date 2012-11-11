@@ -284,6 +284,7 @@ rdp_flip <- rdp.lucy$flip[expand] == reverseSeq & !is.na(rdp.lucy$flip[expand])
 len_min <- ReadData$LucyLength > minlength
 len_max <- ReadData$LucyLength < maxlength
 
+
 ReadData$keep <- FALSE
 ReadData$keep  <-   
   qual_hamm_dist &
@@ -300,7 +301,6 @@ ReadData$keep  <-
   len_max 
 
 ReadData$keep[is.na(ReadData$keep)] <- FALSE
-
 
 ### clean up primer designations
 ReadData$Barcode <- sub("FP_","",ReadData$Barcode)

@@ -141,7 +141,7 @@ RDP classification
 boxplot(align.report$TemplateEnd[expand][ReadData$keep] ~ rdp.lucy$V18[expand][ReadData$keep],xaxt="n",xlab="",main="Taxa my alignmenet location",ylab="basepair position",xlab="")
 axis(1,labels=FALSE)
 labels <- sort(unique(rdp.lucy$V18[expand][ReadData$keep]))
-text(1:length(labels), par("usr")[3] - 0.50, srt = 90, adj = 1,
+text(1:length(labels), par("usr")[3] - 0.50, srt = 90, adj = 1, cex=0.5
      labels = labels, xpd = TRUE)
 ```
 
@@ -155,17 +155,25 @@ barplot(taxa_tb[which(taxa_tb >= 1)],horiz=TRUE,las=2,xlim=c(0,100),main="Common
 Filtering Reads
 --------------------------------------------------------
 --------------------------------------------------------
+#### Filtered statistics
+```{r echo=FALSE, fig.align='center', fig.width=12}
+par(mar=c(5,10,4,2)+0.1)
+barplot(c('Forward primer error'=sum(qual_FP_err)/length(qual_FP_err)*100,
+          'Barcode error'=sum(qual_hamm_dist)/length(qual_hamm_dist)*100,
+          'N bases'=sum(qual_maxN)/length(qual_maxN)*100,
+          'Homopolymer count'=sum(qual_homoPrun)/length(qual_homoPrun)*100,
+          'Align start dist'=sum(align_start_error)/length(align_start_error)*100,
+          'Align length dist'=sum(align_length_error)/length(align_length_error)*100,
+          'Align reverse match'=sum(rdp_flip)/length(rdp_flip)*100,
+          'Minimum length'=sum(len_min)/length(len_min)*100,
+          'Maximum length'=sum(len_max)/length(len_max)*100,
+          'All Filter'=sum(ReadData$keep)/length(ReadData$keep)*100),horiz=TRUE,las=2,xlim=c(0,100),xlab="Percentage Pass",main="Filter statistics")
+```
 
+Final number of reads passing filter: `r sum(ReadData$keep)` (`r sum(ReadData$keep)/length(ReadData$keep)*100`%)
 
-Reads Greater than Min Length (`r minlength`) :: Reads meeting that criteria: `r table(factor(ReadData$LucyLength > minlength,levels=c(FALSE,TRUE)))[2]`
+Total number of unique reads: `r length(unique(ReadData$LucyUnique[ReadData$keep]))`
 
-Reads Less than Max Length (`r maxlength`) :: Reads meeting that criteria: `r table(factor(ReadData$LucyLength < maxlength,levels=c(FALSE,TRUE)))[2]`
-
-Maximum Number of Abiguous Characters (Ns) <= `r maxNs` :: Reads meeting that criteria: `r table(factor(ReadData$LucyNs <= maxNs,levels=c(FALSE,TRUE)))[2]`
-
-Maximum Length of a Homopolymer Run <= `r maxhomopol` :: Reads meeting that criteria: `r table(factor(ReadData$LucymHomoPrun <= maxhomopol,levels=c(FALSE,TRUE)))[2]`
-
-Total number of unique reads: `r lucy.unique`
 
 
 Appendix - Adapters Screened for
