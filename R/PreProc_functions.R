@@ -122,17 +122,3 @@ sd.trim <- function(x, trim=0, na.rm=FALSE, ...)
 #seqLogo(makePWM(acp))
 #dev.off()
 
-## Histogram of read cuts
-# d <- density(ReadData$RawLength)
-# d2 <- density(ReadData$RocheLength)
-# d3 <- density(ReadData$AdapterLength[ReadData$keepAdapter])
-# d4 <- density(ReadData$lucyLength[ReadData$keepLucy])
-# 
-# pdf(file.path(figurepath,paste(basefilename,"readlengths.pdf",sep=".")),bg="white")
-# plot(d, main="histogram of read lengths")
-# lines(d2,col="red")
-# lines(d3,col="green")
-# lines(d4,col="orange")
-# legend("topright",legend=c("Raw","Roche","Primer Trimmed","Lucy Trimmed"),pch=4,text.col=c("black","red","green","orange"),col=c("black","red","green","orange"))
-# dev.off()
-# 
