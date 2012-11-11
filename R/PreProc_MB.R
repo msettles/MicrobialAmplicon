@@ -61,6 +61,9 @@ mothur_alignment_db <- "silva.bacteria.fasta"
 mothur.template="/mnt/home/msettles/projects/Amplicon_Preprocessing/Alignment_db/silva.bacteria.fasta"
 mothur_align_call <- paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
 mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=TMP.rdp.align, processors=",nproc,");\"",sep="")
+TE_exp <- 534
+align_length_max_error <- 5
+TE_max_dist <- 75
 
 ### Ribosomal database project
 rdp_ver <- 2.5
@@ -97,8 +100,10 @@ ReadData <- data.frame(Acc=as.character(id(fq)),
 
 ReadData$RocheLC <- start(qualityClip(fq))
 ReadData$RocheRC <- end(qualityClip(fq))
-
 ReadData$RocheLength <- width(sread(fq,clipmode="full"))
+
+### Checkpoint
+save.image("TMP.RData")
 
 #####################
 ### Run cross_match looking for primers and tags
@@ -107,6 +112,9 @@ ReadData$RocheLength <- width(sread(fq,clipmode="full"))
 writeFastaQual(fq,"TMP.raw",append=FALSE)
 system(cross_match_call)
 cm_out <- parse_cm("TMP.cmout")
+
+### Checkpoint
+save.image("TMP.RData")
 
 ### remove all impossible match (ie forward primer as compliment)
 cm_out <- cm_out[-intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "C")),]
@@ -182,6 +190,9 @@ writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
 
 system(lucy_call)
 
+### Checkpoint
+save.image("TMP.RData")
+
 lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
 
 ReadData$LucyLC <- ReadData$AdapterLC
@@ -230,6 +241,9 @@ system(rdp_call)
 
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 
+### Checkpoint
+save.image("TMP.RData")
+
 flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
 if(ncol(flip) > 1){
   rdp.lucy$flip <- FALSE
@@ -243,16 +257,15 @@ rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 system(mothur_align_call)
 system(mothur_filter_call)
 
+### Checkpoint
+save.image("TMP.RData")
+
 ## Fills in unique seqs that fail alignment with NAs
 align.report <- read.table("TMP.rdp.align.report",sep="\t",header=T)
 align.report <- align.report[match(unique(ReadData$LucyUnique),align.report[,1]),]
 align.report[,1] <- unique(ReadData$LucyUnique)
 
 expand <- match(ReadData$LucyUnique,align.report[,1]) ## do I need or use?
-
-TE_exp <- 534
-align_length_max_error <- 5
-TE_max_dist <- 75
 
 ReadData$keep <- FALSE
 ReadData$keep <-    

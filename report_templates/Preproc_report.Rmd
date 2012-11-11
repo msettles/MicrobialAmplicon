@@ -71,7 +71,7 @@ Number of 3' matches found: `r table(factor(cm_out$FC,levels=c("C","F")))[1]`
 
 
 #### Barcodes Identified
-```{r echo=FALSE, fig.align='center', fig.width=9, fig.height=4}
+```{r echo=FALSE, fig.align='center', fig.width=18, fig.height=8}
 par(mar=c(8,4,1,1)+0.1)
 barplot(table(ReadData$Barcode),las=2,cex.names=0.3,xlab="", ylab="Number of reads",main="Distribution of Barcodes")
 mtext("Barcode ID", side=1,line=6.5)
@@ -108,7 +108,7 @@ Mean number of bases removed by Lucy clipping: `r signif(mean(ReadData$AdapterLe
 Median number of bases removed by Lucy clipping: `r signif(median(ReadData$AdapterLength-ReadData$LucyLength),3)`
 
 #### Histogram of read cuts
-```{r echo=FALSE, fig.align='center', fig.width=6,fig.height=4}
+```{r echo=FALSE, fig.align='center', fig.width=8,fig.height=8}
 d <- density(ReadData$RawLength)
 d2 <- density(ReadData$RocheLength)
 d3 <- density(ReadData$AdapterLength)
