@@ -109,7 +109,7 @@ cm_out <- parse_cm("TMP.cmout")
 ### remove all impossible match (ie forward primer as compliment)
 cm_out <- cm_out[-intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "C")),]
 cm_out <- cm_out[-intersect(grep(primerkey,cm_out$adapt),which(cm_out$FC == "F")),]
-
+cm_out <- cm_out[-which(cm_out$FC == "F" & cm_out$score < 20), ] ## forward match must be at least 20
 ############################
 ### Adapter Left Clip Points
 ReadData$AdapterLC <- 5  ### default start post key

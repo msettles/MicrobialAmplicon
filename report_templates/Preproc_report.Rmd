@@ -21,13 +21,13 @@ Lucy (version `r lucy_ver`, parameters: max average error=`r lucy_max_avg_error`
 `r lucy_max_error_at_ends`, minimum=0). We then align the clipped reads to the silva bacterial sequence database
 using mothur (version `r mothur_ver`). Alignment end points are identified and used in subsequent filtering. Sequence reads
 were filtered to only those that met the following criteria: 
- (a) sequence is at least `r minlength`bp in length and no greater than `r maxlength`bp in length; 
- (b) max hamming distance of barcode = `r maxhammingdisttag`; 
- (c) maximum number of matching error to forward primer sequences = `r maxforwardprimererrors`; 
- (d) had < `r maxNs` ambiguous bases (Ns); - After lucy clipping however, no Ns occur
- (e) had < `r maxhomopol`bp homopolymer run in sequence; 
- (f) alignment to the silva bacterial database is within 75bp of the expected alignment start position (507bp); and 
- (g) read alignment started within the first 5bp and extended through read to within the final 5bp. 
+* (a) sequence is at least `r minlength`bp in length and no greater than `r maxlength`bp in length; 
+* (b) max hamming distance of barcode = `r maxhammingdisttag`; 
+* (c) maximum number of matching error to forward primer sequences = `r maxforwardprimererrors`; 
+* (d) had < `r maxNs` ambiguous bases (Ns); - After lucy clipping however, no Ns occur
+* (e) had < `r maxhomopol`bp homopolymer run in sequence; 
+* (f) alignment to the silva bacterial database is within 75bp of the expected alignment start position (507bp); and 
+* (g) read alignment started within the first 5bp and extended through read to within the final 5bp. 
 The RDP Bayesian classifier is used to assign sequences to phylotypes (RDP `r rdp_ver`). 
 Reads are assigned to the first RDP level with a bootstrap score >=50.
 
@@ -37,13 +37,17 @@ Adapter, Barcode and Primer Identification
 
 ### Basic Read Information
 Total Number of Reads in SFF file:`r length(fq)`
+
 Mean length before Roche Right Clip: `r signif(mean(ReadData$RawLength),3)`
+
 Median length before Roche Right Clip: `r signif(median(ReadData$RawLength),3)`
+
 Mean length after Roche Right Clip: `r signif(mean(ReadData$RocheLength),3)`
+
 Median length after Roche Right Clip: `r signif(median(ReadData$RocheLength),3)`
 
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
-par(mfrow=c(1,2)
+par(mfrow=c(1,2))
 hist(ReadData$RawLength, breaks=200, xlab="Read Length", main="Raw Length")    
 hist(ReadData$RocheLength, breaks=200, xlab="Read Length", main="Roche Clipped Length")    
 ```
@@ -56,7 +60,7 @@ cross_match_call
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
 par(mfrow=c(1,2))
 plot(cm_out$read_start[cm_out$FC=="F"],cm_out$score[cm_out$FC=="F"], main="Foward Match",xlab="basepair position",ylab="score")
-plot(cm_out$read_start[cm_out$FC=="C"],cm_out$score[cm_out$FC=="C"], main="Reverse Match", ylab="basepair position",ylab="score")
+plot(cm_out$read_start[cm_out$FC=="C"],cm_out$score[cm_out$FC=="C"], main="Reverse Match", xlab="basepair position",ylab="score")
 ```
 
 ```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
@@ -66,13 +70,9 @@ barplot(table(ReadData$FP_Err,useNA="always")/length(fq)*100,ylim=c(0,100),main=
 ```
   
 
-```{r echo=FALSE, fig.align='center',fig.width=9,fig.height=4}
-layout(matrix(c(1,1,1,2,2,2,2,2,2),nrow=1))
-barplot(table(ReadData$Primer_Err,useNA="always")/length(fq)*100,ylim=c(0,100),main="Barcode Error",xlab="Number of errors",ylab="Percent of reads")
-barplot(table(ReadData$FP_Err,useNA="always")/length(fq)*100,ylim=c(0,100),main="5' Primer Error",xlab="Number of errors",ylab="Percent of reads")
-```
-
 ### Trimming low quality sequence using lucy
+--------------------------------------------------------
+--------------------------------------------------------
 ```{r echo=FALSE}
 lucy_call
 ```
