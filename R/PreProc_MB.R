@@ -243,11 +243,13 @@ rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 ### Checkpoint
 save.image("TMP.RData")
 
-flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
-if(ncol(flip) > 1){
-  rdp.lucy$flip <- FALSE
-  rdp.lucy$flip[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- TRUE
-}
+rdp.lucy$flip <- FALSE
+if (file.exists("TMP.rdp.flip.accnos")){
+  flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
+  if(ncol(flip) > 1){
+    rdp.lucy$flip[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- TRUE
+  }
+} else rdp.lucy$flip = reverseSeq
 
 ## Fills in unique seqs that fail rdp with NAs
 rdp.lucy <- rdp.lucy[match(unique(ReadData$LucyUnique),rdp.lucy[,1]),]
