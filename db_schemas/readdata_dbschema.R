@@ -121,6 +121,19 @@ dbSendQuery(con, sql)
 sql <- "CREATE INDEX rdp_genus ON rdp_report (genus_name);" ## index on genus, for speciation
 dbSendQuery(con, sql)
 
+dbCommit(con)
+dbDisconnect(con)
+
+####################################################################################################
+## Divide the DB into 2, one for data (ABOVE) and for metadata (BELOW)
+####################################################################################################
+dbname <- "ampliconmetaV2.0.sqlite"
+#### Version 2.0db
+drv <- SQLite()
+con <- dbConnect(drv, dbname=dbname)
+
+dbBeginTransaction(con)
+
 # Generate table to store pool metadata
 sql <- "CREATE TABLE pool_metadata (
   ID VARCHAR(20) NOT NULL,
