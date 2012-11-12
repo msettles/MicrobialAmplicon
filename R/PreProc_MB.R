@@ -69,6 +69,7 @@ TE_max_dist <- 75
 rdp_ver <- 2.5
 rdp_path <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
 rdp_call <- paste("java -Xmx1g -jar ",rdp_path," -q TMP.rdp.fasta -o TMP.lucy.rdpV6.fix -f fixrank",sep="")
+reverseSeq <- TRUE
 
 ## filter parameters
 minlength <- 350  ## minimum length of acceptable sequence
@@ -77,11 +78,6 @@ maxhammingdisttag <- 1 ## max hamming distance allowed for barcode
 maxforwardprimererrors <- 2 ## max number of errors allowed in the forward primer
 maxNs <- 2 ## max number of Ns post lucy filtering
 maxhomopol <- 10  ## maximum homopolymer allowed
-
-
-## for speciation
-reverseSeq <- TRUE
-
 
 version = paste("Rcode:",my_ver,";rdp:",rdp_ver,";mothur:",mothur_ver,";alignment_db:",mothur_alignment_db,collapse="")
 
@@ -243,13 +239,13 @@ rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
 ### Checkpoint
 save.image("TMP.RData")
 
-rdp.lucy$flip <- FALSE
+rdp.lucy$flip <- TRUE
 if (file.exists("TMP.rdp.flip.accnos")){
   flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
   if(ncol(flip) > 1){
-    rdp.lucy$flip[match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- TRUE
+    rdp.lucy$flip[-match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- FALSE
   }
-} else rdp.lucy$flip = reverseSeq
+}
 
 ## Fills in unique seqs that fail rdp with NAs
 rdp.lucy <- rdp.lucy[match(unique(ReadData$LucyUnique),rdp.lucy[,1]),]
