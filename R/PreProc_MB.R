@@ -320,7 +320,7 @@ save.image("TMP.RData")
 ############################
 ## Generate Knitr Report
 ############################
-
+library(knitr)
 file.copy(file.path(microbe.amplicon.home,"report_templates","Preproc_report.Rmd"),file.path("Reports",paste("Preproc_report_",basefilename,".Rmd",sep="")),recursive=TRUE)
 setwd("Reports")
 knit2html(paste("Preproc_report_",basefilename,".Rmd",sep=""))
