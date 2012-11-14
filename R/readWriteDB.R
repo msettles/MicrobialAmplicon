@@ -1,80 +1,24 @@
+
+## Update metadata
 ### Retreive and Send metadata or mapping data
-
-
-
-
-con <- dbCon()
-
-  reads <- dbGetQuery(con,
-                         paste("Select pool_metadata.Sample_ID, pool_metadata.Pool, read_data.* 
-                                FROM pool_metadata, read_data, pool_mapping 
-                                WHERE read_data.Run IN ('HVCR0MB02', 'HVCR0MB03')
-                                  AND pool_metadata.Pool=pool_mapping.Pool 
-                                  AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
-                                  AND pool_mapping.Run=read_data.Run",sep=""))
-
-
-  reads2 <- dbGetQuery(con,
-                         paste("SELECT * 
-                                FROM  read_data 
-                                WHERE read_data.Run IN ('HVCR0MB02', 'HVCR0MB03')",sep=""))
-
-### getting samples for an experiment
 library(RSQLite)
-drv <- SQLite()
-con <- dbConnect(drv, dbname="amplicondata.sqlite")
-
-experimentName <- "JJ_Human_Vagina" 
-getsample <-dbGetQuery(con,paste("Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='",experimentName,"'",sep=""))
-getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* , rdp_report.* FROM pool_metadata, read_data, pool_mapping, rdp_report WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run AND read_data.lucyUnique=rdp_report.QueryName",sep=""))
+microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
+source(file.path(microbe.amplicon.home,"R","DButilities.R"))
 
 
-getreads2 <- getreads[getreads$keep == 1,]
-rdp.otu <- getreads2[,25:40]
-#uniqueIds <- data.frame(uniqueIds=unique(getreads$lucyUnique))
-#sql <- "Select * FROM rdp_report WHERE (QueryName) IN ($uniqueIds)"
-#dbGetPreparedQuery(con, sql, bind.data = uniqueIds)
-#dbCommit(con)
+basedir <- "/mnt/lfs/msettles/projects/Amplicon_Preprocessing"
 
-#getreads <- dbGetQuery(con,paste("Select pool_metadata.Sample_ID, read_data.* , rdp_data FROM pool_metadata, read_data, pool_mapping, rdp_data WHERE pool_metadata.project='",experimentName,"' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run read_data.lucyUnique=rdp_data.QueryName",sep=""))
-
-
-
-
-#dbGetQuery(con, "DELETE FROM pool_mapping;")
-#poolD <- read.table("MetaData/Pool_MetaData.txt",sep="\t",header=T)
-#poolD <- read.table("MetaData/Pool_MetaData2.txt",sep="\t",header=T)
-#poolD <- read.table("MetaData/Pool_MetaData3.txt",sep="\t",header=T)
-#dbWriteTable(con,"pool_metadata",poolD,row.names=F,append=T)
-
-
-#getsample <-dbGetQuery(con,"Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='Adolescence'")
-#getreads <- dbGetQuery(con,"Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='Adolescence' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run")
-
-
-Select Run, pool_metadata.Pool, Reverse_Primer, Sample_ID from pool_metadata, pool_mapping WHERE pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.project='JJ_Human_Vagina';
-Select pool_metadata.Sample_ID, read_data.* FROM pool_metadata, read_data, pool_mapping WHERE pool_metadata.project='JJ_Human_Vagina' AND pool_metadata.Pool=pool_mapping.Pool AND pool_metadata.Reverse_Primer=read_data.Primer_Code AND pool_mapping.Run=read_data.Run;
-
-Select pool_metadata.Sample_ID, read_data.* 
-  FROM pool_metadata, read_data, pool_mapping
-  WHERE pool_metadata.project='JJ_Human_Vagina' 
-    AND pool_metadata.Pool=pool_mapping.Pool 
-    AND pool_metadata.Reverse_Primer=read_data.Primer_Code 
-    AND pool_mapping.Run=read_data.Run
-    AND run_data.keep = 1;
-
-getreads <- dbGetQuery(con,paste("Select read_data.* FROM read_data",sep=""))
-
+con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
 
 
 
 #######################################################################################
 ## Speciation
 #######################################################################################
-con <- dbCon()
+#con <- dbCon()
 ## Lactobacillus
 ## extract genus reads and write to file
-output.genus.reads(con,project="JJ_Human_Vagina",genus="Lactobacillus")
+output.genus.reads(con,project="Witkins_VVS",genus="Lactobacillus")
 
 ## cluster using cdhit require 99.5% identity
 system("cdhit-est -T 8 -d 0 -c 0.995 -n 9 -i 454Reads.Lactobacillus.fasta -o 454Reads.Lactobacillus.reduced.fasta")

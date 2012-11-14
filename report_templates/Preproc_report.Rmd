@@ -1,5 +1,6 @@
 ```{r, echo=FALSE, include=FALSE}
 library("rSFFreader")
+library(xtable)
 ```
 
 Pyrosequencing PreProcessing Report File for `r basefilename`  -- Microbial Amplicons
@@ -179,10 +180,7 @@ Total number of unique reads: `r length(unique(ReadData$LucyUnique[ReadData$keep
 Appendix - Adapters Screened for
 --------------------------------------------------------
 --------------------------------------------------------
-```{r echo=FALSE, results='asis'}
-library(xtable)
-print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen)),type="html"))
-```
+`r print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen)),type="html"))`
 
 SessionInfo
 --------------------------------------------------------
