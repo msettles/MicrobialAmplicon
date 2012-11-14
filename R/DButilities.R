@@ -59,14 +59,14 @@
   if (missing(outfile)) outfile <- paste(project,".readcounts.txt",sep="")
 
   reads <- dbGetQuery(con,
-                         paste("Select Sample_ID, Run, Barcode, keep 
+                         paste("Select Sample_ID, tmpTable.Run, tmpTable.Barcode, keep 
                                 FROM read_data, 
-                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Reverse_Primer, pool_mapping.Run 
+                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Barcode, pool_mapping.Run 
                                     FROM pool_metadata, pool_mapping
                                  WHERE pool_metadata.Project='",project,"'
                                  AND pool_metadata.Pool=pool_mapping.Pool) as tmpTable
                                  , rdp_report 
-                                 WHERE tmpTable.Reverse_Primer=read_data.Primer_Code
+                                 WHERE tmpTable.Barcode=read_data.Barcode
                                  AND tmpTable.Run=read_data.Run",sep=""))
   samples <-dbGetQuery(con,
                          paste("Select Run, Pool, Reverse_Primer, Sample_ID, ID 
@@ -93,25 +93,25 @@
                                 WHERE pool_metadata.Pool=pool_mapping.Pool 
                                   AND pool_metadata.project='",project,"'",sep=""))
   ord <- order(samples$Sample_ID)
+
   rdp.otu <- dbGetQuery(con,
-                         paste("Select tmpTable.Sample_ID, rdp_report.*, read_data.keep 
+                         paste("Select tmpTable.Sample_ID, rdp_report.*, read_data.keep, read_data.Acc
                                 FROM read_data, 
-                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Reverse_Primer, pool_mapping.Run 
+                                  (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Barcode, pool_mapping.Run 
                                     FROM pool_metadata, pool_mapping
                                  WHERE pool_metadata.Project='",project,"'
                                  AND pool_metadata.Pool=pool_mapping.Pool) as tmpTable
                                  , rdp_report 
-                                 WHERE tmpTable.Reverse_Primer=read_data.Primer_Code
+                                 WHERE tmpTable.Barcode=read_data.Barcode
                                  AND tmpTable.Run=read_data.Run
-                                 AND rdp_report.lucyUnique = read_data.lucyUnique",sep=""))
+                                 AND rdp_report.LucyUnique = read_data.LucyUnique",sep=""))
 
   rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- "Lactobacillus Other"
   rdp.otu$species_name <- sub("L." ,"Lactobacillus ",rdp.otu$species_name,fixed=T)
   rdp.otu$species_name <- sub("\\.[0-9]+" ,"",rdp.otu$species_name)
-  rdp.otu$species_bootstrap <- as.numeric(rdp.otu$species_bootstrap)+1
   rdp.otu <- rdp.otu[rdp.otu$read_data.keep == '1',]
 
-  numberoflevels <- (ncol(rdp.otu)-5)/2
+  numberoflevels <- 7
   abtable <- data.frame(id=rdp.otu[,"tmpTable.Sample_ID",],assign=as.character(rdp.otu$domain_name),level="domain")
   
   taxa_levels <- c("domain","phylum","class","order","family","genus","species")
@@ -121,9 +121,16 @@
   for (i in seq.int(2,numberoflevels)){
     column = 2*i+3
     #prows <- rdp.otu[, (column + 1)] >= rdpThres & (rdp.otu[, (column + 1)] != "NA")
-    prows <- which(rdp.otu[, (column + 1)] >= rdpThres)
-    abtable$assign[prows] <- as.character(rdp.otu[,column][prows])
-    abtable$level[prows] <- taxa_levels[i]
+    if(i < 7){ ## species
+      prows <- which(rdp.otu[, (column + 1)] >= rdpThres)
+      abtable$assign[prows] <- as.character(rdp.otu[,column][prows])
+      abtable$level[prows] <- taxa_levels[i]
+    } else {
+      prows <- which(rdp.otu[, (column)] != "NA")
+      abtable$assign[prows] <- as.character(rdp.otu[,column][prows])
+      abtable$level[prows] <- taxa_levels[i]
+    }
+
   }
   
   abundanceTable <- table(abtable$assign,abtable$id)
@@ -142,17 +149,19 @@
 ### uses sffinfo and sffile to extract and output only 
 "output.genus.reads" <- function(con,project,genus="Lactobacillus"){
 
+
   reads <- dbGetQuery(con,
-                      paste("SELECT read_data.lucyUnique, read_data.Acc, read_data.lucyLC, read_data.lucyRC, tmpTable.Sample_ID, read_data.Run, read_data.keep
-                             FROM read_data, (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Reverse_Primer, pool_mapping.Run FROM pool_metadata, pool_mapping
+                      paste("SELECT read_data.LucyUnique, read_data.Acc, read_data.LucyLC, read_data.LucyRC, tmpTable.Sample_ID, read_data.Run, read_data.keep
+                             FROM read_data, (SELECT pool_metadata.Sample_ID, pool_metadata.Pool, pool_metadata.Barcode, pool_mapping.Run FROM pool_metadata, pool_mapping
                              WHERE pool_metadata.Project='",project,"'
                              AND pool_metadata.Pool=pool_mapping.Pool) as tmpTable, 
-                             (SELECT rdp_report.lucyUnique FROM rdp_report
+                             (SELECT rdp_report.LucyUnique FROM rdp_report
                               WHERE rdp_report.genus_name = '", genus, "') as rdpTable
-                             WHERE tmpTable.Reverse_Primer=read_data.Primer_Code
+                             WHERE tmpTable.Barcode=read_data.Barcode
                              AND tmpTable.Run=read_data.Run
-                             AND rdpTable.lucyUnique = read_data.lucyUnique                              
-                             GROUP BY read_data.lucyUnique",sep=""))
+                             AND rdpTable.LucyUnique = read_data.LucyUnique                              
+                             ",sep=""))
+                             #GROUP BY read_data.LucyUnique",sep=""))
   
   reads <- reads[reads$read_data.keep == 1,]
 
@@ -179,7 +188,6 @@
   rdp <- dbGetPreparedQuery(con,sql,bind.data=cluster_mat)
   
   rdp$species_name[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$species
-  rdp$species_bootstrap[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$errors
   
   sql <- paste("REPLACE INTO rdp_report VALUES (" ,paste(paste("$",colnames(rdp),sep="")[-1],collapse=", "),")",sep="")
   dbGetPreparedQuery(con,sql,bind.data=rdp)

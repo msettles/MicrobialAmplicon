@@ -22,7 +22,7 @@ checksystem()
 nproc=12
 
 sfffiles <- commandArgs(TRUE)
-#sfffiles <- "Amplicon_SFFfiles_AmpProc/HVCR0MB02.sff"
+#sfffiles <- "Amplicon_SFFfiles_AmpProc/HRHT7FQ01.sff"
 
 basefilename <- sub(".sff","",basename(sfffiles))
 
@@ -150,7 +150,7 @@ ReadData$FP_Err[match(cm_out$read_id[intersect(grep(tagkey,cm_out$adapt),which(c
 
 
 ############################
-### Adapter Left Clip Points
+### Adapter Right Clip Points
 ReadData$AdapterRC <- ReadData$RawLength
 
 ### choose match by best score
@@ -200,7 +200,7 @@ ReadData$LucyRC[match(lucy[-zeros,1],ReadData$Acc)] <- ReadData$AdapterLC[match(
 ReadData$LucyLC[match(lucy[-zeros,1],ReadData$Acc)] <- ReadData$AdapterLC[match(lucy[-zeros,1],ReadData$Acc)] + lucy[-zeros,9] -1
 ReadData$LucyLength <- ReadData$LucyRC - ReadData$LucyLC +1
 
-# computer read statistics
+# compute read statistics
 lucyRange <- IRanges(start=ReadData$LucyLC,ReadData$LucyRC)
 customClip <- lucyRange
 clipMode(fq)  <- "custom"
@@ -235,9 +235,6 @@ system(rdp_call)
 save.image("TMP.RData")
 
 rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
-
-### Checkpoint
-save.image("TMP.RData")
 
 rdp.lucy$flip <- TRUE
 if (file.exists("TMP.rdp.flip.accnos")){
