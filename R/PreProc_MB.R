@@ -10,6 +10,9 @@ options("stringsAsFactors" = FALSE)
 library(RSQLite)
 library(rSFFreader)
 library(getopt)
+library(multicore)
+library(knitr)
+
 
 ### Microbial Processing Home
 microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
@@ -22,7 +25,7 @@ checksystem()
 nproc=12
 
 sfffiles <- commandArgs(TRUE)
-#sfffiles <- "Amplicon_SFFfiles_AmpProc/HRHT7FQ01.sff"
+#sfffiles <- "Amplicon_SFFfiles_AmpProc/HRHT7FQ02.sff"
 
 basefilename <- sub(".sff","",basename(sfffiles))
 
@@ -42,7 +45,8 @@ cross_match_ver <- "1.090518"
 cross_match_minmatch <- 8
 cross_match_minscore <- 12
 cross_match_screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
-cross_match_call <- paste("cross_match TMP.raw.fasta ", cross_match_screenfile, " -minmatch ",cross_match_minmatch," -minscore ", cross_match_minscore," -tags > TMP.cmout",sep="")
+### for multicore capabilities
+cross_match_call <- function(x) paste("cross_match ",basefilename,".",x,".raw.fasta ", cross_match_screenfile, " -minmatch ",cross_match_minmatch," -minscore ", cross_match_minscore," -tags > ",basefilename,".",x,".cmout",sep="")
 
 ### screenfile properties
 tagkey <- "^FP_"
@@ -53,14 +57,14 @@ primerkey <- "^RP_"
 lucy_ver <- "1.20p"
 lucy_max_avg_error <- 0.002 # Qscore 27
 lucy_max_error_at_ends <- 0.002
-lucy_call <- paste("lucy -xtra", nproc,"-minimum 0 -debug TMP.lucy_clip.txt -error ",lucy_max_avg_error, " ", lucy_max_error_at_ends, " -output TMP.lucy.fasta TMP.lucy.fasta.qual  TMP.adapterClip.fasta  TMP.adapterClip.fasta.qual")
+lucy_call <- paste("lucy -xtra ", nproc," -minimum 0 -debug ",basefilename,".lucy_clip.txt -error ",lucy_max_avg_error, " ", lucy_max_error_at_ends, " -output ",basefilename,".lucy.fasta ",basefilename,".lucy.fasta.qual ",basefilename,".adapterClip.fasta ",basefilename,".adapterClip.fasta.qual",sep="")
 
 ### mothur parameters
 mothur_ver <- "1.27.0"
 mothur_alignment_db <- "silva.bacteria.fasta"
 mothur.template="/mnt/home/msettles/projects/Amplicon_Preprocessing/Alignment_db/silva.bacteria.fasta"
-mothur_align_call <- paste("mothur \"#align.seqs(candidate=TMP.rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
-mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=TMP.rdp.align, processors=",nproc,");\"",sep="")
+mothur_align_call <- paste("mothur \"#align.seqs(candidate=",basefilename,".rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
+#mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=",basefilename,".rdp.align, processors=",nproc,");\"",sep="")
 TE_exp <- 534
 align_length_max_error <- 5
 TE_max_dist <- 75
@@ -68,7 +72,7 @@ TE_max_dist <- 75
 ### Ribosomal database project
 rdp_ver <- 2.5
 rdp_path <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
-rdp_call <- paste("java -Xmx1g -jar ",rdp_path," -q TMP.rdp.fasta -o TMP.lucy.rdpV6.fix -f fixrank",sep="")
+rdp_call <- function(x) paste("java -Xmx1g -jar ",rdp_path," -q ",basefilename,".",x,".rdp.fasta -o ",basefilename,".",x,".lucy.rdpV6.fix -f fixrank",sep="")
 reverseSeq <- TRUE
 
 ## filter parameters
@@ -98,19 +102,24 @@ ReadData$RocheLC <- start(qualityClip(fq))
 ReadData$RocheRC <- end(qualityClip(fq))
 ReadData$RocheLength <- width(sread(fq,clipmode="full"))
 
-### Checkpoint
-save.image("TMP.RData")
-
 #####################
 ### Run cross_match looking for primers and tags
 
 ### can make faster by using multicore and splitting reads
-writeFastaQual(fq,"TMP.raw",append=FALSE)
-system(cross_match_call)
-cm_out <- parse_cm("TMP.cmout")
+
+### multicore version of crossmatch
+mclapply(chunk(seq.int(1,length(fq)),nproc), function(x){
+  writeFastaQual(fq[x],paste(basefilename,".",x[1],".raw",sep=""),append=FALSE)
+  system(cross_match_call(x[1]))
+})
+
+#writeFastaQual(fq,paste(basefilename,".raw",sep=""),append=FALSE)
+#system(cross_match_call)
+
+cm_out <- parse_cm(dir(pattern=paste(basefilename,".*.cmout",sep="")))
 
 ### Checkpoint
-save.image("TMP.RData")
+save.image(paste(basefilename,".RData",sep=""))
 
 ### remove all impossible match (ie forward primer as compliment)
 cm_out <- cm_out[-intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "C")),]
@@ -182,14 +191,14 @@ ReadData$AdapterLength <- ReadData$AdapterRC - ReadData$AdapterLC +1
 primerRange <- IRanges(start=ReadData$AdapterLC,ReadData$AdapterRC)
 customClip(fq) <- primerRange ## need to add replacement function 
 clipMode(fq)  <- "custom"
-writeFastaQual(fq,"TMP.adapterClip",append=FALSE)
+writeFastaQual(fq,paste(basefilename,".adapterClip",sep=""),append=FALSE)
 
 system(lucy_call)
 
 ### Checkpoint
-save.image("TMP.RData")
+save.image(paste(basefilename,".RData",sep=""))
 
-lucy <- read.table("TMP.lucy_clip.txt",as.is=T)
+lucy <- read.table(paste(basefilename,".lucy_clip.txt",sep=""),as.is=T)
 
 ReadData$LucyLC <- ReadData$AdapterLC
 ReadData$LucyRC <- ReadData$AdapterRC
@@ -225,20 +234,32 @@ ReadData$LucymHomoPrun <- apply(t(homoRuns),1,max)[expand]
 fq_uni <- fq[(!duplicated(ReadData$LucyUnique))]
 names(fq_uni) <- ReadData$LucyUnique[(!duplicated(ReadData$LucyUnique))]
 
-writeFastaQual(fq_uni,"TMP.rdp",append=FALSE)
-
 ######################
 ## Run the RDP classifier and align using mothur on all the data
-system(rdp_call)
+#rdp_call <- function(x) paste("java -Xmx1g -jar ",rdp_path," -q ",basefilename,".",x,".rdp.fasta -o ",basefilename,".",x,".lucy.rdpV6.fix -f fixrank",sep="")
+
+### multicore version of crossmatch
+
+mclapply(chunks <- chunk(seq.int(1,length(fq_uni)),nproc), function(x){
+  writeFastaQual(fq_uni[x],paste(basefilename,".",x[1],".rdp",sep=""),append=FALSE)
+  system(rdp_call(x[1]))
+})
+
+#writeFastaQual(fq_uni,paste(basefilename,".rdp",sep=""),append=FALSE)
+#system(rdp_call)
+
 
 ### Checkpoint
-save.image("TMP.RData")
+save.image(paste(basefilename,".RData",sep=""))
 
-rdp.lucy <- read.table("TMP.lucy.rdpV6.fix",sep="\t")
+rdp.lucy <- do.call("rbind", lapply(dir(pattern=paste(basefilename,".*.lucy.rdpV6.fix",sep="")), function(fn) 
+  read.table(fn,sep="\t")
+)
+                
 
 rdp.lucy$flip <- TRUE
-if (file.exists("TMP.rdp.flip.accnos")){
-  flip <- read.table("TMP.rdp.flip.accnos",sep="\t")
+if (any(file.exists(dir(pattern=paste(basefilename,".*.lucy.rdpV6.fix",sep=""))))){
+  flip <- do.call("rbind",lapply(dir(pattern=paste(basefilename,".*.lucy.rdpV6.fix",sep="")),function(fn) read.table(fn,sep="\t")))
   if(ncol(flip) > 1){
     rdp.lucy$flip[-match(flip[grep("reverse complement produced a better alignment",flip[,2]),1],rdp.lucy[,1])] <- FALSE
   }
@@ -250,14 +271,15 @@ rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 
 ######################
 ## Align to reference DB using Mothur
+writeFastaQual(fq_uni,paste(basefilename,".rdp",sep=""),append=FALSE)
 system(mothur_align_call)
 system(mothur_filter_call)
 
 ### Checkpoint
-save.image("TMP.RData")
+save.image(paste(basefilename,".RData",sep=""))
 
 ## Fills in unique seqs that fail alignment with NAs
-align.report <- read.table("TMP.rdp.align.report",sep="\t",header=T)
+align.report <- read.table(paste(basefilename,".rdp.align.report",sep=""),sep="\t",header=T)
 align.report <- align.report[match(unique(ReadData$LucyUnique),align.report[,1]),]
 align.report[,1] <- unique(ReadData$LucyUnique)
 
@@ -305,7 +327,7 @@ ReadData$Primer_3prime <- sub("RP_","",ReadData$Primer_3prime)
 ReadData$version <- version
 
 ### Checkpoint
-save.image("TMP.RData")
+save.image(paste(basefilename,".RData",sep=""))
 ############################
 ## End Clipping and preprocessing
 ############################
@@ -313,7 +335,6 @@ save.image("TMP.RData")
 ############################
 ## Generate Knitr Report
 ############################
-library(knitr)
 setwd("Reports")
 file.copy(file.path(microbe.amplicon.home,"report_templates","Preproc_report.Rmd"),file.path(paste("Preproc_report_",basefilename,".Rmd",sep="")),overwrite=TRUE)
 knit2html(paste("Preproc_report_",basefilename,".Rmd",sep=""))
@@ -356,7 +377,7 @@ updateProcessedRuns(con,unique(ReadData$Run),sum(ReadData$keep),nrow(ReadData)-s
 
 dbDis(con)
 #### cleanup
-system("rm -rf TMP*")
+system(paste("rm -rf ",basefilename,"*",sep="")
 system("rm -rf mothur*")
 system("rm -rf .RData .Rhistory")
 

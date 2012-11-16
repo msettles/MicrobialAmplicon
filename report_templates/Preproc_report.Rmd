@@ -185,7 +185,7 @@ Total number of unique reads: `r length(unique(ReadData$LucyUnique[ReadData$keep
 Appendix - Adapters Screened for
 --------------------------------------------------------
 --------------------------------------------------------
-`r print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen)),type="html"))`
+`r print(xtable(data.frame(Length=width(screen),Sequence=as.character(screen))),type='html')`
 
 SessionInfo
 --------------------------------------------------------

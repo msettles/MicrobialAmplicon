@@ -39,15 +39,18 @@ sd.trim <- function(x, trim=0, na.rm=FALSE, ...)
   sd(x)
 }
 
+chunk <- function(x,n) split(x, factor(sort(rank(x)%%n)))
 
 ### read in and format cross_match output
-"parse_cm" <- 
-  function(filename)
-  {
-    lines <- readLines(filename)
-    align <- grep("^ALIGNMENT",lines,value=T)
-    align <- sub(" C ", " ",align)
-    #    cm_out <- read.table(filename)
+"parse_cm" <- function(filenames)
+{
+    align <- sapply(filenames,function(x) {
+      lines <- readLines(x)
+      align <- grep("^ALIGNMENT",lines,value=T)
+      align <- sub(" C ", " ",align)
+      align
+    })
+    align<- unlist(align)
     cm_out <- matrix(unlist(strsplit(align,split=" +")),ncol=13,byrow=T)
     cm_out <- data.frame(cm_out,stringsAsFactors=FALSE)
     cm_out$FC <- "F"
