@@ -17,73 +17,22 @@ library(knitr)
 ### Microbial Processing Home
 microbe.amplicon.home <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon"
 alignment_db <- "/mnt/home/msettles/Projects/AmpliconProcessing/"
+nproc=12
+dbname <- "amplicondataV2.0.sqlite"
 
 source(file.path(microbe.amplicon.home,"R","PreProc_functions.R"))
-source(file.path(microbe.amplicon.home,"R","DButilities.R"))
-checksystem()
 
-nproc=12
+checksystem()
 
 sfffiles <- commandArgs(TRUE)
 #sfffiles <- "Amplicon_SFFfiles_AmpProc/HRHT7FQ02.sff"
-
 basefilename <- sub(".sff","",basename(sfffiles))
 
-dbname <- "amplicondataV2.0.sqlite"
+source(file.path(microbe.amplicon.home,"R","DButilities.R"))
 con <- dbCon(dbname=dbname)   ### need to add check for connection
 if (any(!is.na(match(basefilename,getProcessedRuns(con))))) stop("SFFfile(s) already processed")
-###########################################################################################
-###########################################################################################
-# PARAMTER SECTION
-###########################################################################################
-###########################################################################################
 
-### VERSION OF THIS CODE
-my_ver <- "2.0"
-### cross_match parameters
-cross_match_ver <- "1.090518"
-cross_match_minmatch <- 8
-cross_match_minscore <- 12
-cross_match_screenfile <- file.path(microbe.amplicon.home,"ext.data","screen_27f-534r.combined.fa")
-### for multicore capabilities
-cross_match_call <- function(x) paste("cross_match ",basefilename,".",x,".raw.fasta ", cross_match_screenfile, " -minmatch ",cross_match_minmatch," -minscore ", cross_match_minscore," -tags > ",basefilename,".",x,".cmout",sep="")
-
-### screenfile properties
-tagkey <- "^FP_"
-tag_nucs <- 8
-primerkey <- "^RP_"
-
-### lucy parameters
-lucy_ver <- "1.20p"
-lucy_max_avg_error <- 0.002 # Qscore 27
-lucy_max_error_at_ends <- 0.002
-lucy_call <- paste("lucy -xtra ", nproc," -minimum 0 -debug ",basefilename,".lucy_clip.txt -error ",lucy_max_avg_error, " ", lucy_max_error_at_ends, " -output ",basefilename,".lucy.fasta ",basefilename,".lucy.fasta.qual ",basefilename,".adapterClip.fasta ",basefilename,".adapterClip.fasta.qual",sep="")
-
-### mothur parameters
-mothur_ver <- "1.27.0"
-mothur_alignment_db <- "silva.bacteria.fasta"
-mothur.template="/mnt/home/msettles/projects/Amplicon_Preprocessing/Alignment_db/silva.bacteria.fasta"
-mothur_align_call <- paste("mothur \"#align.seqs(candidate=",basefilename,".rdp.fasta, template=", mothur.template ,", flip=T, processors=",nproc,")\"",sep="")
-#mothur_filter_call <- paste("mothur \"#filter.seqs(fasta=",basefilename,".rdp.align, processors=",nproc,");\"",sep="")
-TE_exp <- 534
-align_length_max_error <- 5
-TE_max_dist <- 75
-
-### Ribosomal database project
-rdp_ver <- 2.5
-rdp_path <- "/mnt/home/msettles/opt/rdp_classifier_2.5/rdp_classifier-2.5.jar"
-rdp_call <- function(x) paste("java -Xmx1g -jar ",rdp_path," -q ",basefilename,".",x,".rdp.fasta -o ",basefilename,".",x,".lucy.rdpV6.fix -f fixrank",sep="")
-reverseSeq <- TRUE
-
-## filter parameters
-minlength <- 350  ## minimum length of acceptable sequence
-maxlength <- 600  ## maximum length of sequence allowed
-maxhammingdisttag <- 1 ## max hamming distance allowed for barcode
-maxforwardprimererrors <- 2 ## max number of errors allowed in the forward primer
-maxNs <- 2 ## max number of Ns post lucy filtering
-maxhomopol <- 10  ## maximum homopolymer allowed
-
-version = paste("Rcode:",my_ver,";rdp:",rdp_ver,";mothur:",mothur_ver,";alignment_db:",mothur_alignment_db,collapse="")
+source(file.path(microbe.amplicon.home,"R","options_MB.R"))
 
 ###########################################################################################
 # Adapters, Barcodes and Primers
@@ -141,6 +90,7 @@ ReadData$AdapterLC[match(names(tmp),ReadData$Acc)] <-
 ReadData$AdapterLC <- pmin(ReadData$RawLength,ReadData$AdapterLC)
 
 ## Calculate Primer errors INCLUDES TAG!!
+ReadData$Barcode <- NA
 ReadData$Barcode[match(cm_out$read_id[intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "F" & cm_out$read_start == 1))],ReadData$Acc)] <- cm_out$adapt[intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "F" & cm_out$read_start == 1))]
 #### CHECK THIS CODE "FP_Bender633_CGTTAACG_p534R,8" score of 14
 
@@ -152,8 +102,9 @@ rtags <- subseq(sread(fq)[!is.na(ReadData$Barcode)],5,width=tag_nucs)
 tagpairs <- cbind(as.character(tags),as.character(rtags))
 tagdiff <- numeric(nrow(tagpairs))  ## Sets all to 0
 tagdiff[tagpairs[,1] != tagpairs[,2]] <- apply(tagpairs[tagpairs[,1] != tagpairs[,2],],1,stringDist, method="hamming")
+ReadData$Barcode_Err <- NA
 ReadData$Barcode_Err[!is.na(ReadData$Barcode)] <- tagdiff
-
+ReadData$FP_Err <- NA
 ReadData$FP_Err[match(cm_out$read_id[intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "F" & cm_out$read_start == 1))],ReadData$Acc)] <- 
   cm_out[intersect(grep(tagkey,cm_out$adapt),which(cm_out$FC == "F" & cm_out$read_start == 1)),"err"] - primer_offset +1
 
@@ -228,6 +179,7 @@ expand <- match(ReadData$LucyUnique,UniqueID[!duplicated(UniqueID)])
 lucyAlphFreq <- alphabetFrequency(fa.lucy[!duplicated(UniqueID)])
 
 ReadData$LucyNs <- lucyAlphFreq[expand,"N"]
+## can parallelize to multicore
 homoRuns <-  sapply(fa.lucy[!duplicated(UniqueID)],function(x) sapply(c("A","C","T","G","N"),function(y) longestConsecutive(as.character(x),letter=y)))
 ReadData$LucymHomoPrun <- apply(t(homoRuns),1,max)[expand]
 
@@ -253,8 +205,7 @@ mclapply(chunks <- chunk(seq.int(1,length(fq_uni)),nproc), function(x){
 save.image(paste(basefilename,".RData",sep=""))
 
 rdp.lucy <- do.call("rbind", lapply(dir(pattern=paste(basefilename,".*.lucy.rdpV6.fix",sep="")), function(fn) 
-  read.table(fn,sep="\t")
-)
+  read.table(fn,sep="\t")))
                 
 
 rdp.lucy$flip <- TRUE
@@ -273,7 +224,7 @@ rdp.lucy[,1] <- unique(ReadData$LucyUnique)
 ## Align to reference DB using Mothur
 writeFastaQual(fq_uni,paste(basefilename,".rdp",sep=""),append=FALSE)
 system(mothur_align_call)
-system(mothur_filter_call)
+#system(mothur_filter_call)
 
 ### Checkpoint
 save.image(paste(basefilename,".RData",sep=""))
@@ -377,7 +328,7 @@ updateProcessedRuns(con,unique(ReadData$Run),sum(ReadData$keep),nrow(ReadData)-s
 
 dbDis(con)
 #### cleanup
-system(paste("rm -rf ",basefilename,"*",sep="")
+system(paste("rm -rf ",basefilename,"*",sep=""))
 system("rm -rf mothur*")
 system("rm -rf .RData .Rhistory")
 
