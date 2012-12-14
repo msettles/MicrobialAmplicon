@@ -1,0 +1,42 @@
+Mac version
+
+Using ReadLine
+
+Running 64Bit Version
+
+mothur v.1.28.0
+Last updated: 11/2/2012
+
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+University of Michigan
+pschloss@umich.edu
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+Type 'quit()' to exit program
+Script Mode
+
+
+mothur > align.seqs(candidate=Lactobacillaceae.red.fa, template=/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta, flip=T, processors=12)
+
+Using 12 processors.
+Unable to open /mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta
+[ERROR]: did not complete align.seqs.
+
+mothur > filter.seqs(fasta=Lactobacillaceae.red.align, processors=12)
+Unable to open Lactobacillaceae.red.align. It will be disregarded.
+no valid files.
+
+Using 12 processors.
+[ERROR]: did not complete filter.seqs.
+
+mothur > quit()

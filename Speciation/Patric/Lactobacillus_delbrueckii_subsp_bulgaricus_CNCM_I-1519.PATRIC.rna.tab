@@ -1,0 +1,67 @@
+GENOME_NAME	ACCESSION	ANNOTATION	FEATURE_TYPE	NA_FEATURE_ID	LOCUS_TAG	START	END	STRAND	NA_LENGTH	GENE	PRODUCT
+
+Location	Strand	Length	PID	Gene	Synonym	Code	COG	Product
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000002	PATRIC	tRNA	93388842	VBILacDel201165_r001	7343	7415	+	73		tRNA-Thr-GGT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000003	PATRIC	tRNA	93389006	VBILacDel201165_r002	11866	11950	-	85		tRNA-Leu-CAA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389009	VBILacDel201165_r003	29	116	+	88		tRNA-Ser-TGA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389011	VBILacDel201165_r004	126	199	+	74		tRNA-Met-CAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389013	VBILacDel201165_r005	203	276	+	74		tRNA-Asp-GTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389015	VBILacDel201165_r006	283	355	+	73		tRNA-Phe-GAA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389017	VBILacDel201165_r007	364	445	+	82		tRNA-Tyr-GTA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389019	VBILacDel201165_r008	450	520	+	71		tRNA-Trp-CCA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389021	VBILacDel201165_r009	534	606	+	73		tRNA-His-GTG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389023	VBILacDel201165_r010	636	706	+	71		tRNA-Cys-GCA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000004	PATRIC	tRNA	93389025	VBILacDel201165_r011	735	819	+	85		tRNA-Leu-CAA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389038	VBILacDel201165_r012	3553	3625	+	73		tRNA-Val-TAC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389040	VBILacDel201165_r013	3628	3700	+	73		tRNA-Lys-TTT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389042	VBILacDel201165_r014	3713	3794	+	82		tRNA-Leu-TAG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389044	VBILacDel201165_r015	3806	3878	+	73		tRNA-Thr-TGT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389046	VBILacDel201165_r016	3883	3954	+	72		tRNA-Gly-GCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389048	VBILacDel201165_r017	3970	4055	+	86		tRNA-Leu-TAA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389050	VBILacDel201165_r018	4061	4134	+	74		tRNA-Arg-ACG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389052	VBILacDel201165_r019	4141	4214	+	74		tRNA-Pro-TGG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389054	VBILacDel201165_r020	4251	4324	+	74		tRNA-Met-CAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389056	VBILacDel201165_r021	4337	4410	+	74		tRNA-Met-CAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389058	VBILacDel201165_r022	4422	4495	+	74		tRNA-Met-CAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389060	VBILacDel201165_r023	4513	4585	+	73		tRNA-Phe-GAA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389062	VBILacDel201165_r024	4600	4670	+	71		tRNA-Gly-TCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389064	VBILacDel201165_r025	4674	4747	+	74		tRNA-Ile-GAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389066	VBILacDel201165_r026	4750	4837	+	88		tRNA-Pseudo-GCT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000005	PATRIC	tRNA	93389068	VBILacDel201165_r027	5099	5170	+	72		tRNA-Glu-TTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000009	PATRIC	tRNA	93389451	VBILacDel201165_r028	125890	125963	-	74		tRNA-Arg-TCT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000010	PATRIC	tRNA	93389484	VBILacDel201165_r029	10614	10684	-	71		tRNA-Gly-CCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000010	PATRIC	tRNA	93389570	VBILacDel201165_r030	56683	56754	+	72		tRNA-Gly-GCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000010	PATRIC	tRNA	93389572	VBILacDel201165_r031	56759	56832	+	74		tRNA-Pro-CGG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000010	PATRIC	tRNA	93389574	VBILacDel201165_r032	56941	57012	+	72		tRNA-Gly-GCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93389682	VBILacDel201165_r033	10314	10385	+	72		tRNA-Gln-TTG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93389690	VBILacDel201165_r034	13299	13380	+	82		tRNA-Tyr-GTA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93389692	VBILacDel201165_r035	13386	13457	+	72		tRNA-Gln-TTG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93389728	VBILacDel201165_r036	28757	28842	+	86		tRNA-Leu-AAG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93389883	VBILacDel201165_r037	100405	100479	+	75		tRNA-Arg-CCT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000011	PATRIC	tRNA	93390081	VBILacDel201165_r038	188580	188651	-	72		tRNA-Arg-CCG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000022	PATRIC	tRNA	93390649	VBILacDel201165_r039	13011	13094	+	84		tRNA-Pseudo-CAG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000025	PATRIC	rRNA	93390680	VBILacDel201165_r040	1	105	-	105		5S RNA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000025	PATRIC	rRNA	93390682	VBILacDel201165_r041	176	3083	-	2908		Large Subunit Ribosomal RNA; lsuRNA; LSU rRNA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000027	PATRIC	rRNA	93390778	VBILacDel201165_r042	5	1516	+	1512		Small Subunit Ribosomal RNA; ssuRNA; SSU rRNA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000030	PATRIC	tRNA	93390959	VBILacDel201165_r043	13014	13086	-	73		tRNA-Gln-CTG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000030	PATRIC	tRNA	93390961	VBILacDel201165_r044	13092	13163	-	72		tRNA-Glu-CTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000032	PATRIC	tRNA	93391175	VBILacDel201165_r045	963	1035	-	73		tRNA-Thr-CGT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000033	PATRIC	tRNA	93391254	VBILacDel201165_r046	25092	25164	+	73		tRNA-Thr-AGT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000033	PATRIC	tRNA	93391274	VBILacDel201165_r047	33869	33941	+	73		tRNA-Thr-AGT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000035	PATRIC	tRNA	93391420	VBILacDel201165_r048	13	86	+	74		tRNA-Asp-GTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000039	PATRIC	tRNA	93391651	VBILacDel201165_r049	10433	10505	+	73		tRNA-Lys-CTT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000040	PATRIC	tRNA	93391712	VBILacDel201165_r050	4097	4168	-	72		tRNA-Gln-TTG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000047	PATRIC	tRNA	93391947	VBILacDel201165_r051	3066	3138	+	73		tRNA-Asn-GTT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000047	PATRIC	tRNA	93391949	VBILacDel201165_r052	3142	3215	+	74		tRNA-Pro-TGG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000047	PATRIC	tRNA	93391951	VBILacDel201165_r053	3240	3311	+	72		tRNA-Gly-GCC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000051	PATRIC	tRNA	93392159	VBILacDel201165_r054	12956	13041	-	86		tRNA-Leu-AAG
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000051	PATRIC	tRNA	93392161	VBILacDel201165_r055	13193	13264	+	72		tRNA-Glu-TTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000051	PATRIC	tRNA	93392163	VBILacDel201165_r056	13268	13340	+	73		tRNA-Val-TAC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000052	PATRIC	tRNA	93392289	VBILacDel201165_r057	56872	56960	-	89		tRNA-Ser-CGA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000057	PATRIC	tRNA	93392480	VBILacDel201165_r058	439	526	-	88		tRNA-Pseudo-GCT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000061	PATRIC	tRNA	93392559	VBILacDel201165_r059	4	76	+	73		tRNA-Asn-GTT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000061	PATRIC	tRNA	93392561	VBILacDel201165_r060	85	175	+	91		tRNA-Ser-GGA
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000061	PATRIC	tRNA	93392563	VBILacDel201165_r061	182	255	+	74		tRNA-Met-CAT
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000061	PATRIC	tRNA	93392565	VBILacDel201165_r062	394	465	+	72		tRNA-Glu-TTC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000061	PATRIC	tRNA	93392567	VBILacDel201165_r063	469	541	+	73		tRNA-Val-TAC
+Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1519	AGHW01000065	PATRIC	tRNA	93392585	VBILacDel201165_r064	306	389	-	84		tRNA-Pseudo-CAG

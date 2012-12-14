@@ -1,0 +1,53 @@
+GENOME_NAME	ACCESSION	ANNOTATION	FEATURE_TYPE	NA_FEATURE_ID	LOCUS_TAG	START	END	STRAND	NA_LENGTH	GENE	PRODUCT
+
+Location	Strand	Length	PID	Gene	Synonym	Code	COG	Product
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26508631	VBILacPar66337_r001	9	98	+	90		tRNA-Ser-GGA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26508633	VBILacPar66337_r002	353	425	+	73		tRNA-Val-TAC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26509935	VBILacPar66337_r003	662154	662224	-	71		tRNA-Gln-CTG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26509949	VBILacPar66337_r004	667584	667655	-	72		tRNA-Glu-CTC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510041	VBILacPar66337_r005	714063	714136	-	74		tRNA-Arg-CCT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26508665	VBILacPar66337_r006	15490	15573	+	84		tRNA-Leu-CAG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510377	VBILacPar66337_r007	880575	880648	-	74		tRNA-Arg-TCT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510533	VBILacPar66337_r008	959650	959720	-	71		tRNA-Gly-CCC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510659	VBILacPar66337_r009	1022434	1022522	+	89		tRNA-Leu-AAG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510691	VBILacPar66337_r010	1040641	1040721	-	81		tRNA-Tyr-GTA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510721	VBILacPar66337_r011	1057350	1057422	-	73		tRNA-Thr-CGT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26510723	VBILacPar66337_r012	1057427	1057498	-	72		tRNA-Glu-TTC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26508887	VBILacPar66337_r013	129162	129233	+	72		tRNA-Arg-CCG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990485	PATRIC	tRNA	26509163	VBILacPar66337_r014	270794	270881	-	88		tRNA-Ser-CGA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990486	PATRIC	tRNA	26510930	VBILacPar66337_r015	108539	108611	-	73		tRNA-Thr-GGT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513273	VBILacPar66337_r016	625453	625526	-	74		tRNA-Pro-CGG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513275	VBILacPar66337_r017	625531	625602	-	72		tRNA-Gly-GCC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513277	VBILacPar66337_r018	625649	625725	-	77		tRNA-Arg-ACG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513279	VBILacPar66337_r019	625737	625822	-	86		tRNA-Leu-TAA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513281	VBILacPar66337_r020	625834	625905	-	72		tRNA-Gly-GCC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26513283	VBILacPar66337_r021	625981	626063	-	83		tRNA-Leu-TAG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990487	PATRIC	tRNA	26512736	VBILacPar66337_r022	351711	351782	-	72		tRNA-Asn-GTT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990488	PATRIC	tRNA	26513736	VBILacPar66337_r023	254794	254865	+	72		tRNA-Arg-TCG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990488	PATRIC	tRNA	26513986	VBILacPar66337_r024	390780	390852	-	73		tRNA-Ala-GGC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990488	PATRIC	tRNA	26513988	VBILacPar66337_r025	390874	390946	-	73		tRNA-Ala-CGC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514359	VBILacPar66337_r026	11971	12057	-	87		tRNA-Leu-CAA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514361	VBILacPar66337_r027	12104	12174	-	71		tRNA-Cys-GCA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514363	VBILacPar66337_r028	12217	12288	-	72		tRNA-Gln-TTG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514365	VBILacPar66337_r029	12297	12369	-	73		tRNA-His-GTG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514367	VBILacPar66337_r030	12381	12451	-	71		tRNA-Trp-CCA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514369	VBILacPar66337_r031	12458	12538	-	81		tRNA-Tyr-GTA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514371	VBILacPar66337_r032	12543	12615	-	73		tRNA-Phe-GAA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514373	VBILacPar66337_r033	12659	12732	-	74		tRNA-Asp-GTC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514375	VBILacPar66337_r034	12740	12813	-	74		tRNA-Met-CAT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514377	VBILacPar66337_r035	12824	12915	-	92		tRNA-Ser-TGA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514379	VBILacPar66337_r036	12925	12996	-	72		tRNA-Glu-TTC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514381	VBILacPar66337_r037	13001	13088	-	88		tRNA-Ser-GCT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514383	VBILacPar66337_r038	13118	13191	-	74		tRNA-Ile-GAT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514385	VBILacPar66337_r039	13206	13276	-	71		tRNA-Gly-TCC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514387	VBILacPar66337_r040	13296	13368	-	73		tRNA-Phe-GAA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514389	VBILacPar66337_r041	13374	13447	-	74		tRNA-Asp-GTC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514391	VBILacPar66337_r042	13455	13528	-	74		tRNA-Met-CAT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514393	VBILacPar66337_r043	13577	13650	-	74		tRNA-Met-CAT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514395	VBILacPar66337_r044	13659	13732	-	74		tRNA-Met-CAT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514397	VBILacPar66337_r045	13759	13832	-	74		tRNA-Pro-TGG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514399	VBILacPar66337_r046	13837	13910	-	74		tRNA-Arg-ACG
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514401	VBILacPar66337_r047	13971	14042	-	72		tRNA-Gly-GCC
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990491	PATRIC	tRNA	26514403	VBILacPar66337_r048	14076	14148	-	73		tRNA-Thr-TGT
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990493	PATRIC	rRNA	26514423	VBILacPar66337_r049	107	1632	+	1526		Small Subunit Ribosomal RNA; ssuRNA; SSU rRNA
+Lactobacillus paracasei subsp. paracasei 8700:2	NZ_DS990493	PATRIC	rRNA	26514425	VBILacPar66337_r050	1828	4745	+	2918		Large Subunit Ribosomal RNA; lsuRNA; LSU rRNA

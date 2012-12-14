@@ -1,0 +1,60 @@
+GENOME_NAME	ACCESSION	ANNOTATION	FEATURE_TYPE	NA_FEATURE_ID	LOCUS_TAG	START	END	STRAND	NA_LENGTH	GENE	PRODUCT
+
+Location	Strand	Length	PID	Gene	Synonym	Code	COG	Product
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000002	PATRIC	tRNA	93383110	VBILacCor242996_r001	90111	90198	-	88		tRNA-Ser-CGA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000004	PATRIC	tRNA	93383314	VBILacCor242996_r002	29516	29589	-	74		tRNA-Arg-CCT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000004	PATRIC	tRNA	93383368	VBILacCor242996_r003	57482	57554	-	73		tRNA-Thr-GGT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000005	PATRIC	tRNA	93383471	VBILacCor242996_r004	40774	40847	+	74		tRNA-Arg-TCT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000010	PATRIC	tRNA	93384023	VBILacCor242996_r005	31283	31365	-	83		tRNA-Pseudo-GTA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000014	PATRIC	tRNA	93384390	VBILacCor242996_r006	11766	11838	+	73		tRNA-Ala-CGC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000028	PATRIC	tRNA	93385418	VBILacCor242996_r007	17542	17626	-	85		tRNA-Leu-AAG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385971	VBILacCor242996_r008	11	83	+	73		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385973	VBILacCor242996_r009	93	182	+	90		tRNA-Ser-GGA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385975	VBILacCor242996_r010	194	265	+	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385977	VBILacCor242996_r011	270	342	+	73		tRNA-Val-TAC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385979	VBILacCor242996_r012	351	424	+	74		tRNA-Asp-GTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385981	VBILacCor242996_r013	443	515	+	73		tRNA-Phe-GAA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385983	VBILacCor242996_r014	521	601	+	81		tRNA-Tyr-GTA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385985	VBILacCor242996_r015	612	682	+	71		tRNA-Trp-CCA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385987	VBILacCor242996_r016	688	760	+	73		tRNA-His-GTG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385989	VBILacCor242996_r017	773	844	+	72		tRNA-Gln-TTG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385991	VBILacCor242996_r018	879	949	+	71		tRNA-Cys-GCA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000039	PATRIC	tRNA	93385993	VBILacCor242996_r019	997	1080	+	84		tRNA-Leu-CAA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000040	PATRIC	tRNA	93386080	VBILacCor242996_r020	16734	16805	+	72		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000058	PATRIC	tRNA	93386921	VBILacCor242996_r021	4840	4920	+	81		tRNA-Tyr-GTA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000058	PATRIC	tRNA	93386923	VBILacCor242996_r022	4926	4997	+	72		tRNA-Gln-TTG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000061	PATRIC	tRNA	93387041	VBILacCor242996_r023	12200	12272	-	73		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000064	PATRIC	tRNA	93387121	VBILacCor242996_r024	1652	1723	-	72		tRNA-Arg-CCG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000070	PATRIC	tRNA	93387297	VBILacCor242996_r025	13489	13562	-	74		tRNA-Pro-CGG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000070	PATRIC	tRNA	93387299	VBILacCor242996_r026	13590	13661	-	72		tRNA-Gly-GCC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000085	PATRIC	tRNA	93387631	VBILacCor242996_r027	111	182	+	72		tRNA-Gln-CTG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000085	PATRIC	tRNA	93387653	VBILacCor242996_r028	9267	9339	+	73		tRNA-Glu-CTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388177	VBILacCor242996_r029	3669	3742	-	74		tRNA-Asp-GTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388179	VBILacCor242996_r030	3746	3819	-	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388181	VBILacCor242996_r031	3829	3916	-	88		tRNA-Ser-TGA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388183	VBILacCor242996_r032	3927	3998	-	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388185	VBILacCor242996_r033	4017	4104	-	88		tRNA-Pseudo-GCT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388187	VBILacCor242996_r034	4109	4182	-	74		tRNA-Ile-GAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388189	VBILacCor242996_r035	4190	4260	-	71		tRNA-Gly-TCC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388191	VBILacCor242996_r036	4285	4357	-	73		tRNA-Phe-GAA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388193	VBILacCor242996_r037	4367	4440	-	74		tRNA-Asp-GTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388195	VBILacCor242996_r038	4443	4516	-	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388197	VBILacCor242996_r039	4565	4638	-	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000119	PATRIC	tRNA	93388199	VBILacCor242996_r040	4655	4728	-	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000132	PATRIC	tRNA	93388326	VBILacCor242996_r041	83	153	+	71		tRNA-Gly-CCC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000142	PATRIC	tRNA	93388411	VBILacCor242996_r042	2959	3031	-	73		tRNA-Lys-CTT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000143	PATRIC	rRNA	93388414	VBILacCor242996_r043	141	3063	+	2923		Large Subunit Ribosomal RNA; lsuRNA; LSU rRNA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000143	PATRIC	rRNA	93388416	VBILacCor242996_r044	3142	3258	+	117		5S RNA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000157	PATRIC	tRNA	93388503	VBILacCor242996_r045	102	185	-	84		tRNA-Leu-CAG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000160	PATRIC	tRNA	93388529	VBILacCor242996_r046	975	1046	+	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000160	PATRIC	tRNA	93388531	VBILacCor242996_r047	1057	1129	+	73		tRNA-Thr-CGT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000162	PATRIC	rRNA	93388543	VBILacCor242996_r048	69	1633	-	1565		Small Subunit Ribosomal RNA; ssuRNA; SSU rRNA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388674	VBILacCor242996_r049	94	167	-	74		tRNA-Arg-ACG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388676	VBILacCor242996_r050	178	263	-	86		tRNA-Leu-TAA
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388678	VBILacCor242996_r051	274	345	-	72		tRNA-Gly-GCC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388680	VBILacCor242996_r052	360	432	-	73		tRNA-Thr-TGT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388682	VBILacCor242996_r053	445	526	-	82		tRNA-Leu-TAG
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388684	VBILacCor242996_r054	548	620	-	73		tRNA-Lys-TTT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000197	PATRIC	tRNA	93388686	VBILacCor242996_r055	624	696	-	73		tRNA-Val-TAC
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000203	PATRIC	tRNA	93388704	VBILacCor242996_r056	29	102	+	74		tRNA-Ile-GAT
+Lactobacillus coryniformis subsp. coryniformis CECT 5711	AKFP01000203	PATRIC	tRNA	93388706	VBILacCor242996_r057	117	189	+	73		tRNA-Ala-TGC
