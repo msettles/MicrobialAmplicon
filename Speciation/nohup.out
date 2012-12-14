@@ -1,0 +1,126 @@
+================================================================
+Program: CD-HIT, V4.5.7 (+OpenMP), Feb 16 2012, 12:35:47
+Command: cdhit-est -M 1400 -T 8 -d 0 -c 1.000 -n 9 -i
+         Lactobacillaceae.fa -o Lactobacillaceae.reduced.fa
+
+Started: Sat Nov 17 19:46:24 2012
+================================================================
+                            Output                              
+----------------------------------------------------------------
+total seq: 9025
+longest and shortest : 1764 and 229
+Total letters: 7862069
+Sequences have been sorted
+
+Approximated minimal memory consumption:
+Sequence        : 8M
+Buffer          : 8 X 12M = 100M
+Table           : 2 X 4M = 8M
+Miscellaneous   : 1M
+Total           : 119M
+
+Table limit with the given memory limit:
+Max number of representatives: 69848
+Max number of word counting entries: 160123967
+
+# comparing sequences from          0  to       1000
+.---------- new table with      702 representatives
+# comparing sequences from       1000  to       5012
+....................----------   3037 remaining sequences to the next cycle
+---------- new table with      470 representatives
+# comparing sequences from       1975  to       5500
+.............----------   2816 remaining sequences to the next cycle
+---------- new table with      305 representatives
+# comparing sequences from       2684  to       5854
+............----------   2657 remaining sequences to the next cycle
+---------- new table with      215 representatives
+# comparing sequences from       3197  to       6111
+...............----------   2517 remaining sequences to the next cycle
+---------- new table with      169 representatives
+# comparing sequences from       3594  to       6309
+...........----------   2372 remaining sequences to the next cycle
+---------- new table with      150 representatives
+# comparing sequences from       3937  to       6481
+...............----------   2291 remaining sequences to the next cycle
+---------- new table with      116 representatives
+# comparing sequences from       4190  to       6607
+.................99.9%----------   2170 remaining sequences to the next cycle
+---------- new table with      112 representatives
+# comparing sequences from       4437  to       6731
+...............----------   2085 remaining sequences to the next cycle
+---------- new table with      105 representatives
+# comparing sequences from       4646  to       6835
+..........----------   1962 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       4873  to       6949
+...................----------   1918 remaining sequences to the next cycle
+---------- new table with      104 representatives
+# comparing sequences from       5031  to       7028
+..............----------   1839 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5189  to       7107
+...............----------   1775 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5332  to       7178
+.............----------   1705 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5473  to       7249
+...............----------   1621 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5628  to       7326
+..................----------   1532 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5794  to       7409
+..............----------   1447 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5962  to       7493
+.............----------   1340 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6153  to       7589
+...............----------   1262 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6327  to       7676
+..............----------   1174 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6502  to       7763
+...............----------   1092 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6671  to       7848
+.............----------   1017 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6831  to       7928
+............----------    937 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       6991  to       8008
+..............----------    858 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7150  to       8087
+..............----------    790 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7297  to       8161
+.............----------    703 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7458  to       8241
+................----------    630 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7611  to       8318
+.............----------    544 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7774  to       8399
+..........----------    426 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       7973  to       8499
+.............----------    341 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       8158  to       9025
+...............---------- new table with      501 representatives
+
+     9025  finished       4949  clusters
+
+Apprixmated maximum memory consumption: 129M
+writing new database
+writing clustering information
+program completed !
+
+Total CPU time: 49.12 s
+nohup: cdhit-est: No such file or directory

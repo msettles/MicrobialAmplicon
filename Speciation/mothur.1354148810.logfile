@@ -1,0 +1,244 @@
+Mac version
+
+Using ReadLine
+
+Running 64Bit Version
+
+mothur v.1.28.0
+Last updated: 11/2/2012
+
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+University of Michigan
+pschloss@umich.edu
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+Type 'quit()' to exit program
+Script Mode
+
+
+mothur > align.seqs(candidate=Lactobacillaceae.red.fa, template=silva.bacteria.fasta, flip=T, processors=12)
+
+Using 12 processors.
+
+Reading in the silva.bacteria.fasta template sequences...	DONE.
+It took 37 to read  14272 sequences.
+Aligning sequences from Lactobacillaceae.red.fa ...
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+200
+200
+200
+200
+300
+200
+200
+200
+200
+200
+200
+200
+200
+300
+400
+300
+300
+300
+300
+300
+500
+300
+300
+300
+300
+300
+400
+600
+400
+400
+400
+400
+400
+400
+400
+433
+348
+354
+401
+385
+425
+418
+432
+471
+428
+416
+700
+709
+It took 125 secs to align 5220 sequences.
+
+
+Output File Names: 
+Lactobacillaceae.red.align
+Lactobacillaceae.red.align.report
+
+
+mothur > filter.seqs(fasta=Lactobacillaceae.red.align, processors=12)
+
+Using 12 processors.
+Creating Filter... 
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+434
+435
+435
+435
+435
+435
+435
+435
+435
+435
+436
+435
+
+
+Running Filter... 
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+100
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+200
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+300
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+400
+435
+435
+435
+435
+435
+435
+435
+435
+435
+435
+434
+436
+
+
+
+Length of filtered alignment: 3138
+Number of columns removed: 46862
+Length of the original alignment: 50000
+Number of sequences used to construct filter: 5220
+
+Output File Names: 
+Lactobacillaceae.filter
+Lactobacillaceae.red.filter.fasta
+
+
+mothur > quit()

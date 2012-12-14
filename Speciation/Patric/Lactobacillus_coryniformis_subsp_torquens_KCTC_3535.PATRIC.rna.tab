@@ -1,0 +1,57 @@
+GENOME_NAME	ACCESSION	ANNOTATION	FEATURE_TYPE	NA_FEATURE_ID	LOCUS_TAG	START	END	STRAND	NA_LENGTH	GENE	PRODUCT
+
+Location	Strand	Length	PID	Gene	Synonym	Code	COG	Product
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000008	PATRIC	tRNA	52787473	VBILacCor181928_r001	10854	10927	+	74		tRNA-Arg-TCT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000019	PATRIC	tRNA	52787624	VBILacCor181928_r002	3863	3935	-	73		tRNA-Ala-CGC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000037	PATRIC	tRNA	52788015	VBILacCor181928_r003	6385	6457	-	73		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788428	VBILacCor181928_r004	21126	21209	-	84		tRNA-Leu-CAA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788430	VBILacCor181928_r005	21257	21327	-	71		tRNA-Cys-GCA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788432	VBILacCor181928_r006	21362	21433	-	72		tRNA-Gln-TTG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788434	VBILacCor181928_r007	21446	21518	-	73		tRNA-His-GTG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788436	VBILacCor181928_r008	21524	21594	-	71		tRNA-Trp-CCA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788438	VBILacCor181928_r009	21605	21685	-	81		tRNA-Tyr-GTA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788440	VBILacCor181928_r010	21691	21763	-	73		tRNA-Phe-GAA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788442	VBILacCor181928_r011	21780	21853	-	74		tRNA-Asp-GTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788444	VBILacCor181928_r012	21862	21934	-	73		tRNA-Val-TAC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788446	VBILacCor181928_r013	21939	22010	-	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788448	VBILacCor181928_r014	22022	22111	-	90		tRNA-Ser-GGA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000070	PATRIC	tRNA	52788450	VBILacCor181928_r015	22121	22193	-	73		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000072	PATRIC	tRNA	52788454	VBILacCor181928_r016	23	95	-	73		tRNA-Thr-GGT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000122	PATRIC	rRNA	52789551	VBILacCor181928_r017	1	117	-	117		5S RNA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000122	PATRIC	rRNA	52789553	VBILacCor181928_r018	196	3118	-	2923		Large Subunit Ribosomal RNA; lsuRNA; LSU rRNA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000123	PATRIC	rRNA	52789556	VBILacCor181928_r019	85	1633	-	1549		Small Subunit Ribosomal RNA; ssuRNA; SSU rRNA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789559	VBILacCor181928_r020	13	85	+	73		tRNA-Val-TAC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789561	VBILacCor181928_r021	89	161	+	73		tRNA-Lys-TTT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789563	VBILacCor181928_r022	183	264	+	82		tRNA-Leu-TAG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789565	VBILacCor181928_r023	277	349	+	73		tRNA-Thr-TGT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789567	VBILacCor181928_r024	364	435	+	72		tRNA-Gly-GCC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789569	VBILacCor181928_r025	446	531	+	86		tRNA-Leu-TAA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789571	VBILacCor181928_r026	542	615	+	74		tRNA-Arg-ACG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000124	PATRIC	tRNA	52789573	VBILacCor181928_r027	653	726	+	74		tRNA-Pro-TGG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000136	PATRIC	tRNA	52789791	VBILacCor181928_r028	14	87	+	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000136	PATRIC	tRNA	52789793	VBILacCor181928_r029	104	177	+	74		tRNA-Met-CAT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000162	PATRIC	tRNA	52790124	VBILacCor181928_r030	15	86	+	72		tRNA-Gly-GCC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000162	PATRIC	tRNA	52790126	VBILacCor181928_r031	113	186	+	74		tRNA-Pro-CGG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000183	PATRIC	tRNA	52790600	VBILacCor181928_r032	9851	9922	+	72		tRNA-Gln-CTG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000185	PATRIC	tRNA	52790622	VBILacCor181928_r033	2304	2376	+	73		tRNA-Glu-CTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000237	PATRIC	tRNA	52791392	VBILacCor181928_r034	10713	10797	+	85		tRNA-Leu-AAG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791715	VBILacCor181928_r035	62	135	+	74		tRNA-Asp-GTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791717	VBILacCor181928_r036	145	217	+	73		tRNA-Phe-GAA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791719	VBILacCor181928_r037	242	312	+	71		tRNA-Gly-TCC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791721	VBILacCor181928_r038	320	393	+	74		tRNA-Ile-GAT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791723	VBILacCor181928_r039	398	485	+	88		tRNA-Pseudo-GCT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791725	VBILacCor181928_r040	504	575	+	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000258	PATRIC	tRNA	52791727	VBILacCor181928_r041	586	673	+	88		tRNA-Ser-TGA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000280	PATRIC	tRNA	52791837	VBILacCor181928_r042	3483	3554	+	72		tRNA-Glu-TTC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000280	PATRIC	tRNA	52791839	VBILacCor181928_r043	3564	3636	+	73		tRNA-Thr-CGT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000280	PATRIC	tRNA	52791873	VBILacCor181928_r044	21166	21246	+	81		tRNA-Tyr-GTA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000280	PATRIC	tRNA	52791875	VBILacCor181928_r045	21252	21323	+	72		tRNA-Gln-TTG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000300	PATRIC	tRNA	52792337	VBILacCor181928_r046	14568	14640	+	73		tRNA-Lys-CTT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000330	PATRIC	tRNA	52792598	VBILacCor181928_r047	27931	28004	+	74		tRNA-Arg-CCT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000332	PATRIC	tRNA	52792738	VBILacCor181928_r048	38990	39061	-	72		tRNA-Arg-CCG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000342	PATRIC	tRNA	52792955	VBILacCor181928_r049	295	365	-	71		tRNA-Gly-CCC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000342	PATRIC	tRNA	52792963	VBILacCor181928_r050	2109	2192	+	84		tRNA-Leu-CAG
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000358	PATRIC	tRNA	52793123	VBILacCor181928_r051	3761	3848	-	88		tRNA-Ser-CGA
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000361	PATRIC	tRNA	52793132	VBILacCor181928_r052	823	894	-	72		tRNA-Asn-GTT
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000394	PATRIC	tRNA	52793538	VBILacCor181928_r053	22	94	-	73		tRNA-Ala-TGC
+Lactobacillus coryniformis subsp. torquens KCTC 3535	AEOS01000394	PATRIC	tRNA	52793540	VBILacCor181928_r054	109	182	-	74		tRNA-Ile-GAT
