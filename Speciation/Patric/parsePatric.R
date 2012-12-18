@@ -70,11 +70,17 @@ cluster_mat_rep <- cluster_mat[is.na(cluster_mat$Identity),]
 cluster_mat_rep$sequence_pool[match(names(cluster_names),cluster_mat_rep$Cluster_ID)] <- cluster_names
 seqs <- seqs[match(cluster_mat_rep$ID,names(seqs))]
 
+extraSeqs <- readDNAStringSet("sequence.fasta")
+
 OUTLIERS <- c(18,19,89,119,164)
-writeXStringSet(seqs[-OUTLIERS],"Lactobacillaceae.patric.red.fa")
-write.table(cluster_mat_rep[-OUTLIERS,],"Lactobacillaceae.patric.red.taxonomy",sep="\t",row.names=F,col.names=T,quote=F)
+seqo <- seqs[-OUTLIERS]
+cluster_mat_repo <- cluster_mat_rep[-OUTLIERS,]
+writeXStringSet(c(extraSeqs,seqo),"Lactobacillaceae.patric.red.fa")
+
+write.table(rbind(c(0,width(extraSeqs),names(extraSeqs),NA,NA,0,"Lactobacillus","fornicalis","Lactobacillus crispatus TV1018","fornicalis.1"), cluster_mat_repo),"Lactobacillaceae.patric.red.taxonomy",sep="\t",row.names=F,col.names=T,quote=F)
 
 ########## MOTHUR
+
 system("/Users/mattsettles/opt/bin/mothur \"#align.seqs(candidate=Lactobacillaceae.patric.red.fa, template=../silva.bacteria.fasta, flip=T, processors=12); filter.seqs(fasta=Lactobacillaceae.patric.red.align, processors=12);\"") 
 
 Lact.align <- read.table("Lactobacillaceae.patric.red.align.report",sep="\t",header=T,as.is=T)
@@ -84,14 +90,12 @@ gb_mapped <- data.frame(ID=names(gb),genus=sapply(strsplit(attr(gb, "species"),s
 
 Lact.align <- data.frame(Lact.align,gb_mapped[match(Lact.align$TemplateName,gb_mapped$ID),])
 
-Lactobacillaceae.red.taxonomy <- read.table("Lactobacillaceae.patric.red.taxonomy",sep="\t",header=T,as.is=F)
-
 
 #### SEE IF THEY CLUSTER, LOOK FOR OUTLIERS
 
 #### use mothur to produce distance matrix
 system("/Users/mattsettles/opt/bin/mothur \"#dist.seqs(fasta=Lactobacillaceae.patric.red.filter.fasta, calc=onegap, output=square, processors=12)\"")
-clusters <- cluster_mat_rep[-OUTLIERS,] 
+clusters <- read.table("Lactobacillaceae.patric.red.taxonomy",sep="\t",header=T,as.is=F) 
 library(flashClust)
 library(WGCNA)
 d5k <- read.table("Lactobacillaceae.patric.red.filter.square.dist",skip=1,row.names=1)
@@ -108,7 +112,7 @@ speciesColors = labels2colors(clusters$SPECIES)
 genusColors = labels2colors(clusters$GENUS)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
-pdf("Dendrogram_fullsequence.pdf",width=13,height=4,pointsize=8)
+pdf("Dendrogram_fullsequence.pdf",width=24,height=8,pointsize=8)
 plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,Species=speciesColors,Genus=genusColors), c("Tree Cut","Species","Genus"),
                     dendroLabels = clusters$SPECIES, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.5,

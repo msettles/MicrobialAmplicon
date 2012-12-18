@@ -32,7 +32,7 @@ source(file.path(microbe.amplicon.home,"R","DButilities.R"))
 con <- dbCon(dbname=dbname)   ### need to add check for connection
 if (any(!is.na(match(basefilename,getProcessedRuns(con))))) stop("SFFfile(s) already processed")
 
-source(file.path(microbe.amplicon.home,"R","options_MB.R"))
+source(file.path(microbe.amplicon.home,"R","PreProc_options.R"))
 
 ###########################################################################################
 # Adapters, Barcodes and Primers
