@@ -24,6 +24,7 @@ source(file.path(microbe.amplicon.home,"R","PreProc_functions.R"))
 
 checksystem()
 
+
 sfffiles <- commandArgs(TRUE)
 #sfffiles <- "Amplicon_SFFfiles_AmpProc/HRHT7FQ02.sff"
 basefilename <- sub(".sff","",basename(sfffiles))

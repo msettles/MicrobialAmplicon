@@ -10,7 +10,6 @@ source(file.path(microbe.amplicon.home,"R","DButilities.R"))
 basedir <- "/mnt/lfs/msettles/projects/Amplicon_Preprocessing"
 
 con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
-
 #######################################################################################
 ## Speciation
 #######################################################################################
