@@ -1,0 +1,62 @@
+ord	Len	ID	Identity	Cluster_ID	Error	GENUS	SPECIES	GENOME_NAME	sequence_pool
+0	1478	NC_008618:1553688-1555165:-:Bifidobacterium_adolescentis_ATCC_15703	NA	42	0	Bifidobacterium	adolescentis	Bifidobacterium adolescentis ATCC 15703	adolescentis.3
+0	1480	NC_008618:1614981-1616460:-:Bifidobacterium_adolescentis_ATCC_15703	NA	38	0	Bifidobacterium	adolescentis	Bifidobacterium adolescentis ATCC 15703	adolescentis.1
+0	1475	NC_008618:1909996-1911470:-:Bifidobacterium_adolescentis_ATCC_15703	NA	55	0	Bifidobacterium	adolescentis	Bifidobacterium adolescentis ATCC 15703	adolescentis.1
+0	1474	NZ_DS264454:58575-60048:-:Bifidobacterium_adolescentis_L2-32	NA	56	0	Bifidobacterium	adolescentis	Bifidobacterium adolescentis L2-32	adolescentis.1
+0	1474	NZ_DS264459:519909-521382:-:Bifidobacterium_adolescentis_L2-32	NA	57	0	Bifidobacterium	adolescentis	Bifidobacterium adolescentis L2-32	adolescentis.1
+0	1514	ABYS02000004:141999-143512:+:Bifidobacterium_angulatum_DSM_20098_=_JCM_7096	NA	32	0	Bifidobacterium	angulatum	Bifidobacterium angulatum DSM 20098 = JCM 7096	angulatum.1
+0	1529	CP002567:1488332-1489860:-:Bifidobacterium_animalis_subsp._animalis_ATCC_25527	NA	4	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. animalis ATCC 25527	animalis.3
+0	1529	CP002567:1767730-1769258:-:Bifidobacterium_animalis_subsp._animalis_ATCC_25527	NA	5	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. animalis ATCC 25527	animalis.1
+0	1525	NC_011835:900293-901817:+:Bifidobacterium_animalis_subsp._lactis_AD011	NA	8	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. lactis AD011	animalis.1
+0	1522	NC_011835:1083817-1085338:-:Bifidobacterium_animalis_subsp._lactis_AD011	NA	14	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. lactis AD011	animalis.1
+0	1526	CP003497:1474962-1476487:-:Bifidobacterium_animalis_subsp._lactis_B420	NA	7	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. lactis B420	animalis.32
+0	1527	CP003498:1875002-1876528:-:Bifidobacterium_animalis_subsp._lactis_Bi-07	NA	6	0	Bifidobacterium	animalis	Bifidobacterium animalis subsp. lactis Bi-07	animalis.3
+0	1514	CP003325:24682-26195:+:Bifidobacterium_asteroides_PRL2011	NA	33	0	Bifidobacterium	asteroides	Bifidobacterium asteroides PRL2011	asteroides.2
+0	1523	NC_014638:1589309-1590831:-:Bifidobacterium_bifidum_PRL2010	NA	12	0	Bifidobacterium	bifidum	Bifidobacterium bifidum PRL2010	bifidum.3
+0	1524	CP001361:1583595-1585118:-:Bifidobacterium_bifidum_BGN4	NA	9	0	Bifidobacterium	bifidum	Bifidobacterium bifidum BGN4	bifidum.2
+0	1523	CP001361:2165007-2166529:-:Bifidobacterium_bifidum_BGN4	NA	13	0	Bifidobacterium	bifidum	Bifidobacterium bifidum BGN4	bifidum.2
+0	1524	AMPM01000148:3830-5353:-:Bifidobacterium_bifidum_IPLA_20015	NA	10	0	Bifidobacterium	bifidum	Bifidobacterium bifidum IPLA 20015	bifidum.1
+0	1524	NC_014616:1566902-1568425:-:Bifidobacterium_bifidum_S17	NA	11	0	Bifidobacterium	bifidum	Bifidobacterium bifidum S17	bifidum.3
+0	1520	AFVV01000031:232-1751:+:Bifidobacterium_breve_CECT_7263	NA	15	0	Bifidobacterium	breve	Bifidobacterium breve CECT 7263	breve.1
+0	1479	CP002743:681726-683204:+:Bifidobacterium_breve_ACS-071-V-Sch8b	NA	40	0	Bifidobacterium	breve	Bifidobacterium breve ACS-071-V-Sch8b	breve.1
+0	1479	CP002743:2230273-2231751:-:Bifidobacterium_breve_ACS-071-V-Sch8b	NA	41	0	Bifidobacterium	breve	Bifidobacterium breve ACS-071-V-Sch8b	breve.2
+0	1520	AFXX01000047:233-1752:+:Bifidobacterium_breve_DPC_6330	NA	16	0	Bifidobacterium	breve	Bifidobacterium breve DPC 6330	breve.1
+0	1520	ACCG02000012:525522-527041:+:Bifidobacterium_breve_DSM_20213_=_JCM_1192	NA	17	0	Bifidobacterium	breve	Bifidobacterium breve DSM 20213 = JCM 1192	breve.1
+0	1520	CP000303:1613625-1615144:-:Bifidobacterium_breve_UCC2003	NA	18	0	Bifidobacterium	breve	Bifidobacterium breve UCC2003	breve.2
+0	1480	NZ_ABXY01000019:3361-4840:-:Bifidobacterium_catenulatum_DSM_16992_=_JCM_1194	NA	39	0	Bifidobacterium	catenulatum	Bifidobacterium catenulatum DSM 16992 = JCM 1194	catenulatum.1
+0	1520	NZ_ABIX02000002:884193-885712:+:Bifidobacterium_dentium_ATCC_27678	NA	19	0	Bifidobacterium	dentium	Bifidobacterium dentium ATCC 27678	dentium.8
+0	1519	NZ_GL405227:221-1739:+:Bifidobacterium_dentium_ATCC_27679	NA	22	0	Bifidobacterium	dentium	Bifidobacterium dentium ATCC 27679	dentium.2
+0	1530	NZ_ABXB03000004:246169-247698:+:Bifidobacterium_gallicum_DSM_20093	NA	3	0	Bifidobacterium	gallicum	Bifidobacterium gallicum DSM 20093	gallicum.1
+0	1514	NC_010816:177566-179079:+:Bifidobacterium_longum_DJO10A	NA	34	0	Bifidobacterium	longum	Bifidobacterium longum DJO10A	longum.1
+0	1515	NC_010816:183747-185261:+:Bifidobacterium_longum_DJO10A	NA	26	0	Bifidobacterium	longum	Bifidobacterium longum DJO10A	longum.15
+0	1515	NC_010816:1756057-1757571:+:Bifidobacterium_longum_DJO10A	NA	27	0	Bifidobacterium	longum	Bifidobacterium longum DJO10A	longum.2
+0	1474	NC_015052:1581538-1583011:-:Bifidobacterium_longum_subsp._infantis_157F	NA	58	0	Bifidobacterium	longum	Bifidobacterium longum subsp. infantis 157F	longum.3;sp..1
+0	1474	NC_015052:2125097-2126570:-:Bifidobacterium_longum_subsp._infantis_157F	NA	59	0	Bifidobacterium	longum	Bifidobacterium longum subsp. infantis 157F	longum.1
+0	1515	AP010889:960852-962366:+:Bifidobacterium_longum_subsp._infantis_ATCC_15697_=_JCM_1222	NA	28	0	Bifidobacterium	longum	Bifidobacterium longum subsp. infantis ATCC 15697 = JCM 1222	longum.9
+0	1473	NC_015067:1538386-1539858:-:Bifidobacterium_longum_subsp._longum_JCM_1217	NA	60	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum JCM 1217	longum.3
+0	1473	NC_015067:2082608-2084080:-:Bifidobacterium_longum_subsp._longum_JCM_1217	NA	61	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum JCM 1217	longum.1
+0	1514	NC_014169:1577540-1579053:-:Bifidobacterium_longum_subsp._longum_JDM301	NA	35	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum JDM301	longum.1
+0	1515	NC_014169:2398909-2400423:-:Bifidobacterium_longum_subsp._longum_JDM301	NA	29	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum JDM301	longum.1
+0	1515	CP002794:163172-164686:+:Bifidobacterium_longum_subsp._longum_KACC_91563	NA	30	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum KACC 91563	longum.1
+0	1514	CP002794:2378269-2379782:+:Bifidobacterium_longum_subsp._longum_KACC_91563	NA	36	0	Bifidobacterium	longum	Bifidobacterium longum subsp. longum KACC 91563	longum.1
+0	1514	NZ_ABXX02000002:314382-315895:-:Bifidobacterium_pseudocatenulatum_DSM_20438_=_JCM_1200	NA	37	0	Bifidobacterium	pseudocatenulatum	Bifidobacterium pseudocatenulatum DSM 20438 = JCM 1200	pseudocatenulatum.1
+0	1478	ADET01000004:312-1789:+:Gardnerella_vaginalis_00703Bmash	NA	43	0	Gardnerella	vaginalis	Gardnerella vaginalis 00703Bmash	vaginalis.1
+0	1476	ADEU01000010:3536-5011:-:Gardnerella_vaginalis_00703C2mash	NA	50	0	Gardnerella	vaginalis	Gardnerella vaginalis 00703C2mash	vaginalis.1
+0	1477	ADEV01000001:3832-5308:-:Gardnerella_vaginalis_00703Dmash	NA	44	0	Gardnerella	vaginalis	Gardnerella vaginalis 00703Dmash	vaginalis.1
+0	1477	ADEN01000012:3782-5258:-:Gardnerella_vaginalis_0288E	NA	45	0	Gardnerella	vaginalis	Gardnerella vaginalis 0288E	vaginalis.5
+0	1515	AEJD01000010:70-1584:-:Gardnerella_vaginalis_101	NA	31	0	Gardnerella	vaginalis	Gardnerella vaginalis 101	vaginalis.1
+0	1477	ADER01000013:439-1915:+:Gardnerella_vaginalis_1400E	NA	46	0	Gardnerella	vaginalis	Gardnerella vaginalis 1400E	vaginalis.1
+0	1476	ADES01000018:315-1790:+:Gardnerella_vaginalis_1500E	NA	51	0	Gardnerella	vaginalis	Gardnerella vaginalis 1500E	vaginalis.1
+0	1516	AFDI01000004:289-1804:+:Gardnerella_vaginalis_315-A	NA	23	0	Gardnerella	vaginalis	Gardnerella vaginalis 315-A	vaginalis.1
+0	1476	NC_013721:1483562-1485037:-:Gardnerella_vaginalis_409-05	NA	52	0	Gardnerella	vaginalis	Gardnerella vaginalis 409-05	vaginalis.3
+0	1516	AEJE01000001:3802-5317:-:Gardnerella_vaginalis_41V	NA	24	0	Gardnerella	vaginalis	Gardnerella vaginalis 41V	vaginalis.1
+0	1477	ADEQ01000020:3818-5294:-:Gardnerella_vaginalis_55152	NA	47	0	Gardnerella	vaginalis	Gardnerella vaginalis 55152	vaginalis.1
+0	1476	ADEW01000006:274-1749:+:Gardnerella_vaginalis_6119V5	NA	53	0	Gardnerella	vaginalis	Gardnerella vaginalis 6119V5	vaginalis.1
+0	1477	ADEP01000012:307-1783:+:Gardnerella_vaginalis_6420B	NA	48	0	Gardnerella	vaginalis	Gardnerella vaginalis 6420B	vaginalis.2
+0	1477	ADEM01000001:407-1883:+:Gardnerella_vaginalis_75712	NA	49	0	Gardnerella	vaginalis	Gardnerella vaginalis 75712	vaginalis.1
+0	1476	NZ_ADAM01000004:356-1831:+:Gardnerella_vaginalis_AMD	NA	54	0	Gardnerella	vaginalis	Gardnerella vaginalis AMD	vaginalis.1
+0	1516	NZ_AEON01000001:1204745-1206260:-:Parascardovia_denticolens_DSM_10105_=_JCM_12538	NA	25	0	Parascardovia	denticolens	Parascardovia denticolens DSM 10105 = JCM 12538	denticolens.2
+0	1520	NZ_GG770321:3873-5392:-:Parascardovia_denticolens_F0305	NA	20	0	Parascardovia	denticolens	Parascardovia denticolens F0305	denticolens.1
+0	1520	AKII01000019:300-1819:+:Parascardovia_denticolens_IPLA_20019	NA	21	0	Parascardovia	denticolens	Parascardovia denticolens IPLA 20019	denticolens.1
+0	1534	NZ_GG770227:365-1898:+:Scardovia_inopinata_F0304	NA	1	0	Scardovia	inopinata	Scardovia inopinata F0304	inopinata.1
+0	1532	AKCI01000001:351584-353115:+:Scardovia_wiggsiae_F0424	NA	2	0	Scardovia	wiggsiae	Scardovia wiggsiae F0424	wiggsiae.2

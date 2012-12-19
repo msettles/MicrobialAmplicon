@@ -1,15 +1,23 @@
 #### Parse PATRIC files for 16S genes
 
-seqFiles <- dir(pattern=".fna$")
-featureFiles <- dir(pattern=".features.tab$")
+### Patric Download directory
+seqDir <- "Speciation/Bifidobacteriaceae_patric"
+Name <- "Bifidobacteriaceae"
+align.db <- "Speciation/silva.bacteria.fasta"
+source("R/getGenBank.R")
+
+library(Biostrings)
+#######
+seqFiles <- dir(path=seqDir,pattern=".fna$",full.names=FALSE)
+featureFiles <- dir(path=seqDir,pattern=".features.tab$",full.names=FALSE)
 seqFiles <- seqFiles[match(sub(".PATRIC.features.tab","",featureFiles),sub(".fna","",seqFiles))]
 isolateName <- sub(".PATRIC.features.tab","",featureFiles)
 genus <- sapply(strsplit(isolateName,split="_"),"[[", 1L)
 species <- sapply(strsplit(isolateName,split="_"),"[[", 2L)
 taxonomy <- cbind(genus,species,isolateName)
 
-sequences <- lapply(seqFiles,readDNAStringSet)
-annot <- lapply(featureFiles,read.table,sep="\t",header=TRUE,as.is=TRUE,quote="",comment.char="")
+sequences <- lapply(file.path(seqDir,seqFiles),readDNAStringSet)
+annot <- lapply(file.path(seqDir,featureFiles),read.table,sep="\t",header=TRUE,as.is=TRUE,quote="",comment.char="")
 
 has16s <- sapply(annot,function(x) length(intersect(grep("Small Subunit",x$PRODUCT),which(x$FEATURE_TYPE=="rRNA"))))
 sequence <- sequences[has16s>0]
@@ -35,15 +43,14 @@ anno <- anno[longseqs,]
 anno$SEQID <- paste(anno$ACCESSION,":",anno$START,"-",anno$END,":",anno$STRAND, ":",gsub(" ","_",anno$GENOME_NAME),sep="")
 anno$GENUS <- sapply(strsplit(anno$GENOME_NAME,split=" "),"[[",1L)
 anno$SPECIES <- sapply(strsplit(anno$GENOME_NAME,split=" "),"[[",2L)
-write.table(anno,"Lactobacillaceae.patric.annot.txt",sep="\t",col.names=TRUE,row.names=FALSE)
-writeXStringSet(seqs,"Lactobacillaceae.patric.fasta")
-
+write.table(anno,file.path(seqDir,paste(Name,"patric.annot.txt",sep=".")),sep="\t",col.names=TRUE,row.names=FALSE)
+writeXStringSet(seqs,file.path(seqDir,paste(Name,"patric.fasta",sep=".")))
 
 ### CD_HIT REDUNDANCY
-system("~/opt/bin/cdhit-est -M 1400 -T 8 -d 200 -c 1.000 -n 9 -i Lactobacillaceae.patric.fasta -o Lactobacillaceae.patric.reduced.fasta")
+system(paste("~/opt/bin/cdhit-est -M 1400 -T 8 -d 200 -c 1.000 -n 9 -i",file.path(seqDir,paste(Name,"patric.fasta",sep=".")),"-o",file.path(seqDir,paste(Name,"patric.reduced.fasta",sep="."))))
 #### look at clustering results
-cdhit_seq <- readDNAStringSet("Lactobacillaceae.patric.reduced.fasta")
-cdhit_cluster <- readLines("Lactobacillaceae.patric.reduced.fasta.clstr")
+cdhit_seq <- readDNAStringSet(file.path(seqDir,paste(Name,"patric.reduced.fasta",sep=".")))
+cdhit_cluster <- readLines(file.path(seqDir,paste(Name,"patric.reduced.fasta.clstr",sep=".")))
 clust <- grep("^>Cluster",c(cdhit_cluster,">Cluster"))
 cdhit_cluster <- paste(cdhit_cluster,"C",rep(seq.int(1,length(diff(clust))),times=diff(clust)),sep=" ")
 cdhit_cluster <- cdhit_cluster[-clust]
@@ -70,21 +77,26 @@ cluster_mat_rep <- cluster_mat[is.na(cluster_mat$Identity),]
 cluster_mat_rep$sequence_pool[match(names(cluster_names),cluster_mat_rep$Cluster_ID)] <- cluster_names
 seqs <- seqs[match(cluster_mat_rep$ID,names(seqs))]
 
-extraSeqs <- readDNAStringSet("sequence.fasta")
+#extraSeqs <- readDNAStringSet("sequence.fasta")
 
-OUTLIERS <- c(18,19,89,119,164)
-seqo <- seqs[-OUTLIERS]
-cluster_mat_repo <- cluster_mat_rep[-OUTLIERS,]
-writeXStringSet(c(extraSeqs,seqo),"Lactobacillaceae.patric.red.fa")
+#OUTLIERS <- c(18,19,89,119,164)
+#seqo <- seqs[-OUTLIERS]
+#cluster_mat_repo <- cluster_mat_rep[-OUTLIERS,]
 
-write.table(rbind(c(0,width(extraSeqs),names(extraSeqs),NA,NA,0,"Lactobacillus","fornicalis","Lactobacillus crispatus TV1018","fornicalis.1"), cluster_mat_repo),"Lactobacillaceae.patric.red.taxonomy",sep="\t",row.names=F,col.names=T,quote=F)
+seqo <- seqs
+cluster_mat_repo <- cluster_mat_rep
 
+#writeXStringSet(c(extraSeqs,seqo),"Lactobacillaceae.patric.red.fa")
+#write.table(rbind(c(0,width(extraSeqs),names(extraSeqs),NA,NA,0,"Lactobacillus","fornicalis","Lactobacillus crispatus TV1018","fornicalis.1"), cluster_mat_repo),"Lactobacillaceae.patric.red.taxonomy",sep="\t",row.names=F,col.names=T,quote=F)
+
+writeXStringSet(c(seqo),file.path(seqDir,paste(Name,"patric.red.fa",sep=".")))
+write.table(cluster_mat_repo,file.path(seqDir,paste(Name,"patric.red.taxonomy",sep=".")),sep="\t",row.names=F,col.names=T,quote=F)
+          
 ########## MOTHUR
 
-system("/Users/mattsettles/opt/bin/mothur \"#align.seqs(candidate=Lactobacillaceae.patric.red.fa, template=../silva.bacteria.fasta, flip=T, processors=12); filter.seqs(fasta=Lactobacillaceae.patric.red.align, processors=12);\"") 
+system(paste("/Users/mattsettles/opt/bin/mothur \"#align.seqs(candidate=",file.path(seqDir,paste(Name,"patric.red.fa",sep=".")),", template=",align.db,", flip=T, processors=12); filter.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.align",sep=".")),", processors=12);\"",sep="")) 
 
-Lact.align <- read.table("Lactobacillaceae.patric.red.align.report",sep="\t",header=T,as.is=T)
-source("../../R/getGenBank.R")
+Lact.align <- read.table(file.path(seqDir,paste(Name,"patric.red.align.report",sep=".")),sep="\t",header=T,as.is=T)
 gb <- get.GenBank(unique(Lact.align$TemplateName))
 gb_mapped <- data.frame(ID=names(gb),genus=sapply(strsplit(attr(gb, "species"),split="_"),"[[",1L),species=sapply(strsplit(attr(gb, "species"),split="_"),"[[",2L))
 
@@ -94,12 +106,12 @@ Lact.align <- data.frame(Lact.align,gb_mapped[match(Lact.align$TemplateName,gb_m
 #### SEE IF THEY CLUSTER, LOOK FOR OUTLIERS
 
 #### use mothur to produce distance matrix
-system("/Users/mattsettles/opt/bin/mothur \"#dist.seqs(fasta=Lactobacillaceae.patric.red.filter.fasta, calc=onegap, output=square, processors=12)\"")
-clusters <- read.table("Lactobacillaceae.patric.red.taxonomy",sep="\t",header=T,as.is=F) 
+system(paste("/Users/mattsettles/opt/bin/mothur \"#dist.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.filter.fasta",sep=".")),", calc=onegap, output=square, processors=12)\"",sep=""))
+clusters <- read.table(file.path(seqDir,paste(Name,"patric.red.taxonomy",sep=".")),sep="\t",header=T,as.is=F) 
 library(flashClust)
 library(WGCNA)
-d5k <- read.table("Lactobacillaceae.patric.red.filter.square.dist",skip=1,row.names=1)
-hc <- flashClust(as.dist(d5k),method="single")
+d5k <- read.table(file.path(seqDir,paste(Name,"patric.red.filter.square.dist",sep=".")),skip=1,row.names=1)
+hc <- flashClust(as.dist(d5k),method="average")
 
 minModuleSize = 1;
 # Module identification using dynamic tree cut:
@@ -112,9 +124,9 @@ speciesColors = labels2colors(clusters$SPECIES)
 genusColors = labels2colors(clusters$GENUS)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
-pdf("Dendrogram_fullsequence.pdf",width=24,height=8,pointsize=8)
+pdf(paste(Name,"Dendrogram_fullsequence.pdf",sep="_"),width=24,height=8,pointsize=8)
 plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,Species=speciesColors,Genus=genusColors), c("Tree Cut","Species","Genus"),
                     dendroLabels = clusters$SPECIES, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.5,
-                    main = "Clustering Full length Lactobacillaceae 16S sequence")
+                    main = paste("Clustering Full length",Name,"16S sequence"))
 dev.off()

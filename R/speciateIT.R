@@ -16,12 +16,13 @@ con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
 #con <- dbCon()
 ## Lactobacillus
 ## extract genus reads and write to file
-project <- "Witkin-VVS"
+project <- "Marmoset"
 #project <- "JJ_Human_Vagina"
-genus <- "Lactobacillus"
+genus <- "Bifidobacterium"
 nproc=16
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
-
+output_dir="OutputFiles"
+pipeline="dynamicTreeCut"
 
 specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8,pipeline=c("dynamicTreeCut","vicut"), mothur.template){
 

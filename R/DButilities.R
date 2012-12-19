@@ -72,12 +72,15 @@
 ## Metadata Table to add
 "updateMetaData" <- function(con,filename="MetaData/Pool_MetaData.txt"){
   # get the current table
+  if (!dbExistsTable(con,"pool_metadata"))  stop("DB scheme for pool_metadata does not exist")
   metadata <- dbReadTable(con,"pool_metadata")
   metatable <- read.table(filename,sep="\t",header=T)
-  metatable <- metatable[!(apply(metatable[,c("Project","Sample_ID","Reverse_Primer","Pool")],1,paste,collapse=" ") %in% apply(metadata[,c("Project","Sample_ID","Barcode","Pool")],1,paste,collapse=" ")),]
+  metadata <- metadata[!(apply(metadata[,c("Project","Sample_ID","Barcode","Pool")],1,paste,collapse=" ") %in% apply(metatable[,c("Project","Sample_ID","Reverse_Primer","Pool")],1,paste,collapse=" ")),]
+  colnames(metatable) <- colnames(metadata)
   if (nrow(metatable) > 0){
     print(paste("Adding ",nrow(metatable)," entries",sep=""))
-    dbWriteTable(con,"pool_metadata",metatable,row.names=F,append=T)
+    if (dbExistsTable(con,"pool_metadata")) dbRemoveTable(con,"pool_metadata")    
+    dbWriteTable(con,"pool_metadata",rbind(metadata,metatable),row.names=F)
   }
 }
 
