@@ -1,0 +1,209 @@
+ord	Len	ID	Identity	Cluster_ID	Error	GENUS	SPECIES	GENOME_NAME	sequence_pool
+0	1421	gi|219846917|ref|NR_026509.1| Lactobacillus fornicalis strain TV1018 16S ribosomal RNA, partial sequence	NA	NA	0	Lactobacillus	fornicalis	Lactobacillus crispatus TV1018	fornicalis.1
+0	1559	AGZG01000018:17920-19478:+:Lactobacillus_crispatus_FB077-07	NA	51	0	Lactobacillus	crispatus	Lactobacillus crispatus FB077-07	crispatus.1
+0	1569	AGZG01000019:12526-14094:+:Lactobacillus_crispatus_FB077-07	NA	37	0	Lactobacillus	crispatus	Lactobacillus crispatus FB077-07	crispatus.2
+0	1559	AGZF01000016:28555-30113:-:Lactobacillus_crispatus_FB049-03	NA	52	0	Lactobacillus	crispatus	Lactobacillus crispatus FB049-03	crispatus.4
+0	1504	BACS01000339:1-1504:-:Lactobacillus_acidipiscis_KCTC_13900	NA	202	0	Lactobacillus	acidipiscis	Lactobacillus acidipiscis KCTC 13900	acidipiscis.1
+0	1512	NC_015214:57091-58602:+:Lactobacillus_acidophilus_30SC	NA	164	0	Lactobacillus	acidophilus	Lactobacillus acidophilus 30SC	acidophilus.3
+0	1512	NC_015214:469566-471077:+:Lactobacillus_acidophilus_30SC	NA	165	0	Lactobacillus	acidophilus	Lactobacillus acidophilus 30SC	acidophilus.1
+0	1559	NZ_GG669569:8-1566:+:Lactobacillus_acidophilus_ATCC_4796	NA	53	0	Lactobacillus	acidophilus	Lactobacillus acidophilus ATCC 4796	acidophilus.4
+0	1559	NC_006814:434253-435811:+:Lactobacillus_acidophilus_NCFM	NA	54	0	Lactobacillus	acidophilus	Lactobacillus acidophilus NCFM	acidophilus.1
+0	1559	NZ_ADNY01000006:3523-5081:-:Lactobacillus_amylolyticus_DSM_11664	NA	55	0	Lactobacillus	amylolyticus	Lactobacillus amylolyticus DSM 11664	amylolyticus.1
+0	1514	CP002338:66294-67807:+:Lactobacillus_amylovorus_GRL_1112	NA	162	0	Lactobacillus	amylovorus	Lactobacillus amylovorus GRL 1112	amylovorus.4
+0	1512	CP002609:55901-57412:+:Lactobacillus_amylovorus_GRL1118	NA	166	0	Lactobacillus	amylovorus	Lactobacillus amylovorus GRL1118	amylovorus.4
+0	1543	AEOF01000010:3332-4874:-:Lactobacillus_animalis_KCTC_3501	NA	122	0	Lactobacillus	animalis	Lactobacillus animalis KCTC 3501	animalis.1
+0	1571	NZ_GG700732:71-1641:+:Lactobacillus_antri_DSM_16041	NA	16	0	Lactobacillus	antri	Lactobacillus antri DSM 16041	antri.1
+0	1544	NC_008497:86143-87686:+:Lactobacillus_brevis_ATCC_367	NA	117	0	Lactobacillus	brevis	Lactobacillus brevis ATCC 367	brevis.2
+0	1544	NC_008497:562987-564530:+:Lactobacillus_brevis_ATCC_367	NA	118	0	Lactobacillus	brevis	Lactobacillus brevis ATCC 367	brevis.1
+0	1544	NC_008497:1146827-1148370:-:Lactobacillus_brevis_ATCC_367	NA	119	0	Lactobacillus	brevis	Lactobacillus brevis ATCC 367	brevis.1
+0	1544	NC_008497:1504692-1506235:-:Lactobacillus_brevis_ATCC_367	NA	120	0	Lactobacillus	brevis	Lactobacillus brevis ATCC 367	brevis.1
+0	1520	CP003043:732386-733905:+:Lactobacillus_buchneri_CD034	NA	150	0	Lactobacillus	buchneri	Lactobacillus buchneri CD034	buchneri.2
+0	1520	CP003043:854068-855587:+:Lactobacillus_buchneri_CD034	NA	151	0	Lactobacillus	buchneri	Lactobacillus buchneri CD034	buchneri.1
+0	1520	CP003043:1676719-1678238:-:Lactobacillus_buchneri_CD034	NA	152	0	Lactobacillus	buchneri	Lactobacillus buchneri CD034	buchneri.1
+0	1520	CP003043:2304848-2306367:-:Lactobacillus_buchneri_CD034	NA	153	0	Lactobacillus	buchneri	Lactobacillus buchneri CD034	buchneri.1
+0	1554	NC_015428:706253-707806:+:Lactobacillus_buchneri_NRRL_B-30929	NA	81	0	Lactobacillus	buchneri	Lactobacillus buchneri NRRL B-30929	buchneri.1
+0	1554	NC_015428:829457-831010:+:Lactobacillus_buchneri_NRRL_B-30929	NA	82	0	Lactobacillus	buchneri	Lactobacillus buchneri NRRL B-30929	buchneri.1
+0	1553	NC_015428:1597817-1599369:-:Lactobacillus_buchneri_NRRL_B-30929	NA	87	0	Lactobacillus	buchneri	Lactobacillus buchneri NRRL B-30929	buchneri.1
+0	1554	NC_015428:1678774-1680327:-:Lactobacillus_buchneri_NRRL_B-30929	NA	83	0	Lactobacillus	buchneri	Lactobacillus buchneri NRRL B-30929	buchneri.1
+0	1554	NC_015428:2300497-2302050:-:Lactobacillus_buchneri_NRRL_B-30929	NA	84	0	Lactobacillus	buchneri	Lactobacillus buchneri NRRL B-30929	buchneri.1
+0	1549	NC_008526:259504-261052:+:Lactobacillus_casei_ATCC_334	NA	92	0	Lactobacillus	casei	Lactobacillus casei ATCC 334	casei.9
+0	1549	NC_008526:823773-825321:+:Lactobacillus_casei_ATCC_334	NA	93	0	Lactobacillus	casei	Lactobacillus casei ATCC 334	casei.1
+0	1549	NC_008526:1829101-1830649:-:Lactobacillus_casei_ATCC_334	NA	94	0	Lactobacillus	casei	Lactobacillus casei ATCC 334	casei.2
+0	1549	CP002618:900030-901578:+:Lactobacillus_casei_BD-II	NA	95	0	Lactobacillus	casei	Lactobacillus casei BD-II	casei.3
+0	1549	CP002618:1981913-1983461:-:Lactobacillus_casei_BD-II	NA	96	0	Lactobacillus	casei	Lactobacillus casei BD-II	casei.3
+0	1549	CP002618:2634048-2635596:-:Lactobacillus_casei_BD-II	NA	97	0	Lactobacillus	casei	Lactobacillus casei BD-II	casei.2
+0	1549	NC_010999:886370-887918:+:Lactobacillus_casei_BL23	NA	98	0	Lactobacillus	casei	Lactobacillus casei BL23	casei.1
+0	1550	NC_014334:775349-776898:+:Lactobacillus_casei_str._Zhang	NA	90	0	Lactobacillus	casei	Lactobacillus casei str. Zhang	casei.1
+0	1549	NC_014334:794718-796266:+:Lactobacillus_casei_str._Zhang	NA	99	0	Lactobacillus	casei	Lactobacillus casei str. Zhang	casei.1
+0	1548	NC_014334:1785731-1787278:-:Lactobacillus_casei_str._Zhang	NA	105	0	Lactobacillus	casei	Lactobacillus casei str. Zhang	casei.1
+0	1549	NC_014334:2437909-2439457:-:Lactobacillus_casei_str._Zhang	NA	100	0	Lactobacillus	casei	Lactobacillus casei str. Zhang	casei.1
+0	1570	NZ_GG698808:3797-5366:-:Lactobacillus_coleohominis_101-4-CHN	NA	32	0	Lactobacillus	coleohominis	Lactobacillus coleohominis 101-4-CHN	coleohominis.1
+0	1565	AKFP01000162:69-1633:-:Lactobacillus_coryniformis_subsp._coryniformis_CECT_5711	NA	49	0	Lactobacillus	coryniformis	Lactobacillus coryniformis subsp. coryniformis CECT 5711	coryniformis.1
+0	1549	AELK01000240:169-1717:+:Lactobacillus_coryniformis_subsp._coryniformis_KCTC_3167	NA	101	0	Lactobacillus	coryniformis	Lactobacillus coryniformis subsp. coryniformis KCTC 3167	coryniformis.1
+0	1549	AEOS01000123:85-1633:-:Lactobacillus_coryniformis_subsp._torquens_KCTC_3535	NA	102	0	Lactobacillus	coryniformis	Lactobacillus coryniformis subsp. torquens KCTC 3535	coryniformis.1
+0	1530	NZ_GG698765:3692-5221:-:Lactobacillus_crispatus_125-2-CHN	NA	132	0	Lactobacillus	crispatus	Lactobacillus crispatus 125-2-CHN	crispatus.2
+0	1530	NZ_ADGR01000076:394-1923:+:Lactobacillus_crispatus_214-1	NA	133	0	Lactobacillus	crispatus	Lactobacillus crispatus 214-1	crispatus.4
+0	1530	NZ_GG669837:392-1921:+:Lactobacillus_crispatus_JV-V01	NA	134	0	Lactobacillus	crispatus	Lactobacillus crispatus JV-V01	crispatus.2
+0	1530	NC_014106:1669954-1671483:-:Lactobacillus_crispatus_ST1	NA	135	0	Lactobacillus	crispatus	Lactobacillus crispatus ST1	crispatus.1
+0	1565	AGBU01000099:75-1639:-:Lactobacillus_curvatus_CRL_705	NA	50	0	Lactobacillus	curvatus	Lactobacillus curvatus CRL 705	curvatus.1
+0	1512	CP000156:35822-37333:+:Lactobacillus_delbrueckii_subsp._bulgaricus_2038	NA	167	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus 2038	delbrueckii.3
+0	1512	CP000156:789161-790672:+:Lactobacillus_delbrueckii_subsp._bulgaricus_2038	NA	168	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus 2038	delbrueckii.1
+0	1512	CP000156:821182-822693:+:Lactobacillus_delbrueckii_subsp._bulgaricus_2038	NA	169	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus 2038	delbrueckii.3
+0	1512	CP000156:1526988-1528499:-:Lactobacillus_delbrueckii_subsp._bulgaricus_2038	NA	170	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus 2038	delbrueckii.1
+0	1512	CP000156:1596084-1597595:-:Lactobacillus_delbrueckii_subsp._bulgaricus_2038	NA	171	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus 2038	delbrueckii.5
+0	1512	NC_008054:45152-46663:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	172	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008054:806385-807896:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	173	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1513	NC_008054:1359991-1361503:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	163	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008054:1470659-1472170:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	174	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008054:1577010-1578521:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	175	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008054:1787116-1788627:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	176	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008054:1794703-1796214:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_11842	NA	177	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	delbrueckii.1
+0	1512	NC_008529:43698-45209:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	178	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:683258-684769:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	179	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:792479-793990:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	180	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:1373621-1375132:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	181	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:1562061-1563572:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	182	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:1594319-1595830:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	183	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.1
+0	1512	NC_008529:1792105-1793616:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ATCC_BAA-365	NA	184	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ATCC BAA-365	delbrueckii.2
+0	1512	AGFO01000051:66-1577:+:Lactobacillus_delbrueckii_subsp._bulgaricus_CNCM_I-1632	NA	185	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus CNCM I-1632	delbrueckii.1
+0	1512	CP002341:33574-35085:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	186	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:736710-738221:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	187	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:858428-859939:+:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	188	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:1549527-1551038:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	189	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1511	CP002341:1658423-1659933:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	201	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:1744654-1746165:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	190	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:1782339-1783850:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	191	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:2019261-2020772:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	192	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	CP002341:2030616-2032127:-:Lactobacillus_delbrueckii_subsp._bulgaricus_ND02	NA	193	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. bulgaricus ND02	delbrueckii.1
+0	1512	AEXU01000148:152-1663:-:Lactobacillus_delbrueckii_subsp._lactis_DSM_20072	NA	194	0	Lactobacillus	delbrueckii	Lactobacillus delbrueckii subsp. lactis DSM 20072	delbrueckii.1
+0	1545	AEOT01000034:210-1754:+:Lactobacillus_farciminis_KCTC_3681	NA	116	0	Lactobacillus	farciminis	Lactobacillus farciminis KCTC 3681	farciminis.1
+0	1555	CP002033:169799-171353:+:Lactobacillus_fermentum_CECT_5716	NA	73	0	Lactobacillus	fermentum	Lactobacillus fermentum CECT 5716	fermentum.2
+0	1555	CP002033:194083-195637:+:Lactobacillus_fermentum_CECT_5716	NA	74	0	Lactobacillus	fermentum	Lactobacillus fermentum CECT 5716	fermentum.1
+0	1559	CP002033:651902-653460:+:Lactobacillus_fermentum_CECT_5716	NA	56	0	Lactobacillus	fermentum	Lactobacillus fermentum CECT 5716	fermentum.1
+0	1555	CP002033:1564360-1565914:-:Lactobacillus_fermentum_CECT_5716	NA	75	0	Lactobacillus	fermentum	Lactobacillus fermentum CECT 5716	fermentum.2
+0	1555	NC_010610:169382-170936:+:Lactobacillus_fermentum_IFO_3956	NA	76	0	Lactobacillus	fermentum	Lactobacillus fermentum IFO 3956	fermentum.1
+0	1555	NC_010610:193646-195200:+:Lactobacillus_fermentum_IFO_3956	NA	77	0	Lactobacillus	fermentum	Lactobacillus fermentum IFO 3956	fermentum.1
+0	1555	NC_010610:273492-275046:+:Lactobacillus_fermentum_IFO_3956	NA	78	0	Lactobacillus	fermentum	Lactobacillus fermentum IFO 3956	fermentum.1
+0	1555	NC_010610:651349-652903:+:Lactobacillus_fermentum_IFO_3956	NA	79	0	Lactobacillus	fermentum	Lactobacillus fermentum IFO 3956	fermentum.1
+0	1519	ALXF01000024:124-1642:-:Lactobacillus_florum_2F	NA	155	0	Lactobacillus	florum	Lactobacillus florum 2F	florum.1
+0	1521	NZ_ACOZ01000018:157-1677:-:Lactobacillus_gasseri_202-4	NA	144	0	Lactobacillus	gasseri	Lactobacillus gasseri 202-4	gasseri.1
+0	1521	NZ_ADFT01000001:766-2286:-:Lactobacillus_gasseri_224-1	NA	145	0	Lactobacillus	gasseri	Lactobacillus gasseri 224-1	gasseri.1
+0	1521	NZ_ADFT01000005:6144-7664:+:Lactobacillus_gasseri_224-1	NA	146	0	Lactobacillus	gasseri	Lactobacillus gasseri 224-1	gasseri.9
+0	1521	NZ_ADFT01000026:769-2289:-:Lactobacillus_gasseri_224-1	NA	147	0	Lactobacillus	gasseri	Lactobacillus gasseri 224-1	gasseri.1
+0	1521	NZ_ADFT01000035:515-2035:-:Lactobacillus_gasseri_224-1	NA	148	0	Lactobacillus	gasseri	Lactobacillus gasseri 224-1	gasseri.1
+0	1521	NZ_GG669978:261-1781:+:Lactobacillus_gasseri_JV-V03	NA	149	0	Lactobacillus	gasseri	Lactobacillus gasseri JV-V03	gasseri.1
+0	1487	ADDU01000006:398-1884:-:Lactobacillus_gasseri_SJ-9E-US	NA	204	0	Lactobacillus	gasseri	Lactobacillus gasseri SJ-9E-US	gasseri.1
+0	1487	ADDY01000031:430-1916:+:Lactobacillus_gasseri_SV-16A-US	NA	205	0	Lactobacillus	gasseri	Lactobacillus gasseri SV-16A-US	gasseri.1
+0	1569	AICN01000060:69-1637:-:Lactobacillus_gastricus_PS3	NA	38	0	Lactobacillus	gastricus	Lactobacillus gastricus PS3	gastricus.1
+0	1556	NC_010080:76222-77777:+:Lactobacillus_helveticus_DPC_4571	NA	70	0	Lactobacillus	helveticus	Lactobacillus helveticus DPC 4571	helveticus.4
+0	1556	NZ_GG700755:178698-180253:-:Lactobacillus_helveticus_DSM_20075	NA	71	0	Lactobacillus	helveticus	Lactobacillus helveticus DSM 20075	helveticus.1
+0	1512	CP002429:85108-86619:+:Lactobacillus_helveticus_H10	NA	195	0	Lactobacillus	helveticus	Lactobacillus helveticus H10	helveticus.3
+0	1512	CP002429:1736960-1738471:-:Lactobacillus_helveticus_H10	NA	196	0	Lactobacillus	helveticus	Lactobacillus helveticus H10	helveticus.1
+0	1555	AEIR01000003:337905-339459:+:Lactobacillus_helveticus_R0052	NA	80	0	Lactobacillus	helveticus	Lactobacillus helveticus R0052	helveticus.2
+0	1558	AEIR01000004:231899-233456:-:Lactobacillus_helveticus_R0052	NA	61	0	Lactobacillus	helveticus	Lactobacillus helveticus R0052	helveticus.1
+0	1554	AEIR01000004:633121-634674:-:Lactobacillus_helveticus_R0052	NA	86	0	Lactobacillus	helveticus	Lactobacillus helveticus R0052	helveticus.1
+0	1566	NZ_ADHG01000001:461229-462794:+:Lactobacillus_iners_AB-1	NA	47	0	Lactobacillus	iners	Lactobacillus iners AB-1	iners.6
+0	1566	NZ_ADHG01000001:645089-646654:+:Lactobacillus_iners_AB-1	NA	48	0	Lactobacillus	iners	Lactobacillus iners AB-1	iners.9;sp..1
+0	1567	NZ_ADHG01000001:652476-654042:+:Lactobacillus_iners_AB-1	NA	46	0	Lactobacillus	iners	Lactobacillus iners AB-1	iners.1
+0	1485	NZ_AEKJ01000002:142-1626:+:Lactobacillus_iners_LEAF_2062A-h1	NA	211	0	Lactobacillus	iners	Lactobacillus iners LEAF 2062A-h1	iners.1
+0	1512	NZ_GG704747:230-1741:+:Lactobacillus_jensenii_115-3-CHN	NA	197	0	Lactobacillus	jensenii	Lactobacillus jensenii 115-3-CHN	jensenii.3
+0	1512	NZ_GG704690:333-1844:+:Lactobacillus_jensenii_SJ-7A-US	NA	198	0	Lactobacillus	jensenii	Lactobacillus jensenii SJ-7A-US	jensenii.1
+0	1487	NZ_GG670123:3498-4984:-:Lactobacillus_johnsonii_ATCC_33200	NA	206	0	Lactobacillus	johnsonii	Lactobacillus johnsonii ATCC 33200	johnsonii.1
+0	1487	CP002464:547025-548511:+:Lactobacillus_johnsonii_DPC_6026	NA	207	0	Lactobacillus	johnsonii	Lactobacillus johnsonii DPC 6026	johnsonii.4
+0	1487	CP002464:1653780-1655266:-:Lactobacillus_johnsonii_DPC_6026	NA	208	0	Lactobacillus	johnsonii	Lactobacillus johnsonii DPC 6026	johnsonii.11
+0	1485	AFQJ01000004:741353-742837:-:Lactobacillus_johnsonii_pf01	NA	212	0	Lactobacillus	johnsonii	Lactobacillus johnsonii pf01	johnsonii.1
+0	1487	AFQJ01000004:941492-942978:-:Lactobacillus_johnsonii_pf01	NA	209	0	Lactobacillus	johnsonii	Lactobacillus johnsonii pf01	johnsonii.1
+0	1512	NC_015602:125294-126805:+:Lactobacillus_kefiranofaciens_ZW3	NA	199	0	Lactobacillus	kefiranofaciens	Lactobacillus kefiranofaciens ZW3	kefiranofaciens.3
+0	1512	NC_015602:1350760-1352271:-:Lactobacillus_kefiranofaciens_ZW3	NA	200	0	Lactobacillus	kefiranofaciens	Lactobacillus kefiranofaciens ZW3	kefiranofaciens.1
+0	1585	BACP01000083:44-1628:-:Lactobacillus_mali_KCTC_3596_=_DSM_20444	NA	12	0	Lactobacillus	mali	Lactobacillus mali KCTC 3596 = DSM 20444	mali.1
+0	1556	AHIT01000012:90535-92090:+:Lactobacillus_mucosae_LM1	NA	72	0	Lactobacillus	mucosae	Lactobacillus mucosae LM1	mucosae.1
+0	1570	AFTL01000005:2987-4556:-:Lactobacillus_oris_F0423	NA	33	0	Lactobacillus	oris	Lactobacillus oris F0423	oris.4
+0	1570	AFTL01000006:50142-51711:+:Lactobacillus_oris_F0423	NA	34	0	Lactobacillus	oris	Lactobacillus oris F0423	oris.1
+0	1570	NZ_AEKL01000077:112-1681:+:Lactobacillus_oris_PB013-T2-3	NA	35	0	Lactobacillus	oris	Lactobacillus oris PB013-T2-3	oris.1
+0	1526	NZ_DS990493:107-1632:+:Lactobacillus_paracasei_subsp._paracasei_8700:2	NA	136	0	Lactobacillus	paracasei	Lactobacillus paracasei subsp. paracasei 8700:2	paracasei.1
+0	1526	NZ_GG670161:2281-3806:-:Lactobacillus_paracasei_subsp._paracasei_ATCC_25302	NA	137	0	Lactobacillus	paracasei	Lactobacillus paracasei subsp. paracasei ATCC 25302	paracasei.1
+0	1546	CM001538:537198-538743:+:Lactobacillus_pentosus_KCA1	NA	107	0	Lactobacillus	pentosus	Lactobacillus pentosus KCA1	pentosus.5
+0	1546	NC_012984:484838-486383:+:Lactobacillus_plantarum_JDM1	NA	108	0	Lactobacillus	plantarum	Lactobacillus plantarum JDM1	plantarum.8
+0	1546	NZ_GG670230:139-1684:+:Lactobacillus_plantarum_subsp._plantarum_ATCC_14917	NA	109	0	Lactobacillus	plantarum	Lactobacillus plantarum subsp. plantarum ATCC 14917	plantarum.8
+0	1546	NC_014554:1132007-1133552:+:Lactobacillus_plantarum_subsp._plantarum_ST-III	NA	110	0	Lactobacillus	plantarum	Lactobacillus plantarum subsp. plantarum ST-III	plantarum.1
+0	1546	NC_014554:1988740-1990285:-:Lactobacillus_plantarum_subsp._plantarum_ST-III	NA	111	0	Lactobacillus	plantarum	Lactobacillus plantarum subsp. plantarum ST-III	plantarum.1
+0	1546	NC_014554:2469079-2470624:-:Lactobacillus_plantarum_subsp._plantarum_ST-III	NA	112	0	Lactobacillus	plantarum	Lactobacillus plantarum subsp. plantarum ST-III	plantarum.1
+0	1546	NC_014554:2918637-2920182:-:Lactobacillus_plantarum_subsp._plantarum_ST-III	NA	113	0	Lactobacillus	plantarum	Lactobacillus plantarum subsp. plantarum ST-III	plantarum.1
+0	1546	NC_004567:2944954-2946499:-:Lactobacillus_plantarum_WCFS1	NA	114	0	Lactobacillus	plantarum	Lactobacillus plantarum WCFS1	plantarum.1
+0	1571	NZ_AAPZ02000001:60927-62497:+:Lactobacillus_reuteri_100-23	NA	17	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1571	NZ_AAPZ02000001:455610-457180:-:Lactobacillus_reuteri_100-23	NA	18	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1571	NZ_AAPZ02000001:1320632-1322202:+:Lactobacillus_reuteri_100-23	NA	19	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1571	NZ_AAPZ02000001:1484490-1486060:+:Lactobacillus_reuteri_100-23	NA	20	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1571	NZ_AAPZ02000001:1499911-1501481:+:Lactobacillus_reuteri_100-23	NA	21	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1570	NZ_AAPZ02000002:626796-628365:+:Lactobacillus_reuteri_100-23	NA	36	0	Lactobacillus	reuteri	Lactobacillus reuteri 100-23	reuteri.1
+0	1491	CACS02000061:1-1491:+:Lactobacillus_reuteri_ATCC_53608	NA	203	0	Lactobacillus	reuteri	Lactobacillus reuteri ATCC 53608	reuteri.1
+0	1571	NC_009513:177728-179298:+:Lactobacillus_reuteri_DSM_20016	NA	22	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_009513:312393-313963:+:Lactobacillus_reuteri_DSM_20016	NA	23	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_009513:624382-625952:+:Lactobacillus_reuteri_DSM_20016	NA	24	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_009513:639563-641133:+:Lactobacillus_reuteri_DSM_20016	NA	25	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_009513:1077758-1079328:-:Lactobacillus_reuteri_DSM_20016	NA	26	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_009513:1373425-1374995:-:Lactobacillus_reuteri_DSM_20016	NA	27	0	Lactobacillus	reuteri	Lactobacillus reuteri DSM 20016	reuteri.1
+0	1571	NC_010609:177347-178917:+:Lactobacillus_reuteri_JCM_1112	NA	28	0	Lactobacillus	reuteri	Lactobacillus reuteri JCM 1112	reuteri.3
+0	1575	NC_010609:312212-313786:+:Lactobacillus_reuteri_JCM_1112	NA	14	0	Lactobacillus	reuteri	Lactobacillus reuteri JCM 1112	reuteri.1
+0	1571	NC_010609:632685-634255:+:Lactobacillus_reuteri_JCM_1112	NA	29	0	Lactobacillus	reuteri	Lactobacillus reuteri JCM 1112	reuteri.2
+0	1571	NZ_GG693764:159-1729:+:Lactobacillus_reuteri_MM2-3	NA	30	0	Lactobacillus	reuteri	Lactobacillus reuteri MM2-3	reuteri.2
+1	1571	NZ_GG693543:3043-4613:-:Lactobacillus_reuteri_SD2112	NA	31	0	Lactobacillus	reuteri	Lactobacillus reuteri SD2112	reuteri.2
+0	1549	CP003094:289949-291497:+:Lactobacillus_rhamnosus_ATCC_8530	NA	103	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus ATCC 8530	rhamnosus.1
+0	1549	CP003094:801120-802668:+:Lactobacillus_rhamnosus_ATCC_8530	NA	104	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus ATCC 8530	rhamnosus.5
+0	1518	NC_013198:307780-309297:+:Lactobacillus_rhamnosus_GG	NA	156	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus GG	rhamnosus.1
+0	1518	NC_013198:823273-824790:+:Lactobacillus_rhamnosus_GG	NA	157	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus GG	rhamnosus.2
+0	1518	NC_013198:1929426-1930943:-:Lactobacillus_rhamnosus_GG	NA	158	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus GG	rhamnosus.6
+0	1518	NC_013199:817823-819340:+:Lactobacillus_rhamnosus_Lc_705	NA	159	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus Lc 705	rhamnosus.1
+0	1518	NC_013199:1895708-1897225:-:Lactobacillus_rhamnosus_Lc_705	NA	160	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus Lc 705	rhamnosus.1
+0	1518	NC_013199:2548376-2549893:-:Lactobacillus_rhamnosus_Lc_705	NA	161	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus Lc 705	rhamnosus.1
+0	1550	AGKC01000003:469202-470751:+:Lactobacillus_rhamnosus_R0011	NA	91	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus R0011	rhamnosus.1
+0	1546	AGKC01000005:91-1636:-:Lactobacillus_rhamnosus_R0011	NA	115	0	Lactobacillus	rhamnosus	Lactobacillus rhamnosus R0011	rhamnosus.1
+0	1553	AKZK01000036:91-1643:-:Lactobacillus_rossiae_DSM_15814	NA	88	0	Lactobacillus	rossiae	Lactobacillus rossiae DSM 15814	rossiae.1
+0	1542	NZ_GG693017:771389-772930:-:Lactobacillus_ruminis_ATCC_25644	NA	123	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 25644	ruminis.1
+0	1542	CP003032:274294-275835:+:Lactobacillus_ruminis_ATCC_27782	NA	124	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 27782	ruminis.1
+0	1542	CP003032:393934-395475:+:Lactobacillus_ruminis_ATCC_27782	NA	125	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 27782	ruminis.1
+0	1542	CP003032:449040-450581:+:Lactobacillus_ruminis_ATCC_27782	NA	126	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 27782	ruminis.1
+0	1542	CP003032:759013-760554:+:Lactobacillus_ruminis_ATCC_27782	NA	127	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 27782	ruminis.1
+0	1542	CP003032:1507423-1508964:-:Lactobacillus_ruminis_ATCC_27782	NA	128	0	Lactobacillus	ruminis	Lactobacillus ruminis ATCC 27782	ruminis.2
+0	1569	NC_007576:306179-307747:+:Lactobacillus_sakei_subsp._sakei_23K	NA	39	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.1
+0	1569	NC_007576:445537-447105:+:Lactobacillus_sakei_subsp._sakei_23K	NA	40	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.2
+0	1569	NC_007576:478892-480460:+:Lactobacillus_sakei_subsp._sakei_23K	NA	41	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.1
+0	1569	NC_007576:1762645-1764213:-:Lactobacillus_sakei_subsp._sakei_23K	NA	42	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.1
+0	1569	NC_007576:1867064-1868632:-:Lactobacillus_sakei_subsp._sakei_23K	NA	43	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.1
+0	1569	NC_007576:1872480-1874048:-:Lactobacillus_sakei_subsp._sakei_23K	NA	44	0	Lactobacillus	sakei	Lactobacillus sakei subsp. sakei 23K	sakei.1
+0	1587	NZ_AEBA01000145:103-1689:+:Lactobacillus_salivarius_ACS-116-V-Col5a	NA	2	0	Lactobacillus	salivarius	Lactobacillus salivarius ACS-116-V-Col5a	salivarius.2
+0	1587	CP002034:74968-76554:+:Lactobacillus_salivarius_CECT_5713	NA	3	0	Lactobacillus	salivarius	Lactobacillus salivarius CECT 5713	salivarius.7
+0	1587	CP002034:218241-219827:+:Lactobacillus_salivarius_CECT_5713	NA	4	0	Lactobacillus	salivarius	Lactobacillus salivarius CECT 5713	salivarius.9
+0	1587	CP002034:435400-436986:+:Lactobacillus_salivarius_CECT_5713	NA	5	0	Lactobacillus	salivarius	Lactobacillus salivarius CECT 5713	salivarius.1
+0	1587	CP002034:1411105-1412691:-:Lactobacillus_salivarius_CECT_5713	NA	6	0	Lactobacillus	salivarius	Lactobacillus salivarius CECT 5713	salivarius.2
+0	1587	CP002034:1818042-1819628:-:Lactobacillus_salivarius_CECT_5713	NA	7	0	Lactobacillus	salivarius	Lactobacillus salivarius CECT 5713	salivarius.1
+0	1542	AFOI01000002:591832-593373:+:Lactobacillus_salivarius_GJ-24	NA	129	0	Lactobacillus	salivarius	Lactobacillus salivarius GJ-24	salivarius.1
+0	1541	AFMN01000001:920189-921729:+:Lactobacillus_salivarius_NIAS840	NA	130	0	Lactobacillus	salivarius	Lactobacillus salivarius NIAS840	salivarius.1
+0	1587	NC_007929:74503-76089:+:Lactobacillus_salivarius_UCC118	NA	8	0	Lactobacillus	salivarius	Lactobacillus salivarius UCC118	salivarius.1
+0	1587	NC_007929:217741-219327:+:Lactobacillus_salivarius_UCC118	NA	9	0	Lactobacillus	salivarius	Lactobacillus salivarius UCC118	salivarius.1
+0	1588	NC_007929:434826-436413:+:Lactobacillus_salivarius_UCC118	NA	1	0	Lactobacillus	salivarius	Lactobacillus salivarius UCC118	salivarius.1
+0	1587	NC_007929:1410421-1412007:-:Lactobacillus_salivarius_UCC118	NA	10	0	Lactobacillus	salivarius	Lactobacillus salivarius UCC118	salivarius.1
+0	1587	NC_007929:1817287-1818873:-:Lactobacillus_salivarius_UCC118	NA	11	0	Lactobacillus	salivarius	Lactobacillus salivarius UCC118	salivarius.1
+0	1522	NC_015978:40694-42215:+:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	141	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.1
+0	1522	NC_015978:121118-122639:+:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	142	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.1
+0	1523	NC_015978:360529-362051:+:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	138	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.2
+0	1523	NC_015978:422078-423600:+:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	139	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.1
+0	1523	NC_015978:1008835-1010357:-:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	140	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.1
+0	1522	NC_015978:1279189-1280710:-:Lactobacillus_sanfranciscensis_TMW_1.1304	NA	143	0	Lactobacillus	sanfranciscensis	Lactobacillus sanfranciscensis TMW 1.1304	sanfranciscensis.1
+0	1487	CAKC01000053:1-1487:-:Lactobacillus_gigeriorum_CRBIP_24.85	NA	210	0	Lactobacillus	gigeriorum	Lactobacillus gigeriorum CRBIP 24.85	gigeriorum.1
+0	1572	BACO01000094:3309-4880:-:Lactobacillus_suebicus_KCTC_3549	NA	15	0	Lactobacillus	suebicus	Lactobacillus suebicus KCTC 3549	suebicus.1
+0	1559	NZ_GG693258:3649-5207:-:Lactobacillus_ultunensis_DSM_16047	NA	57	0	Lactobacillus	ultunensis	Lactobacillus ultunensis DSM 16047	ultunensis.1
+0	1569	BACR01000055:74-1642:-:Lactobacillus_versmoldensis_KCTC_3814	NA	45	0	Lactobacillus	versmoldensis	Lactobacillus versmoldensis KCTC 3814	versmoldensis.1
+0	1582	AHZA01000512:101-1682:+:Lactobacillus_vini_JP7.8.9	NA	13	0	Lactobacillus	vini	Lactobacillus vini JP7.8.9	vini.1
+0	1538	NZ_GL397069:97-1634:-:Pediococcus_acidilactici_DSM_20284	NA	131	0	Pediococcus	acidilactici	Pediococcus acidilactici DSM 20284	acidilactici.1
+0	1557	AGKB01000005:47674-49230:+:Pediococcus_acidilactici_MA18/5M	NA	64	0	Pediococcus	acidilactici	Pediococcus acidilactici MA18/5M	acidilactici.1
+0	1557	AGKB01000006:77066-78622:+:Pediococcus_acidilactici_MA18/5M	NA	65	0	Pediococcus	acidilactici	Pediococcus acidilactici MA18/5M	acidilactici.1
+0	1558	AGKB01000010:758-2315:-:Pediococcus_acidilactici_MA18/5M	NA	62	0	Pediococcus	acidilactici	Pediococcus acidilactici MA18/5M	acidilactici.1
+1	1557	AGKB01000010:319431-320987:-:Pediococcus_acidilactici_MA18/5M	NA	66	0	Pediococcus	acidilactici	Pediococcus acidilactici MA18/5M	acidilactici.2
+0	1559	CP003137:58375-59933:+:Pediococcus_claussenii_ATCC_BAA-344	NA	58	0	Pediococcus	claussenii	Pediococcus claussenii ATCC BAA-344	claussenii.2
+0	1559	CP003137:281995-283553:+:Pediococcus_claussenii_ATCC_BAA-344	NA	59	0	Pediococcus	claussenii	Pediococcus claussenii ATCC BAA-344	claussenii.1
+0	1559	CP003137:773984-775542:+:Pediococcus_claussenii_ATCC_BAA-344	NA	60	0	Pediococcus	claussenii	Pediococcus claussenii ATCC BAA-344	claussenii.1
+0	1557	NC_008525:116894-118450:+:Pediococcus_pentosaceus_ATCC_25745	NA	67	0	Pediococcus	pentosaceus	Pediococcus pentosaceus ATCC 25745	pentosaceus.3
+0	1558	NC_008525:277876-279433:+:Pediococcus_pentosaceus_ATCC_25745	NA	63	0	Pediococcus	pentosaceus	Pediococcus pentosaceus ATCC 25745	pentosaceus.1
+0	1557	NC_008525:1213949-1215505:-:Pediococcus_pentosaceus_ATCC_25745	NA	68	0	Pediococcus	pentosaceus	Pediococcus pentosaceus ATCC 25745	pentosaceus.1
+0	1557	NC_008525:1506430-1507986:-:Pediococcus_pentosaceus_ATCC_25745	NA	69	0	Pediococcus	pentosaceus	Pediococcus pentosaceus ATCC 25745	pentosaceus.1
