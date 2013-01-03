@@ -16,13 +16,18 @@ con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
 #con <- dbCon()
 ## Lactobacillus
 ## extract genus reads and write to file
-project <- "Marmoset"
+#project <- "Marmoset"
 #project <- "JJ_Human_Vagina"
-genus <- "Bifidobacterium"
+project <- "Witkin-VVS"
+#genus <- "Bifidobacterium"
+genus <- "Lactobacillus"
 nproc=16
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
 output_dir="OutputFiles"
 pipeline="dynamicTreeCut"
+speciateIT2_dir <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon/Speciation/SpeciateIT2"
+ref_align <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.align")
+ref_tax <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.taxonomy")
 
 specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8,pipeline=c("dynamicTreeCut","vicut"), mothur.template){
 
@@ -32,7 +37,8 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
 ## cluster using cdhit require 99.5% identity
   system(paste("cdhit-est -M 3000 -T 8 -d 0 -c 0.995 -n 9 -i ", ofile," -o ", gsub(".fasta",".reduced.0.995.fasta",ofile),sep=""))
   ## look at clustering results
-  ofile <- gsub(".fasta",".reduced.0.995.fasta",ofile)
+  cd_out <- gsub(".fasta",".reduced.0.995.fasta",ofile)
+  ofile <- cd_out
   cdhit_cluster <- readLines(paste(ofile,".clstr",sep=""))
   clust <- grep("^>Cluster",c(cdhit_cluster,">Cluster"))
   cdhit_cluster <- paste(cdhit_cluster,"C",rep(seq.int(1,length(diff(clust))),times=diff(clust)),sep=" ")
@@ -49,6 +55,7 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
   ## add in Training species sequences
   ## maybe read them into R and then write out
   if (pipeline = "vicut"){  
+    ofile <- cd_out
     ifile <- ofile
     ofile <- gsub("0.995.fasta","combined.fa",ofile)
     speciateIThome <- "/mnt/home/msettles/opt/speciateit"
@@ -71,7 +78,7 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
     ############## Use FlashClust and Vicut to produce clusters
     library(flashClust)
     d5k <- read.table(dist.mat,skip=1,row.names=1)
-    hc <- flashClust(as.dist(d5k),method="average")
+    hc <- flashClust(as.dist(d5k),method="single")
 
     # using rowIds for leaves
     ### produces file ready for vicut
@@ -111,16 +118,19 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
     }
 
     cluster_mat$species <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
+#    cluster_mat$species_vicut_complete <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
+
   }
 ############ Use FlashClust and WGCNA to produce clusters
 
   if (pipeline = "dynamicTreeCut"){
+    ofile <- cd_out
     system(paste("mothur \"#align.seqs(candidate=",ofile,", template=",mothur.template,", flip=T, processors=",nproc,"); filter.seqs(fasta=",gsub("fasta","align",ofile),", processors=",nproc,");\"",sep=""))
     system(paste("mv ",file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.filter"),file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.0.995.filter"),sep=" "))
     
     ## Prepare the reference
     filter <- readLines(file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.0.995.filter"))
-    ref_seqs <- readBStringSet("Lactobacillaceae.patric.red.align") ## PreAligned
+    ref_seqs <- readBStringSet(ref_align) ## PreAligned
     keep <- which(unlist(strsplit(filter,"")[[1]]==1))
     #trimmed_ref <- DNAStringSet(gsub("[.]|-","",sapply(strsplit(as.character(ref_seqs),""),function(x) paste( x[keep] , collapse=""))))
     trimmed_ref <- BStringSet(sapply(strsplit(as.character(ref_seqs),""),function(x) paste( x[keep] , collapse="")))
@@ -129,7 +139,7 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
     ofile <- gsub("filter.fasta","patric.filter.fasta",ifile)
     writeXStringSet(c(trimmed_ref,readBStringSet(ifile)),ofile)
 
-    taxon_file <- read.table("Lactobacillaceae.patric.red.taxonomy",sep="\t",header=TRUE,as.is=TRUE)
+    taxon_file <- read.table(ref_tax,sep="\t",header=TRUE,as.is=TRUE)
     taxon_file <- data.frame(ID=paste("S",seq.int(1,length(trimmed_ref)),sep=""),Species=paste(taxon_file[,"GENUS"],taxon_file[,"SPECIES"],sep=" "))
     write.table(taxon_file,file=file.path(file.path(sub("-","_",output_dir,project,"speciateIT"),"Lactobacillaceae.patric.taxon")),sep="\t",row.names=FALSE,col.names=FALSE,quote=F)
 
@@ -143,10 +153,10 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
 
     hc <- flashClust(as.dist(d5k),method="average")
 
-    minModuleSize = 1;
+    minModuleSize = 5;
     # Module identification using dynamic tree cut:
     dynamicMods = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
-                            deepSplit = TRUE, pamRespectsDendro = FALSE,
+                            deepSplit = 3, pamRespectsDendro = FALSE,
                             minClusterSize = minModuleSize);
 
     dynamicColors = labels2colors(dynamicMods)
@@ -174,7 +184,8 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
                          )
     clusterSpecies <- clusterSpecies[match(tax,names(clusterSpecies))]
 
-    cluster_mat$species <- clusterSpecies[match(cluster_mat$X5,cluster_mat[match(hc$labels,cluster_mat$X3),"X5"])]
+    cluster_mat$species_wgcna <- clusterSpecies[match(cluster_mat$X5,cluster_mat[match(hc$labels,cluster_mat$X3),"X5"])]
+    cluster_mat$species <- cluster_mat$species_wgcna
   }
   ## update the db, adding in cluster/species ID
   update.species.rdp(con,cluster_mat)
@@ -192,8 +203,10 @@ rdp <- dbGetPreparedQuery(con,sql,bind.data=cluster_mat)
 rdp2 <- rdp[match(hc$labels,rdp$Acc),]
 cluster_mat2 <- cluster_mat[match(hc$labels,cluster_mat$X3),]
 
-vicutColors <- labels2colors(cluster_mat2$species_vicut_single)
-dynamicColors <- labels2colors(cluster_mat2$species)
+vicutSingleColors <- labels2colors(cluster_mat2$species_vicut_single)
+vicutAverageColors <- labels2colors(cluster_mat2$species_vicut_average)
+vicutCompleteColors <- labels2colors(cluster_mat2$species_vicut_complete)
+dynamicColors <- labels2colors(cluster_mat2$species_wgcna)
 
 rwgPalette <- redWhiteGreen(100, gamma = 1)
 
@@ -204,16 +217,17 @@ LucyNs <- labels2colors(rdp2$LucyNs)
 LucymHomoPrun <- labels2colors(rdp2$LucymHomoPrun)
 genus_bootstrap <- rwgPalette[as.numeric(cut(rdp2$genus_bootstrap,breaks=100))]
 
+d5l <- d5k[-(grep("^S",rownames(d5k))),-grep("^S",rownames(d5k))]
+
+mds <- cmdscale(as.dist(d5l), k = 2, eig = FALSE, add = FALSE, x.ret = FALSE)
+
 pdf("Dendrogram_Comparisons.pdf",width=36,height=8,pointsize=8)
 
-plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,ViCut=vicutColors,LucyLength,LucyNs,LucymHomoPrun,genus_bootstrap), c("Dynamic Tree Cut","ViCut","Read Length","Ns","Homopolymer run","genus_bootstrap"),
+plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,"ViCut Single"=vicutSingleColors,"ViCut Average"=vicutAverageColors,"ViCut Complete"=vicutCompleteColors,LucyLength,LucyNs,LucymHomoPrun,genus_bootstrap), c("Dynamic Tree Cut","ViCut Single","ViCut Averge","ViCut Complete","Read Length","Ns","Homopolymer run","genus_bootstrap"),
                     dendroLabels = taxon_file[match(hc$labels,taxon_file[,1]),1], hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.7,
                     main = paste("Clustering",genus,"16S sequence",sep=""))
 dev.off
-
-d5l <- d5k[-(grep("^S",rownames(d5k))),-grep("^S",rownames(d5k))]
-mds <- cmdscale(as.dist(d5l), k = 2, eig = FALSE, add = FALSE, x.ret = FALSE)
 
 pdf("mds-dynamicTree.pdf",width=9,height=9,pointsize=8)
 plot(mds[,1], mds[,2], type = "p",col=dynamicColors, pch=20, xlab = "", ylab = "", asp = 1, axes = FALSE,
@@ -226,8 +240,69 @@ plot(mds[,1], mds[,2], type = "p",col=vicutColors, pch=20, xlab = "", ylab = "",
 dev.off()
 
 ### See if we can further deliniate sequences and check
-
+library(ShortRead)
 alignment <- readBStringSet("OutputFiles/Witkin_VVS/speciateIT/454Reads.Lactobacillus.reduced.0.995.patric.filter.fasta")
+abc <- alphabetByCycle(alignment)
+abc <- abc[rowSums(alphabetByCycle(alignment))>0,]
+
+library(seqLogo)
+abcF <- sweep(abc,2,colSums(abc),"/")
+pwm <- makePWM(abc)
+pwm <- makePWM(abc[c("A","C","G","T"),])
+pwm <- 
+seqLogo(pwm)
+
+library(ShortRead)
+library(flashClust)
+library(WGCNA)
+d5k <- read.table(dist.mat,skip=1,row.names=1)
+
+hc <- flashClust(as.dist(d5k),method="average")
+
+minModuleSize = 1;
+# Module identification using dynamic tree cut:
+dynamicMods = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
+                            deepSplit = 4, pamRespectsDendro = FALSE,
+                            minClusterSize = minModuleSize);
+
+dynamicColors = labels2colors(dynamicMods,colorSeq=colors())
+
+sp <- taxon_file[match(hc$labels,taxon_file$ID),"Species"]
+tax <- paste("c.",dynamicMods,sep="")
+sp[which(is.na(sp))] <- tax[which(is.na(sp))]
+clusterSpecies <- tapply(sp,tax,
+                         function(x) {
+                           tb <- table(x); 
+                           if(length(tb) > 1) {
+                             rm <- grep("c.",names(tb),fixed=T);
+                             if (length(rm)) tb <- tb[-rm];
+                           }
+                           paste(names(tb),collapse=";")}
+)
+
+clusterSpecies <- clusterSpecies[match(tax,names(clusterSpecies))]
+
+alignment <- alignment[match(hc$labels,names(alignment))]
+
+align_split <- split(alignment,dynamicMods)
+
+lapply(align_split,function(acluster) apply(alphabetByCycle(acluster)[c("-", ".", "A", "C", "G", "T"),],2,max) == length(acluster))
+acluster1 <- align_split[[1]]
+bclust1 <- apply(alphabetByCycle(acluster1)[c("-", ".", "A", "C", "G", "T"),],2,max) == length(acluster1)
+
+acluster2 <- align_split[[2]]
+bclust2 <- apply(alphabetByCycle(acluster2)[c("-", ".", "A", "C", "G", "T"),],2,max) == length(acluster2)
+
+cclust1 <- strsplit(as.character(acluster1[[1]]),"")[[1]][bclust1&bclust2]
+cclust2 <- strsreplit(as.character(acluster2[[1]]),"")[[1]][bclust2&bclust1]
+
+ref.seqs <- alignment[match(taxon_file$ID,names(alignment))]
+ref_split <- split(ref.seqs,taxon_file$Species)
+
+consensusMatrix(ref_split[[1]], as.prob=TRUE)
+
+lapply(align_split,function(acluster) apply(alphabetByCycle(acluster)[c("-", ".", "A", "C", "G", "T"),],2,max) == length(acluster))
+
 
 ##########################################################################################
 ### TEST C-VALUES

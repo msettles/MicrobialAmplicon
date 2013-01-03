@@ -102,6 +102,7 @@ gb_mapped <- data.frame(ID=names(gb),genus=sapply(strsplit(attr(gb, "species"),s
 
 Lact.align <- data.frame(Lact.align,gb_mapped[match(Lact.align$TemplateName,gb_mapped$ID),])
 
+## need to write out this table
 
 #### SEE IF THEY CLUSTER, LOOK FOR OUTLIERS
 
@@ -116,7 +117,7 @@ hc <- flashClust(as.dist(d5k),method="average")
 minModuleSize = 1;
 # Module identification using dynamic tree cut:
 dynamicMods = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
-                            deepSplit = TRUE, pamRespectsDendro = FALSE,
+                            deepSplit = 4, pamRespectsDendro = FALSE,
                             minClusterSize = minModuleSize);
 
 dynamicColors = labels2colors(dynamicMods)
@@ -124,9 +125,16 @@ speciesColors = labels2colors(clusters$SPECIES)
 genusColors = labels2colors(clusters$GENUS)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
-pdf(paste(Name,"Dendrogram_fullsequence.pdf",sep="_"),width=24,height=8,pointsize=8)
+pdf(file.path(seqDir,paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),width=24,height=8,pointsize=8)
 plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,Species=speciesColors,Genus=genusColors), c("Tree Cut","Species","Genus"),
-                    dendroLabels = clusters$SPECIES, hang = 0.03,
-                    addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.5,
+                    dendroLabels = clusters$GENOME_NAME, hang = 0.03,
+                    addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=1.0,
                     main = paste("Clustering Full length",Name,"16S sequence"))
 dev.off()
+
+### Save results
+file.copy(from=file.path(seqDir,paste(Name,"patric.red.align",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.red.align",sep=".")),overwrite=TRUE)
+file.copy(from=file.path(seqDir,paste(Name,"patric.red.fa",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.red.fa",sep=".")),overwrite=TRUE)
+file.copy(from=file.path(seqDir,paste(Name,"patric.red.taxonomy",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.red.taxonomy",sep=".")),overwrite=TRUE)
+file.copy(from=file.path(seqDir,paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),to=file.path("Speciation/SpeciateIT2",paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),overwrite=TRUE)
+

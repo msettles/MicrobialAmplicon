@@ -114,6 +114,7 @@
                                 FROM pool_metadata, pool_mapping 
                                 WHERE pool_metadata.Pool=pool_mapping.Pool 
                                   AND pool_metadata.project='",project,"'",sep=""))
+  
   read_counts <- table(paste(reads$Run,reads$Barcode,reads$Sample_ID),reads$keep)
   colnames(read_counts) <- c("Fail","Pass")
   rcTable <- data.frame(samples,read_counts[match(paste(samples$Run,samples$Barcode,samples$Sample_ID),rownames(read_counts)),])
@@ -124,7 +125,7 @@
 }
 
 ### computes abundance tables, based on project
-"abundance.table" <- function(con,project,outfile, output_dir="OutputFiles", level=c("genus","domain","phylum","class","order","family","species"), rdpThres = 0.5){
+"abundance.table" <- function(con,project,outfile, output_dir="OutputFiles", level=c("genus","domain","phylum","class","order","family","species"), rdpThres = 0.5,combine_unknown=TRUE){
   level <- match.arg(level)
   if (missing(outfile)) outfile <- paste(project,level,"abundance.txt",sep=".")
 
@@ -148,10 +149,14 @@
                                  AND rdp_report.LucyUnique = read_data.LucyUnique",sep=""))
 
   rdp.otu <- rdp.otu[rdp.otu$keep == '1',]
-  
-  rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- "Lactobacillus Other"
-  rdp.otu$species_name <- gsub("L." ,"Lactobacillus ",rdp.otu$species_name,fixed=T)
-  rdp.otu$species_name <- gsub("\\.[0-9]+" ,"",rdp.otu$species_name)
+
+  if (combine_unknown){
+    rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name,"Other")
+  } else {
+    rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name[grep("c.[0-9]+",rdp.otu$species_name)],rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)])
+  }
+#  rdp.otu$species_name <- gsub("L." ,"Lactobacillus ",rdp.otu$species_name,fixed=T)
+#  rdp.otu$species_name <- gsub("\\.[0-9]+" ,"",rdp.otu$species_name)
 
   taxa_levels <- c("domain","phylum","class","order","family","genus","species")
   numberoflevels <- match(level[1], taxa_levels)
@@ -231,7 +236,7 @@
 
   rdp <- dbGetPreparedQuery(con,sql,bind.data=cluster_mat)
   
-  rdp$species_name[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$species_wgcna
+  rdp$species_name[match(cluster_mat$X3,rdp$Acc)] <- cluster_mat$species
   
   sql <- paste("REPLACE INTO rdp_report VALUES (" ,paste(paste("$",colnames(rdp),sep="")[-1],collapse=", "),")",sep="")
   dbGetPreparedQuery(con,sql,bind.data=rdp)
