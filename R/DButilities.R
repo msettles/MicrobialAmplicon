@@ -151,7 +151,7 @@
   rdp.otu <- rdp.otu[rdp.otu$keep == '1',]
 
   if (combine_unknown){
-    rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name,"Other")
+    rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name[grep("c.[0-9]+",rdp.otu$species_name)],"Other")
   } else {
     rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name[grep("c.[0-9]+",rdp.otu$species_name)],rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)])
   }
