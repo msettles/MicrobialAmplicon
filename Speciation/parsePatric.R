@@ -1,8 +1,10 @@
 #### Parse PATRIC files for 16S genes
 
 ### Patric Download directory
-seqDir <- "Speciation/Bifidobacteriaceae_patric"
-Name <- "Bifidobacteriaceae"
+#seqDir <- "Speciation/Bifidobacteriaceae_patric"
+seqDir <- "Speciation/Streptococcaceae_patric"
+#Name <- "Bifidobacteriaceae"
+Name <- "Streptococcaceae"
 align.db <- "Speciation/silva.bacteria.fasta"
 source("R/getGenBank.R")
 
@@ -71,7 +73,7 @@ cluster_mat <- data.frame(cluster_mat,anno[,c("GENUS","SPECIES","GENOME_NAME")])
 spXcl<- split(cluster_mat$SPECIES, cluster_mat$Cluster_ID)
 spXcl.len <- sapply(spXcl,function(x) length(unique(x)))
 
-cluster_names <- sapply(sapply(spXcl,function(x) table(as.character(x))),function(x) paste(paste(names(x),x,sep="."),collapse=";"))
+cluster_names <- sapply(lapply(spXcl,function(x) table(as.character(x))),function(x) paste(paste(names(x),x,sep="."),collapse=";"))
 cluster_mat_rep <- cluster_mat[is.na(cluster_mat$Identity),]
 
 cluster_mat_rep$sequence_pool[match(names(cluster_names),cluster_mat_rep$Cluster_ID)] <- cluster_names
@@ -125,7 +127,7 @@ speciesColors = labels2colors(clusters$SPECIES)
 genusColors = labels2colors(clusters$GENUS)
 table(dynamicColors)
 # Plot the dendrogram and colors underneath
-pdf(file.path(seqDir,paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),width=24,height=8,pointsize=8)
+pdf(file.path(seqDir,paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),width=60,height=16,pointsize=8)
 plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors,Species=speciesColors,Genus=genusColors), c("Tree Cut","Species","Genus"),
                     dendroLabels = clusters$GENOME_NAME, hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=1.0,

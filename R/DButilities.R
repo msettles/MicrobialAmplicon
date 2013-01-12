@@ -150,9 +150,9 @@
 
   rdp.otu <- rdp.otu[rdp.otu$keep == '1',]
 
-  if (combine_unknown){
+  if (combine_unknown & level == "species"){
     rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name[grep("c.[0-9]+",rdp.otu$species_name)],"Other")
-  } else {
+  } else if (level == "species") {
     rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)] <- paste(rdp.otu$genus_name[grep("c.[0-9]+",rdp.otu$species_name)],rdp.otu$species_name[grep("c.[0-9]+",rdp.otu$species_name)])
   }
 #  rdp.otu$species_name <- gsub("L." ,"Lactobacillus ",rdp.otu$species_name,fixed=T)

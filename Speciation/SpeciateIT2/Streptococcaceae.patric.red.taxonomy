@@ -1,0 +1,710 @@
+ord	Len	ID	Identity	Cluster_ID	Error	GENUS	SPECIES	GENOME_NAME	sequence_pool
+0	1550	AFCC01000057:209-1758:+:Lactococcus_garvieae_21881	NA	533	0	Lactococcus	garvieae	Lactococcus garvieae 21881	garvieae.3
+0	1550	NC_015930:1569162-1570711:-:Lactococcus_garvieae_ATCC_49156	NA	534	0	Lactococcus	garvieae	Lactococcus garvieae ATCC 49156	garvieae.12
+0	1550	AGQY01000006:210-1759:+:Lactococcus_garvieae_LG9	NA	535	0	Lactococcus	garvieae	Lactococcus garvieae LG9	garvieae.1
+0	1551	AFHF01000004:3475-5025:-:Lactococcus_garvieae_UNIUD074	NA	529	0	Lactococcus	garvieae	Lactococcus garvieae UNIUD074	garvieae.1
+0	1551	AFHF01000004:35965-37515:-:Lactococcus_garvieae_UNIUD074	NA	530	0	Lactococcus	garvieae	Lactococcus garvieae UNIUD074	garvieae.1
+0	1551	AFHF01000006:54338-55888:+:Lactococcus_garvieae_UNIUD074	NA	531	0	Lactococcus	garvieae	Lactococcus garvieae UNIUD074	garvieae.1
+0	1551	AFHF01000023:50482-52032:+:Lactococcus_garvieae_UNIUD074	NA	532	0	Lactococcus	garvieae	Lactococcus garvieae UNIUD074	garvieae.1
+0	1549	AFHF01000024:3472-5020:-:Lactococcus_garvieae_UNIUD074	NA	536	0	Lactococcus	garvieae	Lactococcus garvieae UNIUD074	garvieae.1
+0	1548	CP003132:1916765-1918312:-:Lactococcus_lactis_subsp._cremoris_A76	NA	537	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris A76	lactis.7
+0	1547	CP003132:2036358-2037904:-:Lactococcus_lactis_subsp._cremoris_A76	NA	544	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris A76	lactis.1
+0	1548	CP003132:2291342-2292889:-:Lactococcus_lactis_subsp._cremoris_A76	NA	538	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris A76	lactis.1
+0	1547	CP003132:2427154-2428700:-:Lactococcus_lactis_subsp._cremoris_A76	NA	545	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris A76	lactis.1
+0	1546	CP003132:2450609-2452154:-:Lactococcus_lactis_subsp._cremoris_A76	NA	546	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris A76	lactis.1
+0	1548	AGHX01000121:222-1769:+:Lactococcus_lactis_subsp._cremoris_CNCM_I-1631	NA	539	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris CNCM I-1631	lactis.6
+0	1548	NC_009004:511422-512969:+:Lactococcus_lactis_subsp._cremoris_MG1363	NA	540	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris MG1363	lactis.12
+0	1546	NC_008505:26078-27623:-:Lactococcus_lactis_subsp._cremoris_SK11	NA	547	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris SK11	lactis.1
+0	1548	NC_008527:2400463-2402010:-:Lactococcus_lactis_subsp._cremoris_SK11	NA	541	0	Lactococcus	lactis	Lactococcus lactis subsp. cremoris SK11	lactis.1
+0	1548	CP002365:1962207-1963754:-:Lactococcus_lactis_subsp._lactis_CV56	NA	542	0	Lactococcus	lactis	Lactococcus lactis subsp. lactis CV56	lactis.12
+0	1548	NC_002662:1984555-1986102:-:Lactococcus_lactis_subsp._lactis_Il1403	NA	543	0	Lactococcus	lactis	Lactococcus lactis subsp. lactis Il1403	lactis.1
+0	1500	NZ_AAJO01000006:776-2275:-:Streptococcus_agalactiae_18RS21	NA	674	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1505	NZ_AAJO01000012:677-2181:-:Streptococcus_agalactiae_18RS21	NA	609	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1501	NZ_AAJO01000018:19864-21364:+:Streptococcus_agalactiae_18RS21	NA	621	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1504	NZ_AAJO01000021:612-2115:-:Streptococcus_agalactiae_18RS21	NA	611	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1501	NZ_AAJO01000124:178-1678:-:Streptococcus_agalactiae_18RS21	NA	622	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1505	NZ_AAJO01000130:885-2389:-:Streptococcus_agalactiae_18RS21	NA	610	0	Streptococcus	agalactiae	Streptococcus agalactiae 18RS21	agalactiae.1
+0	1501	NC_004116:16431-17931:+:Streptococcus_agalactiae_2603V/R	NA	623	0	Streptococcus	agalactiae	Streptococcus agalactiae 2603V/R	agalactiae.125
+0	1501	NZ_AAJP01000024:13792-15292:+:Streptococcus_agalactiae_515	NA	624	0	Streptococcus	agalactiae	Streptococcus agalactiae 515	agalactiae.15
+0	1501	NC_007432:16426-17926:+:Streptococcus_agalactiae_A909	NA	625	0	Streptococcus	agalactiae	Streptococcus agalactiae A909	agalactiae.18
+0	1501	NC_007432:358683-360183:+:Streptococcus_agalactiae_A909	NA	626	0	Streptococcus	agalactiae	Streptococcus agalactiae A909	agalactiae.5
+0	1500	ALRG01000003:141-1640:+:Streptococcus_agalactiae_BSU178	NA	675	0	Streptococcus	agalactiae	Streptococcus agalactiae BSU178	agalactiae.5
+0	1498	ALRC01000024:757-2254:-:Streptococcus_agalactiae_BSU450	NA	693	0	Streptococcus	agalactiae	Streptococcus agalactiae BSU450	agalactiae.2
+0	1501	ALRJ01000009:91468-92968:+:Streptococcus_agalactiae_BSU92	NA	627	0	Streptococcus	agalactiae	Streptococcus agalactiae BSU92	agalactiae.1
+0	1500	ALQK01000022:20943-22442:+:Streptococcus_agalactiae_CCUG_19094	NA	676	0	Streptococcus	agalactiae	Streptococcus agalactiae CCUG 19094	agalactiae.2
+0	1501	AEXT01000001:67171-68671:+:Streptococcus_agalactiae_FSL_S3-026	NA	628	0	Streptococcus	agalactiae	Streptococcus agalactiae FSL S3-026	agalactiae.6
+0	1500	ALQG01000003:20770-22269:-:Streptococcus_agalactiae_FSL_S3-170	NA	677	0	Streptococcus	agalactiae	Streptococcus agalactiae FSL S3-170	agalactiae.5
+0	1500	ALQF01000078:15873-17372:+:Streptococcus_agalactiae_FSL_S3-603	NA	678	0	Streptococcus	agalactiae	Streptococcus agalactiae FSL S3-603	agalactiae.1
+0	1501	ALSQ01000017:210-1710:-:Streptococcus_agalactiae_GB00020	NA	629	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00020	agalactiae.1
+0	1501	ALSY01000045:3385-4885:-:Streptococcus_agalactiae_GB00174	NA	630	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00174	agalactiae.1
+0	1501	ALTA01000015:218-1718:-:Streptococcus_agalactiae_GB00202	NA	631	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00202	agalactiae.1
+0	1501	ALTG01000006:134063-135563:+:Streptococcus_agalactiae_GB00247	NA	632	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00247	agalactiae.1
+0	1501	ALTH01000003:14496-15996:+:Streptococcus_agalactiae_GB00264	NA	633	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00264	agalactiae.1
+0	1501	ALUO01000018:82316-83816:+:Streptococcus_agalactiae_GB00914	NA	634	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00914	agalactiae.1
+0	1500	ALUQ01000027:281-1780:-:Streptococcus_agalactiae_GB00923	NA	679	0	Streptococcus	agalactiae	Streptococcus agalactiae GB00923	agalactiae.1
+0	1501	CP003810:16420-17920:+:Streptococcus_agalactiae_GD201008-001	NA	635	0	Streptococcus	agalactiae	Streptococcus agalactiae GD201008-001	agalactiae.3
+0	1504	CP003810:90943-92446:+:Streptococcus_agalactiae_GD201008-001	NA	612	0	Streptococcus	agalactiae	Streptococcus agalactiae GD201008-001	agalactiae.1
+0	1502	CP003810:178667-180168:+:Streptococcus_agalactiae_GD201008-001	NA	615	0	Streptococcus	agalactiae	Streptococcus agalactiae GD201008-001	agalactiae.1
+0	1502	CP003810:361215-362716:+:Streptococcus_agalactiae_GD201008-001	NA	616	0	Streptococcus	agalactiae	Streptococcus agalactiae GD201008-001	agalactiae.1
+0	1501	CP003810:430361-431861:+:Streptococcus_agalactiae_GD201008-001	NA	636	0	Streptococcus	agalactiae	Streptococcus agalactiae GD201008-001	agalactiae.1
+0	1501	NZ_AAJS01000005:6019-7519:+:Streptococcus_agalactiae_H36B	NA	637	0	Streptococcus	agalactiae	Streptococcus agalactiae H36B	agalactiae.1
+0	1500	NZ_AAJS01000007:45424-46923:+:Streptococcus_agalactiae_H36B	NA	680	0	Streptococcus	agalactiae	Streptococcus agalactiae H36B	agalactiae.1
+0	1477	ALRY01000366:856-2332:-:Streptococcus_agalactiae_MRI_Z1-024	NA	708	0	Streptococcus	agalactiae	Streptococcus agalactiae MRI Z1-024	agalactiae.1
+0	1477	ALRZ01000018:5335-6811:+:Streptococcus_agalactiae_MRI_Z1-038	NA	709	0	Streptococcus	agalactiae	Streptococcus agalactiae MRI Z1-038	agalactiae.1
+0	1500	ALSD01000025:191-1690:+:Streptococcus_agalactiae_MRI_Z1-213	NA	681	0	Streptococcus	agalactiae	Streptococcus agalactiae MRI Z1-213	agalactiae.4
+0	1501	NC_004368:350541-352041:+:Streptococcus_agalactiae_NEM316	NA	638	0	Streptococcus	agalactiae	Streptococcus agalactiae NEM316	agalactiae.1
+0	1501	AMSM01000001:16379-17879:+:Streptococcus_agalactiae_SA20-06	NA	639	0	Streptococcus	agalactiae	Streptococcus agalactiae SA20-06	agalactiae.7
+0	1500	ALRO01000004:180-1679:-:Streptococcus_agalactiae_STIR-CD-21	NA	682	0	Streptococcus	agalactiae	Streptococcus agalactiae STIR-CD-21	agalactiae.14
+0	1500	ALRP01000049:78856-80355:+:Streptococcus_agalactiae_STIR-CD-22	NA	683	0	Streptococcus	agalactiae	Streptococcus agalactiae STIR-CD-22	agalactiae.1
+0	1501	ALSK01000017:283-1783:-:Streptococcus_agalactiae_str._Gottschalk_992B	NA	640	0	Streptococcus	agalactiae	Streptococcus agalactiae str. Gottschalk 992B	agalactiae.1
+0	1573	NZ_GL636616:4171-5743:-:Streptococcus_anginosus_1_2_62CV	NA	1	0	Streptococcus	anginosus	Streptococcus anginosus 1_2_62CV	anginosus.1
+0	1573	NZ_AECT01000011:197-1769:+:Streptococcus_anginosus_F0211	NA	2	0	Streptococcus	anginosus	Streptococcus anginosus F0211	anginosus.1
+0	1573	NZ_AFIM01000033:192-1764:+:Streptococcus_anginosus_SK52_=_DSM_20563	NA	3	0	Streptococcus	anginosus	Streptococcus anginosus SK52 = DSM 20563	anginosus.1
+0	1566	NZ_GL636092:3343-4908:-:Streptococcus_australis_ATCC_700641	NA	19	0	Streptococcus	australis	Streptococcus australis ATCC 700641	australis.1
+0	1507	NZ_GL397129:98-1604:+:Streptococcus_bovis_ATCC_700338	NA	606	0	Streptococcus	bovis	Streptococcus bovis ATCC 700338	bovis.1
+0	1501	NZ_GL397174:117-1617:+:Streptococcus_gallolyticus_subsp._gallolyticus_TX20005	NA	641	0	Streptococcus	gallolyticus	Streptococcus gallolyticus subsp. gallolyticus TX20005	gallolyticus.7
+0	1501	AIDX01000002:352713-354213:-:Streptococcus_canis_FSL_Z3-227	NA	642	0	Streptococcus	canis	Streptococcus canis FSL Z3-227	canis.5
+0	1573	AICQ01000040:3582-5154:-:Streptococcus_constellatus_subsp._constellatus_SK53	NA	4	0	Streptococcus	constellatus	Streptococcus constellatus subsp. constellatus SK53	constellatus.1
+0	1508	NZ_AFUP01000004:280335-281842:-:Streptococcus_constellatus_subsp._pharyngis_SK1060_=_CCUG_46377	NA	604	0	Streptococcus	constellatus	Streptococcus constellatus subsp. pharyngis SK1060 = CCUG 46377	constellatus.1
+0	1543	AEUV01000003:3704-5246:-:Streptococcus_criceti_HS-6	NA	550	0	Streptococcus	criceti	Streptococcus criceti HS-6	criceti.2
+0	1543	AEUV01000004:211339-212881:+:Streptococcus_criceti_HS-6	NA	551	0	Streptococcus	criceti	Streptococcus criceti HS-6	criceti.1
+0	1541	AEUV01000008:181759-183299:+:Streptococcus_criceti_HS-6	NA	595	0	Streptococcus	criceti	Streptococcus criceti HS-6	criceti.1
+0	1542	AEUV01000014:365-1906:-:Streptococcus_criceti_HS-6	NA	577	0	Streptococcus	criceti	Streptococcus criceti HS-6	criceti.1
+0	1543	AEUV01000016:105712-107254:+:Streptococcus_criceti_HS-6	NA	552	0	Streptococcus	criceti	Streptococcus criceti HS-6	criceti.1
+0	1564	NZ_GL732519:3214-4777:-:Streptococcus_cristatus_ATCC_51100	NA	106	0	Streptococcus	cristatus	Streptococcus cristatus ATCC 51100	cristatus.1
+0	1553	NZ_AEKN01000002:39-1591:+:Streptococcus_downei_F0415	NA	528	0	Streptococcus	downei	Streptococcus downei F0415	downei.5
+0	1501	AEGO01000001:22119-23619:+:Streptococcus_dysgalactiae_subsp._dysgalactiae_ATCC_27957	NA	643	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. dysgalactiae ATCC 27957	dysgalactiae.5
+0	1501	CP002215:20503-22003:+:Streptococcus_dysgalactiae_subsp._equisimilis_ATCC_12394	NA	644	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis ATCC 12394	dysgalactiae.6
+0	1508	NC_012891:19559-21066:+:Streptococcus_dysgalactiae_subsp._equisimilis_GGS_124	NA	605	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis GGS_124	dysgalactiae.1
+0	1507	NC_012891:80964-82470:+:Streptococcus_dysgalactiae_subsp._equisimilis_GGS_124	NA	607	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis GGS_124	dysgalactiae.1
+0	1511	NC_012891:282536-284046:+:Streptococcus_dysgalactiae_subsp._equisimilis_GGS_124	NA	603	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis GGS_124	dysgalactiae.1
+0	1507	NC_012891:336546-338052:+:Streptococcus_dysgalactiae_subsp._equisimilis_GGS_124	NA	608	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis GGS_124	dysgalactiae.2
+0	1501	AP011114:19375-20875:+:Streptococcus_dysgalactiae_subsp._equisimilis_RE378	NA	645	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis RE378	dysgalactiae.5
+0	1501	AFUL01000001:308537-310037:+:Streptococcus_dysgalactiae_subsp._equisimilis_SK1250	NA	646	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis SK1250	dysgalactiae.3
+0	1504	AFUL01000001:369059-370562:+:Streptococcus_dysgalactiae_subsp._equisimilis_SK1250	NA	613	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis SK1250	dysgalactiae.1
+0	1501	AFUL01000001:626326-627826:+:Streptococcus_dysgalactiae_subsp._equisimilis_SK1250	NA	647	0	Streptococcus	dysgalactiae	Streptococcus dysgalactiae subsp. equisimilis SK1250	dysgalactiae.1
+0	1571	NC_012471:18027-19597:+:Streptococcus_equi_subsp._equi_4047	NA	10	0	Streptococcus	equi	Streptococcus equi subsp. equi 4047	equi.6
+0	1571	CP002904:18084-19654:+:Streptococcus_equi_subsp._zooepidemicus_ATCC_35246	NA	11	0	Streptococcus	equi	Streptococcus equi subsp. zooepidemicus ATCC 35246	equi.7
+0	1566	NC_011134:18260-19825:+:Streptococcus_equi_subsp._zooepidemicus_MGCS10565	NA	20	0	Streptococcus	equi	Streptococcus equi subsp. zooepidemicus MGCS10565	equi.5
+0	1571	NC_012470:83626-85196:+:Streptococcus_equi_subsp._zooepidemicus	NA	12	0	Streptococcus	equi	Streptococcus equi subsp. zooepidemicus	equi.3
+0	1543	NZ_GL698435:3373-4915:-:Streptococcus_equinus_ATCC_9812	NA	553	0	Streptococcus	equinus	Streptococcus equinus ATCC 9812	equinus.1
+0	1501	AP012053:16703-18203:+:Streptococcus_gallolyticus_subsp._gallolyticus_ATCC_43143	NA	648	0	Streptococcus	gallolyticus	Streptococcus gallolyticus subsp. gallolyticus ATCC 43143	gallolyticus.12
+0	1512	NC_009785:661162-662673:+:Streptococcus_gordonii_str._Challis_substr._CH1	NA	601	0	Streptococcus	gordonii	Streptococcus gordonii str. Challis substr. CH1	gordonii.3
+0	1512	NC_009785:2177044-2178555:-:Streptococcus_gordonii_str._Challis_substr._CH1	NA	602	0	Streptococcus	gordonii	Streptococcus gordonii str. Challis substr. CH1	gordonii.1
+0	1501	AEUX01000018:12-1512:+:Streptococcus_ictaluri_707-05	NA	649	0	Streptococcus	ictaluri	Streptococcus ictaluri 707-05	ictaluri.1
+0	1500	AEUX01000018:60646-62145:+:Streptococcus_ictaluri_707-05	NA	684	0	Streptococcus	ictaluri	Streptococcus ictaluri 707-05	ictaluri.1
+0	1501	AEUX01000035:106591-108091:+:Streptococcus_ictaluri_707-05	NA	650	0	Streptococcus	ictaluri	Streptococcus ictaluri 707-05	ictaluri.1
+0	1500	AEUX01000037:1980-3479:-:Streptococcus_ictaluri_707-05	NA	685	0	Streptococcus	ictaluri	Streptococcus ictaluri 707-05	ictaluri.1
+0	1493	NZ_DS572679:39451-40943:-:Streptococcus_infantarius_subsp._infantarius_ATCC_BAA-102	NA	696	0	Streptococcus	infantarius	Streptococcus infantarius subsp. infantarius ATCC BAA-102	infantarius.6
+0	1493	NZ_DS572689:138901-140393:-:Streptococcus_infantarius_subsp._infantarius_ATCC_BAA-102	NA	697	0	Streptococcus	infantarius	Streptococcus infantarius subsp. infantarius ATCC BAA-102	infantarius.1
+0	1492	NC_016826:326375-327866:+:Streptococcus_infantarius_subsp._infantarius_CJ18	NA	702	0	Streptococcus	infantarius	Streptococcus infantarius subsp. infantarius CJ18	infantarius.1
+0	1563	NZ_GL732443:58-1620:+:Streptococcus_infantis_ATCC_700779	NA	199	0	Streptococcus	infantis	Streptococcus infantis ATCC 700779	infantis.1
+0	1565	NZ_AFNN01000003:3284-4848:-:Streptococcus_infantis_SK1076	NA	51	0	Streptococcus	infantis	Streptococcus infantis SK1076	infantis.2
+0	1564	NZ_AFNN01000013:23377-24940:+:Streptococcus_infantis_SK1076	NA	107	0	Streptococcus	infantis	Streptococcus infantis SK1076	infantis.1
+0	1564	NZ_AFNN01000023:3282-4845:-:Streptococcus_infantis_SK1076	NA	108	0	Streptococcus	infantis	Streptococcus infantis SK1076	infantis.1
+0	1567	NZ_AFNN01000024:3283-4849:-:Streptococcus_infantis_SK1076	NA	15	0	Streptococcus	infantis	Streptococcus infantis SK1076	infantis.1
+0	1564	NZ_AEDY01000065:158-1721:+:Streptococcus_infantis_SK1302	NA	109	0	Streptococcus	infantis	Streptococcus infantis SK1302	infantis.1
+0	1566	AFUT01000001:138-1703:+:Streptococcus_infantis_SK970	NA	21	0	Streptococcus	infantis	Streptococcus infantis SK970	infantis.1
+0	1566	AFUT01000007:3280-4845:-:Streptococcus_infantis_SK970	NA	22	0	Streptococcus	infantis	Streptococcus infantis SK970	infantis.4
+0	1565	AFUQ01000001:157-1721:+:Streptococcus_infantis_X	NA	52	0	Streptococcus	infantis	Streptococcus infantis X	infantis.1
+0	1566	AFUQ01000004:3318-4883:-:Streptococcus_infantis_X	NA	23	0	Streptococcus	infantis	Streptococcus infantis X	infantis.1
+0	1566	AFUQ01000011:94432-95997:-:Streptococcus_infantis_X	NA	24	0	Streptococcus	infantis	Streptococcus infantis X	infantis.2
+0	1566	AFUQ01000012:28213-29778:+:Streptococcus_infantis_X	NA	25	0	Streptococcus	infantis	Streptococcus infantis X	infantis.1
+0	1566	AFUQ01000012:396064-397629:+:Streptococcus_infantis_X	NA	26	0	Streptococcus	infantis	Streptococcus infantis X	infantis.1
+0	1501	AMOO01000001:51615-53115:+:Streptococcus_iniae_9117	NA	651	0	Streptococcus	iniae	Streptococcus iniae 9117	iniae.1
+0	1501	AMOO01000003:489067-490567:-:Streptococcus_iniae_9117	NA	652	0	Streptococcus	iniae	Streptococcus iniae 9117	iniae.1
+0	1573	AFXN01000016:680-2252:+:Streptococcus_intermedius_F0395	NA	5	0	Streptococcus	intermedius	Streptococcus intermedius F0395	intermedius.1
+0	1573	AFXO01000010:673-2245:+:Streptococcus_intermedius_F0413	NA	6	0	Streptococcus	intermedius	Streptococcus intermedius F0413	intermedius.6
+0	1499	AEUW01000001:4-1502:+:Streptococcus_macacae_NCTC_11558	NA	690	0	Streptococcus	macacae	Streptococcus macacae NCTC 11558	macacae.5
+0	1499	AEUW01000001:119733-121231:+:Streptococcus_macacae_NCTC_11558	NA	691	0	Streptococcus	macacae	Streptococcus macacae NCTC 11558	macacae.1
+0	1499	AEUW01000007:83877-85375:+:Streptococcus_macacae_NCTC_11558	NA	692	0	Streptococcus	macacae	Streptococcus macacae NCTC 11558	macacae.1
+0	1500	AEUW01000012:3662-5161:-:Streptococcus_macacae_NCTC_11558	NA	686	0	Streptococcus	macacae	Streptococcus macacae NCTC 11558	macacae.1
+0	1498	AEUW01000012:390609-392106:+:Streptococcus_macacae_NCTC_11558	NA	694	0	Streptococcus	macacae	Streptococcus macacae NCTC 11558	macacae.1
+0	1501	NC_016749:18887-20387:+:Streptococcus_macedonicus_ACA-DC_198	NA	653	0	Streptococcus	macedonicus	Streptococcus macedonicus ACA-DC 198	macedonicus.6
+0	1564	NZ_GL397180:349-1912:+:Streptococcus_mitis_ATCC_6249	NA	110	0	Streptococcus	mitis	Streptococcus mitis ATCC 6249	mitis.1
+0	1563	NC_013853:16684-18246:+:Streptococcus_mitis_B6	NA	200	0	Streptococcus	mitis	Streptococcus mitis B6	mitis.1
+0	1563	NC_013853:173658-175220:+:Streptococcus_mitis_B6	NA	201	0	Streptococcus	mitis	Streptococcus mitis B6	mitis.3
+0	1564	AFUO01000001:1002403-1003966:-:Streptococcus_mitis_bv._2_str._F0392	NA	111	0	Streptococcus	mitis	Streptococcus mitis bv. 2 str. F0392	mitis.4
+0	1563	AFUB01000036:3321-4883:-:Streptococcus_mitis_bv._2_str._SK95	NA	202	0	Streptococcus	mitis	Streptococcus mitis bv. 2 str. SK95	mitis.1
+0	1564	NZ_AEDX01000007:40616-42179:-:Streptococcus_mitis_NCTC_12261	NA	112	0	Streptococcus	mitis	Streptococcus mitis NCTC 12261	mitis.3
+0	1563	AFQT01000005:152-1714:+:Streptococcus_mitis_SK1073	NA	203	0	Streptococcus	mitis	Streptococcus mitis SK1073	mitis.2
+0	1563	AFQT01000010:154027-155589:-:Streptococcus_mitis_SK1073	NA	204	0	Streptococcus	mitis	Streptococcus mitis SK1073	mitis.1
+0	1566	AFQT01000022:152-1717:+:Streptococcus_mitis_SK1073	NA	27	0	Streptococcus	mitis	Streptococcus mitis SK1073	mitis.1
+0	1563	AFQT01000032:322237-323799:+:Streptococcus_mitis_SK1073	NA	205	0	Streptococcus	mitis	Streptococcus mitis SK1073	mitis.1
+0	1563	AFQT01000038:3317-4879:-:Streptococcus_mitis_SK1073	NA	206	0	Streptococcus	mitis	Streptococcus mitis SK1073	mitis.1
+0	1565	AFQV01000003:38623-40187:+:Streptococcus_mitis_SK1080	NA	53	0	Streptococcus	mitis	Streptococcus mitis SK1080	mitis.1
+0	1563	AFQV01000011:13651-15213:+:Streptococcus_mitis_SK1080	NA	207	0	Streptococcus	mitis	Streptococcus mitis SK1080	mitis.4
+0	1563	AFQV01000020:4141-5703:-:Streptococcus_mitis_SK1080	NA	208	0	Streptococcus	mitis	Streptococcus mitis SK1080	mitis.1
+0	1563	AFUF01000013:15601-17163:+:Streptococcus_mitis_SK569	NA	209	0	Streptococcus	mitis	Streptococcus mitis SK569	mitis.1
+0	1563	AFUF01000023:39076-40638:+:Streptococcus_mitis_SK569	NA	210	0	Streptococcus	mitis	Streptococcus mitis SK569	mitis.1
+0	1563	AICU01000067:3328-4890:-:Streptococcus_mitis_SK575	NA	211	0	Streptococcus	mitis	Streptococcus mitis SK575	mitis.1
+0	1563	AJJL01000036:3331-4893:-:Streptococcus_mitis_SK579	NA	212	0	Streptococcus	mitis	Streptococcus mitis SK579	mitis.1
+0	1563	NZ_AEDV01000014:3332-4894:-:Streptococcus_mitis_SK597	NA	213	0	Streptococcus	mitis	Streptococcus mitis SK597	mitis.1
+0	1563	AICR01000004:3322-4884:-:Streptococcus_mitis_SK616	NA	214	0	Streptococcus	mitis	Streptococcus mitis SK616	mitis.1
+0	1573	ALCH01000001:323-1895:+:Streptococcus_mitis_SPAR10	NA	7	0	Streptococcus	mitis	Streptococcus mitis SPAR10	mitis.2
+0	1565	ALCH01000002:127230-128794:+:Streptococcus_mitis_SPAR10	NA	54	0	Streptococcus	mitis	Streptococcus mitis SPAR10	mitis.1
+0	1573	ALCH01000003:145167-146739:-:Streptococcus_mitis_SPAR10	NA	8	0	Streptococcus	mitis	Streptococcus mitis SPAR10	mitis.1
+0	1565	ALCH01000010:3274-4838:-:Streptococcus_mitis_SPAR10	NA	55	0	Streptococcus	mitis	Streptococcus mitis SPAR10	mitis.1
+0	1492	CP003686:16891-18382:+:Streptococcus_mutans_GS-5	NA	703	0	Streptococcus	mutans	Streptococcus mutans GS-5	mutans.5
+0	1492	NC_013928:16885-18376:+:Streptococcus_mutans_NN2025	NA	704	0	Streptococcus	mutans	Streptococcus mutans NN2025	mutans.5
+0	1492	NC_013928:377870-379361:+:Streptococcus_mutans_NN2025	NA	705	0	Streptococcus	mutans	Streptococcus mutans NN2025	mutans.2
+0	1492	NC_004350:185747-187238:+:Streptococcus_mutans_UA159	NA	706	0	Streptococcus	mutans	Streptococcus mutans UA159	mutans.3
+0	1566	NZ_GG749269:3334-4899:-:Streptococcus_oralis_ATCC_35037	NA	28	0	Streptococcus	oralis	Streptococcus oralis ATCC 35037	oralis.1
+0	1566	AICT01000014:346-1911:+:Streptococcus_oralis_SK1074	NA	29	0	Streptococcus	oralis	Streptococcus oralis SK1074	oralis.1
+0	1566	AFNM01000003:22899-24464:-:Streptococcus_oralis_SK255	NA	30	0	Streptococcus	oralis	Streptococcus oralis SK255	oralis.2
+0	1567	AFNM01000022:3236-4802:-:Streptococcus_oralis_SK255	NA	16	0	Streptococcus	oralis	Streptococcus oralis SK255	oralis.1
+0	1566	AFNM01000041:33924-35489:+:Streptococcus_oralis_SK255	NA	31	0	Streptococcus	oralis	Streptococcus oralis SK255	oralis.1
+0	1566	AFNM01000048:3236-4801:-:Streptococcus_oralis_SK255	NA	32	0	Streptococcus	oralis	Streptococcus oralis SK255	oralis.1
+0	1566	AFUU01000001:46335-47900:+:Streptococcus_oralis_SK313	NA	33	0	Streptococcus	oralis	Streptococcus oralis SK313	oralis.2
+0	1566	AFUU01000002:192213-193778:-:Streptococcus_oralis_SK313	NA	34	0	Streptococcus	oralis	Streptococcus oralis SK313	oralis.1
+0	1565	AFUU01000003:1047215-1048779:+:Streptococcus_oralis_SK313	NA	56	0	Streptococcus	oralis	Streptococcus oralis SK313	oralis.1
+0	1563	AJKQ01000028:3296-4858:-:Streptococcus_oralis_SK610	NA	215	0	Streptococcus	oralis	Streptococcus oralis SK610	oralis.5
+0	1565	GG770735:3336-4900:-:Streptococcus_parasanguinis_ATCC_15912	NA	57	0	Streptococcus	parasanguinis	Streptococcus parasanguinis ATCC 15912	parasanguinis.1
+0	1565	NZ_GL732452:3337-4901:-:Streptococcus_parasanguinis_ATCC_903	NA	58	0	Streptococcus	parasanguinis	Streptococcus parasanguinis ATCC 903	parasanguinis.1
+0	1565	NZ_AEKM01000003:2628-4192:-:Streptococcus_parasanguinis_F0405	NA	59	0	Streptococcus	parasanguinis	Streptococcus parasanguinis F0405	parasanguinis.2
+0	1563	NZ_AEKM01000011:91191-92753:+:Streptococcus_parasanguinis_F0405	NA	216	0	Streptococcus	parasanguinis	Streptococcus parasanguinis F0405	parasanguinis.1
+0	1565	NZ_AEKM01000012:275216-276780:+:Streptococcus_parasanguinis_F0405	NA	60	0	Streptococcus	parasanguinis	Streptococcus parasanguinis F0405	parasanguinis.1
+0	1566	AJMV01000090:3336-4901:-:Streptococcus_parasanguinis_F0449	NA	35	0	Streptococcus	parasanguinis	Streptococcus parasanguinis F0449	parasanguinis.1
+0	1566	CP003122:17261-18826:+:Streptococcus_parasanguinis_FW213	NA	36	0	Streptococcus	parasanguinis	Streptococcus parasanguinis FW213	parasanguinis.2
+0	1565	CP003122:147670-149234:+:Streptococcus_parasanguinis_FW213	NA	61	0	Streptococcus	parasanguinis	Streptococcus parasanguinis FW213	parasanguinis.1
+0	1566	CP003122:553098-554663:+:Streptococcus_parasanguinis_FW213	NA	37	0	Streptococcus	parasanguinis	Streptococcus parasanguinis FW213	parasanguinis.1
+0	1563	AFUC01000002:3278-4840:-:Streptococcus_parasanguinis_SK236	NA	217	0	Streptococcus	parasanguinis	Streptococcus parasanguinis SK236	parasanguinis.3
+0	1564	AFUC01000006:475320-476883:-:Streptococcus_parasanguinis_SK236	NA	113	0	Streptococcus	parasanguinis	Streptococcus parasanguinis SK236	parasanguinis.1
+0	1563	AFUC01000011:91377-92939:+:Streptococcus_parasanguinis_SK236	NA	218	0	Streptococcus	parasanguinis	Streptococcus parasanguinis SK236	parasanguinis.1
+0	1501	NC_015558:18066-19566:+:Streptococcus_parauberis_KCTC_11537	NA	654	0	Streptococcus	parauberis	Streptococcus parauberis KCTC 11537	parauberis.5
+0	1501	NZ_AEUT02000001:1083874-1085374:-:Streptococcus_parauberis_NCFD_2020	NA	655	0	Streptococcus	parauberis	Streptococcus parauberis NCFD 2020	parauberis.1
+0	1501	NZ_AEUT02000001:1536438-1537938:-:Streptococcus_parauberis_NCFD_2020	NA	656	0	Streptococcus	parauberis	Streptococcus parauberis NCFD 2020	parauberis.1
+0	1501	NZ_AEUT02000001:1587186-1588686:-:Streptococcus_parauberis_NCFD_2020	NA	657	0	Streptococcus	parauberis	Streptococcus parauberis NCFD 2020	parauberis.2
+0	1502	NZ_AEUT02000001:1894087-1895588:-:Streptococcus_parauberis_NCFD_2020	NA	617	0	Streptococcus	parauberis	Streptococcus parauberis NCFD 2020	parauberis.1
+0	1501	NC_015600:17828-19328:+:Streptococcus_pasteurianus_ATCC_43144	NA	658	0	Streptococcus	pasteurianus	Streptococcus pasteurianus ATCC 43144	pasteurianus.3
+0	1501	NC_015600:237218-238718:+:Streptococcus_pasteurianus_ATCC_43144	NA	659	0	Streptococcus	pasteurianus	Streptococcus pasteurianus ATCC 43144	pasteurianus.2
+0	1563	NZ_GL732464:3336-4898:-:Streptococcus_peroris_ATCC_700780	NA	219	0	Streptococcus	peroris	Streptococcus peroris ATCC 700780	peroris.1
+0	1565	AEGF01000003:101-1665:+:Streptococcus_pneumoniae_06-01-003MEF	NA	62	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 06-01-003MEF	pneumoniae.1
+0	1563	AFBY01000075:42-1604:+:Streptococcus_pneumoniae_07AR0125	NA	220	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 07AR0125	pneumoniae.21
+0	1563	AGID01000050:3337-4899:-:Streptococcus_pneumoniae_1974M1-LZD	NA	221	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 1974M1-LZD	pneumoniae.97
+0	1563	ALBG01000018:3510-5072:-:Streptococcus_pneumoniae_2061376	NA	222	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2061376	pneumoniae.24
+0	1563	ALBI01000001:57030-58592:+:Streptococcus_pneumoniae_2061617	NA	223	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2061617	pneumoniae.48
+0	1563	ALAY01000014:3334-4896:-:Streptococcus_pneumoniae_2070035	NA	224	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2070035	pneumoniae.25
+0	1563	ALAZ01000019:56021-57583:-:Streptococcus_pneumoniae_2070108	NA	225	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2070108	pneumoniae.4
+0	1563	ALBA01000019:59979-61541:-:Streptococcus_pneumoniae_2070109	NA	226	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2070109	pneumoniae.27
+0	1563	ALBC01000032:38401-39963:-:Streptococcus_pneumoniae_2070425	NA	227	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2070425	pneumoniae.39
+0	1563	ALBH01000012:3334-4896:-:Streptococcus_pneumoniae_2080076	NA	228	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2080076	pneumoniae.116
+0	1563	ALBM01000008:84799-86361:+:Streptococcus_pneumoniae_2081074	NA	229	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2081074	pneumoniae.30
+0	1563	ALBN01000009:86107-87669:+:Streptococcus_pneumoniae_2081685	NA	230	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 2081685	pneumoniae.7
+0	1564	AGQG01000006:3292-4855:-:Streptococcus_pneumoniae_3063-00	NA	114	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 3063-00	pneumoniae.1
+0	1563	AGQG01000008:314-1876:-:Streptococcus_pneumoniae_3063-00	NA	231	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 3063-00	pneumoniae.1
+0	1563	AGQG01000009:3297-4859:-:Streptococcus_pneumoniae_3063-00	NA	232	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 3063-00	pneumoniae.22
+0	1563	AGQG01000009:203660-205222:+:Streptococcus_pneumoniae_3063-00	NA	233	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 3063-00	pneumoniae.1
+0	1562	AGNW01000004:3340-4901:-:Streptococcus_pneumoniae_4027-06	NA	429	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4027-06	pneumoniae.1
+0	1563	AGNW01000006:3340-4902:-:Streptococcus_pneumoniae_4027-06	NA	234	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4027-06	pneumoniae.1
+0	1563	AGNW01000006:204694-206256:+:Streptococcus_pneumoniae_4027-06	NA	235	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4027-06	pneumoniae.4
+0	1564	AIKE01000002:383-1946:+:Streptococcus_pneumoniae_4075-00	NA	115	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4075-00	pneumoniae.1
+0	1562	AIKE01000005:3343-4904:-:Streptococcus_pneumoniae_4075-00	NA	430	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4075-00	pneumoniae.1
+0	1564	AIKE01000007:3344-4907:-:Streptococcus_pneumoniae_4075-00	NA	116	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 4075-00	pneumoniae.1
+0	1563	ABXO01000047:3334-4896:-:Streptococcus_pneumoniae_459-5	NA	236	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 459-5	pneumoniae.13
+0	1563	AGQE01000001:12642-14204:+:Streptococcus_pneumoniae_5185-06	NA	237	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5185-06	pneumoniae.1
+0	1560	AGQE01000002:355-1914:+:Streptococcus_pneumoniae_5185-06	NA	514	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5185-06	pneumoniae.1
+0	1563	AGQE01000009:3343-4905:-:Streptococcus_pneumoniae_5185-06	NA	238	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5185-06	pneumoniae.1
+0	1562	AGQE01000013:3344-4905:-:Streptococcus_pneumoniae_5185-06	NA	431	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5185-06	pneumoniae.2
+0	1563	AIJU01000012:2471-4033:-:Streptococcus_pneumoniae_5652-06	NA	239	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5652-06	pneumoniae.1
+0	1563	AIJU01000013:2470-4032:-:Streptococcus_pneumoniae_5652-06	NA	240	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5652-06	pneumoniae.1
+0	1563	AGOM01000011:3327-4889:-:Streptococcus_pneumoniae_5787-06	NA	241	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5787-06	pneumoniae.1
+0	1564	AGOM01000012:185659-187222:+:Streptococcus_pneumoniae_5787-06	NA	117	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 5787-06	pneumoniae.1
+0	1563	AGNX01000010:3348-4910:-:Streptococcus_pneumoniae_6735-05	NA	242	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6735-05	pneumoniae.1
+0	1564	AGNX01000011:3348-4911:-:Streptococcus_pneumoniae_6735-05	NA	118	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6735-05	pneumoniae.1
+0	1562	AGNX01000011:204767-206328:+:Streptococcus_pneumoniae_6735-05	NA	432	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6735-05	pneumoniae.1
+0	1563	AGOF01000001:387-1949:+:Streptococcus_pneumoniae_6901-05	NA	243	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6901-05	pneumoniae.3
+0	1564	AGOF01000008:1789-3352:-:Streptococcus_pneumoniae_6901-05	NA	119	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6901-05	pneumoniae.1
+0	1564	AGOF01000009:59864-61427:-:Streptococcus_pneumoniae_6901-05	NA	120	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6901-05	pneumoniae.1
+0	1563	AGOF01000010:1788-3350:-:Streptococcus_pneumoniae_6901-05	NA	244	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6901-05	pneumoniae.1
+0	1562	AGOF01000010:203206-204767:+:Streptococcus_pneumoniae_6901-05	NA	433	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6901-05	pneumoniae.1
+0	1563	AGON01000015:61701-63263:-:Streptococcus_pneumoniae_6963-05	NA	245	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6963-05	pneumoniae.2
+0	1562	AGON01000016:205988-207549:+:Streptococcus_pneumoniae_6963-05	NA	434	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 6963-05	pneumoniae.1
+0	1559	AGOG01000001:12628-14186:+:Streptococcus_pneumoniae_7286-06	NA	525	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7286-06	pneumoniae.1
+0	1563	AGOG01000012:2774-4336:-:Streptococcus_pneumoniae_7286-06	NA	246	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7286-06	pneumoniae.1
+0	1562	AGOG01000013:2776-4337:-:Streptococcus_pneumoniae_7286-06	NA	435	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7286-06	pneumoniae.1
+0	1561	AIKD01000003:12560-14120:+:Streptococcus_pneumoniae_7879-04	NA	495	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7879-04	pneumoniae.1
+0	1564	AIKD01000005:1221986-1223549:-:Streptococcus_pneumoniae_7879-04	NA	121	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7879-04	pneumoniae.2
+0	1562	AIKD01000009:3138-4699:-:Streptococcus_pneumoniae_7879-04	NA	436	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 7879-04	pneumoniae.1
+0	1563	AIJY01000031:702-2264:-:Streptococcus_pneumoniae_8190-05	NA	247	0	Streptococcus	pneumoniae	Streptococcus pneumoniae 8190-05	pneumoniae.1
+0	1563	NC_014494:15343-16905:+:Streptococcus_pneumoniae_AP200	NA	248	0	Streptococcus	pneumoniae	Streptococcus pneumoniae AP200	pneumoniae.1
+0	1565	NC_014494:1952028-1953592:-:Streptococcus_pneumoniae_AP200	NA	63	0	Streptococcus	pneumoniae	Streptococcus pneumoniae AP200	pneumoniae.1
+0	1563	NZ_ABGF01000013:52450-54012:-:Streptococcus_pneumoniae_CDC0288-04	NA	249	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC0288-04	pneumoniae.1
+0	1560	NZ_ABFT01000013:3334-4893:-:Streptococcus_pneumoniae_CDC1087-00	NA	515	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1087-00	pneumoniae.1
+0	1563	NZ_ABFT01000015:54091-55653:-:Streptococcus_pneumoniae_CDC1087-00	NA	250	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1087-00	pneumoniae.5
+0	1563	NZ_ABFT01000017:50709-52271:-:Streptococcus_pneumoniae_CDC1087-00	NA	251	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1087-00	pneumoniae.1
+0	1563	NZ_ABFT01000018:44192-45754:+:Streptococcus_pneumoniae_CDC1087-00	NA	252	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1087-00	pneumoniae.1
+0	1563	NZ_ABFT01000035:147-1709:-:Streptococcus_pneumoniae_CDC1087-00	NA	253	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1087-00	pneumoniae.1
+0	1563	NZ_ABFS01000003:162076-163638:-:Streptococcus_pneumoniae_CDC1873-00	NA	254	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1873-00	pneumoniae.26
+0	1563	NZ_ABFS01000009:78936-80498:-:Streptococcus_pneumoniae_CDC1873-00	NA	255	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC1873-00	pneumoniae.1
+0	1563	NZ_ABGG01000005:205920-207482:+:Streptococcus_pneumoniae_CDC3059-06	NA	256	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CDC3059-06	pneumoniae.1
+0	1562	NC_010582:15339-16900:+:Streptococcus_pneumoniae_CGSP14	NA	437	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CGSP14	pneumoniae.1
+0	1563	NC_010582:1864398-1865960:-:Streptococcus_pneumoniae_CGSP14	NA	257	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CGSP14	pneumoniae.1
+0	1562	NC_010582:1955601-1957162:-:Streptococcus_pneumoniae_CGSP14	NA	438	0	Streptococcus	pneumoniae	Streptococcus pneumoniae CGSP14	pneumoniae.1
+0	1562	AILI01000004:769663-771224:-:Streptococcus_pneumoniae_England14-9	NA	439	0	Streptococcus	pneumoniae	Streptococcus pneumoniae England14-9	pneumoniae.1
+0	1564	AILI01000007:2906-4469:-:Streptococcus_pneumoniae_England14-9	NA	122	0	Streptococcus	pneumoniae	Streptococcus pneumoniae England14-9	pneumoniae.1
+0	1559	AGQH01000001:330-1888:+:Streptococcus_pneumoniae_EU-NP01	NA	526	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP01	pneumoniae.1
+0	1566	AGQH01000013:359559-361124:-:Streptococcus_pneumoniae_EU-NP01	NA	38	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP01	pneumoniae.1
+0	1563	AGQH01000015:1814-3376:-:Streptococcus_pneumoniae_EU-NP01	NA	258	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP01	pneumoniae.1
+0	1563	AGQH01000017:3342-4904:-:Streptococcus_pneumoniae_EU-NP01	NA	259	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP01	pneumoniae.1
+0	1565	AGQH01000018:76398-77962:+:Streptococcus_pneumoniae_EU-NP01	NA	64	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP01	pneumoniae.1
+0	1563	AIKF01000013:401-1963:+:Streptococcus_pneumoniae_EU-NP02	NA	260	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP02	pneumoniae.1
+0	1564	AIKG01000002:412-1975:+:Streptococcus_pneumoniae_EU-NP03	NA	123	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP03	pneumoniae.1
+0	1564	AIKG01000008:2842-4405:-:Streptococcus_pneumoniae_EU-NP03	NA	124	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP03	pneumoniae.1
+0	1563	AIKG01000009:2842-4404:-:Streptococcus_pneumoniae_EU-NP03	NA	261	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP03	pneumoniae.1
+0	1564	AIKG01000009:70181-71744:-:Streptococcus_pneumoniae_EU-NP03	NA	125	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP03	pneumoniae.1
+0	1563	AIKH01000003:101387-102949:+:Streptococcus_pneumoniae_EU-NP04	NA	262	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP04	pneumoniae.1
+0	1565	AIKH01000011:1522-3086:-:Streptococcus_pneumoniae_EU-NP04	NA	65	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP04	pneumoniae.1
+0	1566	AIKH01000012:1522-3087:-:Streptococcus_pneumoniae_EU-NP04	NA	39	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP04	pneumoniae.1
+0	1560	AIKH01000012:220271-221830:+:Streptococcus_pneumoniae_EU-NP04	NA	516	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP04	pneumoniae.1
+0	1565	AIJW01000021:3328-4892:-:Streptococcus_pneumoniae_EU-NP05	NA	66	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP05	pneumoniae.1
+0	1563	AIJW01000023:3334-4896:-:Streptococcus_pneumoniae_EU-NP05	NA	263	0	Streptococcus	pneumoniae	Streptococcus pneumoniae EU-NP05	pneumoniae.1
+0	1563	NC_011072:1889661-1891223:-:Streptococcus_pneumoniae_G54	NA	264	0	Streptococcus	pneumoniae	Streptococcus pneumoniae G54	pneumoniae.1
+0	1562	AIKI01000012:3303-4864:-:Streptococcus_pneumoniae_GA02254	NA	440	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02254	pneumoniae.1
+0	1560	AIKI01000013:3302-4861:-:Streptococcus_pneumoniae_GA02254	NA	517	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02254	pneumoniae.1
+0	1562	AIKI01000014:3302-4863:-:Streptococcus_pneumoniae_GA02254	NA	441	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02254	pneumoniae.1
+0	1565	AIKJ01000011:3295-4859:-:Streptococcus_pneumoniae_GA02270	NA	67	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02270	pneumoniae.1
+0	1564	AIKJ01000014:3295-4858:-:Streptococcus_pneumoniae_GA02270	NA	126	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02270	pneumoniae.1
+0	1562	AIKJ01000015:3295-4856:-:Streptococcus_pneumoniae_GA02270	NA	442	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02270	pneumoniae.1
+0	1563	AILJ01000001:383-1945:+:Streptococcus_pneumoniae_GA02506	NA	265	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02506	pneumoniae.1
+0	1563	AILJ01000008:1933-3495:-:Streptococcus_pneumoniae_GA02506	NA	266	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02506	pneumoniae.1
+0	1565	AIKK01000019:3342-4906:-:Streptococcus_pneumoniae_GA02714	NA	68	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02714	pneumoniae.1
+0	1562	AIKK01000020:3342-4903:-:Streptococcus_pneumoniae_GA02714	NA	443	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02714	pneumoniae.1
+0	1563	AIKK01000021:167736-169298:+:Streptococcus_pneumoniae_GA02714	NA	267	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA02714	pneumoniae.1
+0	1562	AIKL01000007:3353-4914:-:Streptococcus_pneumoniae_GA04175	NA	444	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04175	pneumoniae.1
+0	1563	AIKL01000007:94488-96050:-:Streptococcus_pneumoniae_GA04175	NA	268	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04175	pneumoniae.1
+0	1563	AIKL01000009:204636-206198:+:Streptococcus_pneumoniae_GA04175	NA	269	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04175	pneumoniae.1
+0	1561	ALCK01000009:2082-3642:-:Streptococcus_pneumoniae_GA04216	NA	496	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04216	pneumoniae.1
+0	1563	ALCK01000010:2083-3645:-:Streptococcus_pneumoniae_GA04216	NA	270	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04216	pneumoniae.1
+0	1562	ALCK01000010:202070-203631:+:Streptococcus_pneumoniae_GA04216	NA	445	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04216	pneumoniae.1
+0	1567	AFAX01000006:864123-865689:-:Streptococcus_pneumoniae_GA04375	NA	17	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04375	pneumoniae.1
+0	1563	AFAX01000007:3344-4906:-:Streptococcus_pneumoniae_GA04375	NA	271	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04375	pneumoniae.1
+0	1563	ALCJ01000001:8010-9572:+:Streptococcus_pneumoniae_GA04672	NA	272	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04672	pneumoniae.1
+0	1563	ALCJ01000007:3319-4881:-:Streptococcus_pneumoniae_GA04672	NA	273	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04672	pneumoniae.1
+0	1563	ALCJ01000009:3316-4878:-:Streptococcus_pneumoniae_GA04672	NA	274	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04672	pneumoniae.1
+0	1564	ALCJ01000009:204854-206417:+:Streptococcus_pneumoniae_GA04672	NA	127	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA04672	pneumoniae.1
+0	1563	AILL01000009:205142-206704:+:Streptococcus_pneumoniae_GA05245	NA	275	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA05245	pneumoniae.1
+0	1564	AIKM01000008:1390-2953:-:Streptococcus_pneumoniae_GA05248	NA	128	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA05248	pneumoniae.1
+0	1563	AIKM01000009:208931-210493:+:Streptococcus_pneumoniae_GA05248	NA	276	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA05248	pneumoniae.1
+0	1563	AILH01000006:1989-3551:-:Streptococcus_pneumoniae_GA05578	NA	277	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA05578	pneumoniae.1
+0	1563	AGQI01000001:10954-12516:+:Streptococcus_pneumoniae_GA07228	NA	278	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07228	pneumoniae.1
+0	1562	AGQI01000007:3353-4914:-:Streptococcus_pneumoniae_GA07228	NA	446	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07228	pneumoniae.1
+0	1563	AGOT01000001:369-1931:+:Streptococcus_pneumoniae_GA07643	NA	279	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07643	pneumoniae.1
+0	1565	AGOT01000004:59876-61440:-:Streptococcus_pneumoniae_GA07643	NA	69	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07643	pneumoniae.1
+0	1563	AIKO01000006:63536-65098:-:Streptococcus_pneumoniae_GA07914	NA	280	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07914	pneumoniae.1
+0	1564	AIKO01000007:3344-4907:-:Streptococcus_pneumoniae_GA07914	NA	129	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA07914	pneumoniae.1
+0	1564	AGQJ01000007:3283-4846:-:Streptococcus_pneumoniae_GA08780	NA	130	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08780	pneumoniae.1
+0	1564	AGQJ01000008:3283-4846:-:Streptococcus_pneumoniae_GA08780	NA	131	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08780	pneumoniae.1
+0	1563	AGQJ01000009:3283-4845:-:Streptococcus_pneumoniae_GA08780	NA	281	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08780	pneumoniae.1
+0	1563	AILK01000007:1348-2910:-:Streptococcus_pneumoniae_GA08825	NA	282	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08825	pneumoniae.1
+0	1562	AILK01000008:3304-4865:-:Streptococcus_pneumoniae_GA08825	NA	447	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08825	pneumoniae.2
+0	1563	AILK01000008:204034-205596:+:Streptococcus_pneumoniae_GA08825	NA	283	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA08825	pneumoniae.1
+0	1563	AGNU01000001:24861-26423:+:Streptococcus_pneumoniae_GA11184	NA	284	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.1
+0	1563	AGNU01000002:382-1944:+:Streptococcus_pneumoniae_GA11184	NA	285	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.1
+0	1562	AGNU01000017:2133-3694:-:Streptococcus_pneumoniae_GA11184	NA	448	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.1
+0	1563	AGNU01000017:93261-94823:-:Streptococcus_pneumoniae_GA11184	NA	286	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.2
+0	1565	AGNU01000018:2132-3696:-:Streptococcus_pneumoniae_GA11184	NA	70	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.1
+0	1561	AGNU01000019:2133-3693:-:Streptococcus_pneumoniae_GA11184	NA	497	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11184	pneumoniae.1
+0	1566	AGOU01000009:3328-4893:-:Streptococcus_pneumoniae_GA11304	NA	40	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11304	pneumoniae.1
+0	1562	AGOU01000010:3328-4889:-:Streptococcus_pneumoniae_GA11304	NA	449	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11304	pneumoniae.1
+0	1563	AGOU01000011:130474-132036:+:Streptococcus_pneumoniae_GA11304	NA	287	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11304	pneumoniae.1
+0	1563	AGOV01000002:40200-41762:-:Streptococcus_pneumoniae_GA11426	NA	288	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11426	pneumoniae.1
+0	1561	AGOV01000010:930-2490:-:Streptococcus_pneumoniae_GA11426	NA	498	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11426	pneumoniae.1
+0	1563	AGOV01000012:155685-157247:+:Streptococcus_pneumoniae_GA11426	NA	289	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11426	pneumoniae.1
+0	1560	AGOW01000011:3337-4896:-:Streptococcus_pneumoniae_GA11663	NA	518	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11663	pneumoniae.1
+0	1560	AGOW01000013:3339-4898:-:Streptococcus_pneumoniae_GA11663	NA	519	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11663	pneumoniae.1
+0	1564	AGOW01000013:207604-209167:+:Streptococcus_pneumoniae_GA11663	NA	132	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA11663	pneumoniae.1
+0	1563	AIKB01000016:3314-4876:-:Streptococcus_pneumoniae_GA13224	NA	290	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13224	pneumoniae.9
+0	1564	AIKB01000018:3314-4877:-:Streptococcus_pneumoniae_GA13224	NA	133	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13224	pneumoniae.1
+0	1563	AIKB01000019:3314-4876:-:Streptococcus_pneumoniae_GA13224	NA	291	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13224	pneumoniae.1
+0	1563	AGOX01000009:2333-3895:-:Streptococcus_pneumoniae_GA13338	NA	292	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13338	pneumoniae.1
+0	1563	AGOX01000011:2331-3893:-:Streptococcus_pneumoniae_GA13338	NA	293	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13338	pneumoniae.1
+0	1563	AGOX01000012:2333-3895:-:Streptococcus_pneumoniae_GA13338	NA	294	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13338	pneumoniae.1
+0	1564	AGOX01000012:204600-206163:+:Streptococcus_pneumoniae_GA13338	NA	134	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13338	pneumoniae.1
+0	1564	AGOX01000014:22039-23602:-:Streptococcus_pneumoniae_GA13338	NA	135	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13338	pneumoniae.1
+0	1562	AIKP01000008:3346-4907:-:Streptococcus_pneumoniae_GA13430	NA	450	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13430	pneumoniae.1
+0	1563	AIKP01000009:3345-4907:-:Streptococcus_pneumoniae_GA13430	NA	295	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13430	pneumoniae.1
+0	1562	AGOY01000001:356-1917:+:Streptococcus_pneumoniae_GA13455	NA	451	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13455	pneumoniae.1
+0	1563	AGOY01000007:67348-68910:-:Streptococcus_pneumoniae_GA13455	NA	296	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13455	pneumoniae.1
+0	1563	AGOY01000008:3317-4879:-:Streptococcus_pneumoniae_GA13455	NA	297	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13455	pneumoniae.1
+0	1564	AGOZ01000002:3343-4906:-:Streptococcus_pneumoniae_GA13494	NA	136	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13494	pneumoniae.1
+0	1564	AGOZ01000007:3346-4909:-:Streptococcus_pneumoniae_GA13494	NA	137	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13494	pneumoniae.1
+0	1564	AGOZ01000010:3342-4905:-:Streptococcus_pneumoniae_GA13494	NA	138	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13494	pneumoniae.1
+0	1561	AGOZ01000011:454376-455936:+:Streptococcus_pneumoniae_GA13494	NA	499	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13494	pneumoniae.1
+0	1565	AGOZ01000014:89855-91419:-:Streptococcus_pneumoniae_GA13494	NA	71	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13494	pneumoniae.1
+0	1563	AIJZ01000001:6186-7748:+:Streptococcus_pneumoniae_GA13499	NA	298	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13499	pneumoniae.1
+0	1563	AIJZ01000013:3335-4897:-:Streptococcus_pneumoniae_GA13499	NA	299	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13499	pneumoniae.1
+0	1564	AIJZ01000014:65385-66948:-:Streptococcus_pneumoniae_GA13499	NA	139	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13499	pneumoniae.1
+0	1562	AGPA01000001:9590-11151:+:Streptococcus_pneumoniae_GA13637	NA	452	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13637	pneumoniae.1
+0	1563	AGPA01000003:5382-6944:+:Streptococcus_pneumoniae_GA13637	NA	300	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13637	pneumoniae.1
+0	1563	AGPA01000014:120875-122437:-:Streptococcus_pneumoniae_GA13637	NA	301	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13637	pneumoniae.4
+0	1564	AGPA01000017:3341-4904:-:Streptococcus_pneumoniae_GA13637	NA	140	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13637	pneumoniae.1
+0	1563	AILM01000014:134184-135746:-:Streptococcus_pneumoniae_GA13723	NA	302	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13723	pneumoniae.3
+0	1563	AILM01000015:3339-4901:-:Streptococcus_pneumoniae_GA13723	NA	303	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13723	pneumoniae.1
+0	1563	AILM01000016:3339-4901:-:Streptococcus_pneumoniae_GA13723	NA	304	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13723	pneumoniae.1
+0	1561	AILM01000018:3339-4899:-:Streptococcus_pneumoniae_GA13723	NA	500	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13723	pneumoniae.1
+0	1564	AILM01000018:209570-211133:+:Streptococcus_pneumoniae_GA13723	NA	141	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13723	pneumoniae.1
+0	1563	AGPB01000001:318-1880:+:Streptococcus_pneumoniae_GA13856	NA	305	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13856	pneumoniae.1
+0	1563	AGPB01000007:3333-4895:-:Streptococcus_pneumoniae_GA13856	NA	306	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13856	pneumoniae.1
+0	1563	AGPB01000008:3331-4893:-:Streptococcus_pneumoniae_GA13856	NA	307	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13856	pneumoniae.1
+0	1559	AGPB01000009:191561-193119:+:Streptococcus_pneumoniae_GA13856	NA	527	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA13856	pneumoniae.1
+0	1563	AILN01000012:3352-4914:-:Streptococcus_pneumoniae_GA14373	NA	308	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14373	pneumoniae.1
+0	1561	AILN01000013:3352-4912:-:Streptococcus_pneumoniae_GA14373	NA	501	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14373	pneumoniae.1
+0	1567	AILN01000016:3352-4918:-:Streptococcus_pneumoniae_GA14373	NA	18	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14373	pneumoniae.1
+0	1564	AILN01000017:161570-163133:+:Streptococcus_pneumoniae_GA14373	NA	142	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14373	pneumoniae.1
+0	1564	AIKQ01000009:3262-4825:-:Streptococcus_pneumoniae_GA14688	NA	143	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14688	pneumoniae.1
+0	1563	AIKQ01000009:95520-97082:-:Streptococcus_pneumoniae_GA14688	NA	309	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14688	pneumoniae.1
+0	1564	AIKQ01000010:3261-4824:-:Streptococcus_pneumoniae_GA14688	NA	144	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14688	pneumoniae.1
+0	1564	AIKQ01000012:3264-4827:-:Streptococcus_pneumoniae_GA14688	NA	145	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14688	pneumoniae.1
+0	1563	AIKQ01000012:204142-205704:+:Streptococcus_pneumoniae_GA14688	NA	310	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14688	pneumoniae.1
+0	1564	AGPC01000007:3354-4917:-:Streptococcus_pneumoniae_GA14798	NA	146	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14798	pneumoniae.1
+0	1568	AGPC01000011:3354-4921:-:Streptococcus_pneumoniae_GA14798	NA	13	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14798	pneumoniae.1
+0	1562	AGPC01000013:52966-54527:-:Streptococcus_pneumoniae_GA14798	NA	453	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14798	pneumoniae.1
+0	1564	AGPC01000014:3355-4918:-:Streptococcus_pneumoniae_GA14798	NA	147	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14798	pneumoniae.1
+0	1563	AGPC01000014:203815-205377:+:Streptococcus_pneumoniae_GA14798	NA	311	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA14798	pneumoniae.1
+0	1561	AGPD01000001:365-1925:+:Streptococcus_pneumoniae_GA16121	NA	502	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16121	pneumoniae.2
+0	1562	AGPD01000003:400058-401619:-:Streptococcus_pneumoniae_GA16121	NA	454	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16121	pneumoniae.1
+0	1563	AGPD01000006:3335-4897:-:Streptococcus_pneumoniae_GA16121	NA	312	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16121	pneumoniae.1
+0	1563	AGPD01000007:3334-4896:-:Streptococcus_pneumoniae_GA16121	NA	313	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16121	pneumoniae.1
+0	1562	AGPE01000008:3309-4870:-:Streptococcus_pneumoniae_GA16242	NA	455	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16242	pneumoniae.1
+0	1562	AGPE01000011:3309-4870:-:Streptococcus_pneumoniae_GA16242	NA	456	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16242	pneumoniae.1
+0	1564	AGPE01000012:186832-188395:+:Streptococcus_pneumoniae_GA16242	NA	148	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16242	pneumoniae.1
+0	1561	AGOE01000012:3280-4840:-:Streptococcus_pneumoniae_GA16531	NA	503	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16531	pneumoniae.1
+0	1560	AGOE01000014:3280-4839:-:Streptococcus_pneumoniae_GA16531	NA	520	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16531	pneumoniae.1
+0	1564	AGOE01000015:3279-4842:-:Streptococcus_pneumoniae_GA16531	NA	149	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16531	pneumoniae.1
+0	1564	AGOE01000015:203034-204597:+:Streptococcus_pneumoniae_GA16531	NA	150	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16531	pneumoniae.1
+0	1563	AGPF01000001:217-1779:+:Streptococcus_pneumoniae_GA16833	NA	314	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1564	AGPF01000005:23998-25561:-:Streptococcus_pneumoniae_GA16833	NA	151	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1562	AGPF01000006:3339-4900:-:Streptococcus_pneumoniae_GA16833	NA	457	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1564	AGPF01000008:3339-4902:-:Streptococcus_pneumoniae_GA16833	NA	152	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1563	AGPF01000009:3337-4899:-:Streptococcus_pneumoniae_GA16833	NA	315	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1563	AGPF01000012:11513-13075:+:Streptococcus_pneumoniae_GA16833	NA	316	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA16833	pneumoniae.1
+0	1562	AGPG01000009:3341-4902:-:Streptococcus_pneumoniae_GA17227	NA	458	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17227	pneumoniae.1
+0	1564	AGPG01000010:3343-4906:-:Streptococcus_pneumoniae_GA17227	NA	153	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17227	pneumoniae.1
+0	1563	ALCI01000008:3354-4916:-:Streptococcus_pneumoniae_GA17301	NA	317	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17301	pneumoniae.1
+0	1562	ALCI01000010:215862-217423:+:Streptococcus_pneumoniae_GA17301	NA	459	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17301	pneumoniae.1
+0	1566	AGPH01000014:268232-269797:-:Streptococcus_pneumoniae_GA17328	NA	41	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1564	AGPH01000015:3352-4915:-:Streptococcus_pneumoniae_GA17328	NA	154	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1564	AGPH01000016:3352-4915:-:Streptococcus_pneumoniae_GA17328	NA	155	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1564	AGPH01000016:67459-69022:-:Streptococcus_pneumoniae_GA17328	NA	156	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1563	AGPH01000017:3354-4916:-:Streptococcus_pneumoniae_GA17328	NA	318	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1564	AGPH01000017:265517-267080:+:Streptococcus_pneumoniae_GA17328	NA	157	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17328	pneumoniae.1
+0	1563	AGPI01000015:198806-200368:+:Streptococcus_pneumoniae_GA17371	NA	319	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17371	pneumoniae.1
+0	1564	AILS01000002:385-1948:+:Streptococcus_pneumoniae_GA17457	NA	158	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17457	pneumoniae.1
+0	1562	AILS01000013:3342-4903:-:Streptococcus_pneumoniae_GA17457	NA	460	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17457	pneumoniae.1
+0	1562	AILS01000017:3340-4901:-:Streptococcus_pneumoniae_GA17457	NA	461	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17457	pneumoniae.1
+0	1563	AILS01000017:204508-206070:+:Streptococcus_pneumoniae_GA17457	NA	320	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17457	pneumoniae.1
+0	1563	ALCT01000003:342-1904:+:Streptococcus_pneumoniae_GA17484	NA	321	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17484	pneumoniae.10
+0	1563	AFGA01000011:3333-4895:-:Streptococcus_pneumoniae_GA17545	NA	322	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17545	pneumoniae.1
+0	1564	AFGA01000011:209369-210932:+:Streptococcus_pneumoniae_GA17545	NA	159	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17545	pneumoniae.1
+0	1564	AFGB01000009:3420-4983:-:Streptococcus_pneumoniae_GA17570	NA	160	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17570	pneumoniae.1
+0	1564	AILO01000011:1942-3505:-:Streptococcus_pneumoniae_GA17719	NA	161	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17719	pneumoniae.1
+0	1562	AILO01000012:3345-4906:-:Streptococcus_pneumoniae_GA17719	NA	462	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17719	pneumoniae.1
+0	1563	AGPJ01000008:3346-4908:-:Streptococcus_pneumoniae_GA17971	NA	323	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17971	pneumoniae.1
+0	1563	AGPJ01000009:3344-4906:-:Streptococcus_pneumoniae_GA17971	NA	324	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17971	pneumoniae.1
+0	1565	AGPJ01000010:3344-4908:-:Streptococcus_pneumoniae_GA17971	NA	72	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA17971	pneumoniae.1
+0	1563	AIKR01000005:3299-4861:-:Streptococcus_pneumoniae_GA18068	NA	325	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18068	pneumoniae.1
+0	1564	AIKR01000005:101807-103370:-:Streptococcus_pneumoniae_GA18068	NA	162	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18068	pneumoniae.1
+0	1563	AIKR01000008:203800-205362:+:Streptococcus_pneumoniae_GA18068	NA	326	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18068	pneumoniae.1
+0	1565	AGOO01000001:8300-9864:+:Streptococcus_pneumoniae_GA18523	NA	73	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18523	pneumoniae.1
+0	1563	AGOO01000002:3361-4923:-:Streptococcus_pneumoniae_GA18523	NA	327	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18523	pneumoniae.1
+0	1563	AGOO01000010:3363-4925:-:Streptococcus_pneumoniae_GA18523	NA	328	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA18523	pneumoniae.1
+0	1564	AGPK01000003:3350-4913:-:Streptococcus_pneumoniae_GA19077	NA	163	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19077	pneumoniae.1
+0	1568	AGPK01000010:3351-4918:-:Streptococcus_pneumoniae_GA19077	NA	14	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19077	pneumoniae.1
+0	1564	AGPK01000012:3351-4914:-:Streptococcus_pneumoniae_GA19077	NA	164	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19077	pneumoniae.1
+0	1564	AIKS01000006:161-1724:-:Streptococcus_pneumoniae_GA19101	NA	165	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19101	pneumoniae.1
+0	1563	AIKS01000015:3353-4915:-:Streptococcus_pneumoniae_GA19101	NA	329	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19101	pneumoniae.1
+0	1564	AIKS01000017:161-1724:-:Streptococcus_pneumoniae_GA19101	NA	166	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19101	pneumoniae.1
+0	1565	AIKS01000017:195098-196662:+:Streptococcus_pneumoniae_GA19101	NA	74	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19101	pneumoniae.1
+0	1564	AGPL01000004:387-1950:+:Streptococcus_pneumoniae_GA19451	NA	167	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19451	pneumoniae.1
+0	1563	AGPL01000014:2328-3890:-:Streptococcus_pneumoniae_GA19451	NA	330	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19451	pneumoniae.1
+0	1565	AGQK01000002:3064-4628:-:Streptococcus_pneumoniae_GA19690	NA	75	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19690	pneumoniae.1
+0	1563	AGQK01000005:3062-4624:-:Streptococcus_pneumoniae_GA19690	NA	331	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19690	pneumoniae.1
+0	1564	AGQK01000007:43656-45219:+:Streptococcus_pneumoniae_GA19690	NA	168	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19690	pneumoniae.1
+0	1564	AIKC01000003:12687-14250:+:Streptococcus_pneumoniae_GA19923	NA	169	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19923	pneumoniae.1
+0	1563	AIKC01000004:370-1932:+:Streptococcus_pneumoniae_GA19923	NA	332	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19923	pneumoniae.1
+0	1565	AIKC01000007:3095-4659:-:Streptococcus_pneumoniae_GA19923	NA	76	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19923	pneumoniae.1
+0	1563	AIKC01000008:3095-4657:-:Streptococcus_pneumoniae_GA19923	NA	333	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19923	pneumoniae.1
+0	1563	ALCS01000002:40701-42263:+:Streptococcus_pneumoniae_GA19998	NA	334	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19998	pneumoniae.1
+0	1562	ALCS01000003:406964-408525:+:Streptococcus_pneumoniae_GA19998	NA	463	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19998	pneumoniae.1
+0	1564	ALCS01000006:3298-4861:-:Streptococcus_pneumoniae_GA19998	NA	170	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19998	pneumoniae.1
+0	1563	ALCS01000007:3298-4860:-:Streptococcus_pneumoniae_GA19998	NA	335	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA19998	pneumoniae.1
+0	1566	AILP01000011:3344-4909:-:Streptococcus_pneumoniae_GA40028	NA	42	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40028	pneumoniae.1
+0	1562	AILP01000012:3342-4903:-:Streptococcus_pneumoniae_GA40028	NA	464	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40028	pneumoniae.1
+0	1562	AILP01000013:3342-4903:-:Streptococcus_pneumoniae_GA40028	NA	465	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40028	pneumoniae.1
+0	1563	AILP01000013:213106-214668:+:Streptococcus_pneumoniae_GA40028	NA	336	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40028	pneumoniae.1
+0	1563	AIJX01000002:157-1719:+:Streptococcus_pneumoniae_GA40183	NA	337	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40183	pneumoniae.1
+0	1562	AIJX01000007:3335-4896:-:Streptococcus_pneumoniae_GA40183	NA	466	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40183	pneumoniae.1
+0	1564	AIJX01000009:205951-207514:+:Streptococcus_pneumoniae_GA40183	NA	171	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40183	pneumoniae.1
+0	1563	AIKA01000005:7773-9335:-:Streptococcus_pneumoniae_GA40410	NA	338	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1565	AIKA01000019:3351-4915:-:Streptococcus_pneumoniae_GA40410	NA	77	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1563	AIKA01000019:94480-96042:-:Streptococcus_pneumoniae_GA40410	NA	339	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1566	AIKA01000020:3348-4913:-:Streptococcus_pneumoniae_GA40410	NA	43	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1563	AIKA01000021:3349-4911:-:Streptococcus_pneumoniae_GA40410	NA	340	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1563	AIKA01000021:206197-207759:+:Streptococcus_pneumoniae_GA40410	NA	341	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40410	pneumoniae.1
+0	1563	AIKT01000017:3366-4928:-:Streptococcus_pneumoniae_GA40563	NA	342	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA40563	pneumoniae.1
+0	1563	AFGT01000004:3312-4874:-:Streptococcus_pneumoniae_GA41317	NA	343	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41317	pneumoniae.1
+0	1563	AFGT01000006:3311-4873:-:Streptococcus_pneumoniae_GA41317	NA	344	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41317	pneumoniae.1
+0	1564	AGOJ01000012:417224-418787:-:Streptococcus_pneumoniae_GA41410	NA	172	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41410	pneumoniae.1
+0	1561	AGOJ01000014:210820-212380:+:Streptococcus_pneumoniae_GA41410	NA	504	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41410	pneumoniae.1
+0	1562	AGOJ01000015:3334-4895:-:Streptococcus_pneumoniae_GA41410	NA	467	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41410	pneumoniae.1
+0	1562	AGOJ01000016:3333-4894:-:Streptococcus_pneumoniae_GA41410	NA	468	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41410	pneumoniae.1
+0	1565	AGOJ01000016:223070-224634:+:Streptococcus_pneumoniae_GA41410	NA	78	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41410	pneumoniae.1
+0	1565	AGPN01000012:3345-4909:-:Streptococcus_pneumoniae_GA41437	NA	79	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41437	pneumoniae.1
+0	1564	AGPN01000013:3345-4908:-:Streptococcus_pneumoniae_GA41437	NA	173	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41437	pneumoniae.1
+0	1563	AGPN01000015:153700-155262:+:Streptococcus_pneumoniae_GA41437	NA	345	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41437	pneumoniae.1
+0	1563	AGOL01000002:199-1761:+:Streptococcus_pneumoniae_GA41538	NA	346	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41538	pneumoniae.3
+0	1563	AGOL01000013:1970-3532:-:Streptococcus_pneumoniae_GA41538	NA	347	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41538	pneumoniae.1
+0	1563	AGOL01000014:3303-4865:-:Streptococcus_pneumoniae_GA41538	NA	348	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41538	pneumoniae.1
+0	1565	AGOL01000014:203068-204632:+:Streptococcus_pneumoniae_GA41538	NA	80	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA41538	pneumoniae.1
+0	1564	AIKU01000006:2298-3861:-:Streptococcus_pneumoniae_GA43257	NA	174	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43257	pneumoniae.1
+0	1563	AIJS01000003:16471-18033:+:Streptococcus_pneumoniae_GA43264	NA	349	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43264	pneumoniae.1
+0	1563	AIJS01000013:3332-4894:-:Streptococcus_pneumoniae_GA43264	NA	350	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43264	pneumoniae.6
+0	1563	AGOB01000010:3337-4899:-:Streptococcus_pneumoniae_GA43265	NA	351	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43265	pneumoniae.1
+0	1561	AGOB01000012:3336-4896:-:Streptococcus_pneumoniae_GA43265	NA	505	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43265	pneumoniae.1
+0	1566	AGOB01000012:206170-207735:+:Streptococcus_pneumoniae_GA43265	NA	44	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43265	pneumoniae.1
+0	1561	AGPQ01000008:3350-4910:-:Streptococcus_pneumoniae_GA43380	NA	506	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43380	pneumoniae.1
+0	1565	AGPQ01000010:3352-4916:-:Streptococcus_pneumoniae_GA43380	NA	81	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA43380	pneumoniae.1
+0	1563	AIKV01000007:1794-3356:-:Streptococcus_pneumoniae_GA44128	NA	352	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44128	pneumoniae.1
+0	1562	AIKV01000008:1793-3354:-:Streptococcus_pneumoniae_GA44128	NA	469	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44128	pneumoniae.1
+0	1564	AGOP01000001:390-1953:+:Streptococcus_pneumoniae_GA44194	NA	175	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44194	pneumoniae.1
+0	1563	AGOP01000008:3352-4914:-:Streptococcus_pneumoniae_GA44194	NA	353	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44194	pneumoniae.1
+0	1563	AGNY01000011:67349-68911:-:Streptococcus_pneumoniae_GA44288	NA	354	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44288	pneumoniae.1
+0	1564	AGNY01000013:3349-4912:-:Streptococcus_pneumoniae_GA44288	NA	176	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44288	pneumoniae.1
+0	1563	AGOQ01000009:3335-4897:-:Streptococcus_pneumoniae_GA44378	NA	355	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44378	pneumoniae.1
+0	1563	AGOQ01000010:3335-4897:-:Streptococcus_pneumoniae_GA44378	NA	356	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44378	pneumoniae.1
+0	1563	AGOQ01000011:207694-209256:+:Streptococcus_pneumoniae_GA44378	NA	357	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44378	pneumoniae.1
+0	1563	AIKW01000002:3343-4905:-:Streptococcus_pneumoniae_GA44386	NA	358	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44386	pneumoniae.1
+0	1563	AIKW01000010:3340-4902:-:Streptococcus_pneumoniae_GA44386	NA	359	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44386	pneumoniae.1
+0	1563	AIKW01000011:1029-2591:-:Streptococcus_pneumoniae_GA44386	NA	360	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44386	pneumoniae.1
+0	1564	AIKW01000012:3340-4903:-:Streptococcus_pneumoniae_GA44386	NA	177	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44386	pneumoniae.1
+0	1561	AGOC01000008:3343-4903:-:Streptococcus_pneumoniae_GA44452	NA	507	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44452	pneumoniae.1
+0	1565	AGOI01000015:21786-23350:-:Streptococcus_pneumoniae_GA44500	NA	82	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44500	pneumoniae.1
+0	1563	AGOI01000016:3346-4908:-:Streptococcus_pneumoniae_GA44500	NA	361	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44500	pneumoniae.1
+0	1562	AGOR01000021:192155-193716:-:Streptococcus_pneumoniae_GA44511	NA	470	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44511	pneumoniae.1
+0	1564	AGOR01000023:3351-4914:-:Streptococcus_pneumoniae_GA44511	NA	178	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44511	pneumoniae.1
+0	1563	AGOR01000024:2062-3624:-:Streptococcus_pneumoniae_GA44511	NA	362	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA44511	pneumoniae.1
+0	1563	AGOA01000001:128830-130392:+:Streptococcus_pneumoniae_GA47033	NA	363	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47033	pneumoniae.1
+0	1561	AGOA01000009:3271-4831:-:Streptococcus_pneumoniae_GA47033	NA	508	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47033	pneumoniae.1
+0	1562	AGOA01000010:8461-10022:+:Streptococcus_pneumoniae_GA47033	NA	471	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47033	pneumoniae.1
+0	1563	AIKX01000011:3356-4918:-:Streptococcus_pneumoniae_GA47179	NA	364	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47179	pneumoniae.1
+0	1563	AIKY01000006:72797-74359:-:Streptococcus_pneumoniae_GA47210	NA	365	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47210	pneumoniae.1
+0	1565	AGNZ01000001:25319-26883:-:Streptococcus_pneumoniae_GA47281	NA	83	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47281	pneumoniae.1
+0	1563	AGNZ01000002:12704-14266:+:Streptococcus_pneumoniae_GA47281	NA	366	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47281	pneumoniae.1
+0	1565	AGNZ01000003:1009-2573:+:Streptococcus_pneumoniae_GA47281	NA	84	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47281	pneumoniae.1
+0	1564	AGNZ01000015:3355-4918:-:Streptococcus_pneumoniae_GA47281	NA	179	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47281	pneumoniae.1
+0	1563	AGNZ01000016:3355-4917:-:Streptococcus_pneumoniae_GA47281	NA	367	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47281	pneumoniae.1
+0	1562	AFGS01000007:2691-4252:-:Streptococcus_pneumoniae_GA47368	NA	472	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47368	pneumoniae.1
+0	1565	AFGS01000008:207856-209420:+:Streptococcus_pneumoniae_GA47368	NA	85	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47368	pneumoniae.1
+0	1563	AGPU01000005:3348-4910:-:Streptococcus_pneumoniae_GA47388	NA	368	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47388	pneumoniae.1
+0	1563	AGPU01000006:3348-4910:-:Streptococcus_pneumoniae_GA47388	NA	369	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47388	pneumoniae.1
+0	1563	AGPU01000007:223677-225239:+:Streptococcus_pneumoniae_GA47388	NA	370	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47388	pneumoniae.1
+0	1566	AIKZ01000001:396-1961:+:Streptococcus_pneumoniae_GA47461	NA	45	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47461	pneumoniae.1
+0	1563	AIKZ01000005:3120-4682:-:Streptococcus_pneumoniae_GA47461	NA	371	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47461	pneumoniae.1
+0	1563	AGNV01000014:3354-4916:-:Streptococcus_pneumoniae_GA47502	NA	372	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47502	pneumoniae.1
+0	1562	AILA01000008:3341-4902:-:Streptococcus_pneumoniae_GA47522	NA	473	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47522	pneumoniae.1
+0	1563	AILA01000011:3342-4904:-:Streptococcus_pneumoniae_GA47522	NA	373	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47522	pneumoniae.1
+0	1563	ALCY01000001:310-1872:+:Streptococcus_pneumoniae_GA47562	NA	374	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47562	pneumoniae.4
+0	1562	ALCY01000011:3363-4924:-:Streptococcus_pneumoniae_GA47562	NA	474	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47562	pneumoniae.1
+0	1560	ALCY01000012:3363-4922:-:Streptococcus_pneumoniae_GA47562	NA	521	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47562	pneumoniae.1
+0	1562	ALCY01000012:197631-199192:+:Streptococcus_pneumoniae_GA47562	NA	475	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47562	pneumoniae.1
+0	1563	AILB01000009:3318-4880:-:Streptococcus_pneumoniae_GA47597	NA	375	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47597	pneumoniae.1
+0	1566	AILB01000010:3319-4884:-:Streptococcus_pneumoniae_GA47597	NA	46	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47597	pneumoniae.1
+0	1564	AILC01000001:17170-18733:+:Streptococcus_pneumoniae_GA47628	NA	180	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1565	AILC01000003:368-1932:+:Streptococcus_pneumoniae_GA47628	NA	86	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1563	AILC01000009:3334-4896:-:Streptococcus_pneumoniae_GA47628	NA	376	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1563	AILC01000011:3336-4898:-:Streptococcus_pneumoniae_GA47628	NA	377	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1562	AILC01000011:67097-68658:-:Streptococcus_pneumoniae_GA47628	NA	476	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1563	AILC01000012:3334-4896:-:Streptococcus_pneumoniae_GA47628	NA	378	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47628	pneumoniae.1
+0	1563	AGQD01000008:3344-4906:-:Streptococcus_pneumoniae_GA47751	NA	379	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47751	pneumoniae.1
+0	1563	AGQD01000010:3341-4903:-:Streptococcus_pneumoniae_GA47751	NA	380	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47751	pneumoniae.1
+0	1562	AGQD01000011:3339-4900:-:Streptococcus_pneumoniae_GA47751	NA	477	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47751	pneumoniae.1
+0	1563	AGQD01000011:208466-210028:+:Streptococcus_pneumoniae_GA47751	NA	381	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47751	pneumoniae.1
+0	1564	AILD01000010:3289-4852:-:Streptococcus_pneumoniae_GA47760	NA	181	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47760	pneumoniae.1
+0	1563	AILD01000012:3289-4851:-:Streptococcus_pneumoniae_GA47760	NA	382	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47760	pneumoniae.1
+0	1563	AILD01000014:3290-4852:-:Streptococcus_pneumoniae_GA47760	NA	383	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47760	pneumoniae.1
+0	1562	AGPX01000001:12526-14087:+:Streptococcus_pneumoniae_GA47778	NA	478	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47778	pneumoniae.1
+0	1564	AGPX01000013:3326-4889:-:Streptococcus_pneumoniae_GA47778	NA	182	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47778	pneumoniae.1
+0	1564	AGPX01000016:3326-4889:-:Streptococcus_pneumoniae_GA47778	NA	183	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47778	pneumoniae.1
+0	1563	AGPX01000016:65368-66930:-:Streptococcus_pneumoniae_GA47778	NA	384	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47778	pneumoniae.1
+0	1562	AGPX01000017:3325-4886:-:Streptococcus_pneumoniae_GA47778	NA	479	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47778	pneumoniae.1
+0	1564	AILQ01000007:99795-101358:-:Streptococcus_pneumoniae_GA47794	NA	184	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47794	pneumoniae.1
+0	1563	AILQ01000009:3316-4878:-:Streptococcus_pneumoniae_GA47794	NA	385	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47794	pneumoniae.1
+0	1562	AILQ01000009:209666-211227:+:Streptococcus_pneumoniae_GA47794	NA	480	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47794	pneumoniae.1
+0	1564	AFGR01000005:3265-4828:-:Streptococcus_pneumoniae_GA47901	NA	185	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47901	pneumoniae.1
+0	1562	AFGR01000006:202445-204006:+:Streptococcus_pneumoniae_GA47901	NA	481	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47901	pneumoniae.1
+0	1563	AGPY01000001:394-1956:+:Streptococcus_pneumoniae_GA47976	NA	386	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47976	pneumoniae.3
+0	1563	AGPY01000010:3358-4920:-:Streptococcus_pneumoniae_GA47976	NA	387	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47976	pneumoniae.1
+0	1563	AGPY01000011:203298-204860:+:Streptococcus_pneumoniae_GA47976	NA	388	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA47976	pneumoniae.1
+0	1565	AGOD01000001:170-1734:+:Streptococcus_pneumoniae_GA49138	NA	87	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49138	pneumoniae.1
+0	1564	AGOD01000010:192189-193752:+:Streptococcus_pneumoniae_GA49138	NA	186	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49138	pneumoniae.1
+0	1563	AILE01000003:3328-4890:-:Streptococcus_pneumoniae_GA49194	NA	389	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49194	pneumoniae.1
+0	1562	AILE01000004:3329-4890:-:Streptococcus_pneumoniae_GA49194	NA	482	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49194	pneumoniae.1
+0	1563	AILE01000004:196445-198007:+:Streptococcus_pneumoniae_GA49194	NA	390	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49194	pneumoniae.1
+0	1562	AGOK01000014:3333-4894:-:Streptococcus_pneumoniae_GA49447	NA	483	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49447	pneumoniae.1
+0	1563	AGOK01000015:3333-4895:-:Streptococcus_pneumoniae_GA49447	NA	391	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49447	pneumoniae.1
+0	1563	AILF01000001:399-1961:+:Streptococcus_pneumoniae_GA49542	NA	392	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49542	pneumoniae.1
+0	1564	AILF01000007:3320-4883:-:Streptococcus_pneumoniae_GA49542	NA	187	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49542	pneumoniae.1
+0	1562	AILF01000008:65229-66790:-:Streptococcus_pneumoniae_GA49542	NA	484	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA49542	pneumoniae.1
+0	1563	AGPZ01000013:3342-4904:-:Streptococcus_pneumoniae_GA52306	NA	393	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA52306	pneumoniae.1
+0	1564	AGPZ01000014:1769-3332:-:Streptococcus_pneumoniae_GA52306	NA	188	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA52306	pneumoniae.1
+0	1563	ALCG01000009:208401-209963:+:Streptococcus_pneumoniae_GA52612	NA	394	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA52612	pneumoniae.1
+0	1564	ALCN01000001:301-1864:+:Streptococcus_pneumoniae_GA54354	NA	189	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA54354	pneumoniae.1
+0	1564	ALCN01000005:3193-4756:-:Streptococcus_pneumoniae_GA54354	NA	190	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA54354	pneumoniae.1
+0	1563	ALCN01000006:3192-4754:-:Streptococcus_pneumoniae_GA54354	NA	395	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA54354	pneumoniae.1
+0	1561	ALCN01000007:197160-198720:+:Streptococcus_pneumoniae_GA54354	NA	509	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA54354	pneumoniae.1
+0	1563	ALCP01000004:11467-13029:+:Streptococcus_pneumoniae_GA56113	NA	396	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56113	pneumoniae.1
+0	1566	ALCP01000010:3247-4812:-:Streptococcus_pneumoniae_GA56113	NA	47	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56113	pneumoniae.1
+0	1564	ALCP01000011:3245-4808:-:Streptococcus_pneumoniae_GA56113	NA	191	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56113	pneumoniae.1
+0	1563	ALCP01000011:216007-217569:+:Streptococcus_pneumoniae_GA56113	NA	397	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56113	pneumoniae.1
+0	1563	ALCO01000007:388-1950:+:Streptococcus_pneumoniae_GA56348	NA	398	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56348	pneumoniae.1
+0	1563	ALCO01000014:3318-4880:-:Streptococcus_pneumoniae_GA56348	NA	399	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56348	pneumoniae.1
+0	1562	ALCO01000014:197235-198796:+:Streptococcus_pneumoniae_GA56348	NA	485	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA56348	pneumoniae.1
+0	1565	ALCQ01000002:406636-408200:+:Streptococcus_pneumoniae_GA58581	NA	88	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58581	pneumoniae.1
+0	1564	ALCQ01000011:3306-4869:-:Streptococcus_pneumoniae_GA58581	NA	192	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58581	pneumoniae.1
+0	1563	ALCQ01000012:3306-4868:-:Streptococcus_pneumoniae_GA58581	NA	400	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58581	pneumoniae.1
+0	1564	ALCQ01000014:3308-4871:-:Streptococcus_pneumoniae_GA58581	NA	193	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58581	pneumoniae.1
+0	1562	ALCM01000010:67378-68939:-:Streptococcus_pneumoniae_GA58771	NA	486	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58771	pneumoniae.2
+0	1563	ALCX01000002:2850-4412:-:Streptococcus_pneumoniae_GA58981	NA	401	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58981	pneumoniae.1
+0	1563	ALCX01000005:2847-4409:-:Streptococcus_pneumoniae_GA58981	NA	402	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA58981	pneumoniae.1
+0	1573	ALCR01000009:48936-50508:+:Streptococcus_pneumoniae_GA60080	NA	9	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60080	pneumoniae.1
+0	1563	ALCR01000013:87531-89093:+:Streptococcus_pneumoniae_GA60080	NA	403	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60080	pneumoniae.1
+0	1563	ALCR01000019:3092-4654:-:Streptococcus_pneumoniae_GA60080	NA	404	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60080	pneumoniae.1
+0	1564	ALCV01000001:374-1937:+:Streptococcus_pneumoniae_GA60132	NA	194	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60132	pneumoniae.1
+0	1563	ALCV01000010:3344-4906:-:Streptococcus_pneumoniae_GA60132	NA	405	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60132	pneumoniae.1
+0	1563	ALCV01000010:211595-213157:+:Streptococcus_pneumoniae_GA60132	NA	406	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60132	pneumoniae.1
+0	1563	ALCL01000002:5854-7416:+:Streptococcus_pneumoniae_GA60190	NA	407	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA60190	pneumoniae.1
+0	1563	ALCU01000007:3295-4857:-:Streptococcus_pneumoniae_GA62331	NA	408	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA62331	pneumoniae.1
+0	1563	ALCU01000009:201975-203537:+:Streptococcus_pneumoniae_GA62331	NA	409	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA62331	pneumoniae.1
+0	1563	ALCW01000008:3281-4843:-:Streptococcus_pneumoniae_GA62681	NA	410	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA62681	pneumoniae.1
+0	1560	ALCW01000008:95849-97408:-:Streptococcus_pneumoniae_GA62681	NA	522	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA62681	pneumoniae.1
+0	1561	ALCW01000010:3291-4851:-:Streptococcus_pneumoniae_GA62681	NA	510	0	Streptococcus	pneumoniae	Streptococcus pneumoniae GA62681	pneumoniae.1
+0	1563	CP001845:1731298-1732860:-:Streptococcus_pneumoniae_gamPNI0373	NA	411	0	Streptococcus	pneumoniae	Streptococcus pneumoniae gamPNI0373	pneumoniae.1
+0	1563	FQ312030:15328-16890:+:Streptococcus_pneumoniae_INV104	NA	412	0	Streptococcus	pneumoniae	Streptococcus pneumoniae INV104	pneumoniae.2
+0	1563	FQ312030:1800252-1801814:-:Streptococcus_pneumoniae_INV104	NA	413	0	Streptococcus	pneumoniae	Streptococcus pneumoniae INV104	pneumoniae.7
+0	1563	NC_012466:15341-16903:+:Streptococcus_pneumoniae_JJA	NA	414	0	Streptococcus	pneumoniae	Streptococcus pneumoniae JJA	pneumoniae.4
+0	1563	AGOH01000007:3336-4898:-:Streptococcus_pneumoniae_NP070	NA	415	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP070	pneumoniae.1
+0	1562	AGOH01000010:204208-205769:+:Streptococcus_pneumoniae_NP070	NA	487	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP070	pneumoniae.1
+0	1566	AGQC01000012:166942-168507:+:Streptococcus_pneumoniae_NP127	NA	48	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP127	pneumoniae.1
+0	1564	AILG01000001:8042-9605:+:Streptococcus_pneumoniae_NP141	NA	195	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP141	pneumoniae.1
+0	1562	AILG01000002:355284-356845:-:Streptococcus_pneumoniae_NP141	NA	488	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP141	pneumoniae.1
+0	1562	AILG01000007:3336-4897:-:Streptococcus_pneumoniae_NP141	NA	489	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP141	pneumoniae.1
+0	1563	AILG01000008:5063-6625:-:Streptococcus_pneumoniae_NP141	NA	416	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP141	pneumoniae.1
+0	1563	AGOS01000001:652-2214:+:Streptococcus_pneumoniae_NP170	NA	417	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP170	pneumoniae.1
+0	1566	AGOS01000011:3351-4916:-:Streptococcus_pneumoniae_NP170	NA	49	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP170	pneumoniae.1
+0	1563	AGOS01000012:3350-4912:-:Streptococcus_pneumoniae_NP170	NA	418	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP170	pneumoniae.1
+0	1565	AGOS01000013:43878-45442:+:Streptococcus_pneumoniae_NP170	NA	89	0	Streptococcus	pneumoniae	Streptococcus pneumoniae NP170	pneumoniae.1
+0	1563	FQ312027:15329-16891:+:Streptococcus_pneumoniae_OXC141	NA	419	0	Streptococcus	pneumoniae	Streptococcus pneumoniae OXC141	pneumoniae.1
+0	1561	ALCC01000009:3353-4913:-:Streptococcus_pneumoniae_SPAR27	NA	511	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR27	pneumoniae.1
+0	1560	ALCC01000010:3351-4910:-:Streptococcus_pneumoniae_SPAR27	NA	523	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR27	pneumoniae.1
+0	1563	ALCC01000010:65266-66828:-:Streptococcus_pneumoniae_SPAR27	NA	420	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR27	pneumoniae.1
+0	1560	ALCC01000011:3350-4909:-:Streptococcus_pneumoniae_SPAR27	NA	524	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR27	pneumoniae.1
+0	1564	ALCE01000005:132480-134043:-:Streptococcus_pneumoniae_SPAR48	NA	196	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR48	pneumoniae.1
+0	1566	ALCE01000008:3365-4930:-:Streptococcus_pneumoniae_SPAR48	NA	50	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR48	pneumoniae.1
+0	1562	ALCF01000001:1837-3398:-:Streptococcus_pneumoniae_SPAR55	NA	490	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1561	ALCF01000009:1839-3399:-:Streptococcus_pneumoniae_SPAR55	NA	512	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1562	ALCF01000009:103683-105244:-:Streptococcus_pneumoniae_SPAR55	NA	491	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1562	ALCF01000010:3346-4907:-:Streptococcus_pneumoniae_SPAR55	NA	492	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1563	ALCF01000011:1839-3401:-:Streptococcus_pneumoniae_SPAR55	NA	421	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1562	ALCF01000012:187-1748:+:Streptococcus_pneumoniae_SPAR55	NA	493	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR55	pneumoniae.1
+0	1564	ALCD01000010:3302-4865:-:Streptococcus_pneumoniae_SPAR95	NA	197	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPAR95	pneumoniae.1
+0	1565	FQ312039:1087562-1089126:+:Streptococcus_pneumoniae_SPN032672	NA	90	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPN032672	pneumoniae.1
+0	1562	FQ312042:1117395-1118956:+:Streptococcus_pneumoniae_SPN033038	NA	494	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPN033038	pneumoniae.1
+0	1563	FQ312045:1123488-1125050:+:Streptococcus_pneumoniae_SPN034156	NA	422	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPN034156	pneumoniae.1
+0	1524	CACJ01000029:76037-77560:+:Streptococcus_pneumoniae_SPN061370	NA	600	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPN061370	pneumoniae.1
+0	1563	CACG01000003:633912-635474:-:Streptococcus_pneumoniae_SPNA45	NA	423	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPNA45	pneumoniae.2
+0	1563	CACG01000004:71386-72948:-:Streptococcus_pneumoniae_SPNA45	NA	424	0	Streptococcus	pneumoniae	Streptococcus pneumoniae SPNA45	pneumoniae.1
+0	1561	CP003357:1898103-1899663:-:Streptococcus_pneumoniae_ST556	NA	513	0	Streptococcus	pneumoniae	Streptococcus pneumoniae ST556	pneumoniae.1
+0	1563	NC_014251:60565-62127:-:Streptococcus_pneumoniae_TCH8431/19A	NA	425	0	Streptococcus	pneumoniae	Streptococcus pneumoniae TCH8431/19A	pneumoniae.1
+0	1563	NC_014251:279636-281198:+:Streptococcus_pneumoniae_TCH8431/19A	NA	426	0	Streptococcus	pneumoniae	Streptococcus pneumoniae TCH8431/19A	pneumoniae.1
+0	1501	NZ_AEUU02000001:909303-910803:-:Streptococcus_porcinus_str._Jelinkova_176	NA	660	0	Streptococcus	porcinus	Streptococcus porcinus str. Jelinkova 176	porcinus.5
+0	1563	AICS01000067:3334-4896:-:Streptococcus_pseudopneumoniae_ATCC_BAA-960	NA	427	0	Streptococcus	pseudopneumoniae	Streptococcus pseudopneumoniae ATCC BAA-960	pseudopneumoniae.1
+0	1563	NC_015875:2081380-2082942:-:Streptococcus_pseudopneumoniae_IS7493	NA	428	0	Streptococcus	pseudopneumoniae	Streptococcus pseudopneumoniae IS7493	pseudopneumoniae.1
+0	1493	AEUY01000012:72587-74079:+:Streptococcus_pseudoporcinus_LQ_940-04	NA	698	0	Streptococcus	pseudoporcinus	Streptococcus pseudoporcinus LQ 940-04	pseudoporcinus.2
+0	1493	AEUY01000013:64807-66299:+:Streptococcus_pseudoporcinus_LQ_940-04	NA	699	0	Streptococcus	pseudoporcinus	Streptococcus pseudoporcinus LQ 940-04	pseudoporcinus.1
+0	1494	AEUY01000014:3600-5093:-:Streptococcus_pseudoporcinus_LQ_940-04	NA	695	0	Streptococcus	pseudoporcinus	Streptococcus pseudoporcinus LQ 940-04	pseudoporcinus.1
+0	1493	AEUY01000027:306702-308194:+:Streptococcus_pseudoporcinus_LQ_940-04	NA	700	0	Streptococcus	pseudoporcinus	Streptococcus pseudoporcinus LQ 940-04	pseudoporcinus.1
+0	1501	CP003068:17094-18594:+:Streptococcus_pyogenes_Alab49	NA	661	0	Streptococcus	pyogenes	Streptococcus pyogenes Alab49	pyogenes.62
+0	1501	NZ_GL397233:149-1649:+:Streptococcus_pyogenes_ATCC_10782	NA	662	0	Streptococcus	pyogenes	Streptococcus pyogenes ATCC 10782	pyogenes.1
+0	1501	NC_002737:23094-24594:+:Streptococcus_pyogenes_M1_GAS	NA	663	0	Streptococcus	pyogenes	Streptococcus pyogenes M1 GAS	pyogenes.5
+0	1502	NC_002737:264377-265878:+:Streptococcus_pyogenes_M1_GAS	NA	618	0	Streptococcus	pyogenes	Streptococcus pyogenes M1 GAS	pyogenes.2
+0	1501	NZ_AAFV01000024:7300-8800:-:Streptococcus_pyogenes_M49_591	NA	664	0	Streptococcus	pyogenes	Streptococcus pyogenes M49 591	pyogenes.1
+0	1501	NC_006086:18151-19651:+:Streptococcus_pyogenes_MGAS10394	NA	665	0	Streptococcus	pyogenes	Streptococcus pyogenes MGAS10394	pyogenes.5
+0	1501	NC_006086:297088-298588:+:Streptococcus_pyogenes_MGAS10394	NA	666	0	Streptococcus	pyogenes	Streptococcus pyogenes MGAS10394	pyogenes.1
+0	1501	NC_017040:17094-18594:+:Streptococcus_pyogenes_MGAS15252	NA	667	0	Streptococcus	pyogenes	Streptococcus pyogenes MGAS15252	pyogenes.9
+0	1500	NC_017040:73706-75205:+:Streptococcus_pyogenes_MGAS15252	NA	687	0	Streptococcus	pyogenes	Streptococcus pyogenes MGAS15252	pyogenes.1
+0	1501	NC_003485:17061-18561:+:Streptococcus_pyogenes_MGAS8232	NA	668	0	Streptococcus	pyogenes	Streptococcus pyogenes MGAS8232	pyogenes.6
+0	1502	NC_011375:17092-18593:+:Streptococcus_pyogenes_NZ131	NA	619	0	Streptococcus	pyogenes	Streptococcus pyogenes NZ131	pyogenes.1
+0	1501	NC_011375:80081-81581:+:Streptococcus_pyogenes_NZ131	NA	669	0	Streptococcus	pyogenes	Streptococcus pyogenes NZ131	pyogenes.1
+0	1502	NC_011375:1546259-1547760:-:Streptococcus_pyogenes_NZ131	NA	620	0	Streptococcus	pyogenes	Streptococcus pyogenes NZ131	pyogenes.1
+0	1501	NC_009332:1572998-1574498:-:Streptococcus_pyogenes_str._Manfredo	NA	670	0	Streptococcus	pyogenes	Streptococcus pyogenes str. Manfredo	pyogenes.1
+0	1492	AJTZ01000001:3663-5154:-:Streptococcus_ratti_FA-1	NA	707	0	Streptococcus	ratti	Streptococcus ratti FA-1	ratti.1
+0	1543	CP002888:190090-191632:+:Streptococcus_salivarius_57.I	NA	554	0	Streptococcus	salivarius	Streptococcus salivarius 57.I	salivarius.6
+0	1544	CP002888:2013566-2015109:-:Streptococcus_salivarius_57.I	NA	548	0	Streptococcus	salivarius	Streptococcus salivarius 57.I	salivarius.1
+0	1543	CP002888:2075792-2077334:-:Streptococcus_salivarius_57.I	NA	555	0	Streptococcus	salivarius	Streptococcus salivarius 57.I	salivarius.5
+0	1543	FR873482:14961-16503:+:Streptococcus_salivarius_JIM8777	NA	556	0	Streptococcus	salivarius	Streptococcus salivarius JIM8777	salivarius.6
+0	1543	ALIF01000001:14964-16506:+:Streptococcus_salivarius_K12	NA	557	0	Streptococcus	salivarius	Streptococcus salivarius K12	salivarius.2
+0	1543	ALIF01000001:64019-65561:+:Streptococcus_salivarius_K12	NA	558	0	Streptococcus	salivarius	Streptococcus salivarius K12	salivarius.4
+0	1543	ALIF01000001:147723-149265:+:Streptococcus_salivarius_K12	NA	559	0	Streptococcus	salivarius	Streptococcus salivarius K12	salivarius.1
+0	1543	AGBV01000001:14959-16501:+:Streptococcus_salivarius_M18	NA	560	0	Streptococcus	salivarius	Streptococcus salivarius M18	salivarius.6
+0	1543	AJFW01000001:3217-4759:-:Streptococcus_salivarius_PS4	NA	561	0	Streptococcus	salivarius	Streptococcus salivarius PS4	salivarius.1
+0	1530	NZ_ACLO01000035:75-1604:+:Streptococcus_salivarius_SK126	NA	599	0	Streptococcus	salivarius	Streptococcus salivarius SK126	salivarius.1
+0	1565	AFQA01000029:3377-4941:-:Streptococcus_sanguinis_ATCC_29667	NA	91	0	Streptococcus	sanguinis	Streptococcus sanguinis ATCC 29667	sanguinis.4
+0	1564	NZ_GL622184:119-1682:+:Streptococcus_sanguinis_ATCC_49296	NA	198	0	Streptococcus	sanguinis	Streptococcus sanguinis ATCC 49296	sanguinis.1
+0	1565	AFAZ01000011:3195-4759:-:Streptococcus_sanguinis_SK1	NA	92	0	Streptococcus	sanguinis	Streptococcus sanguinis SK1	sanguinis.6
+0	1565	AFFL01000011:3383-4947:-:Streptococcus_sanguinis_SK1056	NA	93	0	Streptococcus	sanguinis	Streptococcus sanguinis SK1056	sanguinis.1
+0	1565	AFBA01000011:142-1706:+:Streptococcus_sanguinis_SK1057	NA	94	0	Streptococcus	sanguinis	Streptococcus sanguinis SK1057	sanguinis.1
+0	1565	AFDP01000026:150-1714:+:Streptococcus_sanguinis_SK1087	NA	95	0	Streptococcus	sanguinis	Streptococcus sanguinis SK1087	sanguinis.1
+0	1565	AEXW01000011:3388-4952:-:Streptococcus_sanguinis_SK115	NA	96	0	Streptococcus	sanguinis	Streptococcus sanguinis SK115	sanguinis.1
+0	1565	AEXY01000024:152-1716:+:Streptococcus_sanguinis_SK150	NA	97	0	Streptococcus	sanguinis	Streptococcus sanguinis SK150	sanguinis.1
+0	1565	AEXZ01000013:131-1695:-:Streptococcus_sanguinis_SK160	NA	98	0	Streptococcus	sanguinis	Streptococcus sanguinis SK160	sanguinis.1
+0	1565	AFBD01000017:3388-4952:-:Streptococcus_sanguinis_SK330	NA	99	0	Streptococcus	sanguinis	Streptococcus sanguinis SK330	sanguinis.1
+0	1565	AFFN01000033:3163-4727:-:Streptococcus_sanguinis_SK355	NA	100	0	Streptococcus	sanguinis	Streptococcus sanguinis SK355	sanguinis.1
+0	1565	NC_009009:16372-17936:+:Streptococcus_sanguinis_SK36	NA	101	0	Streptococcus	sanguinis	Streptococcus sanguinis SK36	sanguinis.1
+0	1565	NC_009009:1827853-1829417:-:Streptococcus_sanguinis_SK36	NA	102	0	Streptococcus	sanguinis	Streptococcus sanguinis SK36	sanguinis.1
+0	1565	NC_009009:1933914-1935478:-:Streptococcus_sanguinis_SK36	NA	103	0	Streptococcus	sanguinis	Streptococcus sanguinis SK36	sanguinis.1
+0	1565	AFFO01000020:3387-4951:-:Streptococcus_sanguinis_SK49	NA	104	0	Streptococcus	sanguinis	Streptococcus sanguinis SK49	sanguinis.1
+0	1565	NZ_GL831108:3290-4854:-:Streptococcus_sanguinis_VMC66	NA	105	0	Streptococcus	sanguinis	Streptococcus sanguinis VMC66	sanguinis.1
+0	1542	NC_009442:16981-18522:+:Streptococcus_suis_05ZYH33	NA	578	0	Streptococcus	suis	Streptococcus suis 05ZYH33	suis.36
+0	1542	NZ_AAFA03000005:27684-29225:-:Streptococcus_suis_89/1591	NA	579	0	Streptococcus	suis	Streptococcus suis 89/1591	suis.4
+0	1542	NC_009443:326549-328090:+:Streptococcus_suis_98HAH33	NA	580	0	Streptococcus	suis	Streptococcus suis 98HAH33	suis.1
+0	1542	CP002644:17046-18587:+:Streptococcus_suis_D12	NA	581	0	Streptococcus	suis	Streptococcus suis D12	suis.3
+0	1542	CP002644:428216-429757:+:Streptococcus_suis_D12	NA	582	0	Streptococcus	suis	Streptococcus suis D12	suis.1
+0	1542	CP002641:93765-95306:+:Streptococcus_suis_D9	NA	583	0	Streptococcus	suis	Streptococcus suis D9	suis.2
+0	1542	CP002641:441648-443189:+:Streptococcus_suis_D9	NA	584	0	Streptococcus	suis	Streptococcus suis D9	suis.1
+0	1544	CP002465:328166-329709:+:Streptococcus_suis_JS14	NA	549	0	Streptococcus	suis	Streptococcus suis JS14	suis.1
+0	1541	CP002465:422527-424067:+:Streptococcus_suis_JS14	NA	596	0	Streptococcus	suis	Streptococcus suis JS14	suis.1
+0	1542	AEYY01000040:23464-25005:+:Streptococcus_suis_R61	NA	585	0	Streptococcus	suis	Streptococcus suis R61	suis.1
+0	1543	AEYY01000040:106429-107971:+:Streptococcus_suis_R61	NA	562	0	Streptococcus	suis	Streptococcus suis R61	suis.1
+0	1542	AEYY01000048:37338-38879:+:Streptococcus_suis_R61	NA	586	0	Streptococcus	suis	Streptococcus suis R61	suis.1
+0	1542	CP002640:328064-329605:+:Streptococcus_suis_SS12	NA	587	0	Streptococcus	suis	Streptococcus suis SS12	suis.1
+0	1542	CP002651:17084-18625:+:Streptococcus_suis_ST1	NA	588	0	Streptococcus	suis	Streptococcus suis ST1	suis.2
+0	1542	CP002651:99054-100595:+:Streptococcus_suis_ST1	NA	589	0	Streptococcus	suis	Streptococcus suis ST1	suis.2
+0	1542	NC_015433:18895-20436:+:Streptococcus_suis_ST3	NA	590	0	Streptococcus	suis	Streptococcus suis ST3	suis.2
+0	1542	NC_015433:93749-95290:+:Streptococcus_suis_ST3	NA	591	0	Streptococcus	suis	Streptococcus suis ST3	suis.1
+0	1541	NC_015433:448958-450498:+:Streptococcus_suis_ST3	NA	597	0	Streptococcus	suis	Streptococcus suis ST3	suis.1
+0	1543	AGFN01000376:9692-11234:-:Streptococcus_thermophilus_CNCM_I-1630	NA	563	0	Streptococcus	thermophilus	Streptococcus thermophilus CNCM I-1630	thermophilus.1
+0	1543	NC_006449:17821-19363:+:Streptococcus_thermophilus_CNRZ1066	NA	564	0	Streptococcus	thermophilus	Streptococcus thermophilus CNRZ1066	thermophilus.9
+0	1543	NC_006449:134884-136426:+:Streptococcus_thermophilus_CNRZ1066	NA	565	0	Streptococcus	thermophilus	Streptococcus thermophilus CNRZ1066	thermophilus.2
+0	1543	FR875178:17733-19275:+:Streptococcus_thermophilus_JIM_8232	NA	566	0	Streptococcus	thermophilus	Streptococcus thermophilus JIM 8232	thermophilus.1
+0	1543	FR875178:65514-67056:+:Streptococcus_thermophilus_JIM_8232	NA	567	0	Streptococcus	thermophilus	Streptococcus thermophilus JIM 8232	thermophilus.6
+0	1543	FR875178:161406-162948:+:Streptococcus_thermophilus_JIM_8232	NA	568	0	Streptococcus	thermophilus	Streptococcus thermophilus JIM 8232	thermophilus.5
+0	1543	FR875178:379758-381300:+:Streptococcus_thermophilus_JIM_8232	NA	569	0	Streptococcus	thermophilus	Streptococcus thermophilus JIM 8232	thermophilus.5
+0	1543	FR875178:1731232-1732774:-:Streptococcus_thermophilus_JIM_8232	NA	570	0	Streptococcus	thermophilus	Streptococcus thermophilus JIM 8232	thermophilus.1
+0	1543	NC_008532:1665741-1667283:-:Streptococcus_thermophilus_LMD-9	NA	571	0	Streptococcus	thermophilus	Streptococcus thermophilus LMD-9	thermophilus.1
+0	1543	CP002340:17818-19360:+:Streptococcus_thermophilus_ND03	NA	572	0	Streptococcus	thermophilus	Streptococcus thermophilus ND03	thermophilus.1
+0	1543	CP002340:72629-74171:+:Streptococcus_thermophilus_ND03	NA	573	0	Streptococcus	thermophilus	Streptococcus thermophilus ND03	thermophilus.1
+0	1542	CP002340:351176-352717:+:Streptococcus_thermophilus_ND03	NA	592	0	Streptococcus	thermophilus	Streptococcus thermophilus ND03	thermophilus.1
+0	1542	CP002340:1643301-1644842:-:Streptococcus_thermophilus_ND03	NA	593	0	Streptococcus	thermophilus	Streptococcus thermophilus ND03	thermophilus.1
+0	1493	NC_012004:18025-19517:+:Streptococcus_uberis_0140J	NA	701	0	Streptococcus	uberis	Streptococcus uberis 0140J	uberis.5
+0	1501	AEUZ01000001:80976-82476:+:Streptococcus_urinalis_2285-97	NA	671	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.1
+0	1500	AEUZ01000002:49093-50592:-:Streptococcus_urinalis_2285-97	NA	688	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.1
+0	1501	AEUZ01000003:1833-3333:-:Streptococcus_urinalis_2285-97	NA	672	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.5
+0	1500	AEUZ01000003:349840-351339:+:Streptococcus_urinalis_2285-97	NA	689	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.1
+0	1503	AEUZ01000006:287-1789:+:Streptococcus_urinalis_2285-97	NA	614	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.1
+0	1501	AEUZ01000008:287-1787:+:Streptococcus_urinalis_2285-97	NA	673	0	Streptococcus	urinalis	Streptococcus urinalis 2285-97	urinalis.1
+0	1543	NZ_GL831116:3371-4913:-:Streptococcus_vestibularis_ATCC_49124	NA	574	0	Streptococcus	vestibularis	Streptococcus vestibularis ATCC 49124	vestibularis.1
+0	1543	NZ_AEKO01000001:50-1592:+:Streptococcus_vestibularis_F0396	NA	575	0	Streptococcus	vestibularis	Streptococcus vestibularis F0396	vestibularis.3
+0	1541	NZ_AEKO01000004:2730-4270:-:Streptococcus_vestibularis_F0396	NA	598	0	Streptococcus	vestibularis	Streptococcus vestibularis F0396	vestibularis.1
+0	1542	NZ_AEKO01000006:2731-4272:-:Streptococcus_vestibularis_F0396	NA	594	0	Streptococcus	vestibularis	Streptococcus vestibularis F0396	vestibularis.1
+0	1543	NZ_AEKO01000010:3234-4776:-:Streptococcus_vestibularis_F0396	NA	576	0	Streptococcus	vestibularis	Streptococcus vestibularis F0396	vestibularis.1
