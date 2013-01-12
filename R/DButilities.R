@@ -127,8 +127,11 @@
 ### computes abundance tables, based on project
 "abundance.table" <- function(con,project,outfile, output_dir="OutputFiles", level=c("genus","domain","phylum","class","order","family","species"), rdpThres = 0.5,combine_unknown=TRUE){
   level <- match.arg(level)
-  if (missing(outfile)) outfile <- paste(project,level,"abundance.txt",sep=".")
+  if (missing(outfile)) outfile <- paste(project,level,sep=".")
 
+  abundfile <- paste(outfile,"abundance.txt",sep=".")
+  propfile <- paste(outfile,"proportions.txt",sep=".")
+  
   samples <-dbGetQuery(con,
                          paste("SELECT DISTINCT Sample_ID
                                 FROM pool_metadata, pool_mapping 
@@ -183,13 +186,20 @@
   abundanceTable <- table(abtable$assign,abtable$id)
   abundanceTable <- abundanceTable[,match(samples$Sample_ID,colnames(abundanceTable))]
   colnames(abundanceTable) <- samples$Sample_ID
+  
+  proportionsTable <- sweep(abundanceTable,MARGIN=2,FUN="/",STATS=colSums(abundanceTable,na.rm=TRUE))
   abundanceTable <- cbind(abundanceTable,groupTotal=rowSums(abundanceTable, na.rm=TRUE))
+  proportionsTable <- cbind(proportionsTable,groupTotal=rowSums(abundanceTable, na.rm=TRUE))
   abundanceTable <- rbind(abundanceTable,ReadTotals=colSums(abundanceTable,na.rm=TRUE))
+  proportionsTable <- rbind(proportionsTable,ReadTotals=colSums(abundanceTable,na.rm=TRUE))
   abundanceTable <- cbind(Level=abtable$level[match(rownames(abundanceTable),abtable$assign)],abundanceTable)
+  proportionsTable <- cbind(Level=abtable$level[match(rownames(abundanceTable),abtable$assign)],proportionsTable)
   abundanceTable <- data.frame(Taxon_Name = rownames(abundanceTable),abundanceTable)
+  proportionsTable <- data.frame(Taxon_Name = rownames(abundanceTable),proportionsTable)
   
   dir.create(path=gsub("-","_",file.path(output_dir,project)),recursive=TRUE,showWarnings=FALSE)
-  write.table(abundanceTable,file=file.path(gsub("-","_",file.path(output_dir,project)),outfile),sep="\t",quote=FALSE,col.names=TRUE,row.names=FALSE)
+  write.table(abundanceTable,file=file.path(gsub("-","_",file.path(output_dir,project)),abundfile),sep="\t",quote=FALSE,col.names=TRUE,row.names=FALSE)
+  write.table(proportionsTable,file=file.path(gsub("-","_",file.path(output_dir,project)),propfile),sep="\t",quote=FALSE,col.names=TRUE,row.names=FALSE)
 }
 
 ### computes abundance tables, based on project
