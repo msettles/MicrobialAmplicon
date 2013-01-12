@@ -226,7 +226,7 @@
   dir.create(output_dir,showWarning=FALSE,recursive=TRUE)
   write.table(reads[,c("read_data.Acc","read_data.LucyLC","read_data.LucyRC")],file=file.path(output_dir,paste("454Reads.",genus,".reads",sep="")),sep="\t",row.names=F,col.names=F,quote=F)
   sfffiles <-  paste(file.path("Amplicon_SFFfiles_AmpProc",paste(unique(reads$read_data.Run),".sff",sep="")),collapse=" ")
-  system(paste("sfffile -i ",file.path(output_dir,paste("454Reads.",genus,".reads",sep="")),
+  system(paste("sfffile -xlr -i ",file.path(output_dir,paste("454Reads.",genus,".reads",sep="")),
                       " -tr ",file.path(output_dir,paste("454Reads.",genus,".reads",sep="")),
                       " -o ", file.path(output_dir,paste("454Reads.",genus,".sff",sep=""))," ", sfffiles, sep=""))
   system(paste("sffinfo -s ",file.path(output_dir,paste("454Reads.",genus,".sff",sep=""))," > ",file.path(output_dir,paste("454Reads.",genus,".fasta",sep=""))))

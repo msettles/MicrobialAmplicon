@@ -18,20 +18,34 @@ con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
 ## extract genus reads and write to file
 #project <- "Marmoset"
 #project <- "JJ_Human_Vagina"
-project <- "Witkin-VVS"
-#genus <- "Bifidobacterium"
-genus <- "Lactobacillus"
-nproc=16
+#project <- "Witkin-VVS"
+genus <- "Bifidobacterium"
+#genus <- "Lactobacillus"
+genus <- "Streptococcus"
+nproc=6
 mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
 output_dir="OutputFiles"
 pipeline="dynamicTreeCut"
 speciateIT2_dir <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon/Speciation/SpeciateIT2"
-ref_align <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.align")
-ref_tax <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.taxonomy")
+if(genus == "Bifidobacterium"){
+  ref_align <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.align")
+  ref_tax <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.taxonomy")
+} else if (genus == "Lactobacillus"){
+  ref_align <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.align")
+  ref_tax <- file.path(speciateIT2_dir,"Lactobacillaceae.patric.red.taxonomy")
+} else if (genus == "Gardnerella"){
+  ref_align <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.align")
+  ref_tax <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.taxonomy")
+} else if (genus == "Streptococcus"){
+  ref_align <- file.path(speciateIT2_dir,"Streptococcaceae.patric.red.align")
+  ref_tax <- file.path(speciateIT2_dir,"Streptococcaceae.patric.red.taxonomy")  
+}
 
+  
 specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8,pipeline=c("dynamicTreeCut","vicut"), mothur.template){
 
   pipeline <- match.arg(pipeline)
+
   ofile <- output.genus.reads(con,project=project,genus=genus, output_dir=output_dir)
 
 ## cluster using cdhit require 99.5% identity
@@ -163,7 +177,7 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
 
 #    table(dynamicColors)
     # Plot the dendrogram and colors underneath
-    pdf(file.path(sub("-","_",file.path(output_dir,project,"speciateIT")),"Dendrogram_dynamicTreeCut.pdf"),width=36,height=8,pointsize=8)
+    pdf(file.path(sub("-","_",file.path(output_dir,project,"speciateIT")),paste(genus,"Dendrogram_dynamicTreeCut","pdf",sep=".")),width=36,height=8,pointsize=8)
     plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors), c("Dynamic Tree Cut"),
                     dendroLabels = taxon_file[match(hc$labels,taxon_file[,1]),1], hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.7,
