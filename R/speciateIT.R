@@ -17,16 +17,22 @@ con <- dbCon(file.path(basedir,"amplicondataV2.0.sqlite"))
 ## Lactobacillus
 ## extract genus reads and write to file
 #project <- "Marmoset"
+#project <- "Marmoset_Jan13"
 #project <- "JJ_Human_Vagina"
 #project <- "Witkin-VVS"
-genus <- "Bifidobacterium"
-#genus <- "Lactobacillus"
-genus <- "Streptococcus"
-nproc=6
-mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
+project <- "Adolescence"
+nproc=60
 output_dir="OutputFiles"
 pipeline="dynamicTreeCut"
+
+mothur.template="/mnt/home/msettles/projects/Forney/Bacterial_16S/Alignment_db/silva.bacteria.fasta" 
 speciateIT2_dir <- "/mnt/home/msettles/CodeProjects/Rpackages/MicrobialAmplicon/Speciation/SpeciateIT2"
+
+#genus <- "Bifidobacterium"
+genus <- "Lactobacillus"
+#genus <- "Streptococcus"
+#genus <- "Gardnerella"
+
 if(genus == "Bifidobacterium"){
   ref_align <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.align")
   ref_tax <- file.path(speciateIT2_dir,"Bifidobacteriaceae.patric.red.taxonomy")
@@ -65,85 +71,14 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
   cluster_mat[is.na(cluster_mat$errors),"errors"] <- 0
   cluster_mat <- cluster_mat[order(as.numeric(cluster_mat$X5),-is.na(cluster_mat$X4)),]
  
-########### PAWEL GAWER's SPECIATE IT PIPELINE -- MYVERSION
-  ## add in Training species sequences
-  ## maybe read them into R and then write out
-  if (pipeline = "vicut"){  
-    ofile <- cd_out
-    ifile <- ofile
-    ofile <- gsub("0.995.fasta","combined.fa",ofile)
-    speciateIThome <- "/mnt/home/msettles/opt/speciateit"
-    speciesFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.fa")
-    taxonFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.taxon")
-    system(paste("cat ",speciesFile, ifile, ">", ofile,sep=" "))
-
-    ## Use mothur to compute the Distance between sequences 
-    #### Align the seuqences to silva
-    #### Filter the alignment
-    #### Compute distance matrix
-
-    system(paste("mothur \"#align.seqs(candidate=",ofile,", template=", mothur.template ,", flip=T, processors=",nproc,"); ",
-              "filter.seqs(fasta=",sub("fa","align",ofile),", processors=",nproc,"); ",
-              "dist.seqs(fasta=",sub("fa","filter.fasta",ofile),", calc=onegap, output=square, processors=",nproc,");\"",sep=""))
-
-    dist.mat <- sub("fa","filter.square.dist",ofile)
-    outFile <- sub("fa","filter.sing.hclust.membStr",ofile)
-
-    ############## Use FlashClust and Vicut to produce clusters
-    library(flashClust)
-    d5k <- read.table(dist.mat,skip=1,row.names=1)
-    hc <- flashClust(as.dist(d5k),method="single")
-
-    # using rowIds for leaves
-    ### produces file ready for vicut
-    hclust2merges2 <- function(hc,rowIds,filename)
-    {
-      sink(file=filename)
-      internal_id = -1
-      for (i in 1:nrow(hc$merge)){
-        # Less than 1 implies a singleton. Reverse all the numbers.
-        u = hc$merge[i,1]*(-1)
-        v = hc$merge[i,2]*(-1)
-
-        if ( u > 0 ) u <- rowIds[u]
-        if ( v > 0 ) v <- rowIds[v]
-  
-        cat(u,v,internal_id,"\n",file=filename,sep="\t",append=TRUE)
-        internal_id = internal_id - 1
-      }
-      sink()
-    }
-
-    hclust2merges2(hc,rownames(d5k),outFile)
-
-    system(paste("vicut -t ", outFile, " -a ",taxonFile," -o ",sub("fa","filter.sing.hclust.minNodeCut.dir",ofile),sep=""))
-
-    ### Read in clusters computed by vicut, annotate by representation of training species, if more than one training species exists in a cluster, cluster annotation is a concatention of names
-    ### clusters with no training sequences in them are name c.[cluster number]
-    vicut_clusters <- read.table(file.path(sub("fa","filter.sing.hclust.minNodeCut.dir",ofile),"minNodeCut.cltrs"),header=TRUE,as.is=TRUE)
-    vicut_clusters$tax <- paste("c.",vicut_clusters$clstr,sep="")
-    vicut_clusters[which(!is.na(vicut_clusters$annot)),"tax"] <- paste(vicut_clusters[which(!is.na(vicut_clusters$annot)),"annot"],vicut_clusters[which(!is.na(vicut_clusters$annot)),"clstr"],sep=".")
-
-    annot_clusters <- tapply(vicut_clusters$annot[which(!is.na(vicut_clusters$annot))],vicut_clusters$clstr[which(!is.na(vicut_clusters$annot))],function(x) { y <- table(x); paste(names(y),collapse=".")})
-    annot_clusters <- data.frame(clusterID=as.numeric(names(annot_clusters)),Tax=paste(annot_clusters,names(annot_clusters),sep="."))
-
-    for(i in seq.int(1,nrow(annot_clusters))){
-      vicut_clusters$tax[vicut_clusters$clstr == annot_clusters$clusterID[i]] <- annot_clusters$Tax[i]
-    }
-
-    cluster_mat$species <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
-#    cluster_mat$species_vicut_complete <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
-
-  }
-############ Use FlashClust and WGCNA to produce clusters
 
   if (pipeline = "dynamicTreeCut"){
     ofile <- cd_out
     system(paste("mothur \"#align.seqs(candidate=",ofile,", template=",mothur.template,", flip=T, processors=",nproc,"); filter.seqs(fasta=",gsub("fasta","align",ofile),", processors=",nproc,");\"",sep=""))
-    system(paste("mv ",file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.filter"),file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.0.995.filter"),sep=" "))
+    system(paste("mv ",file.path(gsub("-","_",output_dir,"speciateIT"),"454Reads.filter"),file.path(gsub("-","_",output_dir),"454Reads.0.995.filter"),sep=" "))
     
     ## Prepare the reference
-    filter <- readLines(file.path(gsub("-","_",file.path(output_dir,project,"speciateIT")),"454Reads.0.995.filter"))
+    filter <- readLines(file.path(gsub("-","_",output_dir),"454Reads.0.995.filter"))
     ref_seqs <- readBStringSet(ref_align) ## PreAligned
     keep <- which(unlist(strsplit(filter,"")[[1]]==1))
     #trimmed_ref <- DNAStringSet(gsub("[.]|-","",sapply(strsplit(as.character(ref_seqs),""),function(x) paste( x[keep] , collapse=""))))
@@ -169,21 +104,62 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
 
     minModuleSize = 5;
     # Module identification using dynamic tree cut:
-    dynamicMods = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
-                            deepSplit = 3, pamRespectsDendro = FALSE,
+    dynamicMods4 = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
+                            deepSplit = 4, pamRespectsDendro = FALSE,
                             minClusterSize = minModuleSize);
 
-    dynamicColors = labels2colors(dynamicMods)
+    dynamicColors4 = labels2colors(dynamicMods4)
 
-#    table(dynamicColors)
+    if (sum(is.na(match(dynamicColors4,standardColors()))))
+      dynamicColors4[is.na(match(dynamicColors4, standardColors()))] <- "grey"
+    
+    dynamicMods3 = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
+                                deepSplit = 3, pamRespectsDendro = FALSE,
+                                minClusterSize = minModuleSize);
+    
+    dynamicColors3 = labels2colors(dynamicMods3)
+
+    if (sum(is.na(match(dynamicColors3,standardColors()))))
+      dynamicColors3[is.na(match(dynamicColors3, standardColors()))] <- "grey"
+    
+    dynamicMods2 = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
+                                deepSplit = 2, pamRespectsDendro = FALSE,
+                                minClusterSize = minModuleSize);
+    
+    dynamicColors2 = labels2colors(dynamicMods2)
+
+    if (sum(is.na(match(dynamicColors2,standardColors()))))
+      dynamicColors2[is.na(match(dynamicColors2, standardColors()))] <- "grey"
+    
+    dynamicMods1 = cutreeDynamic(dendro = hc, distM = as.matrix(d5k),method="hybrid",
+                                deepSplit = 1, pamRespectsDendro = FALSE,
+                                minClusterSize = minModuleSize);
+    
+    dynamicColors1 = labels2colors(dynamicMods1)
+
+    if (sum(is.na(match(dynamicColors1,standardColors()))))
+      dynamicColors1[is.na(match(dynamicColors1, standardColors()))] <- "grey"
+    
+    # view the plot and choose a cut point
+    plotDendroAndColors(hc, 
+#                        data.frame(dynamicColors2,dynamicColors1), c("Tree Cut deepSplit2","Tree Cut deepSplit1"),
+                        data.frame(dynamicColors4,dynamicColors3,dynamicColors2,dynamicColors1), c("Tree Cut deepSplit4","Tree Cut deepSplit3","Tree Cut deepSplit2","Tree Cut deepSplit1"),
+                        dendroLabels = taxon_file[match(hc$labels,taxon_file[,1]),1], hang = 0.03,
+                        addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.7,
+                        main = paste("Clustering",genus,"16S sequence",sep=" "))
+    
+    ### PICK one deep slit
+    dynamicMods <- dynamicMods1
+    dynamicColors <- dynamicColors1
     # Plot the dendrogram and colors underneath
-    pdf(file.path(sub("-","_",file.path(output_dir,project,"speciateIT")),paste(genus,"Dendrogram_dynamicTreeCut","pdf",sep=".")),width=36,height=8,pointsize=8)
-    plotDendroAndColors(hc, data.frame(TreeCut=dynamicColors), c("Dynamic Tree Cut"),
+    pdf(file.path(sub("-","_",file.path(output_dir,project,"speciateIT")),paste(genus,"Dendrogram_dynamicTreeCut","pdf",sep=".")),width=36,height=8,pointsize=12)
+    plotDendroAndColors(hc, cex.main=2, cex.colorLabels=2.0,
+                    data.frame(dynamicColors), c("Tree Cut"),
                     dendroLabels = taxon_file[match(hc$labels,taxon_file[,1]),1], hang = 0.03,
                     addGuide = TRUE, guideHang = 0.05,cex.dendroLabels=0.7,
-                    main = paste("Clustering",genus,"16S sequence",sep=""))
+                    main = paste("Clustering",genus,"16S sequences",sep=" "))
     dev.off()
-
+  
     sp <- taxon_file[match(hc$labels,taxon_file$ID),"Species"]
     tax <- paste("c.",dynamicMods,sep="")
     sp[which(is.na(sp))] <- tax[which(is.na(sp))]
@@ -200,9 +176,84 @@ specieateMyReads <- function(project, genus, output_dir="OutputFiles", nproc = 8
 
     cluster_mat$species_wgcna <- clusterSpecies[match(cluster_mat$X5,cluster_mat[match(hc$labels,cluster_mat$X3),"X5"])]
     cluster_mat$species <- cluster_mat$species_wgcna
+    ## update the db, adding in cluster/species ID
+    update.species.rdp(con,cluster_mat)
+    
   }
-  ## update the db, adding in cluster/species ID
-  update.species.rdp(con,cluster_mat)
+  ########### PAWEL GAWER's SPECIATE IT PIPELINE -- MYVERSION
+  ## add in Training species sequences
+  ## maybe read them into R and then write out
+  if (pipeline = "vicut"){  
+    ofile <- cd_out
+    ifile <- ofile
+    ofile <- gsub("0.995.fasta","combined.fa",ofile)
+    speciateIThome <- "/mnt/home/msettles/opt/speciateit"
+    speciesFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.fa")
+    taxonFile <- file.path(speciateIThome,"spp-data/Lactobacillus/rdp_vagi1200Len_Lactobacillus.V3V1.550bp_nr.taxon")
+    system(paste("cat ",speciesFile, ifile, ">", ofile,sep=" "))
+    
+    ## Use mothur to compute the Distance between sequences 
+    #### Align the seuqences to silva
+    #### Filter the alignment
+    #### Compute distance matrix
+    
+    system(paste("mothur \"#align.seqs(candidate=",ofile,", template=", mothur.template ,", flip=T, processors=",nproc,"); ",
+                 "filter.seqs(fasta=",sub("fa","align",ofile),", processors=",nproc,"); ",
+                 "dist.seqs(fasta=",sub("fa","filter.fasta",ofile),", calc=onegap, output=square, processors=",nproc,");\"",sep=""))
+    
+    dist.mat <- sub("fa","filter.square.dist",ofile)
+    outFile <- sub("fa","filter.sing.hclust.membStr",ofile)
+    
+    ############## Use FlashClust and Vicut to produce clusters
+    library(flashClust)
+    d5k <- read.table(dist.mat,skip=1,row.names=1)
+    hc <- flashClust(as.dist(d5k),method="single")
+    
+    # using rowIds for leaves
+    ### produces file ready for vicut
+    hclust2merges2 <- function(hc,rowIds,filename)
+    {
+      sink(file=filename)
+      internal_id = -1
+      for (i in 1:nrow(hc$merge)){
+        # Less than 1 implies a singleton. Reverse all the numbers.
+        u = hc$merge[i,1]*(-1)
+        v = hc$merge[i,2]*(-1)
+        
+        if ( u > 0 ) u <- rowIds[u]
+        if ( v > 0 ) v <- rowIds[v]
+        
+        cat(u,v,internal_id,"\n",file=filename,sep="\t",append=TRUE)
+        internal_id = internal_id - 1
+      }
+      sink()
+    }
+    
+    hclust2merges2(hc,rownames(d5k),outFile)
+    
+    system(paste("vicut -t ", outFile, " -a ",taxonFile," -o ",sub("fa","filter.sing.hclust.minNodeCut.dir",ofile),sep=""))
+    
+    ### Read in clusters computed by vicut, annotate by representation of training species, if more than one training species exists in a cluster, cluster annotation is a concatention of names
+    ### clusters with no training sequences in them are name c.[cluster number]
+    vicut_clusters <- read.table(file.path(sub("fa","filter.sing.hclust.minNodeCut.dir",ofile),"minNodeCut.cltrs"),header=TRUE,as.is=TRUE)
+    vicut_clusters$tax <- paste("c.",vicut_clusters$clstr,sep="")
+    vicut_clusters[which(!is.na(vicut_clusters$annot)),"tax"] <- paste(vicut_clusters[which(!is.na(vicut_clusters$annot)),"annot"],vicut_clusters[which(!is.na(vicut_clusters$annot)),"clstr"],sep=".")
+    
+    annot_clusters <- tapply(vicut_clusters$annot[which(!is.na(vicut_clusters$annot))],vicut_clusters$clstr[which(!is.na(vicut_clusters$annot))],function(x) { y <- table(x); paste(names(y),collapse=".")})
+    annot_clusters <- data.frame(clusterID=as.numeric(names(annot_clusters)),Tax=paste(annot_clusters,names(annot_clusters),sep="."))
+    
+    for(i in seq.int(1,nrow(annot_clusters))){
+      vicut_clusters$tax[vicut_clusters$clstr == annot_clusters$clusterID[i]] <- annot_clusters$Tax[i]
+    }
+    
+    cluster_mat$species <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
+    #    cluster_mat$species_vicut_complete <- vicut_clusters$tax[match(cluster_mat$X5,cluster_mat[na.exclude(match(vicut_clusters$readId,cluster_mat$X3)),"X5"])]
+    
+    ############ Use FlashClust and WGCNA to produce clusters
+    ## update the db, adding in cluster/species ID
+    update.species.rdp(con,cluster_mat)
+  }
+  
 }
 ########################################################################################################
 ########################################################################################################
