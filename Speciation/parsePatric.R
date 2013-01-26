@@ -2,9 +2,11 @@
 
 ### Patric Download directory
 #seqDir <- "Speciation/Bifidobacteriaceae_patric"
-seqDir <- "Speciation/Streptococcaceae_patric"
+#seqDir <- "Speciation/Streptococcaceae_patric"
+seqDir <- "Speciation/Lactobacillaceae_patric"
 #Name <- "Bifidobacteriaceae"
-Name <- "Streptococcaceae"
+#Name <- "Streptococcaceae"
+Name <- "Lactobacillaceae"
 align.db <- "Speciation/silva.bacteria.fasta"
 source("R/getGenBank.R")
 
@@ -35,7 +37,7 @@ yankSequence <- function(seqs,anno){
 }
 
 seqs <- sapply(seq.int(1,length(annot)),function(x) yankSequence(sequence[[x]],annot[[x]]))
-seqs <- DNAStringSet(unlist(sapply(seqs,as.character)))
+seqs <- do.call("c",seqs)
 
 names(seqs) <- unlist(sapply(annot,function(anno) paste(anno$ACCESSION,":",anno$START,"-",anno$END,":",anno$STRAND, ":",gsub(" ","_",anno$GENOME_NAME),sep="")))
 anno <- do.call("rbind", annot)
@@ -47,6 +49,9 @@ anno$GENUS <- sapply(strsplit(anno$GENOME_NAME,split=" "),"[[",1L)
 anno$SPECIES <- sapply(strsplit(anno$GENOME_NAME,split=" "),"[[",2L)
 write.table(anno,file.path(seqDir,paste(Name,"patric.annot.txt",sep=".")),sep="\t",col.names=TRUE,row.names=FALSE)
 writeXStringSet(seqs,file.path(seqDir,paste(Name,"patric.fasta",sep=".")))
+system(paste("/Users/msettles/opt/bin/mothur \"#align.seqs(candidate=",file.path(seqDir,paste(Name,"patric.fasta",sep=".")),", template=",align.db,", flip=T, processors=12); filter.seqs(fasta=",file.path(seqDir,paste(Name,"patric.align",sep=".")),", processors=12);\"",sep="")) 
+file.rename(file.path(seqDir,paste(Name,"filter",sep=".")),file.path(seqDir,paste(Name,"patric.filter",sep=".")))
+
 
 ### CD_HIT REDUNDANCY
 system(paste("~/opt/bin/cdhit-est -M 1400 -T 8 -d 200 -c 1.000 -n 9 -i",file.path(seqDir,paste(Name,"patric.fasta",sep=".")),"-o",file.path(seqDir,paste(Name,"patric.reduced.fasta",sep="."))))
@@ -77,15 +82,22 @@ cluster_names <- sapply(lapply(spXcl,function(x) table(as.character(x))),functio
 cluster_mat_rep <- cluster_mat[is.na(cluster_mat$Identity),]
 
 cluster_mat_rep$sequence_pool[match(names(cluster_names),cluster_mat_rep$Cluster_ID)] <- cluster_names
-seqs <- seqs[match(cluster_mat_rep$ID,names(seqs))]
+seqo <- seqs[match(cluster_mat_rep$ID,names(seqs))]
 
 #extraSeqs <- readDNAStringSet("sequence.fasta")
 
-#OUTLIERS <- c(18,19,89,119,164)
-#seqo <- seqs[-OUTLIERS]
-#cluster_mat_repo <- cluster_mat_rep[-OUTLIERS,]
-
-seqo <- seqs
+# ### outliers for Lactobacillus
+# OUTLIERS <- c(18,19,89,119,164)
+# rem.orig <- match(cluster_mat_rep[OUTLIERS,"Cluster_ID"],cluster_mat[,"Cluster_ID"])
+# write.table(anno[-rem.orig,],file.path(seqDir,paste(Name,"patric.annot.txt",sep=".")),sep="\t",col.names=TRUE,row.names=FALSE)
+# writeXStringSet(seqs[-rem.orig],file.path(seqDir,paste(Name,"patric.fasta",sep=".")))
+# system(paste("/Users/msettles/opt/bin/mothur \"#align.seqs(candidate=",file.path(seqDir,paste(Name,"patric.fasta",sep=".")),", template=",align.db,", flip=T, processors=12); filter.seqs(fasta=",file.path(seqDir,paste(Name,"patric.align",sep=".")),", processors=12);\"",sep="")) 
+# file.rename(file.path(seqDir,paste(Name,"filter",sep=".")),file.path(seqDir,paste(Name,"patric.filter",sep=".")))
+# 
+# seqo <- seqo[-OUTLIERS]
+# cluster_mat_repo <- cluster_mat_rep[-OUTLIERS,]
+###############################
+seqo <- seqo
 cluster_mat_repo <- cluster_mat_rep
 
 #writeXStringSet(c(extraSeqs,seqo),"Lactobacillaceae.patric.red.fa")
@@ -96,7 +108,8 @@ write.table(cluster_mat_repo,file.path(seqDir,paste(Name,"patric.red.taxonomy",s
           
 ########## MOTHUR
 
-system(paste("/Users/mattsettles/opt/bin/mothur \"#align.seqs(candidate=",file.path(seqDir,paste(Name,"patric.red.fa",sep=".")),", template=",align.db,", flip=T, processors=12); filter.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.align",sep=".")),", processors=12);\"",sep="")) 
+system(paste("/Users/msettles/opt/bin/mothur \"#align.seqs(candidate=",file.path(seqDir,paste(Name,"patric.red.fa",sep=".")),", template=",align.db,", flip=T, processors=12); filter.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.align",sep=".")),", processors=12);\"",sep="")) 
+file.rename(file.path(seqDir,paste(Name,"filter",sep=".")),file.path(seqDir,paste(Name,"patric.red.filter",sep=".")))
 
 Lact.align <- read.table(file.path(seqDir,paste(Name,"patric.red.align.report",sep=".")),sep="\t",header=T,as.is=T)
 gb <- get.GenBank(unique(Lact.align$TemplateName))
@@ -109,7 +122,7 @@ Lact.align <- data.frame(Lact.align,gb_mapped[match(Lact.align$TemplateName,gb_m
 #### SEE IF THEY CLUSTER, LOOK FOR OUTLIERS
 
 #### use mothur to produce distance matrix
-system(paste("/Users/mattsettles/opt/bin/mothur \"#dist.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.filter.fasta",sep=".")),", calc=onegap, output=square, processors=12)\"",sep=""))
+system(paste("/Users/msettles/opt/bin/mothur \"#dist.seqs(fasta=",file.path(seqDir,paste(Name,"patric.red.filter.fasta",sep=".")),", calc=onegap, output=square, processors=12)\"",sep=""))
 clusters <- read.table(file.path(seqDir,paste(Name,"patric.red.taxonomy",sep=".")),sep="\t",header=T,as.is=F) 
 library(flashClust)
 library(WGCNA)
@@ -139,4 +152,7 @@ file.copy(from=file.path(seqDir,paste(Name,"patric.red.align",sep=".")),to=file.
 file.copy(from=file.path(seqDir,paste(Name,"patric.red.fa",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.red.fa",sep=".")),overwrite=TRUE)
 file.copy(from=file.path(seqDir,paste(Name,"patric.red.taxonomy",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.red.taxonomy",sep=".")),overwrite=TRUE)
 file.copy(from=file.path(seqDir,paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),to=file.path("Speciation/SpeciateIT2",paste(Name,"Dendrogram_fullsequence.pdf",sep="_")),overwrite=TRUE)
+
+file.copy(from=file.path(seqDir,paste(Name,"patric.annot.txt",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.annot.txt",sep=".")),overwrite=TRUE)
+file.copy(from=file.path(seqDir,paste(Name,"patric.align",sep=".")),to=file.path("Speciation/SpeciateIT2",paste(Name,"patric.align",sep=".")),overwrite=TRUE)
 

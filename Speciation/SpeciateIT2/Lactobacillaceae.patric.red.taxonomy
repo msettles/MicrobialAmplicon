@@ -1,5 +1,4 @@
 ord	Len	ID	Identity	Cluster_ID	Error	GENUS	SPECIES	GENOME_NAME	sequence_pool
-0	1421	gi|219846917|ref|NR_026509.1| Lactobacillus fornicalis strain TV1018 16S ribosomal RNA, partial sequence	NA	NA	0	Lactobacillus	fornicalis	Lactobacillus crispatus TV1018	fornicalis.1
 0	1559	AGZG01000018:17920-19478:+:Lactobacillus_crispatus_FB077-07	NA	51	0	Lactobacillus	crispatus	Lactobacillus crispatus FB077-07	crispatus.1
 0	1569	AGZG01000019:12526-14094:+:Lactobacillus_crispatus_FB077-07	NA	37	0	Lactobacillus	crispatus	Lactobacillus crispatus FB077-07	crispatus.2
 0	1559	AGZF01000016:28555-30113:-:Lactobacillus_crispatus_FB049-03	NA	52	0	Lactobacillus	crispatus	Lactobacillus crispatus FB049-03	crispatus.4
